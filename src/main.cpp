@@ -31,7 +31,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x272e23f2e1a57150e5dae190da18050f05281f1a38bc428f4b3f7ceed1407977");
+uint256 hashGenesisBlock("0x48a55e12b27ecfb8228ffe38951f5a903e6dff684107e022f6ae68763bb0a5c4");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Floripacoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -1063,15 +1063,15 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = 10000 * COIN;
+    int64 nSubsidy = 500 * COIN;
 
     // Subsidy is cut in half every 840000 blocks, which will occur approximately every 4 years
-    nSubsidy >>= (nHeight / 87600); // Floripacoin: 840k blocks in ~4 years
+    nSubsidy >>= (nHeight / 525600); // Floripacoin: 840k blocks in ~4 years
 
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 1.0 * 24 * 60 * 60; // Floripacoin: 3.5 days
+static const int64 nTargetTimespan = 60 * 60; // Floripacoin: 3.5 days
 static const int64 nTargetSpacing = 0.5 * 60; // Floripacoin: 2.5 minutes
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
@@ -2756,25 +2756,25 @@ bool InitBlockIndex() {
         //   vMerkleTree: 97ddfbbae6
 
         // Genesis block
-        const char* pszTimestamp = "Vamos ver";
+        const char* pszTimestamp = "Verao chegando em Floripa";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 10000 * COIN;
+        txNew.vout[0].nValue = 500 * COIN;
         txNew.vout[0].scriptPubKey = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
         CBlock block;
         block.vtx.push_back(txNew);
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1394739656;
+        block.nTime    = 1394815068;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 258481;
+        block.nNonce   = 376759;
 
         if (fTestNet)
         {
-            block.nTime    = 1394739656;
+            block.nTime    = 0;
             block.nNonce   = 0;
         }
 
@@ -2783,7 +2783,7 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x8fc064e09a8d5f4c2ed46ef6dbca3c6963bdbd367c88aaf83b9b3fe5a7df440a"));
+        assert(block.hashMerkleRoot == uint256("0x010c3e52af8644a54ec8a8855f40c181405296c1ffe4e30a737025c68290bccf"));
 
 	// If genesis block hash does not match, then generate new genesis hash.
         if (true && block.GetHash() != hashGenesisBlock)
