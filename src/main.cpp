@@ -14,6 +14,8 @@
 #include <boost/algorithm/string/replace.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
+#include <boost/random/mersenne_twister.hpp>
+#include <boost/random/uniform_int.hpp>
 
 using namespace std;
 using namespace boost;
@@ -1061,20 +1063,34 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
     return pblock->GetHash();
 }
 
-int64 static GetBlockValue(int nHeight, int64 nFees)
+int static generateMTRandom(unsigned int s, int range)
 {
-    int64 nSubsidy = 500 * COIN;
+    boost::mt19937 gen(s);
+    boost::uniform_int<> dist(1, range);
+    return dist(gen);
+}
+
+int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
+{
+    int64 nSubsidy = 10000 * COIN;
+
+    std::string cseed_str = prevHash.ToString().substr(7,7);
+    const char* cseed = cseed_str.c_str();
+    long seed = hex2long(cseed);
+    int rand = generateMTRandom(seed, 49499);
 
     if (nHeight <= 10)
-        nSubsidy = 44750000 * COIN;
-    else if ((nHeight % 1000) < 21)
-	// Reward between 2500 and 250000
-        nSubsidy = (rand() % 22501 + 2500) * COIN;
-    else if (nHeight % 1000 == 21)
-        nSubsidy = 50000 * COIN;
-
-    // Subsidy is cut in half every 840000 blocks, which will occur approximately every 4 years
-    nSubsidy >>= (nHeight / 525600); // Floripacoin: 840k blocks in ~4 years
+        nSubsidy = 36000000 * COIN;
+    else if (nHeight < 1000000) {
+        if ((nHeight % 1000) < 21)
+	    // Reward between 500 and 50000
+            nSubsidy = (501 + rand) * COIN;
+        else if (nHeight % 1000 == 21)
+            nSubsidy = 50000 * COIN;
+    } else if (nHeight < 3000000)
+        nSubsidy >>= (nHeight / 733394);
+    else
+        nSubsidy = 600 * COIN;
 
     return nSubsidy + nFees;
 }
@@ -1719,8 +1735,14 @@ bool CBlock::ConnectBlock(CValidationState &state, CBlockIndex* pindex, CCoinsVi
     if (fBenchmark)
         printf("- Connect %u transactions: %.2fms (%.3fms/tx, %.3fms/txin)\n", (unsigned)vtx.size(), 0.001 * nTime, 0.001 * nTime / vtx.size(), nInputs <= 1 ? 0 : 0.001 * nTime / (nInputs-1));
 
-    if (vtx[0].GetValueOut() > GetBlockValue(pindex->nHeight, nFees))
-        return state.DoS(100, error("ConnectBlock() : coinbase pays too much (actual=%"PRI64d" vs limit=%"PRI64d")", vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight, nFees)));
+    uint256 prevHash = 0;
+    if(pindex->pprev)
+    {
+        prevHash = pindex->pprev->GetBlockHash();
+    }
+
+    if (vtx[0].GetValueOut() > GetBlockValue(pindex->nHeight, nFees, prevHash))
+        return state.DoS(100, error("ConnectBlock() : coinbase pays too much (actual=%"PRI64d" vs limit=%"PRI64d")", vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight, nFees, prevHash)));
 
     if (!control.Wait())
         return state.DoS(100, false);
@@ -4463,7 +4485,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
         nLastBlockSize = nBlockSize;
         printf("CreateNewBlock(): total size %"PRI64u"\n", nBlockSize);
 
-        pblock->vtx[0].vout[0].nValue = GetBlockValue(pindexPrev->nHeight+1, nFees);
+        pblock->vtx[0].vout[0].nValue = GetBlockValue(pindexPrev->nHeight+1, nFees, pindexPrev->GetBlockHash());
         pblocktemplate->vTxFees[0] = -nFees;
 
         // Fill in header
