@@ -1066,7 +1066,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     int64 nSubsidy = 500 * COIN;
 
     if (nHeight <= 10)
-        nSubsidy = 1000000 * COIN;
+        nSubsidy = 44750000 * COIN;
     else if ((nHeight % 1000) < 21)
 	// Reward between 2500 and 250000
         nSubsidy = (rand() % 22501 + 2500) * COIN;
