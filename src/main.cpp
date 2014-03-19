@@ -31,7 +31,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x48a55e12b27ecfb8228ffe38951f5a903e6dff684107e022f6ae68763bb0a5c4");
+uint256 hashGenesisBlock("0xac1e62906c14bf338d2686ca3b03925ff475a0d1f10f7c7a5f54acef4fcfc056");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Floripacoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -1065,14 +1065,22 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 {
     int64 nSubsidy = 500 * COIN;
 
+    if (nHeight <= 10)
+        nSubsidy = 1000000 * COIN;
+    else if ((nHeight % 1000) < 21)
+	// Reward between 2500 and 250000
+        nSubsidy = (rand() % 22501 + 2500) * COIN;
+    else if (nHeight % 1000 == 21)
+        nSubsidy = 50000 * COIN;
+
     // Subsidy is cut in half every 840000 blocks, which will occur approximately every 4 years
     nSubsidy >>= (nHeight / 525600); // Floripacoin: 840k blocks in ~4 years
 
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 60 * 60; // Floripacoin: 3.5 days
-static const int64 nTargetSpacing = 0.5 * 60; // Floripacoin: 2.5 minutes
+static const int64 nTargetTimespan = 60 * 60; // Floripacoin: 
+static const int64 nTargetSpacing = 43; // Floripacoin: 43 seconds
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 //
@@ -1146,10 +1154,27 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
     // Limit adjustment step
     int64 nActualTimespan = pindexLast->GetBlockTime() - pindexFirst->GetBlockTime();
     printf("  nActualTimespan = %"PRI64d"  before bounds\n", nActualTimespan);
-    if (nActualTimespan < nTargetTimespan/4)
-        nActualTimespan = nTargetTimespan/4;
-    if (nActualTimespan > nTargetTimespan*4)
-        nActualTimespan = nTargetTimespan*4;
+
+    if (pindexLast->nHeight+1 > 10000) {
+        if (nActualTimespan < nTargetTimespan/4)
+            nActualTimespan = nTargetTimespan/4;
+        if (nActualTimespan > nTargetTimespan*4)
+            nActualTimespan = nTargetTimespan*4;
+    }
+    else if(pindexLast->nHeight+1 > 5000)
+    {
+        if (nActualTimespan < nTargetTimespan/8)
+            nActualTimespan = nTargetTimespan/8;
+        if (nActualTimespan > nTargetTimespan*4)
+            nActualTimespan = nTargetTimespan*4;
+    }
+    else
+    {
+        if (nActualTimespan < nTargetTimespan/16)
+            nActualTimespan = nTargetTimespan/16;
+        if (nActualTimespan > nTargetTimespan*4)
+            nActualTimespan = nTargetTimespan*4;
+    }
 
     // Retarget
     CBigNum bnNew;
@@ -2756,7 +2781,7 @@ bool InitBlockIndex() {
         //   vMerkleTree: 97ddfbbae6
 
         // Genesis block
-        const char* pszTimestamp = "Verao chegando em Floripa";
+        const char* pszTimestamp = "Melhor versao";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2768,14 +2793,14 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1394815068;
+        block.nTime    = 1395192203;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 376759;
+        block.nNonce   = 553423;
 
         if (fTestNet)
         {
-            block.nTime    = 0;
-            block.nNonce   = 0;
+            block.nTime    = 1395192203;
+            block.nNonce   = 553423;
         }
 
         //// debug print
@@ -2783,7 +2808,7 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x010c3e52af8644a54ec8a8855f40c181405296c1ffe4e30a737025c68290bccf"));
+        assert(block.hashMerkleRoot == uint256("0xc9a422ac5905d43618b4c51cb783f83d5bd0520f9cbe3f4cdee9db5cd471371d"));
 
 	// If genesis block hash does not match, then generate new genesis hash.
         if (false && block.GetHash() != hashGenesisBlock)
