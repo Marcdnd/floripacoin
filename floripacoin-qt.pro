@@ -110,8 +110,8 @@ contains(USE_IPV6, -) {
     DEFINES += USE_IPV6=$$USE_IPV6
 }
 
-contains(MEGACOIN_NEED_QT_PLUGINS, 1) {
-    DEFINES += MEGACOIN_NEED_QT_PLUGINS
+contains(FLORIPACOIN_NEED_QT_PLUGINS, 1) {
+    DEFINES += FLORIPACOIN_NEED_QT_PLUGINS
     QTPLUGIN += qcncodecs qjpcodecs qtwcodecs qkrcodecs qtaccessiblewidgets
 }
 
@@ -350,14 +350,14 @@ SOURCES += src/qt/qrcodedialog.cpp
 FORMS += src/qt/forms/qrcodedialog.ui
 }
 
-contains(MEGACOIN_QT_TEST, 1) {
+contains(FLORIPACOIN_QT_TEST, 1) {
 SOURCES += src/qt/test/test_main.cpp \
     src/qt/test/uritests.cpp
 HEADERS += src/qt/test/uritests.h
 DEPENDPATH += src/qt/test
 QT += testlib
 TARGET = floripacoin-qt_test
-DEFINES += MEGACOIN_QT_TEST
+DEFINES += FLORIPACOIN_QT_TEST
   macx: CONFIG -= app_bundle
 }
 

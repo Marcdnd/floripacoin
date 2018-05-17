@@ -27,7 +27,7 @@ use the Qt unit-testing framework.
 
 To compile and run the tests:
 
-	qmake floripacoin-qt.pro MEGACOIN_QT_TEST=1
+	qmake floripacoin-qt.pro FLORIPACOIN_QT_TEST=1
 	make
 	./floripacoin-qt_test
 

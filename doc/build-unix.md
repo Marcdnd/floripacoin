@@ -97,7 +97,7 @@ Note: If you just want to install floripacoind on Gentoo, you can add the Florip
 
 Take the following steps to build (no UPnP support):
 
-	cd ${MEGACOIN_DIR}/src
+	cd ${FLORIPACOIN_DIR}/src
 	make -f makefile.unix USE_UPNP= USE_IPV6=1 BDB_INCLUDE_PATH='/usr/include/db4.8'
 	strip floripacoind
 

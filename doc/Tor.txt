@@ -1,4 +1,4 @@
-TOR SUPPORT IN MEGACOIN
+TOR SUPPORT IN FLORIPACOIN
 ======================
 
 It is possible to run Floripacoin as a Tor hidden service, and connect to such services.
