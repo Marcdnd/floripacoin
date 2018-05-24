@@ -10,9 +10,13 @@
 #include "base58.h"
 
 #include <boost/algorithm/string/predicate.hpp> // for startswith() and endswith()
+
 #ifdef __linux__
 #include <sys/ioctl.h>
+#elif __APPLE__
+#include <sys/ioctl.h>
 #endif
+
 using namespace std;
 using namespace boost;
 

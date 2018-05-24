@@ -95,8 +95,9 @@ Instructions: HomeBrew
 
 #### Install dependencies using Homebrew
 
-        brew install boost miniupnpc openssl berkeley-db4
-
+        brew install boost@1.59 miniupnpc openssl berkeley-db4
+        
+        brew link boost@1.59 --force
 Note: After you have installed the dependencies, you should check that the Brew installed version of OpenSSL is the one available for compilation. You can check this by typing
 
         openssl version
@@ -118,12 +119,8 @@ Rerunning "openssl version" should now return the correct version.
 
 2.  Modify source in order to pick up the `openssl` library.
 
-    Edit `makefile.osx` to account for library location differences. There's a
-    diff in `contrib/homebrew/makefile.osx.patch` that shows what you need to
-    change, or you can just patch by doing
-
-        patch -p1 < contrib/homebrew/makefile.osx.patch
-
+    Edit `makefile.osx` to account for library location differences. 
+    
 3.  Build floripacoind:
 
         cd src
