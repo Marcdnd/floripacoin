@@ -15,13 +15,13 @@ INCLUDEPATHS= \
  -I"$(CURDIR)" \
  -I"$(CURDIR)"/obj \
  -I"$(DEPSDIR)" \
- -I"$(DEPSDIR)/boost@1.59/include" \
+ -I"$(DEPSDIR)/boost@1.55/include" \
  -I"$(DEPSDIR)/openssl/include" \
  -I"$(DEPSDIR)/berkeley-db@4/include"
 
 LIBPATHS= \
 -L"$(DEPSDIR)" \
--L"$(DEPSDIR)/boost@1.59/lib" \
+-L"$(DEPSDIR)/boost@1.55/lib" \
 -L"$(DEPSDIR)/openssl/lib" \
 -L"$(DEPSDIR)/berkeley-db@4/lib"
 
@@ -68,7 +68,7 @@ ifdef RELEASE
 # Compile for maximum compatibility and smallest size.
 # This requires that dependencies are compiled
 # the same way.
-CFLAGS = -mmacosx-version-min=10.5 -arch i386 -O3
+CFLAGS = -mmacosx-version-min=10.9 -arch x86_64 -O3
 else
 DEBUGFLAGS = -g
 endif

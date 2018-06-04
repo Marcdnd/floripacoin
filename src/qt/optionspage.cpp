@@ -46,10 +46,10 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
 
     ui->proxyIp->installEventFilter(this);
 
-    /* Window elements init */
+    /* Window elements init
 #ifdef Q_OS_MAC
     ui->tabWindow->setVisible(false);
-#endif
+#endif */
 
     /* Display elements init */
     QDir translations(":translations");

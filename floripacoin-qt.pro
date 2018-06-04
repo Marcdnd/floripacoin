@@ -23,17 +23,17 @@ windows:LIBS += -lshlwapi
 LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
 LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX
 windows:LIBS += -lws2_32 -lole32 -loleaut32 -luuid -lgdi32
-BOOST_LIB_SUFFIX=
-BOOST_INCLUDE_PATH=C:/Deps/boost-1.55.0-mgw
-BOOST_LIB_PATH=C:/Deps/boost-1.55.0-mgw/stage/lib
-BDB_INCLUDE_PATH=C:/Deps/db-4.8.30.NC-mgw/build_unix
-BDB_LIB_PATH=C:/Deps/db-4.8.30.NC-mgw/build_unix
-OPENSSL_INCLUDE_PATH=C:/Deps/openssl-1.0.2l-mgw/include
-OPENSSL_LIB_PATH=C:/Deps/openssl-1.0.2l-mgw
-MINIUPNPC_INCLUDE_PATH=C:/Deps/miniupnpc-1.8-mgw
-MINIUPNPC_LIB_PATH=C:/Deps/miniupnpc-1.8-mgw
-QRENCODE_INCLUDE_PATH=C:/Deps/qrencode-3.4.3-mgw
-QRENCODE_LIB_PATH=C:/Deps/qrencode-3.4.3-mgw/.libs
+windows:BOOST_LIB_SUFFIX=
+windows:BOOST_INCLUDE_PATH=C:/Deps/boost-1.55.0-mgw
+windows:BOOST_LIB_PATH=C:/Deps/boost-1.55.0-mgw/stage/lib
+windows:BDB_INCLUDE_PATH=C:/Deps/db-4.8.30.NC-mgw/build_unix
+windows:BDB_LIB_PATH=C:/Deps/db-4.8.30.NC-mgw/build_unix
+windows:OPENSSL_INCLUDE_PATH=C:/Deps/openssl-1.0.2l-mgw/include
+windows:OPENSSL_LIB_PATH=C:/Deps/openssl-1.0.2l-mgw
+windows:MINIUPNPC_INCLUDE_PATH=C:/Deps/miniupnpc-1.8-mgw
+windows:MINIUPNPC_LIB_PATH=C:/Deps/miniupnpc-1.8-mgw
+windows:QRENCODE_INCLUDE_PATH=C:/Deps/qrencode-3.4.3-mgw
+windows:QRENCODE_LIB_PATH=C:/Deps/qrencode-3.4.3-mgw/.libs
 
 OBJECTS_DIR = build
 MOC_DIR = build
@@ -41,10 +41,10 @@ UI_DIR = build
 
 # use: qmake "RELEASE=1"
 contains(RELEASE, 1) {
-    # Mac: compile for maximum compatibility (10.5, 32-bit)
-    macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.5 -arch i386 -isysroot /Developer/SDKs/MacOSX10.5.sdk
-    macx:QMAKE_CFLAGS += -mmacosx-version-min=10.5 -arch i386 -isysroot /Developer/SDKs/MacOSX10.5.sdk
-    macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.5 -arch i386 -isysroot /Developer/SDKs/MacOSX10.5.sdk
+    # Mac: compile for maximum compatibility (10.9, 32-bit)
+    macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.9 -arch i386 -isysroot /Developer/SDKs/MacOSX10.9.sdk
+    macx:QMAKE_CFLAGS += -mmacosx-version-min=10.9 -arch i386 -isysroot /Developer/SDKs/MacOSX10.9.sdk
+    macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.9 -arch i386 -isysroot /Developer/SDKs/MacOSX10.9.sdk
 
     !win32:!macx {
         # Linux: static link and extra security (see: https://wiki.debian.org/Hardening)
@@ -403,7 +403,7 @@ isEmpty(BOOST_THREAD_LIB_SUFFIX) {
 }
 
 isEmpty(BDB_LIB_PATH) {
-    macx:BDB_LIB_PATH = /opt/local/lib/db48
+    macx:BDB_LIB_PATH = /usr/local/opt/berkeley-db@4/lib
 }
 
 isEmpty(BDB_LIB_SUFFIX) {
@@ -411,15 +411,31 @@ isEmpty(BDB_LIB_SUFFIX) {
 }
 
 isEmpty(BDB_INCLUDE_PATH) {
-    macx:BDB_INCLUDE_PATH = /opt/local/include/db48
+    macx:BDB_INCLUDE_PATH = /usr/local/opt/berkeley-db@4/include
 }
 
 isEmpty(BOOST_LIB_PATH) {
-    macx:BOOST_LIB_PATH = /opt/local/lib
+    macx:BOOST_LIB_PATH = /usr/local/opt/boost@1.55/lib
 }
 
 isEmpty(BOOST_INCLUDE_PATH) {
-    macx:BOOST_INCLUDE_PATH = /opt/local/include
+    macx:BOOST_INCLUDE_PATH = /usr/local/opt/boost@1.55/include
+
+}
+isEmpty(OPENSSL_LIB_PATH) {
+    macx:OPENSSL_LIB_PATH = /usr/local/opt/openssl@1.0/lib
+}
+
+isEmpty(OPENSSL_INCLUDE_PATH) {
+    macx:OPENSSL_INCLUDE_PATH = /usr/local/opt/openssl@1.0/include
+
+}
+isEmpty(QRENCODE_LIB_PATH) {
+    macx:QRENCODE_LIB_PATH = /usr/local/opt/qrencode/lib
+}
+
+isEmpty(QRENCODE_INCLUDE_PATH) {
+    macx:QRENCODE_INCLUDE_PATH = /usr/local/opt/qrencode/include
 }
 
 win32:DEFINES += WIN32
