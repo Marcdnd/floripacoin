@@ -248,7 +248,7 @@
         <x>0</x>
         <y>0</y>
         <width>783</width>
-        <height>142</height>
+        <height>143</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -307,7 +307,7 @@
       <property name="bottomMargin">
        <number>10</number>
       </property>
-     <item>
+      <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <property name="spacing">
          <number>3</number>
@@ -320,13 +320,13 @@
             <weight>75</weight>
             <bold>true</bold>
            </font>
-       </property>
-       <property name="styleSheet">
+          </property>
+          <property name="styleSheet">
            <string notr="true">QLabel {
 	color: #d78a20;
 }</string>
-       </property>
-       <property name="text">
+          </property>
+          <property name="text">
            <string>Balance:</string>
           </property>
          </widget>
@@ -347,43 +347,43 @@
            <string notr="true">QLabel {
 	color: #d78a20;
 }</string>
-       </property>
+          </property>
           <property name="text">
-           <string>123.456 MEC</string>
-       </property>
+           <string>123.456 FLN</string>
+          </property>
           <property name="textInteractionFlags">
            <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-       </property>
-      </widget>
-     </item>
+          </property>
+         </widget>
+        </item>
        </layout>
       </item>
-     <item>
+      <item>
        <spacer name="horizontalSpacer_4">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="clearButton">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="clearButton">
         <property name="font">
          <font>
           <pointsize>10</pointsize>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
-       </property>
-       <property name="toolTip">
-        <string>Remove all transaction fields</string>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
+        </property>
+        <property name="toolTip">
+         <string>Remove all transaction fields</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
 	background-color: #947978;
 	color: #e9d9a4;
 	border: 0px solid gray;
@@ -400,34 +400,34 @@ QPushButton:hover {
 QPushButton:pressed:flat {
 	background-color: #d78a20;
 }</string>
-       </property>
-       <property name="text">
-        <string>Clear &amp;All</string>
-       </property>
-       <property name="autoDefault">
-        <bool>false</bool>
-       </property>
+        </property>
+        <property name="text">
+         <string>Clear &amp;All</string>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
         <property name="default">
          <bool>false</bool>
-       </property>
+        </property>
         <property name="flat">
          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-     <item>
-      <widget class="QPushButton" name="sendButton">
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="sendButton">
         <property name="font">
          <font>
           <pointsize>10</pointsize>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
-       </property>
-       <property name="toolTip">
-        <string>Confirm the send action</string>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
+        </property>
+        <property name="toolTip">
+         <string>Confirm the send action</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
 	background-color: #947978;
 	color: #e9d9a4;
 	border: 0px solid gray;
@@ -444,18 +444,18 @@ QPushButton:hover {
 QPushButton:pressed:flat {
 	background-color: #d78a20;
 }</string>
-       </property>
-       <property name="text">
-        <string>S&amp;end</string>
-       </property>
+        </property>
+        <property name="text">
+         <string>S&amp;end</string>
+        </property>
         <property name="default">
          <bool>true</bool>
-       </property>
+        </property>
         <property name="flat">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
       <item>
        <spacer name="horizontalSpacer_5">
         <property name="orientation">
@@ -472,7 +472,7 @@ QPushButton:pressed:flat {
         </property>
        </spacer>
       </item>
-    </layout>
+     </layout>
     </widget>
    </item>
   </layout>

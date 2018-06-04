@@ -541,9 +541,6 @@ QCheckBox::indicator:checked:pressed {
              </sizepolicy>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_22">
-             <property name="spacing">
-              <number>6</number>
-             </property>
              <property name="margin">
               <number>0</number>
              </property>
@@ -830,9 +827,6 @@ QCheckBox::indicator:checked:pressed {
              </sizepolicy>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_23">
-             <property name="spacing">
-              <number>6</number>
-             </property>
              <property name="margin">
               <number>0</number>
              </property>
@@ -852,7 +846,7 @@ QCheckBox::indicator:checked:pressed {
                 <string>Map port using &amp;UPnP</string>
                </property>
                <property name="checked">
-                <bool>false</bool>
+                <bool>true</bool>
                </property>
               </widget>
              </item>

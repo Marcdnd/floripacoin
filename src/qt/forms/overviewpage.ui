@@ -319,7 +319,7 @@
               <string notr="true">color: #7f2200;</string>
              </property>
              <property name="text">
-              <string>0 Lrks</string>
+              <string>0 FLN</string>
              </property>
              <property name="textInteractionFlags">
               <set>Qt::TextSelectableByMouse</set>
@@ -365,7 +365,7 @@
               <string notr="true">color: #7f2200;</string>
              </property>
              <property name="text">
-              <string>0 Lrks</string>
+              <string>0 FLN</string>
              </property>
              <property name="textInteractionFlags">
               <set>Qt::TextSelectableByMouse</set>
@@ -411,7 +411,7 @@
               <string notr="true">color: #7f2200;</string>
              </property>
              <property name="text">
-              <string>0 Lrks</string>
+              <string>0 FLN</string>
              </property>
              <property name="textInteractionFlags">
               <set>Qt::TextSelectableByMouse</set>
