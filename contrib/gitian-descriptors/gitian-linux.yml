@@ -18,8 +18,8 @@ packages:
 - "libstdc++6-4.6-pic"
 reference_datetime: "2015-06-01 00:00:00"
 remotes:
-- "url": "https://github.com/floripacoin/floripacoin.git"
-  "dir": "floripacoin"
+- "url": "https://github.com/TeamFloripa/"
+  "dir": "FloripaCoin-Master"
 files: []
 script: |
   WRAP_DIR=$HOME/wrapped
@@ -63,7 +63,7 @@ script: |
   done
   export PATH=${WRAP_DIR}:${PATH}
 
-  cd floripacoin
+  cd FloripaCoin-Master
   BASEPREFIX=`pwd`/depends
   # Build dependencies for each host
   for i in $HOSTS; do
