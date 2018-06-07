@@ -9,8 +9,8 @@ packages:
 - "autoconf"
 reference_datetime: "2015-06-01 00:00:00"
 remotes:
-- "url": "https://github.com/floripacoin/floripacoin.detached.sigs.git"
-  "dir": "signature"
+- "url": "https://github.com/TeamFloripa/"
+  "dir": "floripacoin-detached-sigs"
 files:
 - "osslsigncode-1.7.1.tar.gz"
 - "osslsigncode-Backports-to-1.7.1.patch"

@@ -12,8 +12,8 @@ packages:
 - "faketime"
 reference_datetime: "2011-01-30 00:00:00"
 remotes:
-- "url": "https://github.com/floripacoin/floripacoin.git"
-  "dir": "floripacoin"
+- "url": "https://github.com/TeamFloripa/"
+  "dir": "FloripaCoin-Master"
 files:
 - "qt-win32-4.8.3-gitian-r1.zip"
 - "boost-win32-1.50.0-gitian2.zip"
@@ -43,7 +43,7 @@ script: |
   #
   find -type f | xargs touch --date="$REFERENCE_DATETIME"
   #
-  cd floripacoin
+  cd FloripaCoin-Master
   mkdir -p $OUTDIR/src
   git archive HEAD | tar -x -C $OUTDIR/src
   cp $OUTDIR/src/doc/README_windows.txt $OUTDIR/readme.txt
