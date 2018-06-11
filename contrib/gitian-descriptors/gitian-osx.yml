@@ -1,5 +1,5 @@
 ---
-name: "floripacoin-osx-0.8.996.0"
+name: "floripacoin-osx-0.8.997.0"
 enable_cache: true
 suites:
 - "precise"

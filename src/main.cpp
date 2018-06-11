@@ -4,7 +4,7 @@
 // Copyright (c) 2012-2013 Freicoin developers
 // Copyright (c) 2013-2013 CopperLark developers
 // Copyright (c) 2013-2079 Dr. Kimoto Chan
-// Copyright (c) 2013-2017 The Floripacoin developers
+// Copyright (c) 2013-2018 The Floripacoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 

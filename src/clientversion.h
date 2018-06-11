@@ -8,12 +8,12 @@
 // These need to be macros, as version.cpp's and floripacoin-qt.rc's voodoo requires it
 #define CLIENT_VERSION_MAJOR       0
 #define CLIENT_VERSION_MINOR       8
-#define CLIENT_VERSION_REVISION    996
+#define CLIENT_VERSION_REVISION    997
 #define CLIENT_VERSION_BUILD       0
 
 #define MC_CLIENT_VERSION_MAJOR       0
 #define MC_CLIENT_VERSION_MINOR       8
-#define MC_CLIENT_VERSION_REVISION    996
+#define MC_CLIENT_VERSION_REVISION    997
 #define MC_CLIENT_VERSION_BUILD       0
 
 
