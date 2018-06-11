@@ -3,7 +3,7 @@
  */
 // Copyright (c) 2013-2013 CopperLark developers
 // Copyright (c) 2013-2079 Dr. Kimoto Chan
-// Copyright (c) 2013-2017 The Floripacoin developers
+// Copyright (c) 2013-2018 The Floripacoin developers
 
 
 #include <QApplication>

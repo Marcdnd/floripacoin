@@ -8,7 +8,7 @@
 
 // Copyright year (2009-this)
 // Todo: update this when changing our copyright comments in the source
-const int ABOUTDIALOG_COPYRIGHT_YEAR = 2013;
+const int ABOUTDIALOG_COPYRIGHT_YEAR = 2018;
 
 AboutDialog::AboutDialog(QWidget *parent) :
     QDialog(parent),
@@ -18,7 +18,7 @@ AboutDialog::AboutDialog(QWidget *parent) :
     setWindowFlags(Qt::CustomizeWindowHint | Qt::FramelessWindowHint | Qt::Window);
     ui->wCaption->installEventFilter(new DialogMoveHandler(this));
     // Set current copyright year
-    ui->copyrightLabel->setText(tr("Copyright") + QString(" &copy; 2013-%1 ").arg("2017") + tr("The Floripacoin developers"));
+    ui->copyrightLabel->setText(tr("Copyright") + QString(" &copy; 2013-%1 ").arg("2018") + tr("The Floripacoin developers"));
 
     // Center window (deleted)
 //    QRect scr = QApplication::desktop()->screenGeometry();
