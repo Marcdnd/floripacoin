@@ -16,7 +16,11 @@
    version="1.1"
    inkscape:version="0.48.0 r9654"
    sodipodi:docname="questionmark.svg"
+<<<<<<< HEAD
    inkscape:export-filename="/store/orion/projects/bitcoin/questionmark.png"
+=======
+   inkscape:export-filename="/store/orion/projects/floripacoin/questionmark.png"
+>>>>>>> upstream/master
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs

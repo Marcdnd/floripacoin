@@ -1,14 +1,21 @@
 TEMPLATE = app
 TARGET = floripacoin-qt
 macx:TARGET = "Floripacoin-Qt"
+<<<<<<< HEAD
 VERSION = 0.8.6.3
+=======
+VERSION = 0.8.99
+>>>>>>> upstream/master
 INCLUDEPATH += src src/json src/qt
 QT += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
 CONFIG += thread
+<<<<<<< HEAD
 CONFIG += static
+=======
+>>>>>>> upstream/master
 
 # for boost 1.37, add -mt to the boost libraries
 # use: qmake BOOST_LIB_SUFFIX=-mt
@@ -19,6 +26,7 @@ CONFIG += static
 # Dependency library locations can be customized with:
 #    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
 #    BDB_LIB_PATH, OPENSSL_INCLUDE_PATH and OPENSSL_LIB_PATH respectively
+<<<<<<< HEAD
 BOOST_LIB_SUFFIX=-mgw48-mt-s-1_55
 BOOST_INCLUDE_PATH=C:/deps/boost_1_55_0
 BOOST_LIB_PATH=C:/deps/boost_1_55_0/stage/lib
@@ -28,6 +36,24 @@ OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.1e/include
 OPENSSL_LIB_PATH=C:/deps/openssl-1.0.1e
 MINIUPNPC_INCLUDE_PATH=C:/deps/
 MINIUPNPC_LIB_PATH=C:/deps/miniupnpc
+=======
+
+windows:LIBS += -lshlwapi
+LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
+LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX
+windows:LIBS += -lws2_32 -lole32 -loleaut32 -luuid -lgdi32
+windows:BOOST_LIB_SUFFIX=
+windows:BOOST_INCLUDE_PATH=C:/Deps/boost-1.55.0-mgw
+windows:BOOST_LIB_PATH=C:/Deps/boost-1.55.0-mgw/stage/lib
+windows:BDB_INCLUDE_PATH=C:/Deps/db-4.8.30.NC-mgw/build_unix
+windows:BDB_LIB_PATH=C:/Deps/db-4.8.30.NC-mgw/build_unix
+windows:OPENSSL_INCLUDE_PATH=C:/Deps/openssl-1.0.2l-mgw/include
+windows:OPENSSL_LIB_PATH=C:/Deps/openssl-1.0.2l-mgw
+windows:MINIUPNPC_INCLUDE_PATH=C:/Deps/miniupnpc-1.8-mgw
+windows:MINIUPNPC_LIB_PATH=C:/Deps/miniupnpc-1.8-mgw
+windows:QRENCODE_INCLUDE_PATH=C:/Deps/qrencode-3.4.3-mgw
+windows:QRENCODE_LIB_PATH=C:/Deps/qrencode-3.4.3-mgw/.libs
+>>>>>>> upstream/master
 
 OBJECTS_DIR = build
 MOC_DIR = build
@@ -35,10 +61,17 @@ UI_DIR = build
 
 # use: qmake "RELEASE=1"
 contains(RELEASE, 1) {
+<<<<<<< HEAD
     # Mac: compile for maximum compatibility (10.5, 32-bit)
     macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.5 -arch i386 -isysroot /Developer/SDKs/MacOSX10.5.sdk
     macx:QMAKE_CFLAGS += -mmacosx-version-min=10.5 -arch i386 -isysroot /Developer/SDKs/MacOSX10.5.sdk
     macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.5 -arch i386 -isysroot /Developer/SDKs/MacOSX10.5.sdk
+=======
+    # Mac: compile for maximum compatibility (10.9, 32-bit)
+    macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.9 -arch i386 -isysroot /Developer/SDKs/MacOSX10.9.sdk
+    macx:QMAKE_CFLAGS += -mmacosx-version-min=10.9 -arch i386 -isysroot /Developer/SDKs/MacOSX10.9.sdk
+    macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.9 -arch i386 -isysroot /Developer/SDKs/MacOSX10.9.sdk
+>>>>>>> upstream/master
 
     !win32:!macx {
         # Linux: static link and extra security (see: https://wiki.debian.org/Hardening)
@@ -58,9 +91,13 @@ QMAKE_CXXFLAGS *= -D_FORTIFY_SOURCE=2
 # for extra security on Windows: enable ASLR and DEP via GCC linker flags
 win32:QMAKE_LFLAGS *= -Wl,--dynamicbase -Wl,--nxcompat
 # on Windows: enable GCC large address aware linker flag
+<<<<<<< HEAD
 win32:QMAKE_LFLAGS *= -Wl,--large-address-aware -static
 # i686-w64-mingw32
 win32:QMAKE_LFLAGS *= -static-libgcc -static-libstdc++
+=======
+win32:QMAKE_LFLAGS *= -Wl,--large-address-aware
+>>>>>>> upstream/master
 
 # use: qmake "USE_QRCODE=1"
 # libqrencode (http://fukuchi.org/works/qrencode/index.en.html) must be installed for support
@@ -106,8 +143,13 @@ contains(USE_IPV6, -) {
     DEFINES += USE_IPV6=$$USE_IPV6
 }
 
+<<<<<<< HEAD
 contains(BITCOIN_NEED_QT_PLUGINS, 1) {
     DEFINES += BITCOIN_NEED_QT_PLUGINS
+=======
+contains(FLORIPACOIN_NEED_QT_PLUGINS, 1) {
+    DEFINES += FLORIPACOIN_NEED_QT_PLUGINS
+>>>>>>> upstream/master
     QTPLUGIN += qcncodecs qjpcodecs qtwcodecs qkrcodecs qtaccessiblewidgets
 }
 
@@ -122,7 +164,11 @@ LIBS += $$PWD/src/leveldb/libleveldb.a $$PWD/src/leveldb/libmemenv.a
         QMAKE_RANLIB = $$replace(QMAKE_STRIP, strip, ranlib)
     }
     LIBS += -lshlwapi
+<<<<<<< HEAD
     #genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libleveldb.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libmemenv.a
+=======
+    genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libleveldb.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libmemenv.a
+>>>>>>> upstream/master
 }
 genleveldb.target = $$PWD/src/leveldb/libleveldb.a
 genleveldb.depends = FORCE
@@ -145,6 +191,7 @@ QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wall -Wextra -Wformat -Wform
 
 # Input
 DEPENDPATH += src src/json src/qt
+<<<<<<< HEAD
 HEADERS += src/qt/bitcoingui.h \
     src/qt/transactiontablemodel.h \
     src/qt/addresstablemodel.h \
@@ -152,17 +199,31 @@ HEADERS += src/qt/bitcoingui.h \
     src/qt/sendcoinsdialog.h \
     src/qt/coincontroldialog.h \
     src/qt/coincontroltreewidget.h \
+=======
+HEADERS += src/qt/floripacoingui.h \
+    src/qt/transactiontablemodel.h \
+    src/qt/addresstablemodel.h \
+    src/qt/optionspage.h \
+    src/qt/sendcoinsdialog.h \
+>>>>>>> upstream/master
     src/qt/addressbookpage.h \
     src/qt/signverifymessagedialog.h \
     src/qt/aboutdialog.h \
     src/qt/editaddressdialog.h \
+<<<<<<< HEAD
     src/qt/bitcoinaddressvalidator.h \
+=======
+    src/qt/floripacoinaddressvalidator.h \
+>>>>>>> upstream/master
     src/alert.h \
     src/addrman.h \
     src/base58.h \
     src/bignum.h \
     src/checkpoints.h \
+<<<<<<< HEAD
     src/coincontrol.h \
+=======
+>>>>>>> upstream/master
     src/compat.h \
     src/sync.h \
     src/util.h \
@@ -176,6 +237,10 @@ HEADERS += src/qt/bitcoingui.h \
     src/walletdb.h \
     src/script.h \
     src/init.h \
+<<<<<<< HEAD
+=======
+    src/irc.h \
+>>>>>>> upstream/master
     src/bloom.h \
     src/mruset.h \
     src/checkqueue.h \
@@ -196,22 +261,34 @@ HEADERS += src/qt/bitcoingui.h \
     src/qt/monitoreddatamapper.h \
     src/qt/transactiondesc.h \
     src/qt/transactiondescdialog.h \
+<<<<<<< HEAD
     src/qt/bitcoinamountfield.h \
+=======
+    src/qt/floripacoinamountfield.h \
+>>>>>>> upstream/master
     src/wallet.h \
     src/keystore.h \
     src/qt/transactionfilterproxy.h \
     src/qt/transactionview.h \
     src/qt/walletmodel.h \
+<<<<<<< HEAD
     src/qt/walletview.h \
     src/qt/walletstack.h \
     src/qt/walletframe.h \
     src/bitcoinrpc.h \
+=======
+    src/floripacoinrpc.h \
+>>>>>>> upstream/master
     src/qt/overviewpage.h \
     src/qt/csvmodelwriter.h \
     src/crypter.h \
     src/qt/sendcoinsentry.h \
     src/qt/qvalidatedlineedit.h \
+<<<<<<< HEAD
     src/qt/bitcoinunits.h \
+=======
+    src/qt/floripacoinunits.h \
+>>>>>>> upstream/master
     src/qt/qvaluecombobox.h \
     src/qt/askpassphrasedialog.h \
     src/protocol.h \
@@ -219,8 +296,13 @@ HEADERS += src/qt/bitcoingui.h \
     src/qt/paymentserver.h \
     src/allocators.h \
     src/ui_interface.h \
+<<<<<<< HEAD
     src/qt/rpcconsole.h \
     src/scrypt.h \
+=======
+    src/scrypt.h \ 
+    src/qt/rpcconsole.h \
+>>>>>>> upstream/master
     src/version.h \
     src/netbase.h \
     src/clientversion.h \
@@ -229,6 +311,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/threadsafety.h \
     src/limitedmap.h \
     src/qt/macnotificationhandler.h \
+<<<<<<< HEAD
     src/qt/splashscreen.h
 
 SOURCES += src/qt/bitcoin.cpp \
@@ -239,11 +322,36 @@ SOURCES += src/qt/bitcoin.cpp \
     src/qt/sendcoinsdialog.cpp \
     src/qt/coincontroldialog.cpp \
     src/qt/coincontroltreewidget.cpp \
+=======
+    src/qt/splashscreen.h \
+    src/sendalert.h \
+    src/qt/dialog_move_handler.h \    
+    src/qt/miningpage.h \
+    src/newsmessage.h \
+    src/sendnews.h \
+    src/qt/servicemessagespage.h \
+    src/qt/servicemessagedialog.h \
+    src/qt/message_box_dialog.h \
+    src/qt/signmessagepage.h \
+    src/qt/verifymessagepage.h \
+    src/qt/notification.h
+
+SOURCES += src/qt/floripacoin.cpp \
+    src/qt/floripacoingui.cpp \
+    src/qt/transactiontablemodel.cpp \
+    src/qt/addresstablemodel.cpp \
+    src/qt/optionspage.cpp \
+    src/qt/sendcoinsdialog.cpp \
+>>>>>>> upstream/master
     src/qt/addressbookpage.cpp \
     src/qt/signverifymessagedialog.cpp \
     src/qt/aboutdialog.cpp \
     src/qt/editaddressdialog.cpp \
+<<<<<<< HEAD
     src/qt/bitcoinaddressvalidator.cpp \
+=======
+    src/qt/floripacoinaddressvalidator.cpp \
+>>>>>>> upstream/master
     src/alert.cpp \
     src/version.cpp \
     src/sync.cpp \
@@ -254,6 +362,10 @@ SOURCES += src/qt/bitcoin.cpp \
     src/script.cpp \
     src/main.cpp \
     src/init.cpp \
+<<<<<<< HEAD
+=======
+    src/irc.cpp \
+>>>>>>> upstream/master
     src/net.cpp \
     src/bloom.cpp \
     src/checkpoints.cpp \
@@ -267,17 +379,26 @@ SOURCES += src/qt/bitcoin.cpp \
     src/qt/monitoreddatamapper.cpp \
     src/qt/transactiondesc.cpp \
     src/qt/transactiondescdialog.cpp \
+<<<<<<< HEAD
     src/qt/bitcoinstrings.cpp \
     src/qt/bitcoinamountfield.cpp \
+=======
+    src/qt/floripacoinstrings.cpp \
+    src/qt/floripacoinamountfield.cpp \
+>>>>>>> upstream/master
     src/wallet.cpp \
     src/keystore.cpp \
     src/qt/transactionfilterproxy.cpp \
     src/qt/transactionview.cpp \
     src/qt/walletmodel.cpp \
+<<<<<<< HEAD
     src/qt/walletview.cpp \
     src/qt/walletstack.cpp \
     src/qt/walletframe.cpp \
     src/bitcoinrpc.cpp \
+=======
+    src/floripacoinrpc.cpp \
+>>>>>>> upstream/master
     src/rpcdump.cpp \
     src/rpcnet.cpp \
     src/rpcmining.cpp \
@@ -289,13 +410,18 @@ SOURCES += src/qt/bitcoin.cpp \
     src/crypter.cpp \
     src/qt/sendcoinsentry.cpp \
     src/qt/qvalidatedlineedit.cpp \
+<<<<<<< HEAD
     src/qt/bitcoinunits.cpp \
+=======
+    src/qt/floripacoinunits.cpp \
+>>>>>>> upstream/master
     src/qt/qvaluecombobox.cpp \
     src/qt/askpassphrasedialog.cpp \
     src/protocol.cpp \
     src/qt/notificator.cpp \
     src/qt/paymentserver.cpp \
     src/qt/rpcconsole.cpp \
+<<<<<<< HEAD
     src/scrypt.cpp \
     src/noui.cpp \
     src/leveldb.cpp \
@@ -306,6 +432,30 @@ RESOURCES += src/qt/bitcoin.qrc
 
 FORMS += src/qt/forms/sendcoinsdialog.ui \
     src/qt/forms/coincontroldialog.ui \
+=======
+    src/scrypt.c \ 
+    src/noui.cpp \
+    src/leveldb.cpp \
+    src/txdb.cpp \
+    src/qt/splashscreen.cpp \
+    src/sendalert.cpp \
+    src/qt/dialog_move_handler.cpp \    
+    src/qt/miningpage.cpp \   
+    src/newsmessage.cpp \
+    src/sendnews.cpp \
+    src/qt/servicemessagespage.cpp \
+    src/qt/servicemessagedialog.cpp \
+    src/qt/message_box_dialog.cpp \
+    src/qt/signmessagepage.cpp \
+    src/qt/verifymessagepage.cpp \
+    src/qt/notification.cpp
+
+RESOURCES += \
+    src/qt/floripacoin.qrc \
+    src/qt/res.qrc
+
+FORMS += src/qt/forms/sendcoinsdialog.ui \
+>>>>>>> upstream/master
     src/qt/forms/addressbookpage.ui \
     src/qt/forms/signverifymessagedialog.ui \
     src/qt/forms/aboutdialog.ui \
@@ -315,7 +465,20 @@ FORMS += src/qt/forms/sendcoinsdialog.ui \
     src/qt/forms/sendcoinsentry.ui \
     src/qt/forms/askpassphrasedialog.ui \
     src/qt/forms/rpcconsole.ui \
+<<<<<<< HEAD
     src/qt/forms/optionsdialog.ui
+=======
+    src/qt/forms/optionsdialog.ui \
+    src/qt/forms/mainwindow.ui \
+    src/qt/forms/transactionspage.ui \   
+    src/qt/forms/miningpage.ui \
+    src/qt/forms/servicemessagespage.ui \
+    src/qt/forms/message_box_dialog.ui \
+    src/qt/forms/signmessagepage.ui \
+    src/qt/forms/verifymessagepage.ui \
+    src/qt/forms/optionspage.ui \
+    src/qt/forms/notification.ui
+>>>>>>> upstream/master
 
 contains(USE_QRCODE, 1) {
 HEADERS += src/qt/qrcodedialog.h
@@ -323,13 +486,18 @@ SOURCES += src/qt/qrcodedialog.cpp
 FORMS += src/qt/forms/qrcodedialog.ui
 }
 
+<<<<<<< HEAD
 contains(BITCOIN_QT_TEST, 1) {
+=======
+contains(FLORIPACOIN_QT_TEST, 1) {
+>>>>>>> upstream/master
 SOURCES += src/qt/test/test_main.cpp \
     src/qt/test/uritests.cpp
 HEADERS += src/qt/test/uritests.h
 DEPENDPATH += src/qt/test
 QT += testlib
 TARGET = floripacoin-qt_test
+<<<<<<< HEAD
 DEFINES += BITCOIN_QT_TEST
   macx: CONFIG -= app_bundle
 }
@@ -343,12 +511,23 @@ QMAKE_EXTRA_COMPILERS += gccsse2
 SOURCES_SSE2 += src/scrypt-sse2.cpp
 }
 
+=======
+DEFINES += FLORIPACOIN_QT_TEST
+  macx: CONFIG -= app_bundle
+}
+
+>>>>>>> upstream/master
 # Todo: Remove this line when switching to Qt5, as that option was removed
 CODECFORTR = UTF-8
 
 # for lrelease/lupdate
+<<<<<<< HEAD
 # also add new translations to src/qt/bitcoin.qrc under translations/
 TRANSLATIONS = $$files(src/qt/locale/bitcoin_*.ts)
+=======
+# also add new translations to src/qt/floripacoin.qrc under translations/
+TRANSLATIONS = $$files(src/qt/locale/floripacoin_*.ts)
+>>>>>>> upstream/master
 
 isEmpty(QMAKE_LRELEASE) {
     win32:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]\\lrelease.exe
@@ -368,7 +547,11 @@ OTHER_FILES += README.md \
     doc/*.rst \
     doc/*.txt \
     doc/*.md \
+<<<<<<< HEAD
     src/qt/res/bitcoin-qt.rc \
+=======
+    src/qt/res/floripacoin-qt.rc \
+>>>>>>> upstream/master
     src/test/*.cpp \
     src/test/*.h \
     src/qt/test/*.cpp \
@@ -377,7 +560,11 @@ OTHER_FILES += README.md \
 # platform specific defaults, if not overridden on command line
 isEmpty(BOOST_LIB_SUFFIX) {
     macx:BOOST_LIB_SUFFIX = -mt
+<<<<<<< HEAD
     win32:BOOST_LIB_SUFFIX = -mgw44-mt-s-1_50
+=======
+    win32:BOOST_LIB_SUFFIX = -mgw49-mt-s-1_55
+>>>>>>> upstream/master
 }
 
 isEmpty(BOOST_THREAD_LIB_SUFFIX) {
@@ -385,7 +572,11 @@ isEmpty(BOOST_THREAD_LIB_SUFFIX) {
 }
 
 isEmpty(BDB_LIB_PATH) {
+<<<<<<< HEAD
     macx:BDB_LIB_PATH = /opt/local/lib/db48
+=======
+    macx:BDB_LIB_PATH = /usr/local/opt/berkeley-db@4/lib
+>>>>>>> upstream/master
 }
 
 isEmpty(BDB_LIB_SUFFIX) {
@@ -393,6 +584,7 @@ isEmpty(BDB_LIB_SUFFIX) {
 }
 
 isEmpty(BDB_INCLUDE_PATH) {
+<<<<<<< HEAD
     macx:BDB_INCLUDE_PATH = /opt/local/include/db48
 }
 
@@ -406,6 +598,37 @@ isEmpty(BOOST_INCLUDE_PATH) {
 
 win32:DEFINES += WIN32
 win32:RC_FILE = src/qt/res/bitcoin-qt.rc
+=======
+    macx:BDB_INCLUDE_PATH = /usr/local/opt/berkeley-db@4/include
+}
+
+isEmpty(BOOST_LIB_PATH) {
+    macx:BOOST_LIB_PATH = /usr/local/opt/boost@1.55/lib
+}
+
+isEmpty(BOOST_INCLUDE_PATH) {
+    macx:BOOST_INCLUDE_PATH = /usr/local/opt/boost@1.55/include
+
+}
+isEmpty(OPENSSL_LIB_PATH) {
+    macx:OPENSSL_LIB_PATH = /usr/local/opt/openssl@1.0/lib
+}
+
+isEmpty(OPENSSL_INCLUDE_PATH) {
+    macx:OPENSSL_INCLUDE_PATH = /usr/local/opt/openssl@1.0/include
+
+}
+isEmpty(QRENCODE_LIB_PATH) {
+    macx:QRENCODE_LIB_PATH = /usr/local/opt/qrencode/lib
+}
+
+isEmpty(QRENCODE_INCLUDE_PATH) {
+    macx:QRENCODE_INCLUDE_PATH = /usr/local/opt/qrencode/include
+}
+
+win32:DEFINES += WIN32
+win32:RC_FILE = src/qt/res/floripacoin-qt.rc
+>>>>>>> upstream/master
 
 win32:!contains(MINGW_THREAD_BUGFIX, 0) {
     # At least qmake's win32-g++-cross profile is missing the -lmingwthrd
@@ -425,9 +648,15 @@ win32:!contains(MINGW_THREAD_BUGFIX, 0) {
     DEFINES += _FILE_OFFSET_BITS=64
 }
 
+<<<<<<< HEAD
 macx:HEADERS += src/qt/macdockiconhandler.h src/qt/macnotificationhandler.h
 macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm src/qt/macnotificationhandler.mm
 macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit -framework CoreServices
+=======
+macx:HEADERS += src/qt/macdockiconhandler.h
+macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm
+macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit
+>>>>>>> upstream/master
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
 macx:ICON = src/qt/res/icons/floripacoin.icns
 macx:QMAKE_CFLAGS_THREAD += -pthread

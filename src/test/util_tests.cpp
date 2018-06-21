@@ -106,7 +106,11 @@ BOOST_AUTO_TEST_CASE(util_DateTimeStrFormat)
 /*These are platform-dependant and thus removed to avoid useless test failures
     BOOST_CHECK_EQUAL(DateTimeStrFormat("%Y-%m-%d %H:%M:%S", 0), "1970-01-01 00:00:00");
     BOOST_CHECK_EQUAL(DateTimeStrFormat("%Y-%m-%d %H:%M:%S", 0x7FFFFFFF), "2038-01-19 03:14:07");
+<<<<<<< HEAD
     // Formats used within Bitcoin
+=======
+    // Formats used within Floripacoin
+>>>>>>> upstream/master
     BOOST_CHECK_EQUAL(DateTimeStrFormat("%Y-%m-%d %H:%M:%S", 1317425777), "2011-09-30 23:36:17");
     BOOST_CHECK_EQUAL(DateTimeStrFormat("%Y-%m-%d %H:%M", 1317425777), "2011-09-30 23:36");
 */
@@ -154,10 +158,17 @@ BOOST_AUTO_TEST_CASE(util_GetArg)
     BOOST_CHECK_EQUAL(GetArg("inttest1", -1), 12345);
     BOOST_CHECK_EQUAL(GetArg("inttest2", -1), 81985529216486895LL);
     BOOST_CHECK_EQUAL(GetArg("inttest3", -1), -1);
+<<<<<<< HEAD
     BOOST_CHECK_EQUAL(GetBoolArg("booltest1"), true);
     BOOST_CHECK_EQUAL(GetBoolArg("booltest2"), false);
     BOOST_CHECK_EQUAL(GetBoolArg("booltest3"), false);
     BOOST_CHECK_EQUAL(GetBoolArg("booltest4"), true);
+=======
+    BOOST_CHECK_EQUAL(GetBoolArg("booltest1", false), true);
+    BOOST_CHECK_EQUAL(GetBoolArg("booltest2", false), false);
+    BOOST_CHECK_EQUAL(GetBoolArg("booltest3", false), false);
+    BOOST_CHECK_EQUAL(GetBoolArg("booltest4", false), true);
+>>>>>>> upstream/master
 }
 
 BOOST_AUTO_TEST_CASE(util_WildcardMatch)
@@ -263,10 +274,35 @@ BOOST_AUTO_TEST_CASE(util_IsHex)
 
 BOOST_AUTO_TEST_CASE(util_seed_insecure_rand)
 {
+<<<<<<< HEAD
     int i;
     int count=0;
 
     seed_insecure_rand(true);
+=======
+    // Expected results for the determinstic seed.
+    const uint32_t exp_vals[11] = {  91632771U,1889679809U,3842137544U,3256031132U,
+                                   1761911779U, 489223532U,2692793790U,2737472863U,
+                                   2796262275U,1309899767U,840571781U};
+    // Expected 0s in rand()%(idx+2) for the determinstic seed.
+    const int exp_count[9] = {5013,3346,2415,1972,1644,1386,1176,1096,1009};
+    int i;
+    int count=0;
+
+    seed_insecure_rand();
+
+    //Does the non-determistic rand give us results that look too like the determinstic one?
+    for (i=0;i<10;i++)
+    {
+        int match = 0;
+        uint32_t rval = insecure_rand();
+        for (int j=0;j<11;j++)match |= rval==exp_vals[j];
+        count += match;
+    }
+    // sum(binomial(10,i)*(11/(2^32))^i*(1-(11/(2^32)))^(10-i),i,0,4) ~= 1-1/2^134.73
+    // So _very_ unlikely to throw a false failure here.
+    BOOST_CHECK(count<=4);
+>>>>>>> upstream/master
 
     for (int mod=2;mod<11;mod++)
     {
@@ -289,6 +325,7 @@ BOOST_AUTO_TEST_CASE(util_seed_insecure_rand)
         BOOST_CHECK(count<=10000/mod+err);
         BOOST_CHECK(count>=10000/mod-err);
     }
+<<<<<<< HEAD
 }
 
 BOOST_AUTO_TEST_CASE(util_TimingResistantEqual)
@@ -300,6 +337,22 @@ BOOST_AUTO_TEST_CASE(util_TimingResistantEqual)
     BOOST_CHECK(!TimingResistantEqual(std::string("aa"), std::string("a")));
     BOOST_CHECK(TimingResistantEqual(std::string("abc"), std::string("abc")));
     BOOST_CHECK(!TimingResistantEqual(std::string("abc"), std::string("aba")));
+=======
+
+    seed_insecure_rand(true);
+
+    for (i=0;i<11;i++)
+    {
+        BOOST_CHECK_EQUAL(insecure_rand(),exp_vals[i]);
+    }
+
+    for (int mod=2;mod<11;mod++)
+    {
+        count = 0;
+        for (i=0;i<10000;i++) count += insecure_rand()%mod==0;
+        BOOST_CHECK_EQUAL(count,exp_count[mod-2]);
+    }
+>>>>>>> upstream/master
 }
 
 BOOST_AUTO_TEST_SUITE_END()

@@ -3,7 +3,11 @@
 
 #include "clientmodel.h"
 #include "walletmodel.h"
+<<<<<<< HEAD
 #include "bitcoinunits.h"
+=======
+#include "floripacoinunits.h"
+>>>>>>> upstream/master
 #include "optionsmodel.h"
 #include "transactiontablemodel.h"
 #include "transactionfilterproxy.h"
@@ -14,13 +18,23 @@
 #include <QPainter>
 
 #define DECORATION_SIZE 64
+<<<<<<< HEAD
 #define NUM_ITEMS 3
+=======
+#define NUM_ITEMS 20
+
+QFont g_fontHeader;
+>>>>>>> upstream/master
 
 class TxViewDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
 public:
+<<<<<<< HEAD
     TxViewDelegate(): QAbstractItemDelegate(), unit(BitcoinUnits::BTC)
+=======
+    TxViewDelegate(): QAbstractItemDelegate(), unit(FloripacoinUnits::MEC)
+>>>>>>> upstream/master
     {
 
     }
@@ -68,7 +82,11 @@ public:
             foreground = option.palette.color(QPalette::Text);
         }
         painter->setPen(foreground);
+<<<<<<< HEAD
         QString amountText = BitcoinUnits::formatWithUnit(unit, amount, true);
+=======
+        QString amountText = FloripacoinUnits::formatWithUnit(unit, amount, true);
+>>>>>>> upstream/master
         if(!confirmed)
         {
             amountText = QString("[") + amountText + QString("]");
@@ -104,6 +122,7 @@ OverviewPage::OverviewPage(QWidget *parent) :
 {
     ui->setupUi(this);
 
+<<<<<<< HEAD
     // Recent transactions
     ui->listTransactions->setItemDelegate(txdelegate);
     ui->listTransactions->setIconSize(QSize(DECORATION_SIZE, DECORATION_SIZE));
@@ -118,6 +137,22 @@ OverviewPage::OverviewPage(QWidget *parent) :
 
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
+=======
+//    // Recent transactions
+//    ui->listTransactions->setItemDelegate(txdelegate);
+//    ui->listTransactions->setIconSize(QSize(DECORATION_SIZE, DECORATION_SIZE));
+//    ui->listTransactions->setMinimumHeight(NUM_ITEMS * (DECORATION_SIZE + 2));
+//    ui->listTransactions->setAttribute(Qt::WA_MacShowFocusRect, false);
+
+    connect(ui->tableLastTransactionView, SIGNAL(clicked(QModelIndex)), this, SLOT(handleTransactionClicked(QModelIndex)));
+
+//    // init "out of sync" warning labels
+//    ui->labelWalletStatus->setText("(" + tr("out of sync") + ")");
+//    ui->labelTransactionsStatus->setText("(" + tr("out of sync") + ")");
+
+//    // start with displaying the "out of sync" warnings
+//    showOutOfSyncWarning(true);
+>>>>>>> upstream/master
 }
 
 void OverviewPage::handleTransactionClicked(const QModelIndex &index)
@@ -137,6 +172,7 @@ void OverviewPage::setBalance(qint64 balance, qint64 unconfirmedBalance, qint64 
     currentBalance = balance;
     currentUnconfirmedBalance = unconfirmedBalance;
     currentImmatureBalance = immatureBalance;
+<<<<<<< HEAD
     ui->labelBalance->setText(BitcoinUnits::formatWithUnit(unit, balance));
     ui->labelUnconfirmed->setText(BitcoinUnits::formatWithUnit(unit, unconfirmedBalance));
     ui->labelImmature->setText(BitcoinUnits::formatWithUnit(unit, immatureBalance));
@@ -146,6 +182,22 @@ void OverviewPage::setBalance(qint64 balance, qint64 unconfirmedBalance, qint64 
     bool showImmature = immatureBalance != 0;
     ui->labelImmature->setVisible(showImmature);
     ui->labelImmatureText->setVisible(showImmature);
+=======
+    ui->labelBalance->setText(FloripacoinUnits::formatWithUnit(unit, balance));
+    ui->labelUnconfirmed->setText(FloripacoinUnits::formatWithUnit(unit, unconfirmedBalance));
+    ui->labelImmature->setText(FloripacoinUnits::formatWithUnit(unit, immatureBalance));
+
+    // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
+    // for the non-mining users
+//    bool showImmature = immatureBalance != 0;
+//    ui->labelImmature->setVisible(showImmature);
+//    ui->labelImmatureText->setVisible(showImmature);
+}
+
+void OverviewPage::setNumTransactions(int count)
+{
+//    ui->labelNumTransactions->setText(QLocale::system().toString(count));
+>>>>>>> upstream/master
 }
 
 void OverviewPage::setClientModel(ClientModel *model)
@@ -164,6 +216,14 @@ void OverviewPage::setWalletModel(WalletModel *model)
     this->walletModel = model;
     if(model && model->getOptionsModel())
     {
+<<<<<<< HEAD
+=======
+        // Font header
+        g_fontHeader = font();
+        g_fontHeader.setPointSize(10);
+        g_fontHeader.setBold(true);
+
+>>>>>>> upstream/master
         // Set up transaction list
         filter = new TransactionFilterProxy();
         filter->setSourceModel(model->getTransactionTableModel());
@@ -172,8 +232,21 @@ void OverviewPage::setWalletModel(WalletModel *model)
         filter->setSortRole(Qt::EditRole);
         filter->sort(TransactionTableModel::Status, Qt::DescendingOrder);
 
+<<<<<<< HEAD
         ui->listTransactions->setModel(filter);
         ui->listTransactions->setModelColumn(TransactionTableModel::ToAddress);
+=======
+        ui->tableLastTransactionView->setModel(filter);
+
+        ui->tableLastTransactionView->setColumnWidth(0, 26);
+        ui->tableLastTransactionView->setColumnWidth(1, 126);
+        ui->tableLastTransactionView->setColumnWidth(2, 126);
+        ui->tableLastTransactionView->horizontalHeader()->setStretchLastSection(false);
+        ui->tableLastTransactionView->horizontalHeader()->setResizeMode(3, QHeaderView::Stretch);
+        ui->tableLastTransactionView->horizontalHeader()->setResizeMode(4, QHeaderView::ResizeToContents);
+
+//        ui->listTransactions->setModelColumn(TransactionTableModel::ToAddress);
+>>>>>>> upstream/master
 
         // Keep up to date with wallet
         setBalance(model->getBalance(), model->getUnconfirmedBalance(), model->getImmatureBalance());
@@ -182,7 +255,11 @@ void OverviewPage::setWalletModel(WalletModel *model)
         connect(model->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
     }
 
+<<<<<<< HEAD
     // update the display unit, to not use the default ("BTC")
+=======
+    // update the display unit, to not use the default ("MEC")
+>>>>>>> upstream/master
     updateDisplayUnit();
 }
 
@@ -196,18 +273,32 @@ void OverviewPage::updateDisplayUnit()
         // Update txdelegate->unit with the current unit
         txdelegate->unit = walletModel->getOptionsModel()->getDisplayUnit();
 
+<<<<<<< HEAD
         ui->listTransactions->update();
+=======
+        ui->tableLastTransactionView->update();
+>>>>>>> upstream/master
     }
 }
 
 void OverviewPage::updateAlerts(const QString &warnings)
 {
+<<<<<<< HEAD
     this->ui->labelAlerts->setVisible(!warnings.isEmpty());
     this->ui->labelAlerts->setText(warnings);
+=======
+//    this->ui->labelAlerts->setVisible(!warnings.isEmpty());
+//    this->ui->labelAlerts->setText(warnings);
+>>>>>>> upstream/master
 }
 
 void OverviewPage::showOutOfSyncWarning(bool fShow)
 {
+<<<<<<< HEAD
     ui->labelWalletStatus->setVisible(fShow);
     ui->labelTransactionsStatus->setVisible(fShow);
+=======
+//    ui->labelWalletStatus->setVisible(fShow);
+//    ui->labelTransactionsStatus->setVisible(fShow);
+>>>>>>> upstream/master
 }

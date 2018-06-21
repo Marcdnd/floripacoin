@@ -1,5 +1,6 @@
 #ifndef SCRYPT_H
 #define SCRYPT_H
+<<<<<<< HEAD
 #include <stdlib.h>
 #include <stdint.h>
 
@@ -42,4 +43,20 @@ static inline void le32enc(void *pp, uint32_t x)
         p[2] = (x >> 16) & 0xff;
         p[3] = (x >> 24) & 0xff;
 }
+=======
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+const int SCRYPT_SCRATCHPAD_SIZE = 131072 + 63;
+
+void scrypt_1024_1_1_256_sp(const char *input, char *output, char *scratchpad);
+void scrypt_1024_1_1_256(const char *input, char *output);
+
+#ifdef __cplusplus
+}
+#endif
+
+>>>>>>> upstream/master
 #endif

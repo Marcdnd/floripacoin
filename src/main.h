@@ -1,5 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
+<<<<<<< HEAD
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITCOIN_MAIN_H
@@ -10,6 +11,24 @@
 #include "net.h"
 #include "script.h"
 #include "scrypt.h"
+=======
+// Copyright (c) 2011-2012 Tenebrix, Litecoin developers
+// Copyright (c) 2012-2013 Freicoin developers
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+// Distributed under the MIT/X11 software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+#ifndef FLORIPACOIN_MAIN_H
+#define FLORIPACOIN_MAIN_H
+
+#include "bignum.h"
+//#include "sync.h" // -Scrypt
+#include "net.h"
+#include "key.h" // +Scrypt
+#include "script.h"
+#include "db.h" // +Scrypt
+#include "scrypt.h" // +Scrypt
+>>>>>>> upstream/master
 
 #include <list>
 
@@ -26,6 +45,7 @@ class CNode;
 struct CBlockIndexWorkComparator;
 
 /** The maximum allowed size for a serialized block, in bytes (network rule) */
+<<<<<<< HEAD
 static const unsigned int MAX_BLOCK_SIZE = 1000000;                      // 1000KB block hard limit
 /** Obsolete: maximum size for mined blocks */
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/4;         // 250KB  block soft limit
@@ -35,6 +55,13 @@ static const unsigned int DEFAULT_BLOCK_MAX_SIZE = 250000;
 static const unsigned int DEFAULT_BLOCK_PRIORITY_SIZE = 17000;
 /** The maximum size for transactions we're willing to relay/mine */
 static const unsigned int MAX_STANDARD_TX_SIZE = 100000;
+=======
+static const unsigned int MAX_BLOCK_SIZE = 1000000;
+/** The maximum size for mined blocks */
+static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;
+/** The maximum size for transactions we're willing to relay/mine */
+static const unsigned int MAX_STANDARD_TX_SIZE = MAX_BLOCK_SIZE_GEN/5;
+>>>>>>> upstream/master
 /** The maximum allowed number of signature check operations in a block (network rule) */
 static const unsigned int MAX_BLOCK_SIGOPS = MAX_BLOCK_SIZE/50;
 /** The maximum number of orphan transactions kept in memory */
@@ -49,12 +76,17 @@ static const unsigned int BLOCKFILE_CHUNK_SIZE = 0x1000000; // 16 MiB
 static const unsigned int UNDOFILE_CHUNK_SIZE = 0x100000; // 1 MiB
 /** Fake height value used in CCoins to signify they are only in the memory pool (since 0.8) */
 static const unsigned int MEMPOOL_HEIGHT = 0x7FFFFFFF;
+<<<<<<< HEAD
 /** Dust Soft Limit, allowed with additional fee per output */
 static const int64 DUST_SOFT_LIMIT = 100000; // 0.001 FLN
 /** Dust Hard Limit, ignored as wallet inputs (mininput default) */
 static const int64 DUST_HARD_LIMIT = 1000;   // 0.00001 FLN mininput
 /** No amount larger than this (in satoshi) is valid */
 static const int64 MAX_MONEY = 17885568750 * COIN;
+=======
+/** No amount larger than this (in satoshi) is valid */
+static const int64 MAX_MONEY = (17885568750) * COIN;
+>>>>>>> upstream/master
 inline bool MoneyRange(int64 nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
 static const int COINBASE_MATURITY = 100;
@@ -62,6 +94,13 @@ static const int COINBASE_MATURITY = 100;
 static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20 1985 UTC
 /** Maximum number of script-checking threads allowed */
 static const int MAX_SCRIPTCHECK_THREADS = 16;
+<<<<<<< HEAD
+=======
+
+static const int DIFF_FILTER_THRESHOLD_TESTNET =  8192;
+static const int DIFF_FILTER_THRESHOLD         = 8192;
+
+>>>>>>> upstream/master
 #ifdef USE_UPNP
 static const int fHaveUPnP = true;
 #else
@@ -78,6 +117,10 @@ extern CScript COINBASE_FLAGS;
 
 extern CCriticalSection cs_main;
 extern std::map<uint256, CBlockIndex*> mapBlockIndex;
+<<<<<<< HEAD
+=======
+extern std::vector<CBlockIndex*> vBlockIndexByHeight;
+>>>>>>> upstream/master
 extern std::set<CBlockIndex*, CBlockIndexWorkComparator> setBlockIndexValid;
 extern uint256 hashGenesisBlock;
 extern CBlockIndex* pindexGenesisBlock;
@@ -105,7 +148,10 @@ extern unsigned int nCoinCacheSize;
 
 // Settings
 extern int64 nTransactionFee;
+<<<<<<< HEAD
 extern int64 nMinimumInputValue;
+=======
+>>>>>>> upstream/master
 
 // Minimum disk space required - used in CheckDiskSpace()
 static const uint64 nMinDiskSpace = 52428800;
@@ -147,7 +193,11 @@ bool LoadBlockIndex();
 /** Unload database information */
 void UnloadBlockIndex();
 /** Verify consistency of the block and coin databases */
+<<<<<<< HEAD
 bool VerifyDB(int nCheckLevel, int nCheckDepth);
+=======
+bool VerifyDB();
+>>>>>>> upstream/master
 /** Print the loaded block tree */
 void PrintBlockTree();
 /** Find a block by height in the currently-connected chain */
@@ -159,10 +209,16 @@ bool SendMessages(CNode* pto, bool fSendTrickle);
 /** Run an instance of the script checking thread */
 void ThreadScriptCheck();
 /** Run the miner threads */
+<<<<<<< HEAD
 void GenerateBitcoins(bool fGenerate, CWallet* pwallet);
 /** Generate a new block, without valid proof-of-work */
 CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn);
 CBlockTemplate* CreateNewBlockWithKey(CReserveKey& reservekey);
+=======
+void GenerateFloripacoins(bool fGenerate, CWallet* pwallet);
+/** Generate a new block, without valid proof-of-work */
+CBlockTemplate* CreateNewBlock(CReserveKey& reservekey);
+>>>>>>> upstream/master
 /** Modify the extranonce in a block */
 void IncrementExtraNonce(CBlock* pblock, CBlockIndex* pindexPrev, unsigned int& nExtraNonce);
 /** Do mining precalculation */
@@ -570,12 +626,16 @@ public:
     /** Check for standard transaction types
         @return True if all outputs (scriptPubKeys) use only standard transaction forms
     */
+<<<<<<< HEAD
     bool IsStandard(std::string& strReason) const;
     bool IsStandard() const
     {
         std::string strReason;
         return IsStandard(strReason);
     }
+=======
+    bool IsStandard() const;
+>>>>>>> upstream/master
 
     /** Check for standard transaction types
         @param[in] mapInputs	Map of previous transactions that have outputs we're spending
@@ -595,7 +655,11 @@ public:
      */
     unsigned int GetP2SHSigOpCount(CCoinsViewCache& mapInputs) const;
 
+<<<<<<< HEAD
     /** Amount of bitcoins spent by this transaction.
+=======
+    /** Amount of floripacoins spent by this transaction.
+>>>>>>> upstream/master
         @return sum of all outputs (note: does not include fees)
      */
     int64 GetValueOut() const
@@ -610,7 +674,11 @@ public:
         return nValueOut;
     }
 
+<<<<<<< HEAD
     /** Amount of bitcoins coming in to this transaction
+=======
+    /** Amount of floripacoins coming in to this transaction
+>>>>>>> upstream/master
         Note that lightweight clients may not know anything besides the hash of previous transactions,
         so may not be able to calculate this.
 
@@ -626,9 +694,12 @@ public:
         return dPriority > COIN * 2009 / 250;
     }
 
+<<<<<<< HEAD
 // Apply the effects of this transaction on the UTXO set represented by view
 void UpdateCoins(const CTransaction& tx, CValidationState &state, CCoinsViewCache &inputs, CTxUndo &txundo, int nHeight, const uint256 &txhash);
 
+=======
+>>>>>>> upstream/master
     int64 GetMinFee(unsigned int nBlockSize=1, bool fAllowFree=true, enum GetMinFee_mode mode=GMF_BLOCK) const;
 
     friend bool operator==(const CTransaction& a, const CTransaction& b)
@@ -867,7 +938,11 @@ public:
  *    - code = 4 (vout[1] is not spent, and 0 non-zero bytes of bitvector follow)
  *    - unspentness bitvector: as 0 non-zero bytes follow, it has length 0
  *    - vout[1]: 835800816115944e077fe7c803cfa57f29b36bf87c1d35
+<<<<<<< HEAD
  *               * 8358: compact amount representation for 60000000000 (600 BTC)
+=======
+ *               * 8358: compact amount representation for 60000000000 (600 MEC)
+>>>>>>> upstream/master
  *               * 00: special txout type pay-to-pubkey-hash
  *               * 816115944e077fe7c803cfa57f29b36bf87c1d35: address uint160
  *    - height = 203998
@@ -883,11 +958,19 @@ public:
  *                2 (1, +1 because both bit 2 and bit 4 are unset) non-zero bitvector bytes follow)
  *  - unspentness bitvector: bits 2 (0x04) and 14 (0x4000) are set, so vout[2+2] and vout[14+2] are unspent
  *  - vout[4]: 86ef97d5790061b01caab50f1b8e9c50a5057eb43c2d9563a4ee
+<<<<<<< HEAD
  *             * 86ef97d579: compact amount representation for 234925952 (2.35 BTC)
  *             * 00: special txout type pay-to-pubkey-hash
  *             * 61b01caab50f1b8e9c50a5057eb43c2d9563a4ee: address uint160
  *  - vout[16]: bbd123008c988f1a4a4de2161e0f50aac7f17e7f9555caa4
  *              * bbd123: compact amount representation for 110397 (0.001 BTC)
+=======
+ *             * 86ef97d579: compact amount representation for 234925952 (2.35 MEC)
+ *             * 00: special txout type pay-to-pubkey-hash
+ *             * 61b01caab50f1b8e9c50a5057eb43c2d9563a4ee: address uint160
+ *  - vout[16]: bbd123008c988f1a4a4de2161e0f50aac7f17e7f9555caa4
+ *              * bbd123: compact amount representation for 110397 (0.001 MEC)
+>>>>>>> upstream/master
  *              * 00: special txout type pay-to-pubkey-hash
  *              * 8c988f1a4a4de2161e0f50aac7f17e7f9555caa4: address uint160
  *  - height = 120891
@@ -1321,7 +1404,19 @@ public:
     {
         return Hash(BEGIN(nVersion), END(nNonce));
     }
+<<<<<<< HEAD
 
+=======
+	
+	// +Scrypt
+    uint256 GetPoWHash() const
+    {
+        uint256 thash;
+        scrypt_1024_1_1_256(BEGIN(nVersion), BEGIN(thash));
+        return thash;
+    }
+	
+>>>>>>> upstream/master
     int64 GetBlockTime() const
     {
         return (int64)nTime;
@@ -1363,6 +1458,7 @@ public:
         vMerkleTree.clear();
     }
 
+<<<<<<< HEAD
     uint256 GetPoWHash() const
     {
         uint256 thash;
@@ -1370,6 +1466,8 @@ public:
         return thash;
     }
 
+=======
+>>>>>>> upstream/master
     CBlockHeader GetBlockHeader() const
     {
         CBlockHeader block;
@@ -1482,7 +1580,12 @@ public:
         }
 
         // Check the header
+<<<<<<< HEAD
         if (!CheckProofOfWork(GetPoWHash(), nBits))
+=======
+        //if (!CheckProofOfWork(GetHash(), nBits)) // -Scrypt
+		if (!CheckProofOfWork(GetPoWHash(), nBits)) // +Scrypt
+>>>>>>> upstream/master
             return error("CBlock::ReadFromDisk() : errors in block header");
 
         return true;
@@ -1492,15 +1595,34 @@ public:
 
     void print() const
     {
+<<<<<<< HEAD
         printf("CBlock(hash=%s, input=%s, PoW=%s, ver=%d, hashPrevBlock=%s, hashMerkleRoot=%s, nTime=%u, nBits=%08x, nNonce=%u, vtx=%"PRIszu")\n",
             GetHash().ToString().c_str(),
             HexStr(BEGIN(nVersion),BEGIN(nVersion)+80,false).c_str(),
             GetPoWHash().ToString().c_str(),
+=======
+		/*
+        printf("CBlock(hash=%s, ver=%d, hashPrevBlock=%s, hashMerkleRoot=%s, nTime=%u, nBits=%08x, nNonce=%u, vtx=%"PRIszu")\n",
+            GetHash().ToString().c_str(),
             nVersion,
             hashPrevBlock.ToString().c_str(),
             hashMerkleRoot.ToString().c_str(),
             nTime, nBits, nNonce,
+            vtx.size());*/ // -Scrypt
+        printf("CBlock(hash=%s, PoW=%s, ver=%d, hashPrevBlock=%s, hashMerkleRoot=%s, nTime=%u, nBits=%08x, nNonce=%u, vtx=%"PRIszu")\n",
+            GetHash().ToString().c_str(),
+			GetPoWHash().ToString().substr(0,20).c_str(),
+>>>>>>> upstream/master
+            nVersion,
+            hashPrevBlock.ToString().c_str(),
+            hashMerkleRoot.ToString().c_str(),
+            nTime, nBits, nNonce,
+<<<<<<< HEAD
             vtx.size());
+=======
+            vtx.size()); // +Scrypt
+			
+>>>>>>> upstream/master
         for (unsigned int i = 0; i < vtx.size(); i++)
         {
             printf("  ");
@@ -1617,10 +1739,15 @@ enum BlockStatus {
 
 /** The block chain is a tree shaped structure starting with the
  * genesis block at the root, with each block potentially having multiple
+<<<<<<< HEAD
  * candidates to be the next block.  pprev and pnext link a path through the
  * main/longest chain.  A blockindex may have multiple pprev pointing back
  * to it, but pnext will only point forward to the longest branch, or will
  * be null if the block is not part of the longest chain.
+=======
+ * candidates to be the next block. A blockindex may have multiple pprev pointing
+ * to it, but at most one of them can be part of the currently active branch.
+>>>>>>> upstream/master
  */
 class CBlockIndex
 {
@@ -1631,9 +1758,12 @@ public:
     // pointer to the index of the predecessor of this block
     CBlockIndex* pprev;
 
+<<<<<<< HEAD
     // (memory only) pointer to the index of the *active* successor of this block
     CBlockIndex* pnext;
 
+=======
+>>>>>>> upstream/master
     // height of the entry in the chain. The genesis block has height 0
     int nHeight;
 
@@ -1671,7 +1801,10 @@ public:
     {
         phashBlock = NULL;
         pprev = NULL;
+<<<<<<< HEAD
         pnext = NULL;
+=======
+>>>>>>> upstream/master
         nHeight = 0;
         nFile = 0;
         nDataPos = 0;
@@ -1692,7 +1825,10 @@ public:
     {
         phashBlock = NULL;
         pprev = NULL;
+<<<<<<< HEAD
         pnext = NULL;
+=======
+>>>>>>> upstream/master
         nHeight = 0;
         nFile = 0;
         nDataPos = 0;
@@ -1761,14 +1897,27 @@ public:
 
     bool IsInMainChain() const
     {
+<<<<<<< HEAD
         return (pnext || this == pindexBest);
+=======
+        return nHeight < (int)vBlockIndexByHeight.size() && vBlockIndexByHeight[nHeight] == this;
+    }
+
+    CBlockIndex *GetNextInMainChain() const {
+        return nHeight+1 >= (int)vBlockIndexByHeight.size() ? NULL : vBlockIndexByHeight[nHeight+1];
+>>>>>>> upstream/master
     }
 
     bool CheckIndex() const
     {
+<<<<<<< HEAD
         /** Scrypt is used for block proof-of-work, but for purposes of performance the index internally uses sha256.
          *  This check was considered unneccessary given the other safeguards like the genesis and checkpoints. */
         return true; // return CheckProofOfWork(GetBlockHash(), nBits);
+=======
+        //return CheckProofOfWork(GetBlockHash(), nBits); // -Scrypt
+		return true; // +Scrypt
+>>>>>>> upstream/master
     }
 
     enum { nMedianTimeSpan=11 };
@@ -1792,9 +1941,15 @@ public:
         const CBlockIndex* pindex = this;
         for (int i = 0; i < nMedianTimeSpan/2; i++)
         {
+<<<<<<< HEAD
             if (!pindex->pnext)
                 return GetBlockTime();
             pindex = pindex->pnext;
+=======
+            if (!pindex->GetNextInMainChain())
+                return GetBlockTime();
+            pindex = pindex->GetNextInMainChain();
+>>>>>>> upstream/master
         }
         return pindex->GetMedianTimePast();
     }
@@ -1809,7 +1964,11 @@ public:
     std::string ToString() const
     {
         return strprintf("CBlockIndex(pprev=%p, pnext=%p, nHeight=%d, merkle=%s, hashBlock=%s)",
+<<<<<<< HEAD
             pprev, pnext, nHeight,
+=======
+            pprev, GetNextInMainChain(), nHeight,
+>>>>>>> upstream/master
             hashMerkleRoot.ToString().c_str(),
             GetBlockHash().ToString().c_str());
     }
@@ -1911,15 +2070,24 @@ private:
         MODE_ERROR,   // run-time error
     } mode;
     int nDoS;
+<<<<<<< HEAD
     bool corruptionPossible;
 public:
     CValidationState() : mode(MODE_VALID), nDoS(0), corruptionPossible(false) {}
     bool DoS(int level, bool ret = false, bool corruptionIn = false) {
+=======
+public:
+    CValidationState() : mode(MODE_VALID), nDoS(0) {}
+    bool DoS(int level, bool ret = false) {
+>>>>>>> upstream/master
         if (mode == MODE_ERROR)
             return ret;
         nDoS += level;
         mode = MODE_INVALID;
+<<<<<<< HEAD
         corruptionPossible = corruptionIn;
+=======
+>>>>>>> upstream/master
         return ret;
     }
     bool Invalid(bool ret = false) {
@@ -1949,9 +2117,12 @@ public:
         }
         return false;
     }
+<<<<<<< HEAD
     bool CorruptionPossible() {
         return corruptionPossible;
     }
+=======
+>>>>>>> upstream/master
 };
 
 
@@ -2102,7 +2273,11 @@ public:
     std::map<COutPoint, CInPoint> mapNextTx;
 
     bool accept(CValidationState &state, CTransaction &tx, bool fCheckInputs, bool fLimitFree, bool* pfMissingInputs);
+<<<<<<< HEAD
     bool addUnchecked(const uint256& hash, const CTransaction &tx);
+=======
+    bool addUnchecked(const uint256& hash, CTransaction &tx);
+>>>>>>> upstream/master
     bool remove(const CTransaction &tx, bool fRecursive = false);
     bool removeConflicts(const CTransaction &tx);
     void clear();
@@ -2249,9 +2424,12 @@ struct CBlockTemplate
     std::vector<int64_t> vTxSigOps;
 };
 
+<<<<<<< HEAD
 #if defined(_M_IX86) || defined(__i386__) || defined(__i386) || defined(_M_X64) || defined(__x86_64__) || defined(_M_AMD64)
 extern unsigned int cpuid_edx;
 #endif
+=======
+>>>>>>> upstream/master
 
 
 

@@ -19,8 +19,13 @@ using namespace std;
 map<uint256, CAlert> mapAlerts;
 CCriticalSection cs_mapAlerts;
 
+<<<<<<< HEAD
 static const char* pszMainKey = "040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9";
 static const char* pszTestKey = "04302390343f91cc401d56d68b123028bf52e5fca1939df127f63c6467cdf9c8e2c14b61104cf817d0b780da337893ecc4aaff1309e536162dabbdb45200ca2b0a";
+=======
+static const char* pszMainKey = "04f027d112e7868ea14fb8d528f5ec53e87a966e143fa817cef5dad1236ddd30b3d816917865d0bc5fbd3c271085891ef3890a3a42437ac30c494092de4ad98979";
+static const char* pszTestKey = "04a42a172bb8b39332be838050935fd969870c5f8fb05a4f44e15568f4506364e7819e89393be366b7bf6cf67905d98e81562516158b3ee08b02fc362da84b6f0f";
+>>>>>>> upstream/master
 
 void CUnsignedAlert::SetNull()
 {
@@ -241,7 +246,19 @@ bool CAlert::ProcessAlert(bool fThread)
                 // be safe we first strip anything not in safeChars, then add single quotes around
                 // the whole string before passing it to the shell:
                 std::string singleQuote("'");
+<<<<<<< HEAD
                 std::string safeStatus = SanitizeString(strStatusBar);
+=======
+                // safeChars chosen to allow simple messages/URLs/email addresses, but avoid anything
+                // even possibly remotely dangerous like & or >
+                std::string safeChars("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890 .,;_/:?@");
+                std::string safeStatus;
+                for (std::string::size_type i = 0; i < strStatusBar.size(); i++)
+                {
+                    if (safeChars.find(strStatusBar[i]) != std::string::npos)
+                        safeStatus.push_back(strStatusBar[i]);
+                }
+>>>>>>> upstream/master
                 safeStatus = singleQuote+safeStatus+singleQuote;
                 boost::replace_all(strCmd, "%s", safeStatus);
 

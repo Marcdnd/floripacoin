@@ -1,4 +1,9 @@
 // Copyright (c) 2009-2012 The Bitcoin developers
+<<<<<<< HEAD
+=======
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+>>>>>>> upstream/master
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -155,8 +160,12 @@ public:
         BN_clear_free(&bn);
     }
 
+<<<<<<< HEAD
     void GetPrivKey(CPrivKey &privkey, bool fCompressed) {
         EC_KEY_set_conv_form(pkey, fCompressed ? POINT_CONVERSION_COMPRESSED : POINT_CONVERSION_UNCOMPRESSED);
+=======
+    void GetPrivKey(CPrivKey &privkey) {
+>>>>>>> upstream/master
         int nSize = i2d_ECPrivateKey(pkey, NULL);
         assert(nSize);
         privkey.resize(nSize);
@@ -305,7 +314,11 @@ CPrivKey CKey::GetPrivKey() const {
     CECKey key;
     key.SetSecretBytes(vch);
     CPrivKey privkey;
+<<<<<<< HEAD
     key.GetPrivKey(privkey, fCompressed);
+=======
+    key.GetPrivKey(privkey);
+>>>>>>> upstream/master
     return privkey;
 }
 

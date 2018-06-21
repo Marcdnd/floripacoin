@@ -5,14 +5,20 @@
 #include "db/db_iter.h"
 
 #include "db/filename.h"
+<<<<<<< HEAD
 #include "db/db_impl.h"
+=======
+>>>>>>> upstream/master
 #include "db/dbformat.h"
 #include "leveldb/env.h"
 #include "leveldb/iterator.h"
 #include "port/port.h"
 #include "util/logging.h"
 #include "util/mutexlock.h"
+<<<<<<< HEAD
 #include "util/random.h"
+=======
+>>>>>>> upstream/master
 
 namespace leveldb {
 
@@ -48,16 +54,27 @@ class DBIter: public Iterator {
     kReverse
   };
 
+<<<<<<< HEAD
   DBIter(DBImpl* db, const Comparator* cmp, Iterator* iter, SequenceNumber s,
          uint32_t seed)
       : db_(db),
+=======
+  DBIter(const std::string* dbname, Env* env,
+         const Comparator* cmp, Iterator* iter, SequenceNumber s)
+      : dbname_(dbname),
+        env_(env),
+>>>>>>> upstream/master
         user_comparator_(cmp),
         iter_(iter),
         sequence_(s),
         direction_(kForward),
+<<<<<<< HEAD
         valid_(false),
         rnd_(seed),
         bytes_counter_(RandomPeriod()) {
+=======
+        valid_(false) {
+>>>>>>> upstream/master
   }
   virtual ~DBIter() {
     delete iter_;
@@ -103,12 +120,17 @@ class DBIter: public Iterator {
     }
   }
 
+<<<<<<< HEAD
   // Pick next gap with average value of config::kReadBytesPeriod.
   ssize_t RandomPeriod() {
     return rnd_.Uniform(2*config::kReadBytesPeriod);
   }
 
   DBImpl* db_;
+=======
+  const std::string* const dbname_;
+  Env* const env_;
+>>>>>>> upstream/master
   const Comparator* const user_comparator_;
   Iterator* const iter_;
   SequenceNumber const sequence_;
@@ -119,15 +141,19 @@ class DBIter: public Iterator {
   Direction direction_;
   bool valid_;
 
+<<<<<<< HEAD
   Random rnd_;
   ssize_t bytes_counter_;
 
+=======
+>>>>>>> upstream/master
   // No copying allowed
   DBIter(const DBIter&);
   void operator=(const DBIter&);
 };
 
 inline bool DBIter::ParseKey(ParsedInternalKey* ikey) {
+<<<<<<< HEAD
   Slice k = iter_->key();
   ssize_t n = k.size() + iter_->value().size();
   bytes_counter_ -= n;
@@ -136,6 +162,9 @@ inline bool DBIter::ParseKey(ParsedInternalKey* ikey) {
     db_->RecordReadSample(k);
   }
   if (!ParseInternalKey(k, ikey)) {
+=======
+  if (!ParseInternalKey(iter_->key(), ikey)) {
+>>>>>>> upstream/master
     status_ = Status::Corruption("corrupted internal key in DBIter");
     return false;
   } else {
@@ -305,12 +334,21 @@ void DBIter::SeekToLast() {
 }  // anonymous namespace
 
 Iterator* NewDBIterator(
+<<<<<<< HEAD
     DBImpl* db,
     const Comparator* user_key_comparator,
     Iterator* internal_iter,
     SequenceNumber sequence,
     uint32_t seed) {
   return new DBIter(db, user_key_comparator, internal_iter, sequence, seed);
+=======
+    const std::string* dbname,
+    Env* env,
+    const Comparator* user_key_comparator,
+    Iterator* internal_iter,
+    const SequenceNumber& sequence) {
+  return new DBIter(dbname, env, user_key_comparator, internal_iter, sequence);
+>>>>>>> upstream/master
 }
 
 }  // namespace leveldb

@@ -1,4 +1,9 @@
 Copyright (c) 2009-2013 Bitcoin Developers
+<<<<<<< HEAD
+=======
+Copyright (c) 2013-2079 Dr. Kimoto Chan
+Copyright (c) 2013-2079 The Floripacoin developers
+>>>>>>> upstream/master
 
 Distributed under the MIT/X11 software license, see the accompanying
 file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -71,6 +76,15 @@ for other Ubuntu & Debian:
 
 	sudo apt-get install libdb4.8-dev
 	sudo apt-get install libdb4.8++-dev
+<<<<<<< HEAD
+=======
+	or
+	sudo apt-get install libdb5.1-dev
+	sudo apt-get install libdb5.1++-dev
+	
+	then
+	
+>>>>>>> upstream/master
 	sudo apt-get install libboost1.37-dev
  (If using Boost 1.37, append -mt to the boost libraries in the makefile)
 
@@ -79,9 +93,30 @@ Optional:
 	sudo apt-get install libminiupnpc-dev (see USE_UPNP compile flag)
 
 
+<<<<<<< HEAD
 Notes
 -----
 The release is built with GCC and then "strip bitcoind" to strip the debug
+=======
+Dependency Build Instructions: Gentoo
+-------------------------------------
+
+Note: If you just want to install floripacoind on Gentoo, you can add the Floripacoin overlay and use your package manager:
+
+	layman -a floripacoin && emerge floripacoind
+	emerge -av1 --noreplace boost glib openssl sys-libs/db:4.8
+
+Take the following steps to build (no UPnP support):
+
+	cd ${FLORIPACOIN_DIR}/src
+	make -f makefile.unix USE_UPNP= USE_IPV6=1 BDB_INCLUDE_PATH='/usr/include/db4.8'
+	strip floripacoind
+
+
+Notes
+-----
+The release is built with GCC and then "strip floripacoind" to strip the debug
+>>>>>>> upstream/master
 symbols, which reduces the executable size by about 90%.
 
 
@@ -127,7 +162,12 @@ exploit even if a vulnerability is found, you can take the following measures:
     such as: "relocation R_X86_64_32 against `......' can not be used when making a shared object;"
 
     To build with PIE, use:
+<<<<<<< HEAD
     make -f makefile.unix ... -e PIE=1
+=======
+
+    	make -f makefile.unix ... -e PIE=1
+>>>>>>> upstream/master
 
     To test that you have built PIE executable, install scanelf, part of paxutils, and use:
 
@@ -139,7 +179,11 @@ exploit even if a vulnerability is found, you can take the following measures:
 
 * Non-executable Stack
     If the stack is executable then trivial stack based buffer overflow exploits are possible if
+<<<<<<< HEAD
     vulnerable buffers are found. By default, bitcoin should be built with a non-executable stack
+=======
+    vulnerable buffers are found. By default, floripacoin should be built with a non-executable stack
+>>>>>>> upstream/master
     but if one of the libraries it uses asks for an executable stack or someone makes a mistake
     and uses a compiler extension which requires an executable stack, it will silently build an
     executable without the non-executable stack protection.

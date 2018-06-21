@@ -6,4 +6,8 @@ implementation of Floripacoin.
 
 See doc/build-*.txt for instructions on building floripacoind,
 the intended-for-services, no-graphical-interface, reference
+<<<<<<< HEAD
 implementation of Floripacoin.
+=======
+implementation of Floripacoin.
+>>>>>>> upstream/master

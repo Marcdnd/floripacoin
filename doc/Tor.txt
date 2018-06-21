@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 TOR SUPPORT IN BITCOIN
+=======
+TOR SUPPORT IN FLORIPACOIN
+>>>>>>> upstream/master
 ======================
 
 It is possible to run Floripacoin as a Tor hidden service, and connect to such services.
@@ -39,7 +43,11 @@ outgoing connections be anonimized, but more is possible.
 
 In a typical situation, this suffices to run behind a Tor proxy:
 
+<<<<<<< HEAD
   ./floripacoind -proxy=127.0.0.1:9050
+=======
+  ./floripacoin -proxy=127.0.0.1:9050
+>>>>>>> upstream/master
 
 
 2. Run a floripacoin hidden server
@@ -50,10 +58,17 @@ reachable from the Tor network. Add these lines to your /etc/tor/torrc (or equiv
 config file):
 
   HiddenServiceDir /var/lib/tor/floripacoin-service/
+<<<<<<< HEAD
   HiddenServicePort 9333 127.0.0.1:9333
 
 The directory can be different of course, but (both) port numbers should be equal to
 your floripacoind's P2P listen port (9333 by default).
+=======
+  HiddenServicePort 7951 127.0.0.1:7951
+
+The directory can be different of course, but (both) port numbers should be equal to
+your floripacoind's P2P listen port (7951 by default).
+>>>>>>> upstream/master
 
 -externalip=X   You can tell floripacoin about its publicly reachable address using
                 this option, and this can be a .onion address. Given the above
@@ -75,7 +90,11 @@ your floripacoind's P2P listen port (9333 by default).
 
 In a typical situation, where you're only reachable via Tor, this should suffice:
 
+<<<<<<< HEAD
   ./floripacoind -proxy=127.0.0.1:9050 -externalip=57qr3yd1nyntf5k.onion -listen
+=======
+  ./floripacoind -proxy=127.0.0.1:9050 -externalip=youronionaddress.onion -listen
+>>>>>>> upstream/master
 
 (obviously, replace the Onion address with your own). If you don't care too much
 about hiding your node, and want to be reachable on IPv4 as well, additionally
@@ -83,10 +102,18 @@ specify:
 
   ./floripacoind ... -discover
 
+<<<<<<< HEAD
 and open port 9333 on your firewall (or use -upnp).
+=======
+and open port 7951 on your firewall (or use -upnp).
+>>>>>>> upstream/master
 
 If you only want to use Tor to reach onion addresses, but not use it as a proxy
 for normal IPv4/IPv6 communication, use:
 
+<<<<<<< HEAD
   ./floripacoind -tor=127.0.0.1:9050 -externalip=57qr3yd1nyntf5k.onion -discover
+=======
+  ./floripacoin -tor=127.0.0.1:9050 -externalip=youronionaddress.onion -discover
+>>>>>>> upstream/master
 

@@ -1,9 +1,18 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
+<<<<<<< HEAD
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITCOIN_WALLETDB_H
 #define BITCOIN_WALLETDB_H
+=======
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+// Distributed under the MIT/X11 software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+#ifndef FLORIPACOIN_WALLETDB_H
+#define FLORIPACOIN_WALLETDB_H
+>>>>>>> upstream/master
 
 #include "db.h"
 #include "base58.h"
@@ -160,4 +169,8 @@ public:
     static bool Recover(CDBEnv& dbenv, std::string filename);
 };
 
+<<<<<<< HEAD
 #endif // BITCOIN_WALLETDB_H
+=======
+#endif // FLORIPACOIN_WALLETDB_H
+>>>>>>> upstream/master

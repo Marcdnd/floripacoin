@@ -13,7 +13,11 @@ def main():
     lines = sys.stdin.readlines()
 
     ips = []
+<<<<<<< HEAD
     pattern = re.compile(r"^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3}):9333")
+=======
+    pattern = re.compile(r"^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3}):7951")
+>>>>>>> upstream/master
     for line in lines:
         m = pattern.match(line)
         if m is None:

@@ -12,10 +12,15 @@ class CWalletTx;
 class TransactionDesc: public QObject
 {
     Q_OBJECT
+<<<<<<< HEAD
 
 public:
     static QString toHTML(CWallet *wallet, CWalletTx &wtx);
 
+=======
+public:
+    static QString toHTML(CWallet *wallet, CWalletTx &wtx);
+>>>>>>> upstream/master
 private:
     TransactionDesc() {}
 

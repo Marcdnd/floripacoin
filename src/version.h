@@ -1,8 +1,18 @@
 // Copyright (c) 2012 The Bitcoin developers
+<<<<<<< HEAD
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITCOIN_VERSION_H
 #define BITCOIN_VERSION_H
+=======
+// Copyright (c) 2013-2013 CopperLark developers
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+// Distributed under the MIT/X11 software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+#ifndef FLORIPACOIN_VERSION_H
+#define FLORIPACOIN_VERSION_H
+>>>>>>> upstream/master
 
 #include "clientversion.h"
 #include <string>
@@ -17,6 +27,15 @@ static const int CLIENT_VERSION =
                          +     100 * CLIENT_VERSION_REVISION
                          +       1 * CLIENT_VERSION_BUILD;
 
+<<<<<<< HEAD
+=======
+static const int MC_CLIENT_VERSION =
+                           1000000 * MC_CLIENT_VERSION_MAJOR
+                         +   10000 * MC_CLIENT_VERSION_MINOR
+                         +     100 * MC_CLIENT_VERSION_REVISION
+                         +       1 * MC_CLIENT_VERSION_BUILD;
+
+>>>>>>> upstream/master
 extern const std::string CLIENT_NAME;
 extern const std::string CLIENT_BUILD;
 extern const std::string CLIENT_DATE;
@@ -25,10 +44,17 @@ extern const std::string CLIENT_DATE;
 // network protocol versioning
 //
 
+<<<<<<< HEAD
 static const int PROTOCOL_VERSION = 70002;
 
 // intial proto version, to be increased after version/verack negotiation
 static const int INIT_PROTO_VERSION = 209;
+=======
+static const int PROTOCOL_VERSION = 70003;
+
+// earlier versions not supported as of Feb 2012, and are disconnected
+static const int MIN_PROTO_VERSION = 209;
+>>>>>>> upstream/master
 
 // disconnect from peers older than this proto version
 static const int MIN_PEER_PROTO_VERSION = 70002;

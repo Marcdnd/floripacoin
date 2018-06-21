@@ -1,8 +1,17 @@
 // Copyright (c) 2012 The Bitcoin developers
+<<<<<<< HEAD
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITCOIN_BLOOM_H
 #define BITCOIN_BLOOM_H
+=======
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+// Distributed under the MIT/X11 software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+#ifndef FLORIPACOIN_BLOOM_H
+#define FLORIPACOIN_BLOOM_H
+>>>>>>> upstream/master
 
 #include <vector>
 
@@ -42,8 +51,11 @@ class CBloomFilter
 {
 private:
     std::vector<unsigned char> vData;
+<<<<<<< HEAD
     bool isFull;
     bool isEmpty;
+=======
+>>>>>>> upstream/master
     unsigned int nHashFuncs;
     unsigned int nTweak;
     unsigned char nFlags;
@@ -59,7 +71,13 @@ public:
     // It should generally always be a random value (and is largely only exposed for unit testing)
     // nFlags should be one of the BLOOM_UPDATE_* enums (not _MASK)
     CBloomFilter(unsigned int nElements, double nFPRate, unsigned int nTweak, unsigned char nFlagsIn);
+<<<<<<< HEAD
     CBloomFilter() : isFull(true) {}
+=======
+    // Using a filter initialized with this results in undefined behavior
+    // Should only be used for deserialization
+    CBloomFilter() {}
+>>>>>>> upstream/master
 
     IMPLEMENT_SERIALIZE
     (
@@ -83,9 +101,15 @@ public:
 
     // Also adds any outputs which match the filter to the filter (to match their spending txes)
     bool IsRelevantAndUpdate(const CTransaction& tx, const uint256& hash);
+<<<<<<< HEAD
 
     // Checks for empty and full filters to avoid wasting cpu
     void UpdateEmptyFull();
 };
 
 #endif /* BITCOIN_BLOOM_H */
+=======
+};
+
+#endif /* FLORIPACOIN_BLOOM_H */
+>>>>>>> upstream/master

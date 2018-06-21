@@ -1,5 +1,8 @@
 #include "transactionfilterproxy.h"
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
 #include "transactiontablemodel.h"
 
 #include <QDateTime>

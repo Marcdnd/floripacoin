@@ -20,7 +20,11 @@ enum BlockSource {
     BLOCK_SOURCE_NETWORK
 };
 
+<<<<<<< HEAD
 /** Model for Bitcoin network client. */
+=======
+/** Model for Floripacoin network client. */
+>>>>>>> upstream/master
 class ClientModel : public QObject
 {
     Q_OBJECT
@@ -82,6 +86,10 @@ public slots:
     void updateTimer();
     void updateNumConnections(int numConnections);
     void updateAlert(const QString &hash, int status);
+<<<<<<< HEAD
+=======
+    void updateNewsMessage(const QString &hash, int status);
+>>>>>>> upstream/master
 };
 
 #endif // CLIENTMODEL_H

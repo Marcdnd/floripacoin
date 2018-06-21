@@ -106,8 +106,13 @@ BOOST_AUTO_TEST_CASE(base58_keys_valid_parse)
 {
     Array tests = read_json("base58_keys_valid.json");
     std::vector<unsigned char> result;
+<<<<<<< HEAD
     CBitcoinSecret secret;
     CBitcoinAddress addr;
+=======
+    CFloripacoinSecret secret;
+    CFloripacoinAddress addr;
+>>>>>>> upstream/master
     // Save global state
     bool fTestNet_stored = fTestNet;
 
@@ -130,7 +135,11 @@ BOOST_AUTO_TEST_CASE(base58_keys_valid_parse)
         {
             bool isCompressed = find_value(metadata, "isCompressed").get_bool();
             // Must be valid private key
+<<<<<<< HEAD
             // Note: CBitcoinSecret::SetString tests isValid, whereas CBitcoinAddress does not!
+=======
+            // Note: CFloripacoinSecret::SetString tests isValid, whereas CFloripacoinAddress does not!
+>>>>>>> upstream/master
             BOOST_CHECK_MESSAGE(secret.SetString(exp_base58string), "!SetString:"+ strTest);
             BOOST_CHECK_MESSAGE(secret.IsValid(), "!IsValid:" + strTest);
             CKey privkey = secret.GetKey();
@@ -189,7 +198,11 @@ BOOST_AUTO_TEST_CASE(base58_keys_valid_gen)
             CKey key;
             key.Set(exp_payload.begin(), exp_payload.end(), isCompressed);
             assert(key.IsValid());
+<<<<<<< HEAD
             CBitcoinSecret secret;
+=======
+            CFloripacoinSecret secret;
+>>>>>>> upstream/master
             secret.SetKey(key);
             BOOST_CHECK_MESSAGE(secret.ToString() == exp_base58string, "result mismatch: " + strTest);
         }
@@ -214,16 +227,27 @@ BOOST_AUTO_TEST_CASE(base58_keys_valid_gen)
                 BOOST_ERROR("Bad addrtype: " << strTest);
                 continue;
             }
+<<<<<<< HEAD
             CBitcoinAddress addrOut;
             BOOST_CHECK_MESSAGE(boost::apply_visitor(CBitcoinAddressVisitor(&addrOut), dest), "encode dest: " + strTest);
+=======
+            CFloripacoinAddress addrOut;
+            BOOST_CHECK_MESSAGE(boost::apply_visitor(CFloripacoinAddressVisitor(&addrOut), dest), "encode dest: " + strTest);
+>>>>>>> upstream/master
             BOOST_CHECK_MESSAGE(addrOut.ToString() == exp_base58string, "mismatch: " + strTest);
         }
     }
 
     // Visiting a CNoDestination must fail
+<<<<<<< HEAD
     CBitcoinAddress dummyAddr;
     CTxDestination nodest = CNoDestination();
     BOOST_CHECK(!boost::apply_visitor(CBitcoinAddressVisitor(&dummyAddr), nodest));
+=======
+    CFloripacoinAddress dummyAddr;
+    CTxDestination nodest = CNoDestination();
+    BOOST_CHECK(!boost::apply_visitor(CFloripacoinAddressVisitor(&dummyAddr), nodest));
+>>>>>>> upstream/master
 
     // Restore global state
     fTestNet = fTestNet_stored;
@@ -234,8 +258,13 @@ BOOST_AUTO_TEST_CASE(base58_keys_invalid)
 {
     Array tests = read_json("base58_keys_invalid.json"); // Negative testcases
     std::vector<unsigned char> result;
+<<<<<<< HEAD
     CBitcoinSecret secret;
     CBitcoinAddress addr;
+=======
+    CFloripacoinSecret secret;
+    CFloripacoinAddress addr;
+>>>>>>> upstream/master
 
     BOOST_FOREACH(Value& tv, tests)
     {

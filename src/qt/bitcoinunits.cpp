@@ -34,9 +34,15 @@ QString BitcoinUnits::name(int unit)
 {
     switch(unit)
     {
+<<<<<<< HEAD
     case BTC: return QString("FLN");
     case mBTC: return QString("mFLN");
     case uBTC: return QString::fromUtf8("μFLN");
+=======
+    case BTC: return QString("BTC");
+    case mBTC: return QString("mBTC");
+    case uBTC: return QString::fromUtf8("μBTC");
+>>>>>>> upstream/master
     default: return QString("???");
     }
 }
@@ -45,9 +51,15 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
+<<<<<<< HEAD
     case BTC: return QString("Floripacoins");
     case mBTC: return QString("Milli-Floripacoins (1 / 1,000)");
     case uBTC: return QString("Micro-Floripacoins (1 / 1,000,000)");
+=======
+    case BTC: return QString("Bitcoins");
+    case mBTC: return QString("Milli-Bitcoins (1 / 1,000)");
+    case uBTC: return QString("Micro-Bitcoins (1 / 1,000,000)");
+>>>>>>> upstream/master
     default: return QString("???");
     }
 }

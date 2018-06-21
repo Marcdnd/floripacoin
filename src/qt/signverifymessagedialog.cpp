@@ -15,12 +15,20 @@
 #include <string>
 #include <vector>
 
+<<<<<<< HEAD
+=======
+#include <QClipboard>
+#include <QDesktopWidget>
+#include "dialog_move_handler.h"
+
+>>>>>>> upstream/master
 SignVerifyMessageDialog::SignVerifyMessageDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SignVerifyMessageDialog),
     model(0)
 {
     ui->setupUi(this);
+<<<<<<< HEAD
 
 #if (QT_VERSION >= 0x040700)
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
@@ -28,6 +36,18 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(QWidget *parent) :
     ui->signatureOut_SM->setPlaceholderText(tr("Click \"Sign Message\" to generate signature"));
 
     ui->addressIn_VM->setPlaceholderText(tr("Enter a Floripacoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)"));
+=======
+    setWindowFlags(Qt::CustomizeWindowHint | Qt::FramelessWindowHint | Qt::Window);
+    ui->wHeader->installEventFilter(new DialogMoveHandler(this));
+    ui->lbTitle->setText(tr("Signatures - Sign / Verify a Message"));
+
+#if (QT_VERSION >= 0x040700)
+    /* Do not move this to the XML file, Qt before 4.7 will choke on it */
+    ui->addressIn_SM->setPlaceholderText(tr("Enter a Floripacoin address (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)"));
+    ui->signatureOut_SM->setPlaceholderText(tr("Click \"Sign Message\" to generate signature"));
+
+    ui->addressIn_VM->setPlaceholderText(tr("Enter a Floripacoin address (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)"));
+>>>>>>> upstream/master
     ui->signatureIn_VM->setPlaceholderText(tr("Enter Floripacoin signature"));
 #endif
 
@@ -41,8 +61,13 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(QWidget *parent) :
     ui->messageIn_VM->installEventFilter(this);
     ui->signatureIn_VM->installEventFilter(this);
 
+<<<<<<< HEAD
     ui->signatureOut_SM->setFont(GUIUtil::bitcoinAddressFont());
     ui->signatureIn_VM->setFont(GUIUtil::bitcoinAddressFont());
+=======
+    ui->signatureOut_SM->setFont(GUIUtil::floripacoinAddressFont());
+    ui->signatureIn_VM->setFont(GUIUtil::floripacoinAddressFont());
+>>>>>>> upstream/master
 }
 
 SignVerifyMessageDialog::~SignVerifyMessageDialog()
@@ -72,14 +97,32 @@ void SignVerifyMessageDialog::showTab_SM(bool fShow)
     ui->tabWidget->setCurrentIndex(0);
 
     if (fShow)
+<<<<<<< HEAD
         this->show();
+=======
+    {
+        // Center window (deleted)
+//        QRect scr = QApplication::desktop()->screenGeometry();
+//        move(scr.center() - rect().center());
+        this->show();
+    }
+>>>>>>> upstream/master
 }
 
 void SignVerifyMessageDialog::showTab_VM(bool fShow)
 {
     ui->tabWidget->setCurrentIndex(1);
     if (fShow)
+<<<<<<< HEAD
         this->show();
+=======
+    {
+        // Center window (deleted)
+//        QRect scr = QApplication::desktop()->screenGeometry();
+//        move(scr.center() - rect().center());
+        this->show();
+    }
+>>>>>>> upstream/master
 }
 
 void SignVerifyMessageDialog::on_addressBookButton_SM_clicked()
@@ -87,7 +130,11 @@ void SignVerifyMessageDialog::on_addressBookButton_SM_clicked()
     if (model && model->getAddressTableModel())
     {
         AddressBookPage dlg(AddressBookPage::ForSending, AddressBookPage::ReceivingTab, this);
+<<<<<<< HEAD
         dlg.setModel(model->getAddressTableModel());
+=======
+        dlg.setModel(model->getAddressTableModel(), true);        
+>>>>>>> upstream/master
         if (dlg.exec())
         {
             setAddress_SM(dlg.getReturnValue());
@@ -105,7 +152,11 @@ void SignVerifyMessageDialog::on_signMessageButton_SM_clicked()
     /* Clear old signature to ensure users don't get confused on error with an old signature displayed */
     ui->signatureOut_SM->clear();
 
+<<<<<<< HEAD
     CBitcoinAddress addr(ui->addressIn_SM->text().toStdString());
+=======
+    CFloripacoinAddress addr(ui->addressIn_SM->text().toStdString());
+>>>>>>> upstream/master
     if (!addr.IsValid())
     {
         ui->addressIn_SM->setValid(false);
@@ -176,7 +227,11 @@ void SignVerifyMessageDialog::on_addressBookButton_VM_clicked()
     if (model && model->getAddressTableModel())
     {
         AddressBookPage dlg(AddressBookPage::ForSending, AddressBookPage::SendingTab, this);
+<<<<<<< HEAD
         dlg.setModel(model->getAddressTableModel());
+=======
+        dlg.setModel(model->getAddressTableModel(), true);
+>>>>>>> upstream/master
         if (dlg.exec())
         {
             setAddress_VM(dlg.getReturnValue());
@@ -186,7 +241,11 @@ void SignVerifyMessageDialog::on_addressBookButton_VM_clicked()
 
 void SignVerifyMessageDialog::on_verifyMessageButton_VM_clicked()
 {
+<<<<<<< HEAD
     CBitcoinAddress addr(ui->addressIn_VM->text().toStdString());
+=======
+    CFloripacoinAddress addr(ui->addressIn_VM->text().toStdString());
+>>>>>>> upstream/master
     if (!addr.IsValid())
     {
         ui->addressIn_VM->setValid(false);
@@ -227,7 +286,11 @@ void SignVerifyMessageDialog::on_verifyMessageButton_VM_clicked()
         return;
     }
 
+<<<<<<< HEAD
     if (!(CBitcoinAddress(pubkey.GetID()) == addr))
+=======
+    if (!(CFloripacoinAddress(pubkey.GetID()) == addr))
+>>>>>>> upstream/master
     {
         ui->statusLabel_VM->setStyleSheet("QLabel { color: red; }");
         ui->statusLabel_VM->setText(QString("<nobr>") + tr("Message verification failed.") + QString("</nobr>"));

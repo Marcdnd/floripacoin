@@ -26,7 +26,11 @@ std::string ParsedInternalKey::DebugString() const {
            (unsigned long long) sequence,
            int(type));
   std::string result = "'";
+<<<<<<< HEAD
   result += EscapeString(user_key.ToString());
+=======
+  result += user_key.ToString();
+>>>>>>> upstream/master
   result += buf;
   return result;
 }

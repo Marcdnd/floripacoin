@@ -16,7 +16,11 @@ class QUrl;
 class QAbstractItemView;
 QT_END_NAMESPACE
 
+<<<<<<< HEAD
 /** Utility functions used by the Bitcoin Qt UI.
+=======
+/** Utility functions used by the Floripacoin Qt UI.
+>>>>>>> upstream/master
  */
 namespace GUIUtil
 {
@@ -24,17 +28,29 @@ namespace GUIUtil
     QString dateTimeStr(const QDateTime &datetime);
     QString dateTimeStr(qint64 nTime);
 
+<<<<<<< HEAD
     // Render Bitcoin addresses in monospace font
     QFont bitcoinAddressFont();
+=======
+    // Render Floripacoin addresses in monospace font
+    QFont floripacoinAddressFont();
+>>>>>>> upstream/master
 
     // Set up widgets for address and amounts
     void setupAddressWidget(QLineEdit *widget, QWidget *parent);
     void setupAmountWidget(QLineEdit *widget, QWidget *parent);
 
+<<<<<<< HEAD
     // Parse "bitcoin:" URI into recipient object, return true on successful parsing
     // See Bitcoin URI definition discussion here: https://bitcointalk.org/index.php?topic=33490.0
     bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out);
     bool parseBitcoinURI(QString uri, SendCoinsRecipient *out);
+=======
+    // Parse "floripacoin:" URI into recipient object, return true on successful parsing
+    // See Floripacoin URI definition discussion here: https://floripacointalk.org/index.php?topic=33490.0
+    bool parseFloripacoinURI(const QUrl &uri, SendCoinsRecipient *out);
+    bool parseFloripacoinURI(QString uri, SendCoinsRecipient *out);
+>>>>>>> upstream/master
 
     // HTML escaping for rich text controls
     QString HtmlEscape(const QString& str, bool fMultiLine=false);
@@ -47,9 +63,13 @@ namespace GUIUtil
        @see  TransactionView::copyLabel, TransactionView::copyAmount, TransactionView::copyAddress
      */
     void copyEntryData(QAbstractItemView *view, int column, int role=Qt::EditRole);
+<<<<<<< HEAD
     
     void setClipboard(const QString& str);
     
+=======
+
+>>>>>>> upstream/master
     /** Get save filename, mimics QFileDialog::getSaveFileName, except that it appends a default suffix
         when no suffix is provided by the user.
 
@@ -98,7 +118,11 @@ namespace GUIUtil
     bool GetStartOnSystemStartup();
     bool SetStartOnSystemStartup(bool fAutoStart);
 
+<<<<<<< HEAD
     /** Help message for Bitcoin-Qt, shown with --help. */
+=======
+    /** Help message for Floripacoin-Qt, shown with --help. */
+>>>>>>> upstream/master
     class HelpMessageBox : public QMessageBox
     {
         Q_OBJECT

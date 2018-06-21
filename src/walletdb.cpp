@@ -5,7 +5,10 @@
 
 #include "walletdb.h"
 #include "wallet.h"
+<<<<<<< HEAD
 #include <boost/version.hpp>
+=======
+>>>>>>> upstream/master
 #include <boost/filesystem.hpp>
 
 using namespace std;
@@ -196,7 +199,11 @@ ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue,
         {
             string strAddress;
             ssKey >> strAddress;
+<<<<<<< HEAD
             ssValue >> pwallet->mapAddressBook[CBitcoinAddress(strAddress).Get()];
+=======
+            ssValue >> pwallet->mapAddressBook[CFloripacoinAddress(strAddress).Get()];
+>>>>>>> upstream/master
         }
         else if (strType == "tx")
         {
@@ -469,7 +476,11 @@ DBErrors CWalletDB::LoadWallet(CWallet* pwallet)
 void ThreadFlushWalletDB(const string& strFile)
 {
     // Make this thread recognisable as the wallet flushing thread
+<<<<<<< HEAD
     RenameThread("bitcoin-wallet");
+=======
+    RenameThread("floripacoin-wallet");
+>>>>>>> upstream/master
 
     static bool fOneThread;
     if (fOneThread)

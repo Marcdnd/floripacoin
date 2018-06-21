@@ -109,10 +109,19 @@ void CondVar::Signal() {
 
 void CondVar::SignalAll() {
   wait_mtx_.Lock();
+<<<<<<< HEAD
   ::ReleaseSemaphore(sem1_, waiting_, NULL);
   while(waiting_ > 0) {
     --waiting_;
     ::WaitForSingleObject(sem2_, INFINITE);
+=======
+  for(long i = 0; i < waiting_; ++i) {
+    ::ReleaseSemaphore(sem1_, 1, NULL);
+    while(waiting_ > 0) {
+      --waiting_;
+      ::WaitForSingleObject(sem2_, INFINITE);
+    }
+>>>>>>> upstream/master
   }
   wait_mtx_.Unlock();
 }

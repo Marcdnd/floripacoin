@@ -57,7 +57,11 @@
 
 const QString BitcoinGUI::DEFAULT_WALLET = "~Default";
 
+<<<<<<< HEAD
 BitcoinGUI::BitcoinGUI(QWidget *parent) :
+=======
+BitcoinGUI::BitcoinGUI(bool fIsTestnet, QWidget *parent) :
+>>>>>>> upstream/master
     QMainWindow(parent),
     clientModel(0),
     encryptWalletAction(0),
@@ -69,6 +73,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent) :
     prevBlocks(0)
 {
     restoreWindowGeometry();
+<<<<<<< HEAD
     setWindowTitle(tr("Floripacoin") + " - " + tr("Wallet"));
 #ifndef Q_OS_MAC
     QApplication::setWindowIcon(QIcon(":icons/bitcoin"));
@@ -77,6 +82,32 @@ BitcoinGUI::BitcoinGUI(QWidget *parent) :
     setUnifiedTitleAndToolBarOnMac(true);
     QApplication::setAttribute(Qt::AA_DontShowIconsInMenus);
 #endif
+=======
+
+#ifndef Q_OS_MAC
+    if (!fIsTestnet)
+    {
+        setWindowTitle(tr("Bitcoin") + " - " + tr("Wallet"));
+        QApplication::setWindowIcon(QIcon(":icons/bitcoin"));
+        setWindowIcon(QIcon(":icons/bitcoin"));
+    }
+    else
+    {
+        setWindowTitle(tr("Bitcoin") + " - " + tr("Wallet") + " " + tr("[testnet]"));
+        QApplication::setWindowIcon(QIcon(":icons/bitcoin_testnet"));
+        setWindowIcon(QIcon(":icons/bitcoin_testnet"));
+    }
+#else
+    setUnifiedTitleAndToolBarOnMac(true);
+    QApplication::setAttribute(Qt::AA_DontShowIconsInMenus);
+
+    if (!fIsTestnet)
+        MacDockIconHandler::instance()->setIcon(QIcon(":icons/bitcoin"));
+    else
+        MacDockIconHandler::instance()->setIcon(QIcon(":icons/bitcoin_testnet"));
+#endif
+
+>>>>>>> upstream/master
     // Create wallet frame and make it the central widget
     walletFrame = new WalletFrame(this);
     setCentralWidget(walletFrame);
@@ -86,7 +117,11 @@ BitcoinGUI::BitcoinGUI(QWidget *parent) :
 
     // Create actions for the toolbar, menu bar and tray/dock icon
     // Needs walletFrame to be initialized
+<<<<<<< HEAD
     createActions();
+=======
+    createActions(fIsTestnet);
+>>>>>>> upstream/master
 
     // Create application menu bar
     createMenuBar();
@@ -95,7 +130,11 @@ BitcoinGUI::BitcoinGUI(QWidget *parent) :
     createToolBars();
 
     // Create system tray icon and notification
+<<<<<<< HEAD
     createTrayIcon();
+=======
+    createTrayIcon(fIsTestnet);
+>>>>>>> upstream/master
 
     // Create status bar
     statusBar();
@@ -146,9 +185,12 @@ BitcoinGUI::BitcoinGUI(QWidget *parent) :
 
     // Install event filter to be able to catch status tip events (QEvent::StatusTip)
     this->installEventFilter(this);
+<<<<<<< HEAD
 
     // Initially wallet actions should be disabled
     setWalletActionsEnabled(false);
+=======
+>>>>>>> upstream/master
 }
 
 BitcoinGUI::~BitcoinGUI()
@@ -162,7 +204,11 @@ BitcoinGUI::~BitcoinGUI()
 #endif
 }
 
+<<<<<<< HEAD
 void BitcoinGUI::createActions()
+=======
+void BitcoinGUI::createActions(bool fIsTestnet)
+>>>>>>> upstream/master
 {
     QActionGroup *tabGroup = new QActionGroup(this);
 
@@ -216,16 +262,33 @@ void BitcoinGUI::createActions()
     quitAction->setStatusTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
+<<<<<<< HEAD
     aboutAction = new QAction(QIcon(":/icons/bitcoin"), tr("&About Floripacoin"), this);
     aboutAction->setStatusTip(tr("Show information about Floripacoin"));
+=======
+    if (!fIsTestnet)
+        aboutAction = new QAction(QIcon(":/icons/bitcoin"), tr("&About Bitcoin"), this);
+    else
+        aboutAction = new QAction(QIcon(":/icons/bitcoin_testnet"), tr("&About Bitcoin"), this);
+    aboutAction->setStatusTip(tr("Show information about Bitcoin"));
+>>>>>>> upstream/master
     aboutAction->setMenuRole(QAction::AboutRole);
     aboutQtAction = new QAction(QIcon(":/trolltech/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), this);
     aboutQtAction->setStatusTip(tr("Show information about Qt"));
     aboutQtAction->setMenuRole(QAction::AboutQtRole);
     optionsAction = new QAction(QIcon(":/icons/options"), tr("&Options..."), this);
+<<<<<<< HEAD
     optionsAction->setStatusTip(tr("Modify configuration options for Floripacoin"));
     optionsAction->setMenuRole(QAction::PreferencesRole);
     toggleHideAction = new QAction(QIcon(":/icons/bitcoin"), tr("&Show / Hide"), this);
+=======
+    optionsAction->setStatusTip(tr("Modify configuration options for Bitcoin"));
+    optionsAction->setMenuRole(QAction::PreferencesRole);
+    if (!fIsTestnet)
+        toggleHideAction = new QAction(QIcon(":/icons/bitcoin"), tr("&Show / Hide"), this);
+    else
+        toggleHideAction = new QAction(QIcon(":/icons/bitcoin_testnet"), tr("&Show / Hide"), this);
+>>>>>>> upstream/master
     toggleHideAction->setStatusTip(tr("Show or hide the main Window"));
 
     encryptWalletAction = new QAction(QIcon(":/icons/lock_closed"), tr("&Encrypt Wallet..."), this);
@@ -302,6 +365,7 @@ void BitcoinGUI::setClientModel(ClientModel *clientModel)
     this->clientModel = clientModel;
     if(clientModel)
     {
+<<<<<<< HEAD
         // Replace some strings and icons, when using the testnet
         if(clientModel->isTestNet())
         {
@@ -323,6 +387,8 @@ void BitcoinGUI::setClientModel(ClientModel *clientModel)
             aboutAction->setIcon(QIcon(":/icons/toolbar_testnet"));
         }
 
+=======
+>>>>>>> upstream/master
         // Create system tray menu (or setup the dock menu) that late to prevent users from calling actions,
         // while the client has not yet fully loaded
         createTrayIconMenu();
@@ -344,7 +410,10 @@ void BitcoinGUI::setClientModel(ClientModel *clientModel)
 
 bool BitcoinGUI::addWallet(const QString& name, WalletModel *walletModel)
 {
+<<<<<<< HEAD
     setWalletActionsEnabled(true);
+=======
+>>>>>>> upstream/master
     return walletFrame->addWallet(name, walletModel);
 }
 
@@ -355,6 +424,7 @@ bool BitcoinGUI::setCurrentWallet(const QString& name)
 
 void BitcoinGUI::removeAllWallets()
 {
+<<<<<<< HEAD
     setWalletActionsEnabled(false);
     walletFrame->removeAllWallets();
 }
@@ -374,12 +444,32 @@ void BitcoinGUI::setWalletActionsEnabled(bool enabled)
 }
 
 void BitcoinGUI::createTrayIcon()
+=======
+    walletFrame->removeAllWallets();
+}
+
+void BitcoinGUI::createTrayIcon(bool fIsTestnet)
+>>>>>>> upstream/master
 {
 #ifndef Q_OS_MAC
     trayIcon = new QSystemTrayIcon(this);
 
+<<<<<<< HEAD
     trayIcon->setToolTip(tr("Floripacoin client"));
     trayIcon->setIcon(QIcon(":/icons/toolbar"));
+=======
+    if (!fIsTestnet)
+    {
+        trayIcon->setToolTip(tr("Bitcoin client"));
+        trayIcon->setIcon(QIcon(":/icons/toolbar"));
+    }
+    else
+    {
+        trayIcon->setToolTip(tr("Bitcoin client") + " " + tr("[testnet]"));
+        trayIcon->setIcon(QIcon(":/icons/toolbar_testnet"));
+    }
+
+>>>>>>> upstream/master
     trayIcon->show();
 #endif
 
@@ -519,7 +609,11 @@ void BitcoinGUI::setNumConnections(int count)
     default: icon = ":/icons/connect_4"; break;
     }
     labelConnectionsIcon->setPixmap(QIcon(icon).pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
+<<<<<<< HEAD
     labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Floripacoin network", "", count));
+=======
+    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Bitcoin network", "", count));
+>>>>>>> upstream/master
 }
 
 void BitcoinGUI::setNumBlocks(int count, int nTotalBlocks)
@@ -618,7 +712,11 @@ void BitcoinGUI::setNumBlocks(int count, int nTotalBlocks)
 
 void BitcoinGUI::message(const QString &title, const QString &message, unsigned int style, bool *ret)
 {
+<<<<<<< HEAD
     QString strTitle = tr("Floripacoin"); // default title
+=======
+    QString strTitle = tr("Bitcoin"); // default title
+>>>>>>> upstream/master
     // Default to information icon
     int nMBoxIcon = QMessageBox::Information;
     int nNotifyIcon = Notificator::Information;

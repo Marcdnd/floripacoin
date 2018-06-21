@@ -22,14 +22,26 @@ set up to add test/*.cpp to test_floripacoin automatically).
 Compiling/running Floripacoin-Qt unit tests
 ---------------------------------------
 
+<<<<<<< HEAD
 Bitcoin-Qt unit tests are in the src/qt/test/ directory; they
+=======
+Floripacoin-Qt unit tests are in the src/qt/test/ directory; they
+>>>>>>> upstream/master
 use the Qt unit-testing framework.
 
 To compile and run the tests:
 
+<<<<<<< HEAD
 	qmake bitcoin-qt.pro BITCOIN_QT_TEST=1
+=======
+	qmake floripacoin-qt.pro FLORIPACOIN_QT_TEST=1
+>>>>>>> upstream/master
 	make
 	./floripacoin-qt_test
 
 To add more tests, add them to the `src/qt/test/` directory,
+<<<<<<< HEAD
 the `src/qt/test/test_main.cpp` file, and bitcoin-qt.pro.
+=======
+the `src/qt/test/test_main.cpp` file, and floripacoin-qt.pro.
+>>>>>>> upstream/master

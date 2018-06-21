@@ -1,9 +1,18 @@
 // Copyright (c) 2009-2012 Bitcoin Developers
+<<<<<<< HEAD
+=======
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+>>>>>>> upstream/master
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "init.h" // for pwalletMain
+<<<<<<< HEAD
 #include "bitcoinrpc.h"
+=======
+#include "floripacoinrpc.h"
+>>>>>>> upstream/master
 #include "ui_interface.h"
 #include "base58.h"
 
@@ -49,7 +58,11 @@ Value importprivkey(const Array& params, bool fHelp)
     if (params.size() > 2)
         fRescan = params[2].get_bool();
 
+<<<<<<< HEAD
     CBitcoinSecret vchSecret;
+=======
+    CFloripacoinSecret vchSecret;
+>>>>>>> upstream/master
     bool fGood = vchSecret.SetString(strSecret);
 
     if (!fGood) throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid private key");
@@ -65,7 +78,11 @@ Value importprivkey(const Array& params, bool fHelp)
 
         if (!pwalletMain->AddKeyPubKey(key, pubkey))
             throw JSONRPCError(RPC_WALLET_ERROR, "Error adding key to wallet");
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> upstream/master
         if (fRescan) {
             pwalletMain->ScanForWalletTransactions(pindexGenesisBlock, true);
             pwalletMain->ReacceptWalletTransactions();
@@ -83,7 +100,11 @@ Value dumpprivkey(const Array& params, bool fHelp)
             "Reveals the private key corresponding to <floripacoinaddress>.");
 
     string strAddress = params[0].get_str();
+<<<<<<< HEAD
     CBitcoinAddress address;
+=======
+    CFloripacoinAddress address;
+>>>>>>> upstream/master
     if (!address.SetString(strAddress))
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Floripacoin address");
     CKeyID keyID;
@@ -92,5 +113,9 @@ Value dumpprivkey(const Array& params, bool fHelp)
     CKey vchSecret;
     if (!pwalletMain->GetKey(keyID, vchSecret))
         throw JSONRPCError(RPC_WALLET_ERROR, "Private key for address " + strAddress + " is not known");
+<<<<<<< HEAD
     return CBitcoinSecret(vchSecret).ToString();
+=======
+    return CFloripacoinSecret(vchSecret).ToString();
+>>>>>>> upstream/master
 }

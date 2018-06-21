@@ -4,6 +4,7 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
+<<<<<<< HEAD
         <source>About Floripacoin</source>
         <translation>A Floripacoinról</translation>
     </message>
@@ -11,6 +12,15 @@
         <location line="+39"/>
         <source>&lt;b&gt;Floripacoin&lt;/b&gt; version</source>
         <translation>&lt;b&gt;Floripacoin&lt;/b&gt; verzió</translation>
+=======
+        <source>About Bitcoin</source>
+        <translation>A Bitcoinról</translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>&lt;b&gt;Bitcoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;Bitcoin&lt;/b&gt; verzió</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+57"/>
@@ -33,7 +43,11 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location line="+0"/>
+<<<<<<< HEAD
         <source>The Floripacoin developers</source>
+=======
+        <source>The Bitcoin developers</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
 </context>
@@ -67,7 +81,11 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     <message>
         <location filename="../addressbookpage.cpp" line="+63"/>
         <source>These are your Floripacoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+<<<<<<< HEAD
         <translation>Ezekkel a Floripacoin-címekkel fogadhatod kifizetéseket. Érdemes lehet minden egyes kifizető számára külön címet létrehozni, hogy könnyebben nyomon követhesd, kitől kaptál már pénzt.</translation>
+=======
+        <translation>Ezekkel a Bitcoin-címekkel fogadhatod kifizetéseket. Érdemes lehet minden egyes kifizető számára külön címet létrehozni, hogy könnyebben nyomon követhesd, kitől kaptál már pénzt.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="+14"/>
@@ -107,7 +125,11 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     <message>
         <location line="-44"/>
         <source>Verify a message to ensure it was signed with a specified Floripacoin address</source>
+<<<<<<< HEAD
         <translation>Üzenet ellenőrzése, hogy valóban a megjelölt Floripacoin címekkel van-e aláírva.</translation>
+=======
+        <translation>Üzenet ellenőrzése, hogy valóban a megjelölt Bitcoin címekkel van-e aláírva.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -247,8 +269,13 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location line="+1"/>
+<<<<<<< HEAD
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR FLORIPACOINS&lt;/b&gt;!</source>
         <translation>Figyelem: Ha kódolod a tárcát, és elveszíted a jelszavad, akkor &lt;b&gt;AZ ÖSSZES FLORIPACOINODAT IS EL FOGOD VESZÍTENI!&lt;/b&gt;</translation>
+=======
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
+        <translation>Figyelem: Ha kódolod a tárcát, és elveszíted a jelszavad, akkor &lt;b&gt;AZ ÖSSZES BITCOINODAT IS EL FOGOD VESZÍTENI!&lt;/b&gt;</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+0"/>
@@ -274,8 +301,13 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location line="-56"/>
+<<<<<<< HEAD
         <source>Floripacoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your floripacoins from being stolen by malware infecting your computer.</source>
         <translation>Floripacoin will close now to finish the encryption process. Ne feledd, hogy a tárca titkosítása sem nyújt teljes védelmet az adathalász programok fertőzésével szemben.</translation>
+=======
+        <source>Bitcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
+        <translation>Bitcoin will close now to finish the encryption process. Ne feledd, hogy a tárca titkosítása sem nyújt teljes védelmet az adathalász programok fertőzésével szemben.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+13"/>
@@ -373,8 +405,13 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location line="+4"/>
+<<<<<<< HEAD
         <source>Show information about Floripacoin</source>
         <translation>Információk a Floripacoinról</translation>
+=======
+        <source>Show information about Bitcoin</source>
+        <translation>Információk a Bitcoinról</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+2"/>
@@ -423,8 +460,13 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location line="+49"/>
+<<<<<<< HEAD
         <source>Modify configuration options for Floripacoin</source>
         <translation>Floripacoin konfigurációs opciók</translation>
+=======
+        <source>Modify configuration options for Bitcoin</source>
+        <translation>Bitcoin konfigurációs opciók</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+9"/>
@@ -454,8 +496,13 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     <message>
         <location line="-165"/>
         <location line="+530"/>
+<<<<<<< HEAD
         <source>Floripacoin</source>
         <translation>Floripacoin</translation>
+=======
+        <source>Bitcoin</source>
+        <translation>Bitcoin</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-530"/>
@@ -479,8 +526,13 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location line="+22"/>
+<<<<<<< HEAD
         <source>&amp;About Floripacoin</source>
         <translation>&amp;A Floripacoinról</translation>
+=======
+        <source>&amp;About Bitcoin</source>
+        <translation>&amp;A Bitcoinról</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+9"/>
@@ -500,12 +552,20 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     <message>
         <location line="+7"/>
         <source>Sign messages with your Floripacoin addresses to prove you own them</source>
+<<<<<<< HEAD
         <translation>Üzenet aláírása a Floripacoin címmel, amivel bizonyítja, hogy a cím az ön tulajdona.</translation>
+=======
+        <translation>Üzenet aláírása a Bitcoin címmel, amivel bizonyítja, hogy a cím az ön tulajdona.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+2"/>
         <source>Verify messages to ensure they were signed with specified Floripacoin addresses</source>
+<<<<<<< HEAD
         <translation>Annak ellenőrzése, hogy az üzenetek valóban a megjelölt Floripacoin címekkel vannak-e alaírva</translation>
+=======
+        <translation>Annak ellenőrzése, hogy az üzenetek valóban a megjelölt Bitcoin címekkel vannak-e alaírva</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+28"/>
@@ -535,6 +595,7 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location line="+47"/>
+<<<<<<< HEAD
         <source>Floripacoin client</source>
         <translation>Floripacoin kliens</translation>
     </message>
@@ -542,6 +603,15 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
         <location line="+141"/>
         <source>%n active connection(s) to Floripacoin network</source>
         <translation><numerusform>%n aktív kapcsolat a Floripacoin-hálózattal</numerusform><numerusform>%n aktív kapcsolat a Floripacoin-hálózattal</numerusform></translation>
+=======
+        <source>Bitcoin client</source>
+        <translation>Bitcoin kliens</translation>
+    </message>
+    <message numerus="yes">
+        <location line="+141"/>
+        <source>%n active connection(s) to Bitcoin network</source>
+        <translation><numerusform>%n aktív kapcsolat a Bitcoin-hálózattal</numerusform><numerusform>%n aktív kapcsolat a Bitcoin-hálózattal</numerusform></translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+22"/>
@@ -670,7 +740,11 @@ Cím: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+111"/>
+<<<<<<< HEAD
         <source>A fatal error occurred. Floripacoin can no longer continue safely and will quit.</source>
+=======
+        <source>A fatal error occurred. Bitcoin can no longer continue safely and will quit.</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
 </context>
@@ -737,7 +811,11 @@ Cím: %4
     <message>
         <location line="-5"/>
         <source>The entered address &quot;%1&quot; is not a valid Floripacoin address.</source>
+<<<<<<< HEAD
         <translation>A megadott &quot;%1&quot; cím nem egy érvényes Floripacoin-cím.</translation>
+=======
+        <translation>A megadott &quot;%1&quot; cím nem egy érvényes Bitcoin-cím.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+10"/>
@@ -755,7 +833,11 @@ Cím: %4
     <message>
         <location filename="../guiutil.cpp" line="+424"/>
         <location line="+12"/>
+<<<<<<< HEAD
         <source>Floripacoin-Qt</source>
+=======
+        <source>Bitcoin-Qt</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -819,12 +901,21 @@ Cím: %4
     </message>
     <message>
         <location line="+31"/>
+<<<<<<< HEAD
         <source>Automatically start Floripacoin after logging in to the system.</source>
         <translation>Induljon el a Floripacoin a számítógép bekapcsolásakor</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>&amp;Start Floripacoin on system login</source>
+=======
+        <source>Automatically start Bitcoin after logging in to the system.</source>
+        <translation>Induljon el a Bitcoin a számítógép bekapcsolásakor</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Start Bitcoin on system login</source>
+>>>>>>> upstream/master
         <translation>&amp;Induljon el a számítógép bekapcsolásakor</translation>
     </message>
     <message>
@@ -844,8 +935,13 @@ Cím: %4
     </message>
     <message>
         <location line="+6"/>
+<<<<<<< HEAD
         <source>Automatically open the Floripacoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>A Floripacoin-kliens portjának automatikus megnyitása a routeren. Ez csak akkor működik, ha a routered támogatja az UPnP-t és az engedélyezve is van rajta.</translation>
+=======
+        <source>Automatically open the Bitcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>A Bitcoin-kliens portjának automatikus megnyitása a routeren. Ez csak akkor működik, ha a routered támogatja az UPnP-t és az engedélyezve is van rajta.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -854,8 +950,13 @@ Cím: %4
     </message>
     <message>
         <location line="+7"/>
+<<<<<<< HEAD
         <source>Connect to the Floripacoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
         <translation>SOCKS proxyn keresztüli csatlakozás a Floripacoin hálózatához (pl. Tor-on keresztüli csatlakozás esetén)</translation>
+=======
+        <source>Connect to the Bitcoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>SOCKS proxyn keresztüli csatlakozás a Bitcoin hálózatához (pl. Tor-on keresztüli csatlakozás esetén)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -929,7 +1030,11 @@ Cím: %4
     </message>
     <message>
         <location line="+13"/>
+<<<<<<< HEAD
         <source>The user interface language can be set here. This setting will take effect after restarting Floripacoin.</source>
+=======
+        <source>The user interface language can be set here. This setting will take effect after restarting Bitcoin.</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -996,8 +1101,13 @@ Cím: %4
     <message>
         <location line="-9"/>
         <location line="+9"/>
+<<<<<<< HEAD
         <source>This setting will take effect after restarting Floripacoin.</source>
         <translation>Ez a beállítás a Floripacoin ujraindítása után lép érvénybe.</translation>
+=======
+        <source>This setting will take effect after restarting Bitcoin.</source>
+        <translation>Ez a beállítás a Bitcoin ujraindítása után lép érvénybe.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+29"/>
@@ -1015,8 +1125,13 @@ Cím: %4
     <message>
         <location line="+50"/>
         <location line="+166"/>
+<<<<<<< HEAD
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Floripacoin network after a connection is established, but this process has not completed yet.</source>
         <translation>A kijelzett információ lehet, hogy elavult. A pénztárcája automatikusan szinkronizálja magát a Floripacoin hálózattal miután a kapcsolat létrejön, de ez e folyamat még nem fejeződött be.</translation>
+=======
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>A kijelzett információ lehet, hogy elavult. A pénztárcája automatikusan szinkronizálja magát a Bitcoin hálózattal miután a kapcsolat létrejön, de ez e folyamat még nem fejeződött be.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-124"/>
@@ -1069,7 +1184,11 @@ Cím: %4
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
+<<<<<<< HEAD
         <source>Cannot start floripacoin: click-to-pay handler</source>
+=======
+        <source>Cannot start bitcoin: click-to-pay handler</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1219,7 +1338,11 @@ Cím: %4
     </message>
     <message>
         <location line="+7"/>
+<<<<<<< HEAD
         <source>Show the Floripacoin-Qt help message to get a list with possible Floripacoin command-line options.</source>
+=======
+        <source>Show the Bitcoin-Qt help message to get a list with possible Bitcoin command-line options.</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1239,12 +1362,20 @@ Cím: %4
     </message>
     <message>
         <location line="-104"/>
+<<<<<<< HEAD
         <source>Floripacoin - Debug window</source>
+=======
+        <source>Bitcoin - Debug window</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+25"/>
+<<<<<<< HEAD
         <source>Floripacoin Core</source>
+=======
+        <source>Bitcoin Core</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1254,7 +1385,11 @@ Cím: %4
     </message>
     <message>
         <location line="+7"/>
+<<<<<<< HEAD
         <source>Open the Floripacoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+=======
+        <source>Open the Bitcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1264,7 +1399,11 @@ Cím: %4
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
+<<<<<<< HEAD
         <source>Welcome to the Floripacoin RPC console.</source>
+=======
+        <source>Welcome to the Bitcoin RPC console.</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1365,7 +1504,11 @@ Cím: %4
     <message>
         <location line="+5"/>
         <source>The amount exceeds your balance.</source>
+<<<<<<< HEAD
         <translation>Nincs ennyi floripacoin az egyenlegeden.</translation>
+=======
+        <translation>Nincs ennyi bitcoin az egyenlegeden.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+5"/>
@@ -1407,7 +1550,11 @@ Cím: %4
     </message>
     <message>
         <location line="+34"/>
+<<<<<<< HEAD
         <source>The address to send the payment to (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
+=======
+        <source>The address to send the payment to (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1449,8 +1596,13 @@ Cím: %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
+<<<<<<< HEAD
         <source>Enter a Floripacoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>Adj meg egy Floripacoin-címet (pl.: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2 )</translation>
+=======
+        <source>Enter a Floripacoin address (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>Adj meg egy Bitcoin-címet (pl.: FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk )</translation>
+>>>>>>> upstream/master
     </message>
 </context>
 <context>
@@ -1472,8 +1624,13 @@ Cím: %4
     </message>
     <message>
         <location line="+18"/>
+<<<<<<< HEAD
         <source>The address to sign the message with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>Adj meg egy Floripacoin-címet (pl.: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2 )</translation>
+=======
+        <source>The address to sign the message with (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>Adj meg egy Bitcoin-címet (pl.: FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk )</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+10"/>
@@ -1545,8 +1702,13 @@ Cím: %4
     </message>
     <message>
         <location line="+21"/>
+<<<<<<< HEAD
         <source>The address the message was signed with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>Adj meg egy Floripacoin-címet (pl.: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2 )</translation>
+=======
+        <source>The address the message was signed with (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>Adj meg egy Bitcoin-címet (pl.: FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk )</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+40"/>
@@ -1566,8 +1728,13 @@ Cím: %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Enter a Floripacoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>Adj meg egy Floripacoin-címet (pl.: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2 )</translation>
+=======
+        <source>Enter a Floripacoin address (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>Adj meg egy Bitcoin-címet (pl.: FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk )</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-2"/>
@@ -1576,8 +1743,13 @@ Cím: %4
     </message>
     <message>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Enter Floripacoin signature</source>
         <translation>Adja meg a Floripacoin aláírást</translation>
+=======
+        <source>Enter Bitcoin signature</source>
+        <translation>Adja meg a Bitcoin aláírást</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+82"/>
@@ -1650,7 +1822,11 @@ Cím: %4
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+22"/>
+<<<<<<< HEAD
         <source>The Floripacoin developers</source>
+=======
+        <source>The Bitcoin developers</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2188,8 +2364,13 @@ Cím: %4
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+94"/>
+<<<<<<< HEAD
         <source>Floripacoin version</source>
         <translation>Floripacoin verzió</translation>
+=======
+        <source>Bitcoin version</source>
+        <translation>Bitcoin verzió</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+102"/>
@@ -2198,8 +2379,13 @@ Cím: %4
     </message>
     <message>
         <location line="-29"/>
+<<<<<<< HEAD
         <source>Send command to -server or floripacoind</source>
         <translation>Parancs küldése a -serverhez vagy a floripacoindhez
+=======
+        <source>Send command to -server or bitcoind</source>
+        <translation>Parancs küldése a -serverhez vagy a bitcoindhez
+>>>>>>> upstream/master
 </translation>
     </message>
     <message>
@@ -2222,14 +2408,24 @@ Cím: %4
     </message>
     <message>
         <location line="+24"/>
+<<<<<<< HEAD
         <source>Specify configuration file (default: floripacoin.conf)</source>
         <translation>Konfigurációs fájl (alapértelmezett: floripacoin.conf)
+=======
+        <source>Specify configuration file (default: bitcoin.conf)</source>
+        <translation>Konfigurációs fájl (alapértelmezett: bitcoin.conf)
+>>>>>>> upstream/master
 </translation>
     </message>
     <message>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Specify pid file (default: floripacoind.pid)</source>
         <translation>pid-fájl (alapértelmezett: floripacoind.pid)
+=======
+        <source>Specify pid file (default: bitcoind.pid)</source>
+        <translation>pid-fájl (alapértelmezett: bitcoind.pid)
+>>>>>>> upstream/master
 </translation>
     </message>
     <message>
@@ -2245,8 +2441,13 @@ Cím: %4
     </message>
     <message>
         <location line="-28"/>
+<<<<<<< HEAD
         <source>Listen for connections on &lt;port&gt; (default: 9333 or testnet: 19333)</source>
         <translation>Csatlakozásokhoz figyelendő &lt;port&gt; (alapértelmezett: 9333 or testnet: 19333)</translation>
+=======
+        <source>Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333)</source>
+        <translation>Csatlakozásokhoz figyelendő &lt;port&gt; (alapértelmezett: 8333 or testnet: 18333)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+5"/>
@@ -2280,8 +2481,13 @@ Cím: %4
     </message>
     <message>
         <location line="+27"/>
+<<<<<<< HEAD
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 9332 or testnet: 19332)</source>
         <translation>JSON-RPC csatlakozásokhoz figyelendő &lt;port&gt; (alapértelmezett: 9332 or testnet: 19332)</translation>
+=======
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
+        <translation>JSON-RPC csatlakozásokhoz figyelendő &lt;port&gt; (alapértelmezett: 8332 or testnet: 18332)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+37"/>
@@ -2311,13 +2517,21 @@ Cím: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
+<<<<<<< HEAD
 rpcuser=floripacoinrpc
+=======
+rpcuser=bitcoinrpc
+>>>>>>> upstream/master
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
+<<<<<<< HEAD
 for example: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@foo.com
+=======
+for example: alertnotify=echo %%s | mail -s &quot;Bitcoin Alert&quot; admin@foo.com
+>>>>>>> upstream/master
 </source>
         <translation type="unfinished"/>
     </message>
@@ -2333,7 +2547,11 @@ for example: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@
     </message>
     <message>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Cannot obtain a lock on data directory %s. Floripacoin is probably already running.</source>
+=======
+        <source>Cannot obtain a lock on data directory %s. Bitcoin is probably already running.</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2378,8 +2596,13 @@ for example: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@
     </message>
     <message>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Floripacoin will not work properly.</source>
         <translation>Figyelem: Ellenőrizd, hogy helyesen van-e beállítva a gépeden a dátum és az idő.  A Floripacoin nem fog megfelelően működni, ha rosszul van beállítvaaz órád.</translation>
+=======
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Bitcoin will not work properly.</source>
+        <translation>Figyelem: Ellenőrizd, hogy helyesen van-e beállítva a gépeden a dátum és az idő.  A Bitcoin nem fog megfelelően működni, ha rosszul van beállítvaaz órád.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -2628,8 +2851,13 @@ for example: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@
     </message>
     <message>
         <location line="+5"/>
+<<<<<<< HEAD
         <source>SSL options: (see the Floripacoin Wiki for SSL setup instructions)</source>
         <translation>SSL-opciók: (lásd a Floripacoin Wiki SSL-beállítási instrukcióit)</translation>
+=======
+        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
+        <translation>SSL-opciók: (lásd a Bitcoin Wiki SSL-beállítási instrukcióit)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+1"/>
@@ -2829,6 +3057,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@
     </message>
     <message>
         <location line="+1"/>
+<<<<<<< HEAD
         <source>Error loading wallet.dat: Wallet requires newer version of Floripacoin</source>
         <translation>Hiba a wallet.dat betöltése közben: ehhez a tárcához újabb verziójú Floripacoin-kliens szükséges</translation>
     </message>
@@ -2836,6 +3065,15 @@ for example: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@
         <location line="+93"/>
         <source>Wallet needed to be rewritten: restart Floripacoin to complete</source>
         <translation>A Tárca újraírása szükséges: Indítsa újra a teljesen a Floripacoin-t</translation>
+=======
+        <source>Error loading wallet.dat: Wallet requires newer version of Bitcoin</source>
+        <translation>Hiba a wallet.dat betöltése közben: ehhez a tárcához újabb verziójú Bitcoin-kliens szükséges</translation>
+    </message>
+    <message>
+        <location line="+93"/>
+        <source>Wallet needed to be rewritten: restart Bitcoin to complete</source>
+        <translation>A Tárca újraírása szükséges: Indítsa újra a teljesen a Bitcoin-t</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-95"/>
@@ -2880,7 +3118,11 @@ for example: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@
     <message>
         <location line="-6"/>
         <source>Insufficient funds</source>
+<<<<<<< HEAD
         <translation>Nincs elég floripacoinod.</translation>
+=======
+        <translation>Nincs elég bitcoinod.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+10"/>
@@ -2894,8 +3136,13 @@ for example: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@
     </message>
     <message>
         <location line="-25"/>
+<<<<<<< HEAD
         <source>Unable to bind to %s on this computer. Floripacoin is probably already running.</source>
         <translation>A %s nem elérhető ezen a gépen. A Floripacoin valószínűleg fut már.</translation>
+=======
+        <source>Unable to bind to %s on this computer. Bitcoin is probably already running.</source>
+        <translation>A %s nem elérhető ezen a gépen. A Bitcoin valószínűleg fut már.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+64"/>

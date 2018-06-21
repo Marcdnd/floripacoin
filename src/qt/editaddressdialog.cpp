@@ -4,20 +4,34 @@
 #include "addresstablemodel.h"
 #include "guiutil.h"
 
+<<<<<<< HEAD
 #include <QDataWidgetMapper>
 #include <QMessageBox>
+=======
+#include <QClipboard>
+#include <QDesktopWidget>
+#include <QDataWidgetMapper>
+#include <QMessageBox>
+#include "dialog_move_handler.h"
+>>>>>>> upstream/master
 
 EditAddressDialog::EditAddressDialog(Mode mode, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::EditAddressDialog), mapper(0), mode(mode), model(0)
 {
     ui->setupUi(this);
+<<<<<<< HEAD
+=======
+    setWindowFlags(Qt::CustomizeWindowHint | Qt::FramelessWindowHint | Qt::Window);
+    ui->wCaption->installEventFilter(new DialogMoveHandler(this));
+>>>>>>> upstream/master
 
     GUIUtil::setupAddressWidget(ui->addressEdit, this);
 
     switch(mode)
     {
     case NewReceivingAddress:
+<<<<<<< HEAD
         setWindowTitle(tr("New receiving address"));
         ui->addressEdit->setEnabled(false);
         break;
@@ -30,11 +44,45 @@ EditAddressDialog::EditAddressDialog(Mode mode, QWidget *parent) :
         break;
     case EditSendingAddress:
         setWindowTitle(tr("Edit sending address"));
+=======
+        ui->lbTitle->setText(tr("New receiving address"));
+        setWindowTitle(tr("New receiving address"));
+        ui->addressEdit->setEnabled(false);
+        ui->pasteButton->setEnabled(false);
+        ui->picEdit->setVisible(false);
+        ui->picAdd->setVisible(true);
+        break;
+    case NewSendingAddress:
+        ui->lbTitle->setText(tr("New sending address"));
+        setWindowTitle(tr("New sending address"));
+        ui->picEdit->setVisible(false);
+        ui->picAdd->setVisible(true);
+        break;
+    case EditReceivingAddress:
+        ui->lbTitle->setText(tr("Edit receiving address"));
+        setWindowTitle(tr("Edit receiving address"));
+        ui->addressEdit->setEnabled(false);
+        ui->pasteButton->setEnabled(false);
+        ui->picEdit->setVisible(true);
+        ui->picAdd->setVisible(false);
+        break;
+    case EditSendingAddress:
+        ui->lbTitle->setText(tr("Edit sending address"));
+        setWindowTitle(tr("Edit sending address"));
+        ui->picEdit->setVisible(true);
+        ui->picAdd->setVisible(false);
+>>>>>>> upstream/master
         break;
     }
 
     mapper = new QDataWidgetMapper(this);
     mapper->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
+<<<<<<< HEAD
+=======
+
+    QRect scr = QApplication::desktop()->screenGeometry();
+    move(scr.center() - rect().center());
+>>>>>>> upstream/master
 }
 
 EditAddressDialog::~EditAddressDialog()
@@ -125,6 +173,16 @@ void EditAddressDialog::accept()
     QDialog::accept();
 }
 
+<<<<<<< HEAD
+=======
+void EditAddressDialog::on_pasteButton_clicked()
+{
+    // Paste text from clipboard into recipient field
+    ui->addressEdit->setText(QApplication::clipboard()->text());
+}
+
+
+>>>>>>> upstream/master
 QString EditAddressDialog::getAddress() const
 {
     return address;

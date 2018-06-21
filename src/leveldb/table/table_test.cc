@@ -644,6 +644,7 @@ class Harness {
   Constructor* constructor_;
 };
 
+<<<<<<< HEAD
 // Test empty table/block.
 TEST(Harness, Empty) {
   for (int i = 0; i < kNumTestArgs; i++) {
@@ -674,6 +675,8 @@ TEST(Harness, ZeroRestartPointsInBlock) {
   delete iter;
 }
 
+=======
+>>>>>>> upstream/master
 // Test the empty key
 TEST(Harness, SimpleEmptyKey) {
   for (int i = 0; i < kNumTestArgs; i++) {

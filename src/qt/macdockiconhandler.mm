@@ -8,10 +8,13 @@
 #undef slots
 #include <Cocoa/Cocoa.h>
 
+<<<<<<< HEAD
 #if QT_VERSION < 0x050000
 extern void qt_mac_set_dock_menu(QMenu *);
 #endif
 
+=======
+>>>>>>> upstream/master
 @interface DockIconClickEventHandler : NSObject
 {
     MacDockIconHandler* dockIconHandler;
@@ -51,6 +54,7 @@ extern void qt_mac_set_dock_menu(QMenu *);
 MacDockIconHandler::MacDockIconHandler() : QObject()
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+<<<<<<< HEAD
 
     this->m_dockIconClickEventHandler = [[DockIconClickEventHandler alloc] initWithDockIconHandler:this];
     this->m_dummyWidget = new QWidget();
@@ -59,6 +63,13 @@ MacDockIconHandler::MacDockIconHandler() : QObject()
 #if QT_VERSION < 0x050000
     qt_mac_set_dock_menu(this->m_dockMenu);
 #endif
+=======
+    this->m_dockIconClickEventHandler = [[DockIconClickEventHandler alloc] initWithDockIconHandler:this];
+
+    this->m_dummyWidget = new QWidget();
+    this->m_dockMenu = new QMenu(this->m_dummyWidget);
+
+>>>>>>> upstream/master
     [pool release];
 }
 
@@ -121,11 +132,16 @@ MacDockIconHandler *MacDockIconHandler::instance()
 
 void MacDockIconHandler::handleDockIconClickEvent()
 {
+<<<<<<< HEAD
     if (this->mainWindow)
     {
         this->mainWindow->activateWindow();
         this->mainWindow->show();
     }
+=======
+    this->mainWindow->activateWindow();
+    this->mainWindow->show();
+>>>>>>> upstream/master
 
     emit this->dockIconClicked();
 }

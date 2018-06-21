@@ -1,16 +1,27 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
+<<<<<<< HEAD
+=======
+// Copyright (c) 2011-2012 Tenebrix, Litecoin developers
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+>>>>>>> upstream/master
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "main.h"
 #include "db.h"
 #include "init.h"
+<<<<<<< HEAD
 #include "bitcoinrpc.h"
+=======
+#include "floripacoinrpc.h"
+>>>>>>> upstream/master
 
 using namespace json_spirit;
 using namespace std;
 
+<<<<<<< HEAD
 // Return average network hashes per second based on the last 'lookup' blocks,
 // or from the last difficulty change if 'lookup' is nonpositive.
 // If 'height' is nonnegative, compute the estimate at the time when a given block was found.
@@ -21,10 +32,16 @@ Value GetNetworkHashPS(int lookup, int height) {
         pb = FindBlockByHeight(height);
 
     if (pb == NULL || !pb->nHeight)
+=======
+// +Scrypt     Return average network hashes per second based on last number of blocks.
+Value GetNetworkHashPS(int lookup) {
+    if (pindexBest == NULL)
+>>>>>>> upstream/master
         return 0;
 
     // If lookup is -1, then use blocks since last difficulty change.
     if (lookup <= 0)
+<<<<<<< HEAD
         lookup = pb->nHeight % 2016 + 1;
 
     // If lookup is larger than chain, then set it to chain length.
@@ -61,6 +78,33 @@ Value getnetworkhashps(const Array& params, bool fHelp)
             "Pass in [height] to estimate the network speed at the time when a certain block was found.");
 
     return GetNetworkHashPS(params.size() > 0 ? params[0].get_int() : 120, params.size() > 1 ? params[1].get_int() : -1);
+=======
+        lookup = pindexBest->nHeight % 2016 + 1;
+
+    // If lookup is larger than chain, then set it to chain length.
+    if (lookup > pindexBest->nHeight)
+        lookup = pindexBest->nHeight;
+
+    CBlockIndex* pindexPrev = pindexBest;
+    for (int i = 0; i < lookup; i++)
+        pindexPrev = pindexPrev->pprev;
+
+    double timeDiff = pindexBest->GetBlockTime() - pindexPrev->GetBlockTime();
+    double timePerBlock = timeDiff / lookup;
+
+    return (boost::int64_t)(((double)GetDifficulty() * pow(2.0, 32)) / timePerBlock); 
+}
+
+Value getnetworkhashps(const Array& params, bool fHelp) // +Scrypt
+{
+    if (fHelp || params.size() > 1)
+        throw runtime_error(
+            "getnetworkhashps [blocks]\n"
+            "Returns the estimated network hashes per second based on the last 120 blocks.\n"
+            "Pass in [blocks] to override # of blocks, -1 specifies since last difficulty change.");
+
+    return GetNetworkHashPS(params.size() > 0 ? params[0].get_int() : 120);
+>>>>>>> upstream/master
 }
 
 
@@ -70,18 +114,24 @@ static CReserveKey* pMiningKey = NULL;
 
 void InitRPCMining()
 {
+<<<<<<< HEAD
     if (!pwalletMain)
         return;
 
+=======
+>>>>>>> upstream/master
     // getwork/getblocktemplate mining rewards paid here:
     pMiningKey = new CReserveKey(pwalletMain);
 }
 
 void ShutdownRPCMining()
 {
+<<<<<<< HEAD
     if (!pMiningKey)
         return;
 
+=======
+>>>>>>> upstream/master
     delete pMiningKey; pMiningKey = NULL;
 }
 
@@ -92,10 +142,14 @@ Value getgenerate(const Array& params, bool fHelp)
             "getgenerate\n"
             "Returns true or false.");
 
+<<<<<<< HEAD
     if (!pMiningKey)
         return false;
 
     return GetBoolArg("-gen");
+=======
+    return GetBoolArg("-gen", false);
+>>>>>>> upstream/master
 }
 
 
@@ -120,8 +174,12 @@ Value setgenerate(const Array& params, bool fHelp)
     }
     mapArgs["-gen"] = (fGenerate ? "1" : "0");
 
+<<<<<<< HEAD
     assert(pwalletMain != NULL);
     GenerateBitcoins(fGenerate, pwalletMain);
+=======
+    GenerateFloripacoins(fGenerate, pwalletMain);
+>>>>>>> upstream/master
     return Value::null;
 }
 
@@ -147,6 +205,7 @@ Value getmininginfo(const Array& params, bool fHelp)
             "Returns an object containing mining-related information.");
 
     Object obj;
+<<<<<<< HEAD
     obj.push_back(Pair("blocks",        (int)nBestHeight));
     obj.push_back(Pair("currentblocksize",(uint64_t)nLastBlockSize));
     obj.push_back(Pair("currentblocktx",(uint64_t)nLastBlockTx));
@@ -163,6 +222,23 @@ Value getmininginfo(const Array& params, bool fHelp)
 
 
 Value getworkex(const Array& params, bool fHelp)
+=======
+    obj.push_back(Pair("blocks",           (int)nBestHeight));
+    obj.push_back(Pair("currentblocksize", (uint64_t)nLastBlockSize));
+    obj.push_back(Pair("currentblocktx",   (uint64_t)nLastBlockTx));
+    obj.push_back(Pair("difficulty",       (double)GetDifficulty()));
+    obj.push_back(Pair("errors",           GetWarnings("statusbar")));
+    obj.push_back(Pair("generate",         GetBoolArg("-gen", false)));
+    obj.push_back(Pair("genproclimit",     (int)GetArg("-genproclimit", -1)));
+    obj.push_back(Pair("hashespersec",     gethashespersec(params, false)));
+    obj.push_back(Pair("networkhashps", getnetworkhashps(params, false))); // +Scrypt
+    obj.push_back(Pair("pooledtx",         (uint64_t)mempool.size()));
+    obj.push_back(Pair("testnet",          fTestNet));
+    return obj;
+}
+
+Value getworkex(const Array& params, bool fHelp) // +Scrypt
+>>>>>>> upstream/master
 {
     if (fHelp || params.size() > 2)
         throw runtime_error(
@@ -179,7 +255,10 @@ Value getworkex(const Array& params, bool fHelp)
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
     static mapNewBlock_t mapNewBlock;    // FIXME: thread safety
     static vector<CBlockTemplate*> vNewBlockTemplate;
+<<<<<<< HEAD
     static CReserveKey reservekey(pwalletMain);
+=======
+>>>>>>> upstream/master
 
     if (params.size() == 0)
     {
@@ -199,21 +278,35 @@ Value getworkex(const Array& params, bool fHelp)
                     delete pblocktemplate;
                 vNewBlockTemplate.clear();
             }
+<<<<<<< HEAD
 
             // Clear pindexPrev so future getworks make a new block, despite any failures from here on
             pindexPrev = NULL;
 
+=======
+			
+            // Clear pindexPrev so future getworks make a new block, despite any failures from here on
+            pindexPrev = NULL;
+			
+>>>>>>> upstream/master
             // Store the pindexBest used before CreateNewBlock, to avoid races
             nTransactionsUpdatedLast = nTransactionsUpdated;
             CBlockIndex* pindexPrevNew = pindexBest;
             nStart = GetTime();
 
             // Create new block
+<<<<<<< HEAD
             pblocktemplate = CreateNewBlockWithKey(*pMiningKey);
             if (!pblocktemplate)
                 throw JSONRPCError(RPC_OUT_OF_MEMORY, "Out of memory");
             vNewBlockTemplate.push_back(pblocktemplate);
 
+=======
+            pblocktemplate = CreateNewBlock(*pMiningKey);
+            if (!pblocktemplate)
+                throw JSONRPCError(RPC_OUT_OF_MEMORY, "Out of memory");
+            vNewBlockTemplate.push_back(pblocktemplate);
+>>>>>>> upstream/master
             // Need to update only after we know CreateNewBlock succeeded
             pindexPrev = pindexPrevNew;
         }
@@ -250,6 +343,10 @@ Value getworkex(const Array& params, bool fHelp)
         result.push_back(Pair("coinbase", HexStr(ssTx.begin(), ssTx.end())));
 
         Array merkle_arr;
+<<<<<<< HEAD
+=======
+        printf("DEBUG: merkle size %i\n", merkle.size());
+>>>>>>> upstream/master
 
         BOOST_FOREACH(uint256 merkleh, merkle) {
             printf("%s\n", merkleh.ToString().c_str());
@@ -258,6 +355,10 @@ Value getworkex(const Array& params, bool fHelp)
 
         result.push_back(Pair("merkle", merkle_arr));
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> upstream/master
         return result;
     }
     else
@@ -271,7 +372,11 @@ Value getworkex(const Array& params, bool fHelp)
 
         if (vchData.size() != 128)
             throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter");
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> upstream/master
         CBlock* pdata = (CBlock*)&vchData[0];
 
         // Byte reverse
@@ -289,6 +394,7 @@ Value getworkex(const Array& params, bool fHelp)
         if(coinbase.size() == 0)
             pblock->vtx[0].vin[0].scriptSig = mapNewBlock[pdata->hashMerkleRoot].second;
         else
+<<<<<<< HEAD
             CDataStream(coinbase, SER_NETWORK, PROTOCOL_VERSION) >> pblock->vtx[0];
 
         pblock->hashMerkleRoot = pblock->BuildMerkleTree();
@@ -298,6 +404,16 @@ Value getworkex(const Array& params, bool fHelp)
 }
 
 
+=======
+            CDataStream(coinbase, SER_NETWORK, PROTOCOL_VERSION) >> pblock->vtx[0]; // FIXME - HACK!
+
+        pblock->hashMerkleRoot = pblock->BuildMerkleTree();
+
+        return CheckWork(pblock, *pwalletMain, *pMiningKey);
+    }
+}
+
+>>>>>>> upstream/master
 Value getwork(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
@@ -348,7 +464,11 @@ Value getwork(const Array& params, bool fHelp)
             nStart = GetTime();
 
             // Create new block
+<<<<<<< HEAD
             pblocktemplate = CreateNewBlockWithKey(*pMiningKey);
+=======
+            pblocktemplate = CreateNewBlock(*pMiningKey);
+>>>>>>> upstream/master
             if (!pblocktemplate)
                 throw JSONRPCError(RPC_OUT_OF_MEMORY, "Out of memory");
             vNewBlockTemplate.push_back(pblocktemplate);
@@ -382,6 +502,10 @@ Value getwork(const Array& params, bool fHelp)
         result.push_back(Pair("data",     HexStr(BEGIN(pdata), END(pdata))));
         result.push_back(Pair("hash1",    HexStr(BEGIN(phash1), END(phash1)))); // deprecated
         result.push_back(Pair("target",   HexStr(BEGIN(hashTarget), END(hashTarget))));
+<<<<<<< HEAD
+=======
+		result.push_back(Pair("algorithm", "scrypt:1024,1,1"));  // +Scrypt
+>>>>>>> upstream/master
         return result;
     }
     else
@@ -406,7 +530,10 @@ Value getwork(const Array& params, bool fHelp)
         pblock->vtx[0].vin[0].scriptSig = mapNewBlock[pdata->hashMerkleRoot].second;
         pblock->hashMerkleRoot = pblock->BuildMerkleTree();
 
+<<<<<<< HEAD
         assert(pwalletMain != NULL);
+=======
+>>>>>>> upstream/master
         return CheckWork(pblock, *pwalletMain, *pMiningKey);
     }
 }
@@ -480,8 +607,12 @@ Value getblocktemplate(const Array& params, bool fHelp)
             delete pblocktemplate;
             pblocktemplate = NULL;
         }
+<<<<<<< HEAD
         CScript scriptDummy = CScript() << OP_TRUE;
         pblocktemplate = CreateNewBlock(scriptDummy);
+=======
+        pblocktemplate = CreateNewBlock(*pMiningKey);
+>>>>>>> upstream/master
         if (!pblocktemplate)
             throw JSONRPCError(RPC_OUT_OF_MEMORY, "Out of memory");
 

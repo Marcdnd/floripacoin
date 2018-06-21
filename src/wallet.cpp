@@ -1,5 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
+<<<<<<< HEAD
+=======
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+>>>>>>> upstream/master
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,7 +13,10 @@
 #include "crypter.h"
 #include "ui_interface.h"
 #include "base58.h"
+<<<<<<< HEAD
 #include "coincontrol.h"
+=======
+>>>>>>> upstream/master
 #include <boost/algorithm/string/replace.hpp>
 
 using namespace std;
@@ -90,9 +98,12 @@ bool CWallet::AddCScript(const CScript& redeemScript)
 
 bool CWallet::Unlock(const SecureString& strWalletPassphrase)
 {
+<<<<<<< HEAD
     if (!IsLocked())
         return false;
 
+=======
+>>>>>>> upstream/master
     CCrypter crypter;
     CKeyingMaterial vMasterKey;
 
@@ -103,7 +114,11 @@ bool CWallet::Unlock(const SecureString& strWalletPassphrase)
             if(!crypter.SetKeyFromPassphrase(strWalletPassphrase, pMasterKey.second.vchSalt, pMasterKey.second.nDeriveIterations, pMasterKey.second.nDerivationMethod))
                 return false;
             if (!crypter.Decrypt(pMasterKey.second.vchCryptedKey, vMasterKey))
+<<<<<<< HEAD
                 return false;
+=======
+                continue; // try another master key
+>>>>>>> upstream/master
             if (CCryptoKeyStore::Unlock(vMasterKey))
                 return true;
         }
@@ -743,10 +758,13 @@ void CWalletTx::AddSupportingTransactions()
                 {
                     tx = *mapWalletPrev[hash];
                 }
+<<<<<<< HEAD
                 else
                 {
                     continue;
                 }
+=======
+>>>>>>> upstream/master
 
                 int nDepth = tx.SetMerkleBranch();
                 vtxPrev.push_back(tx);
@@ -787,7 +805,11 @@ int CWallet::ScanForWalletTransactions(CBlockIndex* pindexStart, bool fUpdate)
                 if (AddToWalletIfInvolvingMe(tx.GetHash(), tx, &block, fUpdate))
                     ret++;
             }
+<<<<<<< HEAD
             pindex = pindex->pnext;
+=======
+            pindex = pindex->GetNextInMainChain();
+>>>>>>> upstream/master
         }
     }
     return ret;
@@ -851,10 +873,14 @@ void CWalletTx::RelayWalletTransaction()
 {
     BOOST_FOREACH(const CMerkleTx& tx, vtxPrev)
     {
+<<<<<<< HEAD
         // Important: versions of bitcoin before 0.8.6 had a bug that inserted
         // empty transactions into the vtxPrev, which will cause the node to be
         // banned when retransmitted, hence the check for !tx.vin.empty()
         if (!tx.IsCoinBase() && !tx.vin.empty())
+=======
+        if (!tx.IsCoinBase())
+>>>>>>> upstream/master
             if (tx.GetDepthInMainChain() == 0)
                 RelayTransaction((CTransaction)tx, tx.GetHash());
     }
@@ -965,7 +991,11 @@ int64 CWallet::GetImmatureBalance() const
 }
 
 // populate vCoins with vector of spendable COutputs
+<<<<<<< HEAD
 void CWallet::AvailableCoins(vector<COutput>& vCoins, bool fOnlyConfirmed, const CCoinControl *coinControl) const
+=======
+void CWallet::AvailableCoins(vector<COutput>& vCoins, bool fOnlyConfirmed) const
+>>>>>>> upstream/master
 {
     vCoins.clear();
 
@@ -986,9 +1016,14 @@ void CWallet::AvailableCoins(vector<COutput>& vCoins, bool fOnlyConfirmed, const
 
             for (unsigned int i = 0; i < pcoin->vout.size(); i++) {
                 if (!(pcoin->IsSpent(i)) && IsMine(pcoin->vout[i]) &&
+<<<<<<< HEAD
                     !IsLockedCoin((*it).first, i) && pcoin->vout[i].nValue >= nMinimumInputValue &&
                     (!coinControl || !coinControl->HasSelected() || coinControl->IsSelected((*it).first, i))) 
                         vCoins.push_back(COutput(pcoin, i, pcoin->GetDepthInMainChain()));
+=======
+                    !IsLockedCoin((*it).first, i) && pcoin->vout[i].nValue > 0)
+                    vCoins.push_back(COutput(pcoin, i, pcoin->GetDepthInMainChain()));
+>>>>>>> upstream/master
             }
         }
     }
@@ -1139,6 +1174,7 @@ bool CWallet::SelectCoinsMinConf(int64 nTargetValue, int nConfMine, int nConfThe
     return true;
 }
 
+<<<<<<< HEAD
 bool CWallet::SelectCoins(int64 nTargetValue, set<pair<const CWalletTx*,unsigned int> >& setCoinsRet, int64& nValueRet, const CCoinControl* coinControl) const
 {
     vector<COutput> vCoins;
@@ -1154,6 +1190,12 @@ bool CWallet::SelectCoins(int64 nTargetValue, set<pair<const CWalletTx*,unsigned
         }
         return (nValueRet >= nTargetValue);
     }
+=======
+bool CWallet::SelectCoins(int64 nTargetValue, set<pair<const CWalletTx*,unsigned int> >& setCoinsRet, int64& nValueRet) const
+{
+    vector<COutput> vCoins;
+    AvailableCoins(vCoins);
+>>>>>>> upstream/master
 
     return (SelectCoinsMinConf(nTargetValue, 1, 6, vCoins, setCoinsRet, nValueRet) ||
             SelectCoinsMinConf(nTargetValue, 1, 1, vCoins, setCoinsRet, nValueRet) ||
@@ -1164,7 +1206,11 @@ bool CWallet::SelectCoins(int64 nTargetValue, set<pair<const CWalletTx*,unsigned
 
 
 bool CWallet::CreateTransaction(const vector<pair<CScript, int64> >& vecSend,
+<<<<<<< HEAD
                                 CWalletTx& wtxNew, CReserveKey& reservekey, int64& nFeeRet, std::string& strFailReason, const CCoinControl* coinControl)
+=======
+                                CWalletTx& wtxNew, CReserveKey& reservekey, int64& nFeeRet, std::string& strFailReason)
+>>>>>>> upstream/master
 {
     int64 nValue = 0;
     BOOST_FOREACH (const PAIRTYPE(CScript, int64)& s, vecSend)
@@ -1211,7 +1257,11 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64> >& vecSend,
                 // Choose coins to use
                 set<pair<const CWalletTx*,unsigned int> > setCoins;
                 int64 nValueIn = 0;
+<<<<<<< HEAD
                 if (!SelectCoins(nTotalValue, setCoins, nValueIn, coinControl))
+=======
+                if (!SelectCoins(nTotalValue, setCoins, nValueIn))
+>>>>>>> upstream/master
                 {
                     strFailReason = _("Insufficient funds");
                     return false;
@@ -1238,6 +1288,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64> >& vecSend,
 
                 if (nChange > 0)
                 {
+<<<<<<< HEAD
                     // Fill a vout to ourself
                     // TODO: pass in scriptChange instead of reservekey so
                     // change transaction isn't always pay-to-bitcoin-address
@@ -1263,6 +1314,24 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64> >& vecSend,
 
                         scriptChange.SetDestination(vchPubKey.GetID());
                     }
+=======
+                    // Note: We use a new key here to keep it from being obvious which side is the change.
+                    //  The drawback is that by not reusing a previous key, the change may be lost if a
+                    //  backup is restored, if the backup doesn't have the new private key for the change.
+                    //  If we reused the old key, it would be possible to add code to look for and
+                    //  rediscover unknown transactions that were written with keys of ours to recover
+                    //  post-backup change.
+
+                    // Reserve a new key pair from key pool
+                    CPubKey vchPubKey;
+                    assert(reservekey.GetReservedKey(vchPubKey)); // should never fail, as we just unlocked
+
+                    // Fill a vout to ourself
+                    // TODO: pass in scriptChange instead of reservekey so
+                    // change transaction isn't always pay-to-floripacoin-address
+                    CScript scriptChange;
+                    scriptChange.SetDestination(vchPubKey.GetID());
+>>>>>>> upstream/master
 
                     CTxOut newTxOut(nChange, scriptChange);
 
@@ -1327,11 +1396,19 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64> >& vecSend,
 }
 
 bool CWallet::CreateTransaction(CScript scriptPubKey, int64 nValue,
+<<<<<<< HEAD
                                 CWalletTx& wtxNew, CReserveKey& reservekey, int64& nFeeRet, std::string& strFailReason, const CCoinControl* coinControl)
 {
     vector< pair<CScript, int64> > vecSend;
     vecSend.push_back(make_pair(scriptPubKey, nValue));
     return CreateTransaction(vecSend, wtxNew, reservekey, nFeeRet, strFailReason, coinControl);
+=======
+                                CWalletTx& wtxNew, CReserveKey& reservekey, int64& nFeeRet, std::string& strFailReason)
+{
+    vector< pair<CScript, int64> > vecSend;
+    vecSend.push_back(make_pair(scriptPubKey, nValue));
+    return CreateTransaction(vecSend, wtxNew, reservekey, nFeeRet, strFailReason);
+>>>>>>> upstream/master
 }
 
 // Call after CreateTransaction unless you want to abort
@@ -1425,7 +1502,11 @@ string CWallet::SendMoneyToDestination(const CTxDestination& address, int64 nVal
     if (nValue + nTransactionFee > GetBalance())
         return _("Insufficient funds");
 
+<<<<<<< HEAD
     // Parse Bitcoin address
+=======
+    // Parse Floripacoin address
+>>>>>>> upstream/master
     CScript scriptPubKey;
     scriptPubKey.SetDestination(address);
 
@@ -1467,7 +1548,11 @@ bool CWallet::SetAddressBookName(const CTxDestination& address, const string& st
     NotifyAddressBookChanged(this, address, strName, ::IsMine(*this, address), (mi == mapAddressBook.end()) ? CT_NEW : CT_UPDATED);
     if (!fFileBacked)
         return false;
+<<<<<<< HEAD
     return CWalletDB(strWalletFile).WriteName(CBitcoinAddress(address).ToString(), strName);
+=======
+    return CWalletDB(strWalletFile).WriteName(CFloripacoinAddress(address).ToString(), strName);
+>>>>>>> upstream/master
 }
 
 bool CWallet::DelAddressBookName(const CTxDestination& address)
@@ -1476,7 +1561,11 @@ bool CWallet::DelAddressBookName(const CTxDestination& address)
     NotifyAddressBookChanged(this, address, "", ::IsMine(*this, address), CT_DELETED);
     if (!fFileBacked)
         return false;
+<<<<<<< HEAD
     return CWalletDB(strWalletFile).EraseName(CBitcoinAddress(address).ToString());
+=======
+    return CWalletDB(strWalletFile).EraseName(CFloripacoinAddress(address).ToString());
+>>>>>>> upstream/master
 }
 
 

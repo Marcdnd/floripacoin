@@ -1,15 +1,21 @@
 #include "sendcoinsdialog.h"
 #include "ui_sendcoinsdialog.h"
 
+<<<<<<< HEAD
 #include "init.h"
 #include "walletmodel.h"
 #include "addresstablemodel.h"
 #include "bitcoinunits.h"
+=======
+#include "walletmodel.h"
+#include "floripacoinunits.h"
+>>>>>>> upstream/master
 #include "addressbookpage.h"
 #include "optionsmodel.h"
 #include "sendcoinsentry.h"
 #include "guiutil.h"
 #include "askpassphrasedialog.h"
+<<<<<<< HEAD
 #include "coincontrol.h"
 #include "coincontroldialog.h"
 
@@ -17,6 +23,15 @@
 #include <QTextDocument>
 #include <QScrollBar>
 #include <QClipboard>
+=======
+#include "base58.h"
+#include "net.h"
+
+#include <QMessageBox>
+#include <QLocale>
+#include <QTextDocument>
+#include <QScrollBar>
+>>>>>>> upstream/master
 
 SendCoinsDialog::SendCoinsDialog(QWidget *parent) :
     QDialog(parent),
@@ -26,6 +41,7 @@ SendCoinsDialog::SendCoinsDialog(QWidget *parent) :
     ui->setupUi(this);
 
 #ifdef Q_OS_MAC // Icons on push buttons are very uncommon on Mac
+<<<<<<< HEAD
     ui->addButton->setIcon(QIcon());
     ui->clearButton->setIcon(QIcon());
     ui->sendButton->setIcon(QIcon());
@@ -72,6 +88,18 @@ SendCoinsDialog::SendCoinsDialog(QWidget *parent) :
     ui->labelCoinControlLowOutput->addAction(clipboardLowOutputAction);
     ui->labelCoinControlChange->addAction(clipboardChangeAction);
 
+=======
+    // ui->addButton->setIcon(QIcon());
+    ui->clearButton->setIcon(QIcon());
+    ui->sendButton->setIcon(QIcon());
+#endif
+
+    addEntry();
+
+    // connect(ui->addButton, SIGNAL(clicked()), this, SLOT(addEntry()));
+    connect(ui->clearButton, SIGNAL(clicked()), this, SLOT(clear()));
+
+>>>>>>> upstream/master
     fNewRecipientAllowed = true;
 }
 
@@ -92,6 +120,7 @@ void SendCoinsDialog::setModel(WalletModel *model)
         setBalance(model->getBalance(), model->getUnconfirmedBalance(), model->getImmatureBalance());
         connect(model, SIGNAL(balanceChanged(qint64, qint64, qint64)), this, SLOT(setBalance(qint64, qint64, qint64)));
         connect(model->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
+<<<<<<< HEAD
 
         // Coin Control
         connect(model->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(coinControlUpdateLabels()));
@@ -99,6 +128,8 @@ void SendCoinsDialog::setModel(WalletModel *model)
         connect(model->getOptionsModel(), SIGNAL(transactionFeeChanged(qint64)), this, SLOT(coinControlUpdateLabels()));
         ui->frameCoinControl->setVisible(model->getOptionsModel()->getCoinControlFeatures());
         coinControlUpdateLabels();
+=======
+>>>>>>> upstream/master
     }
 }
 
@@ -141,9 +172,15 @@ void SendCoinsDialog::on_sendButton_clicked()
     foreach(const SendCoinsRecipient &rcp, recipients)
     {
 #if QT_VERSION < 0x050000
+<<<<<<< HEAD
         formatted.append(tr("<b>%1</b> to %2 (%3)").arg(BitcoinUnits::formatWithUnit(BitcoinUnits::BTC, rcp.amount), Qt::escape(rcp.label), rcp.address));
 #else
         formatted.append(tr("<b>%1</b> to %2 (%3)").arg(BitcoinUnits::formatWithUnit(BitcoinUnits::BTC, rcp.amount), rcp.label.toHtmlEscaped(), rcp.address));
+=======
+        formatted.append(tr("<b>%1</b> to %2 (%3)").arg(FloripacoinUnits::formatWithUnit(FloripacoinUnits::MEC, rcp.amount), Qt::escape(rcp.label), rcp.address));
+#else
+        formatted.append(tr("<b>%1</b> to %2 (%3)").arg(FloripacoinUnits::formatWithUnit(FloripacoinUnits::MEC, rcp.amount), rcp.label.toHtmlEscaped(), rcp.address));
+>>>>>>> upstream/master
 #endif
     }
 
@@ -168,11 +205,15 @@ void SendCoinsDialog::on_sendButton_clicked()
         return;
     }
 
+<<<<<<< HEAD
     WalletModel::SendCoinsReturn sendstatus;
     if (!model->getOptionsModel() || !model->getOptionsModel()->getCoinControlFeatures())
         sendstatus = model->sendCoins(recipients);
     else
         sendstatus = model->sendCoins(recipients, CoinControlDialog::coinControl);
+=======
+    WalletModel::SendCoinsReturn sendstatus = model->sendCoins(recipients);
+>>>>>>> upstream/master
     switch(sendstatus.status)
     {
     case WalletModel::InvalidAddress:
@@ -193,7 +234,11 @@ void SendCoinsDialog::on_sendButton_clicked()
     case WalletModel::AmountWithFeeExceedsBalance:
         QMessageBox::warning(this, tr("Send Coins"),
             tr("The total exceeds your balance when the %1 transaction fee is included.").
+<<<<<<< HEAD
             arg(BitcoinUnits::formatWithUnit(BitcoinUnits::BTC, sendstatus.fee)),
+=======
+            arg(FloripacoinUnits::formatWithUnit(FloripacoinUnits::MEC, sendstatus.fee)),
+>>>>>>> upstream/master
             QMessageBox::Ok, QMessageBox::Ok);
         break;
     case WalletModel::DuplicateAddress:
@@ -215,8 +260,11 @@ void SendCoinsDialog::on_sendButton_clicked()
         break;
     case WalletModel::OK:
         accept();
+<<<<<<< HEAD
         CoinControlDialog::coinControl->UnSelectAll();
         coinControlUpdateLabels();
+=======
+>>>>>>> upstream/master
         break;
     }
     fNewRecipientAllowed = true;
@@ -227,7 +275,11 @@ void SendCoinsDialog::clear()
     // Remove entries until only one left
     while(ui->entries->count())
     {
+<<<<<<< HEAD
         ui->entries->takeAt(0)->widget()->deleteLater();
+=======
+        delete ui->entries->takeAt(0)->widget();
+>>>>>>> upstream/master
     }
     addEntry();
 
@@ -252,7 +304,11 @@ SendCoinsEntry *SendCoinsDialog::addEntry()
     entry->setModel(model);
     ui->entries->addWidget(entry);
     connect(entry, SIGNAL(removeEntry(SendCoinsEntry*)), this, SLOT(removeEntry(SendCoinsEntry*)));
+<<<<<<< HEAD
     connect(entry, SIGNAL(payAmountChanged()), this, SLOT(coinControlUpdateLabels()));
+=======
+    connect(entry, SIGNAL(addEntry()), this, SLOT(addEntry()));
+>>>>>>> upstream/master
 
     updateRemoveEnabled();
 
@@ -280,13 +336,20 @@ void SendCoinsDialog::updateRemoveEnabled()
         }
     }
     setupTabChain(0);
+<<<<<<< HEAD
 
     coinControlUpdateLabels();
+=======
+>>>>>>> upstream/master
 }
 
 void SendCoinsDialog::removeEntry(SendCoinsEntry* entry)
 {
+<<<<<<< HEAD
     entry->deleteLater();
+=======
+    delete entry;
+>>>>>>> upstream/master
     updateRemoveEnabled();
 }
 
@@ -300,8 +363,12 @@ QWidget *SendCoinsDialog::setupTabChain(QWidget *prev)
             prev = entry->setupTabChain(prev);
         }
     }
+<<<<<<< HEAD
     QWidget::setTabOrder(prev, ui->addButton);
     QWidget::setTabOrder(ui->addButton, ui->sendButton);
+=======
+    QWidget::setTabOrder(prev, ui->sendButton);
+>>>>>>> upstream/master
     return ui->sendButton;
 }
 
@@ -352,9 +419,15 @@ bool SendCoinsDialog::handleURI(const QString &uri)
 {
     SendCoinsRecipient rv;
     // URI has to be valid
+<<<<<<< HEAD
     if (GUIUtil::parseBitcoinURI(uri, &rv))
     {
         CBitcoinAddress address(rv.address.toStdString());
+=======
+    if (GUIUtil::parseFloripacoinURI(uri, &rv))
+    {
+        CFloripacoinAddress address(rv.address.toStdString());
+>>>>>>> upstream/master
         if (!address.IsValid())
             return false;
         pasteEntry(rv);
@@ -372,7 +445,11 @@ void SendCoinsDialog::setBalance(qint64 balance, qint64 unconfirmedBalance, qint
         return;
 
     int unit = model->getOptionsModel()->getDisplayUnit();
+<<<<<<< HEAD
     ui->labelBalance->setText(BitcoinUnits::formatWithUnit(unit, balance));
+=======
+    ui->labelBalance->setText(FloripacoinUnits::formatWithUnit(unit, balance));
+>>>>>>> upstream/master
 }
 
 void SendCoinsDialog::updateDisplayUnit()
@@ -380,6 +457,7 @@ void SendCoinsDialog::updateDisplayUnit()
     if(model && model->getOptionsModel())
     {
         // Update labelBalance with the current balance and the current unit
+<<<<<<< HEAD
         ui->labelBalance->setText(BitcoinUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), model->getBalance()));
     }
 }
@@ -536,3 +614,8 @@ void SendCoinsDialog::coinControlUpdateLabels()
     }
 }
 
+=======
+        ui->labelBalance->setText(FloripacoinUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), model->getBalance()));
+    }
+}
+>>>>>>> upstream/master

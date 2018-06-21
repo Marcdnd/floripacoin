@@ -1,8 +1,13 @@
 // Copyright (c) 2012 Pieter Wuille
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
+<<<<<<< HEAD
 #ifndef _BITCOIN_ADDRMAN
 #define _BITCOIN_ADDRMAN 1
+=======
+#ifndef _FLORIPACOIN_ADDRMAN
+#define _FLORIPACOIN_ADDRMAN 1
+>>>>>>> upstream/master
 
 #include "netbase.h"
 #include "protocol.h"

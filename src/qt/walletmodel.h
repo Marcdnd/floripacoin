@@ -2,8 +2,11 @@
 #define WALLETMODEL_H
 
 #include <QObject>
+<<<<<<< HEAD
 #include <vector>
 #include <map>
+=======
+>>>>>>> upstream/master
 
 #include "allocators.h" /* for SecureString */
 
@@ -11,12 +14,15 @@ class OptionsModel;
 class AddressTableModel;
 class TransactionTableModel;
 class CWallet;
+<<<<<<< HEAD
 class CKeyID;
 class CPubKey;
 class COutput;
 class COutPoint;
 class uint256;
 class CCoinControl;
+=======
+>>>>>>> upstream/master
 
 QT_BEGIN_NAMESPACE
 class QTimer;
@@ -30,7 +36,11 @@ public:
     qint64 amount;
 };
 
+<<<<<<< HEAD
 /** Interface to Bitcoin wallet from Qt view code. */
+=======
+/** Interface to Floripacoin wallet from Qt view code. */
+>>>>>>> upstream/master
 class WalletModel : public QObject
 {
     Q_OBJECT
@@ -62,8 +72,13 @@ public:
     OptionsModel *getOptionsModel();
     AddressTableModel *getAddressTableModel();
     TransactionTableModel *getTransactionTableModel();
+<<<<<<< HEAD
     
     qint64 getBalance(const CCoinControl *coinControl=NULL) const;
+=======
+
+    qint64 getBalance() const;
+>>>>>>> upstream/master
     qint64 getUnconfirmedBalance() const;
     qint64 getImmatureBalance() const;
     int getNumTransactions() const;
@@ -75,7 +90,11 @@ public:
     // Return status record for SendCoins, contains error id + information
     struct SendCoinsReturn
     {
+<<<<<<< HEAD
         SendCoinsReturn(StatusCode status=Aborted,
+=======
+        SendCoinsReturn(StatusCode status,
+>>>>>>> upstream/master
                          qint64 fee=0,
                          QString hex=QString()):
             status(status), fee(fee), hex(hex) {}
@@ -85,7 +104,11 @@ public:
     };
 
     // Send coins to a list of recipients
+<<<<<<< HEAD
     SendCoinsReturn sendCoins(const QList<SendCoinsRecipient> &recipients, const CCoinControl *coinControl=NULL);
+=======
+    SendCoinsReturn sendCoins(const QList<SendCoinsRecipient> &recipients);
+>>>>>>> upstream/master
 
     // Wallet encryption
     bool setWalletEncrypted(bool encrypted, const SecureString &passphrase);
@@ -117,6 +140,7 @@ public:
 
     UnlockContext requestUnlock();
 
+<<<<<<< HEAD
     bool getPubKey(const CKeyID &address, CPubKey& vchPubKeyOut) const;
     void getOutputs(const std::vector<COutPoint>& vOutpoints, std::vector<COutput>& vOutputs);
     void listCoins(std::map<QString, std::vector<COutput> >& mapCoins) const;
@@ -126,6 +150,8 @@ public:
     void unlockCoin(COutPoint& output);
     void listLockedCoins(std::vector<COutPoint>& vOutpts);
 
+=======
+>>>>>>> upstream/master
 private:
     CWallet *wallet;
 

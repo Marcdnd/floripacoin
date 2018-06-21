@@ -1,13 +1,62 @@
 // Copyright (c) 2009-2012 Bitcoin Developers
+<<<<<<< HEAD
+=======
+// Copyright (c) 2013-2013 CopperLark developers
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+>>>>>>> upstream/master
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "net.h"
+<<<<<<< HEAD
 #include "bitcoinrpc.h"
+=======
+#include "floripacoinrpc.h"
+#include "sendalert.h"
+#include "sendnews.h"
+>>>>>>> upstream/master
 
 using namespace json_spirit;
 using namespace std;
 
+<<<<<<< HEAD
+=======
+Value sendalert(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() != 2)
+        throw runtime_error(
+            "sendalert(text, private key) \n"
+            "Send alert message to the Floripacoin network.");
+    string strMessage;
+    string sig;
+    strMessage = params[0].get_str();
+    sig = params[1].get_str();
+    CSendAlert sendAlert;
+    sendAlert.Test(strMessage, sig);
+    return (bool)true;
+}
+
+Value sendnews(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() != 4)
+        throw runtime_error(
+            "sendnews(header, text, status, private key) \n"
+            "Send news message to Floripacoin network.");
+    string strHeader;
+    string strMsg;
+    string strStatus;
+    string sig;
+    strHeader = params[0].get_str();
+    strMsg = params[1].get_str();
+    strStatus = params[2].get_str();
+    sig = params[3].get_str();
+    CSendNewsMessage sendNewsMessage;
+    sendNewsMessage.Test(strHeader, strMsg, strStatus, sig);
+    return (bool)true;
+}
+
+>>>>>>> upstream/master
 Value getconnectioncount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
@@ -53,6 +102,7 @@ Value getpeerinfo(const Array& params, bool fHelp)
         obj.push_back(Pair("lastrecv", (boost::int64_t)stats.nLastRecv));
         obj.push_back(Pair("bytessent", (boost::int64_t)stats.nSendBytes));
         obj.push_back(Pair("bytesrecv", (boost::int64_t)stats.nRecvBytes));
+<<<<<<< HEAD
         obj.push_back(Pair("blocksrequested", (boost::int64_t)stats.nBlocksRequested));
         obj.push_back(Pair("conntime", (boost::int64_t)stats.nTimeConnected));
         obj.push_back(Pair("version", stats.nVersion));
@@ -60,6 +110,11 @@ Value getpeerinfo(const Array& params, bool fHelp)
         // corrupting or modifiying the JSON output by putting special characters in
         // their ver message.
         obj.push_back(Pair("subver", stats.cleanSubVer));
+=======
+        obj.push_back(Pair("conntime", (boost::int64_t)stats.nTimeConnected));
+        obj.push_back(Pair("version", stats.nVersion));
+        obj.push_back(Pair("subver", stats.strSubVer));
+>>>>>>> upstream/master
         obj.push_back(Pair("inbound", stats.fInbound));
         obj.push_back(Pair("startingheight", stats.nStartingHeight));
         obj.push_back(Pair("banscore", stats.nMisbehavior));

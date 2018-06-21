@@ -18,7 +18,11 @@ for Debian and Ubuntu  <= 11.10 :
 
     apt-get install qt4-qmake libqt4-dev build-essential libboost-dev libboost-system-dev \
         libboost-filesystem-dev libboost-program-options-dev libboost-thread-dev \
+<<<<<<< HEAD
         libssl-dev libdb4.8++-dev libminiupnpc-dev
+=======
+        libssl-dev libdb4.8++-dev
+>>>>>>> upstream/master
 
 for Ubuntu >= 12.04 (please read the 'Berkely DB version warning' below):
 
@@ -68,9 +72,15 @@ Mac OS X
 	brew update
 	brew install boost miniupnpc openssl berkeley-db4
 
+<<<<<<< HEAD
 - If using HomeBrew,  edit `floripacoin-qt.pro` to account for library location differences. There's a diff in `contrib/homebrew/bitcoin-qt-pro.patch` that shows what you need to change, or you can just patch by doing
 
         patch -p1 < contrib/homebrew/bitcoin.qt.pro.patch
+=======
+- If using HomeBrew,  edit `floripacoin-qt.pro` to account for library location differences. There's a diff in `contrib/homebrew/floripacoin-qt-pro.patch` that shows what you need to change, or you can just patch by doing
+
+        patch -p1 < contrib/homebrew/floripacoin.qt.pro.patch
+>>>>>>> upstream/master
 
 - Open the floripacoin-qt.pro file in Qt Creator and build as normal (cmd-B)
 

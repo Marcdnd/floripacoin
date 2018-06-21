@@ -1,4 +1,9 @@
 // Copyright (c) 2012 The Bitcoin developers
+<<<<<<< HEAD
+=======
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+>>>>>>> upstream/master
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include <string>
@@ -6,12 +11,21 @@
 #include "version.h"
 
 // Name of client reported in the 'version' message. Report the same name
+<<<<<<< HEAD
 // for both bitcoind and bitcoin-qt, to make it harder for attackers to
 // target servers or GUI users specifically.
 const std::string CLIENT_NAME("Satoshi");
 
 // Client version number
 #define CLIENT_VERSION_SUFFIX   "-beta"
+=======
+// for both floripacoind and floripacoin-qt, to make it harder for attackers to
+// target servers or GUI users specifically.
+const std::string CLIENT_NAME("Floripacoin");
+
+// Client version number
+#define CLIENT_VERSION_SUFFIX   "-dove"
+>>>>>>> upstream/master
 
 
 // The following part of the code determines the CLIENT_BUILD variable.
@@ -36,8 +50,13 @@ const std::string CLIENT_NAME("Satoshi");
 // git will put "#define GIT_ARCHIVE 1" on the next line inside archives. 
 #define GIT_ARCHIVE 1
 #ifdef GIT_ARCHIVE
+<<<<<<< HEAD
 #    define GIT_COMMIT_ID "85f303d"
 #    define GIT_COMMIT_DATE "Sat, 15 Feb 2014 00:13:43 -1000"
+=======
+#    define GIT_COMMIT_ID " 72f6225"
+// #    define GIT_COMMIT_DATE "$Format:%cD"
+>>>>>>> upstream/master
 #endif
 
 #define BUILD_DESC_FROM_COMMIT(maj,min,rev,build,commit) \

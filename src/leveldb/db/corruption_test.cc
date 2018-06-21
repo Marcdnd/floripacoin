@@ -35,7 +35,10 @@ class CorruptionTest {
   CorruptionTest() {
     tiny_cache_ = NewLRUCache(100);
     options_.env = &env_;
+<<<<<<< HEAD
     options_.block_cache = tiny_cache_;
+=======
+>>>>>>> upstream/master
     dbname_ = test::TmpDir() + "/db_test";
     DestroyDB(dbname_, options_);
 
@@ -51,6 +54,7 @@ class CorruptionTest {
      delete tiny_cache_;
   }
 
+<<<<<<< HEAD
   Status TryReopen() {
     delete db_;
     db_ = NULL;
@@ -59,6 +63,19 @@ class CorruptionTest {
 
   void Reopen() {
     ASSERT_OK(TryReopen());
+=======
+  Status TryReopen(Options* options = NULL) {
+    delete db_;
+    db_ = NULL;
+    Options opt = (options ? *options : options_);
+    opt.env = &env_;
+    opt.block_cache = tiny_cache_;
+    return DB::Open(opt, dbname_, &db_);
+  }
+
+  void Reopen(Options* options = NULL) {
+    ASSERT_OK(TryReopen(options));
+>>>>>>> upstream/master
   }
 
   void RepairDB() {
@@ -90,10 +107,13 @@ class CorruptionTest {
     for (iter->SeekToFirst(); iter->Valid(); iter->Next()) {
       uint64_t key;
       Slice in(iter->key());
+<<<<<<< HEAD
       if (in == "" || in == "~") {
         // Ignore boundary keys.
         continue;
       }
+=======
+>>>>>>> upstream/master
       if (!ConsumeDecimalNumber(&in, &key) ||
           !in.empty() ||
           key < next_expected) {
@@ -235,7 +255,11 @@ TEST(CorruptionTest, TableFile) {
   dbi->TEST_CompactRange(1, NULL, NULL);
 
   Corrupt(kTableFile, 100, 1);
+<<<<<<< HEAD
   Check(90, 99);
+=======
+  Check(99, 99);
+>>>>>>> upstream/master
 }
 
 TEST(CorruptionTest, TableFileIndexData) {
@@ -301,7 +325,11 @@ TEST(CorruptionTest, CompactionInputError) {
   ASSERT_EQ(1, Property("leveldb.num-files-at-level" + NumberToString(last)));
 
   Corrupt(kTableFile, 100, 1);
+<<<<<<< HEAD
   Check(5, 9);
+=======
+  Check(9, 9);
+>>>>>>> upstream/master
 
   // Force compactions by writing lots of values
   Build(10000);
@@ -309,6 +337,7 @@ TEST(CorruptionTest, CompactionInputError) {
 }
 
 TEST(CorruptionTest, CompactionInputErrorParanoid) {
+<<<<<<< HEAD
   options_.paranoid_checks = true;
   options_.write_buffer_size = 512 << 10;
   Reopen();
@@ -326,6 +355,34 @@ TEST(CorruptionTest, CompactionInputErrorParanoid) {
   // Write must fail because of corrupted table
   std::string tmp1, tmp2;
   Status s = db_->Put(WriteOptions(), Key(5, &tmp1), Value(5, &tmp2));
+=======
+  Options options;
+  options.paranoid_checks = true;
+  options.write_buffer_size = 1048576;
+  Reopen(&options);
+  DBImpl* dbi = reinterpret_cast<DBImpl*>(db_);
+
+  // Fill levels >= 1 so memtable compaction outputs to level 1
+  for (int level = 1; level < config::kNumLevels; level++) {
+    dbi->Put(WriteOptions(), "", "begin");
+    dbi->Put(WriteOptions(), "~", "end");
+    dbi->TEST_CompactMemTable();
+  }
+
+  Build(10);
+  dbi->TEST_CompactMemTable();
+  ASSERT_EQ(1, Property("leveldb.num-files-at-level0"));
+
+  Corrupt(kTableFile, 100, 1);
+  Check(9, 9);
+
+  // Write must eventually fail because of corrupted table
+  Status s;
+  std::string tmp1, tmp2;
+  for (int i = 0; i < 10000 && s.ok(); i++) {
+    s = db_->Put(WriteOptions(), Key(i, &tmp1), Value(i, &tmp2));
+  }
+>>>>>>> upstream/master
   ASSERT_TRUE(!s.ok()) << "write did not fail in corrupted paranoid db";
 }
 

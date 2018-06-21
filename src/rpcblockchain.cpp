@@ -1,10 +1,19 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
+<<<<<<< HEAD
+=======
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+>>>>>>> upstream/master
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "main.h"
+<<<<<<< HEAD
 #include "bitcoinrpc.h"
+=======
+#include "floripacoinrpc.h"
+>>>>>>> upstream/master
 
 using namespace json_spirit;
 using namespace std;
@@ -65,8 +74,14 @@ Object blockToJSON(const CBlock& block, const CBlockIndex* blockindex)
 
     if (blockindex->pprev)
         result.push_back(Pair("previousblockhash", blockindex->pprev->GetBlockHash().GetHex()));
+<<<<<<< HEAD
     if (blockindex->pnext)
         result.push_back(Pair("nextblockhash", blockindex->pnext->GetBlockHash().GetHex()));
+=======
+    CBlockIndex *pnext = blockindex->GetNextInMainChain();
+    if (pnext)
+        result.push_back(Pair("nextblockhash", pnext->GetBlockHash().GetHex()));
+>>>>>>> upstream/master
     return result;
 }
 
@@ -81,6 +96,7 @@ Value getblockcount(const Array& params, bool fHelp)
     return nBestHeight;
 }
 
+<<<<<<< HEAD
 Value getbestblockhash(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
@@ -90,6 +106,8 @@ Value getbestblockhash(const Array& params, bool fHelp)
 
     return hashBestChain.GetHex();
 }
+=======
+>>>>>>> upstream/master
 
 Value getdifficulty(const Array& params, bool fHelp)
 {
@@ -152,20 +170,30 @@ Value getblockhash(const Array& params, bool fHelp)
 
 Value getblock(const Array& params, bool fHelp)
 {
+<<<<<<< HEAD
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
             "getblock <hash> [verbose=true]\n"
             "If verbose is false, returns a string that is serialized, hex-encoded data for block <hash>.\n"
             "If verbose is true, returns an Object with information about block <hash>."
         );
+=======
+    if (fHelp || params.size() != 1)
+        throw runtime_error(
+            "getblock <hash>\n"
+            "Returns details of a block with given block-hash.");
+>>>>>>> upstream/master
 
     std::string strHash = params[0].get_str();
     uint256 hash(strHash);
 
+<<<<<<< HEAD
     bool fVerbose = true;
     if (params.size() > 1)
         fVerbose = params[1].get_bool();
 
+=======
+>>>>>>> upstream/master
     if (mapBlockIndex.count(hash) == 0)
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Block not found");
 
@@ -173,6 +201,7 @@ Value getblock(const Array& params, bool fHelp)
     CBlockIndex* pblockindex = mapBlockIndex[hash];
     block.ReadFromDisk(pblockindex);
 
+<<<<<<< HEAD
     if (!fVerbose)
     {
         CDataStream ssBlock(SER_NETWORK, PROTOCOL_VERSION);
@@ -181,6 +210,8 @@ Value getblock(const Array& params, bool fHelp)
         return strHex;
     }
 
+=======
+>>>>>>> upstream/master
     return blockToJSON(block, pblockindex);
 }
 
@@ -251,6 +282,7 @@ Value gettxout(const Array& params, bool fHelp)
     return ret;
 }
 
+<<<<<<< HEAD
 Value verifychain(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 2)
@@ -267,4 +299,6 @@ Value verifychain(const Array& params, bool fHelp)
 
     return VerifyDB(nCheckLevel, nCheckDepth);
 }
+=======
+>>>>>>> upstream/master
 

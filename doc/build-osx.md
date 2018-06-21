@@ -13,6 +13,11 @@ License
 -------
 
 Copyright (c) 2009-2012 Bitcoin Developers
+<<<<<<< HEAD
+=======
+Copyright (c) 2013-2079 Dr. Kimoto Chan
+Copyright (c) 2013-2079 The Floripacoin developers
+>>>>>>> upstream/master
 
 Distributed under the MIT/X11 software license, see the accompanying
 file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -76,7 +81,11 @@ Installing the dependencies using MacPorts is very straightforward.
 
 1. Clone the github tree to get the source code and go into the directory.
 
+<<<<<<< HEAD
         git clone git@github.com:floripacoin-project/floripacoin.git floripacoin
+=======
+        git clone git@github.com:floripacoin/floripacoin.git floripacoin
+>>>>>>> upstream/master
         cd floripacoin
 
 2.  Build floripacoind:
@@ -93,8 +102,14 @@ Instructions: HomeBrew
 
 #### Install dependencies using Homebrew
 
+<<<<<<< HEAD
         brew install boost miniupnpc openssl berkeley-db4
 
+=======
+        brew install boost@1.59 miniupnpc openssl berkeley-db4
+        
+        brew link boost@1.59 --force
+>>>>>>> upstream/master
 Note: After you have installed the dependencies, you should check that the Brew installed version of OpenSSL is the one available for compilation. You can check this by typing
 
         openssl version
@@ -111,17 +126,26 @@ Rerunning "openssl version" should now return the correct version.
 
 1. Clone the github tree to get the source code and go into the directory.
 
+<<<<<<< HEAD
         git clone git@github.com:floripacoin-project/floripacoin.git floripacoin
+=======
+        git clone git@github.com:floripacoin/floripacoin.git floripacoin
+>>>>>>> upstream/master
         cd floripacoin
 
 2.  Modify source in order to pick up the `openssl` library.
 
+<<<<<<< HEAD
     Edit `makefile.osx` to account for library location differences. There's a
     diff in `contrib/homebrew/makefile.osx.patch` that shows what you need to
     change, or you can just patch by doing
 
         patch -p1 < contrib/homebrew/makefile.osx.patch
 
+=======
+    Edit `makefile.osx` to account for library location differences. 
+    
+>>>>>>> upstream/master
 3.  Build floripacoind:
 
         cd src
@@ -137,7 +161,11 @@ Creating a release build
 A floripacoind binary is not included in the Floripacoin-Qt.app bundle. You can ignore
 this section if you are building `floripacoind` for your own use.
 
+<<<<<<< HEAD
 If you are building `litecond` for others, your build machine should be set up
+=======
+If you are building `floripacoind` for others, your build machine should be set up
+>>>>>>> upstream/master
 as follows for maximum compatibility:
 
 All dependencies should be compiled with these flags:

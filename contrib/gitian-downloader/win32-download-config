@@ -1,4 +1,5 @@
 --- 
+<<<<<<< HEAD
 name: bitcoin
 urls:
 - http://bitcoin.org/bitcoin-latest-win32-gitian.zip
@@ -55,4 +56,18 @@ signers:
     weight: 40
     name: "Adrian Gallagher"
     key: thrasher
+=======
+name: floripacoin
+urls:
+- http://floripacoin.co.nz/
+rss:
+- url: http://sourceforge.net/api/file/index/project-name/floripacoin/mtime/desc/limit/100/rss
+  xpath: //item/link/text()
+  pattern: floripacoin-\d+.\d+.\d+-win32-gitian.zip
+signers:
+  0000000000000000000000000000000000000000:
+    weight: 40
+    name: kimoto
+    key: kimoto
+>>>>>>> upstream/master
 minimum_weight: 120

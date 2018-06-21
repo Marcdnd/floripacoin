@@ -1,5 +1,9 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
+<<<<<<< HEAD
+=======
+// Copyright (c) 2011-2012 Tenebrix, Litecoin developers
+>>>>>>> upstream/master
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,6 +15,7 @@
 #include "bitcoinrpc.h"
 #include "db.h"
 
+<<<<<<< HEAD
 #include <boost/asio.hpp>
 #include <boost/asio/ip/v6_only.hpp>
 #include <boost/bind.hpp>
@@ -22,6 +27,19 @@
 #include <boost/lexical_cast.hpp>
 #include <boost/asio/ssl.hpp>
 #include <boost/filesystem/fstream.hpp>
+=======
+#include <boost/algorithm/string.hpp>
+#include <boost/asio.hpp>
+#include <boost/asio/ip/v6_only.hpp>
+#include <boost/asio/ssl.hpp>
+#include <boost/bind.hpp>
+#include <boost/filesystem.hpp>
+#include <boost/filesystem/fstream.hpp>
+#include <boost/foreach.hpp>
+#include <boost/iostreams/concepts.hpp>
+#include <boost/iostreams/stream.hpp>
+#include <boost/lexical_cast.hpp>
+>>>>>>> upstream/master
 #include <boost/shared_ptr.hpp>
 #include <list>
 
@@ -34,12 +52,20 @@ static std::string strRPCUserColonPass;
 
 // These are created by StartRPCThreads, destroyed in StopRPCThreads
 static asio::io_service* rpc_io_service = NULL;
+<<<<<<< HEAD
+=======
+static map<string, boost::shared_ptr<deadline_timer> > deadlineTimers;
+>>>>>>> upstream/master
 static ssl::context* rpc_ssl_context = NULL;
 static boost::thread_group* rpc_worker_group = NULL;
 
 static inline unsigned short GetDefaultRPCPort()
 {
+<<<<<<< HEAD
     return GetBoolArg("-testnet", false) ? 18122 : 18122;
+=======
+    return GetBoolArg("-testnet", false) ? 8122 : 8124;
+>>>>>>> upstream/master
 }
 
 Object JSONRPCError(int code, const string& message)
@@ -93,7 +119,11 @@ void RPCTypeCheck(const Object& o,
 int64 AmountFromValue(const Value& value)
 {
     double dAmount = value.get_real();
+<<<<<<< HEAD
     if (dAmount <= 0.0 || dAmount > 84000000.0)
+=======
+    if (dAmount <= 0.0 || dAmount > 42000000.0)
+>>>>>>> upstream/master
         throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount");
     int64 nAmount = roundint64(dAmount * COIN);
     if (!MoneyRange(nAmount))
@@ -135,9 +165,12 @@ string CRPCTable::help(string strCommand) const
             continue;
         if (strCommand != "" && strMethod != strCommand)
             continue;
+<<<<<<< HEAD
         if (pcmd->reqWallet && !pwalletMain)
             continue;
 
+=======
+>>>>>>> upstream/master
         try
         {
             Array params;
@@ -182,10 +215,17 @@ Value stop(const Array& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
+<<<<<<< HEAD
             "Stop Floripacoin server.");
     // Shutdown will take long enough that the response should get back
     StartShutdown();
     return "Floripacoin server stopping";
+=======
+            "Stop Bitcoin server.");
+    // Shutdown will take long enough that the response should get back
+    StartShutdown();
+    return "Bitcoin server stopping";
+>>>>>>> upstream/master
 }
 
 
@@ -196,6 +236,7 @@ Value stop(const Array& params, bool fHelp)
 
 
 static const CRPCCommand vRPCCommands[] =
+<<<<<<< HEAD
 { //  name                      actor (function)         okSafeMode threadSafe reqWallet
   //  ------------------------  -----------------------  ---------- ---------- ---------
     { "help",                   &help,                   true,      true,       false },
@@ -265,6 +306,74 @@ static const CRPCCommand vRPCCommands[] =
     { "lockunspent",            &lockunspent,            false,     false,      true },
     { "listlockunspent",        &listlockunspent,        false,     false,      true },
     { "verifychain",            &verifychain,            true,      false,      false },
+=======
+{ //  name                      actor (function)         okSafeMode threadSafe
+  //  ------------------------  -----------------------  ---------- ----------
+    { "help",                   &help,                   true,      true },
+    { "stop",                   &stop,                   true,      true },
+    { "getblockcount",          &getblockcount,          true,      false },
+    { "getconnectioncount",     &getconnectioncount,     true,      false },
+    { "getpeerinfo",            &getpeerinfo,            true,      false },
+    { "addnode",                &addnode,                true,      true },
+    { "getaddednodeinfo",       &getaddednodeinfo,       true,      true },
+    { "getdifficulty",          &getdifficulty,          true,      false },
+    { "getnetworkhashps",       &getnetworkhashps,       true,      false }, // +Scrypt
+    { "getgenerate",            &getgenerate,            true,      false },
+    { "setgenerate",            &setgenerate,            true,      false },
+    { "gethashespersec",        &gethashespersec,        true,      false },
+    { "getinfo",                &getinfo,                true,      false },
+    { "getmininginfo",          &getmininginfo,          true,      false },
+    { "getnewaddress",          &getnewaddress,          true,      false },
+    { "getaccountaddress",      &getaccountaddress,      true,      false },
+    { "setaccount",             &setaccount,             true,      false },
+    { "getaccount",             &getaccount,             false,     false },
+    { "getaddressesbyaccount",  &getaddressesbyaccount,  true,      false },
+    { "sendtoaddress",          &sendtoaddress,          false,     false },
+    { "getreceivedbyaddress",   &getreceivedbyaddress,   false,     false },
+    { "getreceivedbyaccount",   &getreceivedbyaccount,   false,     false },
+    { "listreceivedbyaddress",  &listreceivedbyaddress,  false,     false },
+    { "listreceivedbyaccount",  &listreceivedbyaccount,  false,     false },
+    { "backupwallet",           &backupwallet,           true,      false },
+    { "keypoolrefill",          &keypoolrefill,          true,      false },
+    { "walletpassphrase",       &walletpassphrase,       true,      false },
+    { "walletpassphrasechange", &walletpassphrasechange, false,     false },
+    { "walletlock",             &walletlock,             true,      false },
+    { "encryptwallet",          &encryptwallet,          false,     false },
+    { "validateaddress",        &validateaddress,        true,      false },
+    { "getbalance",             &getbalance,             false,     false },
+    { "move",                   &movecmd,                false,     false },
+    { "sendfrom",               &sendfrom,               false,     false },
+    { "sendmany",               &sendmany,               false,     false },
+    { "addmultisigaddress",     &addmultisigaddress,     false,     false },
+    { "createmultisig",         &createmultisig,         true,      true  },
+    { "getrawmempool",          &getrawmempool,          true,      false },
+    { "getblock",               &getblock,               false,     false },
+    { "getblockhash",           &getblockhash,           false,     false },
+    { "gettransaction",         &gettransaction,         false,     false },
+    { "listtransactions",       &listtransactions,       false,     false },
+    { "listaddressgroupings",   &listaddressgroupings,   false,     false },
+    { "signmessage",            &signmessage,            false,     false },
+    { "verifymessage",          &verifymessage,          false,     false },
+    { "getwork",                &getwork,                true,      false },
+    { "getworkex",              &getworkex,              true,      false }, // +Scrypt
+    { "listaccounts",           &listaccounts,           false,     false },
+    { "settxfee",               &settxfee,               false,     false },
+    { "getblocktemplate",       &getblocktemplate,       true,      false },
+    { "submitblock",            &submitblock,            false,     false },
+    { "listsinceblock",         &listsinceblock,         false,     false },
+    { "dumpprivkey",            &dumpprivkey,            true,      false },
+    { "importprivkey",          &importprivkey,          false,     false },
+    { "listunspent",            &listunspent,            false,     false },
+    { "getrawtransaction",      &getrawtransaction,      false,     false },
+    { "createrawtransaction",   &createrawtransaction,   false,     false },
+    { "decoderawtransaction",   &decoderawtransaction,   false,     false },
+    { "signrawtransaction",     &signrawtransaction,     false,     false },
+    { "sendrawtransaction",     &sendrawtransaction,     false,     false },
+    { "gettxoutsetinfo",        &gettxoutsetinfo,        true,      false },
+    { "gettxout",               &gettxout,               true,      false },
+    { "lockunspent",            &lockunspent,            false,     false },
+    { "listlockunspent",        &listlockunspent,        false,     false },
+>>>>>>> upstream/master
 };
 
 CRPCTable::CRPCTable()
@@ -298,7 +407,11 @@ string HTTPPost(const string& strMsg, const map<string,string>& mapRequestHeader
 {
     ostringstream s;
     s << "POST / HTTP/1.1\r\n"
+<<<<<<< HEAD
       << "User-Agent: floripacoin-json-rpc/" << FormatFullVersion() << "\r\n"
+=======
+      << "User-Agent: bitcoin-json-rpc/" << FormatFullVersion() << "\r\n"
+>>>>>>> upstream/master
       << "Host: 127.0.0.1\r\n"
       << "Content-Type: application/json\r\n"
       << "Content-Length: " << strMsg.size() << "\r\n"
@@ -329,7 +442,11 @@ static string HTTPReply(int nStatus, const string& strMsg, bool keepalive)
     if (nStatus == HTTP_UNAUTHORIZED)
         return strprintf("HTTP/1.0 401 Authorization Required\r\n"
             "Date: %s\r\n"
+<<<<<<< HEAD
             "Server: floripacoin-json-rpc/%s\r\n"
+=======
+            "Server: bitcoin-json-rpc/%s\r\n"
+>>>>>>> upstream/master
             "WWW-Authenticate: Basic realm=\"jsonrpc\"\r\n"
             "Content-Type: text/html\r\n"
             "Content-Length: 296\r\n"
@@ -356,7 +473,11 @@ static string HTTPReply(int nStatus, const string& strMsg, bool keepalive)
             "Connection: %s\r\n"
             "Content-Length: %"PRIszu"\r\n"
             "Content-Type: application/json\r\n"
+<<<<<<< HEAD
             "Server: floripacoin-json-rpc/%s\r\n"
+=======
+            "Server: bitcoin-json-rpc/%s\r\n"
+>>>>>>> upstream/master
             "\r\n"
             "%s",
         nStatus,
@@ -483,7 +604,11 @@ bool HTTPAuthorized(map<string, string>& mapHeaders)
         return false;
     string strUserPass64 = strAuth.substr(6); boost::trim(strUserPass64);
     string strUserPass = DecodeBase64(strUserPass64);
+<<<<<<< HEAD
     return TimingResistantEqual(strUserPass, strRPCUserColonPass);
+=======
+    return strUserPass == strRPCUserColonPass;
+>>>>>>> upstream/master
 }
 
 //
@@ -736,7 +861,11 @@ void StartRPCThreads()
     {
         unsigned char rand_pwd[32];
         RAND_bytes(rand_pwd, 32);
+<<<<<<< HEAD
         string strWhatAmI = "To use floripacoind";
+=======
+        string strWhatAmI = "To use bitcoind";
+>>>>>>> upstream/master
         if (mapArgs.count("-server"))
             strWhatAmI = strprintf(_("To use the %s option"), "\"-server\"");
         else if (mapArgs.count("-daemon"))
@@ -745,13 +874,21 @@ void StartRPCThreads()
             _("%s, you must set a rpcpassword in the configuration file:\n"
               "%s\n"
               "It is recommended you use the following random password:\n"
+<<<<<<< HEAD
               "rpcuser=floripacoinrpc\n"
+=======
+              "rpcuser=bitcoinrpc\n"
+>>>>>>> upstream/master
               "rpcpassword=%s\n"
               "(you do not need to remember this password)\n"
               "The username and password MUST NOT be the same.\n"
               "If the file does not exist, create it with owner-readable-only file permissions.\n"
               "It is also recommended to set alertnotify so you are notified of problems;\n"
+<<<<<<< HEAD
               "for example: alertnotify=echo %%s | mail -s \"Floripacoin Alert\" admin@foo.com\n"),
+=======
+              "for example: alertnotify=echo %%s | mail -s \"Bitcoin Alert\" admin@foo.com\n"),
+>>>>>>> upstream/master
                 strWhatAmI.c_str(),
                 GetConfigFile().string().c_str(),
                 EncodeBase58(&rand_pwd[0],&rand_pwd[0]+32).c_str()),
@@ -764,7 +901,11 @@ void StartRPCThreads()
     rpc_io_service = new asio::io_service();
     rpc_ssl_context = new ssl::context(*rpc_io_service, ssl::context::sslv23);
 
+<<<<<<< HEAD
     const bool fUseSSL = GetBoolArg("-rpcssl");
+=======
+    const bool fUseSSL = GetBoolArg("-rpcssl", false);
+>>>>>>> upstream/master
 
     if (fUseSSL)
     {
@@ -851,6 +992,10 @@ void StopRPCThreads()
 {
     if (rpc_io_service == NULL) return;
 
+<<<<<<< HEAD
+=======
+    deadlineTimers.clear();
+>>>>>>> upstream/master
     rpc_io_service->stop();
     rpc_worker_group->join_all();
     delete rpc_worker_group; rpc_worker_group = NULL;
@@ -858,6 +1003,29 @@ void StopRPCThreads()
     delete rpc_io_service; rpc_io_service = NULL;
 }
 
+<<<<<<< HEAD
+=======
+void RPCRunHandler(const boost::system::error_code& err, boost::function<void(void)> func)
+{
+    if (!err)
+        func();
+}
+
+void RPCRunLater(const std::string& name, boost::function<void(void)> func, int64 nSeconds)
+{
+    assert(rpc_io_service != NULL);
+
+    if (deadlineTimers.count(name) == 0)
+    {
+        deadlineTimers.insert(make_pair(name,
+                                        boost::shared_ptr<deadline_timer>(new deadline_timer(*rpc_io_service))));
+    }
+    deadlineTimers[name]->expires_from_now(posix_time::seconds(nSeconds));
+    deadlineTimers[name]->async_wait(boost::bind(RPCRunHandler, _1, func));
+}
+
+
+>>>>>>> upstream/master
 class JSONRequest
 {
 public:
@@ -886,7 +1054,11 @@ void JSONRequest::parse(const Value& valRequest)
     if (valMethod.type() != str_type)
         throw JSONRPCError(RPC_INVALID_REQUEST, "Method must be a string");
     strMethod = valMethod.get_str();
+<<<<<<< HEAD
     if (strMethod != "getwork" && strMethod != "getworkex" && strMethod != "getblocktemplate")
+=======
+    if (strMethod != "getwork" && strMethod != "getblocktemplate")
+>>>>>>> upstream/master
         printf("ThreadRPCServer method=%s\n", strMethod.c_str());
 
     // Parse params
@@ -1020,12 +1192,19 @@ json_spirit::Value CRPCTable::execute(const std::string &strMethod, const json_s
     const CRPCCommand *pcmd = tableRPC[strMethod];
     if (!pcmd)
         throw JSONRPCError(RPC_METHOD_NOT_FOUND, "Method not found");
+<<<<<<< HEAD
     if (pcmd->reqWallet && !pwalletMain)
         throw JSONRPCError(RPC_METHOD_NOT_FOUND, "Method not found (disabled)");
 
     // Observe safe mode
     string strWarning = GetWarnings("rpc");
     if (strWarning != "" && !GetBoolArg("-disablesafemode") &&
+=======
+
+    // Observe safe mode
+    string strWarning = GetWarnings("rpc");
+    if (strWarning != "" && !GetBoolArg("-disablesafemode", false) &&
+>>>>>>> upstream/master
         !pcmd->okSafeMode)
         throw JSONRPCError(RPC_FORBIDDEN_BY_SAFE_MODE, string("Safe mode: ") + strWarning);
 
@@ -1036,10 +1215,14 @@ json_spirit::Value CRPCTable::execute(const std::string &strMethod, const json_s
         {
             if (pcmd->threadSafe)
                 result = pcmd->actor(params, false);
+<<<<<<< HEAD
             else if (!pwalletMain) {
                 LOCK(cs_main);
                 result = pcmd->actor(params, false);
             } else {
+=======
+            else {
+>>>>>>> upstream/master
                 LOCK2(cs_main, pwalletMain->cs_wallet);
                 result = pcmd->actor(params, false);
             }
@@ -1062,7 +1245,11 @@ Object CallRPC(const string& strMethod, const Array& params)
                 GetConfigFile().string().c_str()));
 
     // Connect to localhost
+<<<<<<< HEAD
     bool fUseSSL = GetBoolArg("-rpcssl");
+=======
+    bool fUseSSL = GetBoolArg("-rpcssl", false);
+>>>>>>> upstream/master
     asio::io_service io_service;
     ssl::context context(io_service, ssl::context::sslv23);
     context.set_options(ssl::context::no_sslv2);
@@ -1149,11 +1336,16 @@ Array RPCConvertValues(const std::string &strMethod, const std::vector<std::stri
     if (strMethod == "getaddednodeinfo"       && n > 0) ConvertTo<bool>(params[0]);
     if (strMethod == "setgenerate"            && n > 0) ConvertTo<bool>(params[0]);
     if (strMethod == "setgenerate"            && n > 1) ConvertTo<boost::int64_t>(params[1]);
+<<<<<<< HEAD
     if (strMethod == "getnetworkhashps"       && n > 0) ConvertTo<boost::int64_t>(params[0]);
     if (strMethod == "getnetworkhashps"       && n > 1) ConvertTo<boost::int64_t>(params[1]);
     if (strMethod == "sendtoaddress"          && n > 1) ConvertTo<double>(params[1]);
     if (strMethod == "settxfee"               && n > 0) ConvertTo<double>(params[0]);
     if (strMethod == "setmininput"            && n > 0) ConvertTo<double>(params[0]);
+=======
+    if (strMethod == "sendtoaddress"          && n > 1) ConvertTo<double>(params[1]);
+    if (strMethod == "settxfee"               && n > 0) ConvertTo<double>(params[0]);
+>>>>>>> upstream/master
     if (strMethod == "getreceivedbyaddress"   && n > 1) ConvertTo<boost::int64_t>(params[1]);
     if (strMethod == "getreceivedbyaccount"   && n > 1) ConvertTo<boost::int64_t>(params[1]);
     if (strMethod == "listreceivedbyaddress"  && n > 0) ConvertTo<boost::int64_t>(params[0]);
@@ -1181,7 +1373,10 @@ Array RPCConvertValues(const std::string &strMethod, const std::vector<std::stri
     if (strMethod == "listunspent"            && n > 0) ConvertTo<boost::int64_t>(params[0]);
     if (strMethod == "listunspent"            && n > 1) ConvertTo<boost::int64_t>(params[1]);
     if (strMethod == "listunspent"            && n > 2) ConvertTo<Array>(params[2]);
+<<<<<<< HEAD
     if (strMethod == "getblock"               && n > 1) ConvertTo<bool>(params[1]);
+=======
+>>>>>>> upstream/master
     if (strMethod == "getrawtransaction"      && n > 1) ConvertTo<boost::int64_t>(params[1]);
     if (strMethod == "createrawtransaction"   && n > 0) ConvertTo<Array>(params[0]);
     if (strMethod == "createrawtransaction"   && n > 1) ConvertTo<Object>(params[1]);
@@ -1192,8 +1387,11 @@ Array RPCConvertValues(const std::string &strMethod, const std::vector<std::stri
     if (strMethod == "lockunspent"            && n > 0) ConvertTo<bool>(params[0]);
     if (strMethod == "lockunspent"            && n > 1) ConvertTo<Array>(params[1]);
     if (strMethod == "importprivkey"          && n > 2) ConvertTo<bool>(params[2]);
+<<<<<<< HEAD
     if (strMethod == "verifychain"            && n > 0) ConvertTo<boost::int64_t>(params[0]);
     if (strMethod == "verifychain"            && n > 1) ConvertTo<boost::int64_t>(params[1]);
+=======
+>>>>>>> upstream/master
 
     return params;
 }

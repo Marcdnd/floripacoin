@@ -1,26 +1,46 @@
 /*
+<<<<<<< HEAD
  * Qt4 bitcoin GUI.
  *
  * W.J. van der Laan 2011-2012
  * The Bitcoin Developers 2011-2013
+=======
+ * Qt4 floripacoin GUI.
+ *
+ * W.J. van der Laan 2011-2012
+ * The Bitcoin Developers 2011-2013
+ * Dr. Kimoto Chan 2013-2079
+>>>>>>> upstream/master
  */
 #ifndef WALLETFRAME_H
 #define WALLETFRAME_H
 
 #include <QFrame>
 
+<<<<<<< HEAD
 class BitcoinGUI;
 class ClientModel;
 class WalletModel;
 class WalletStack;
 class WalletView;
+=======
+class FloripacoinGUI;
+class ClientModel;
+class WalletModel;
+class WalletStack;
+>>>>>>> upstream/master
 
 class WalletFrame : public QFrame
 {
     Q_OBJECT
+<<<<<<< HEAD
 
 public:
     explicit WalletFrame(BitcoinGUI *_gui = 0);
+=======
+public:
+    explicit WalletFrame(FloripacoinGUI *_gui = 0);
+>>>>>>> upstream/master
     ~WalletFrame();
 
     void setClientModel(ClientModel *clientModel);
@@ -35,12 +55,19 @@ public:
     void showOutOfSyncWarning(bool fShow);
 
 private:
+<<<<<<< HEAD
     BitcoinGUI *gui;
     ClientModel *clientModel;
     WalletStack *walletStack;
 
     WalletView *currentWalletView();
 
+=======
+    FloripacoinGUI *gui;
+    ClientModel *clientModel;
+    WalletStack *walletStack;
+
+>>>>>>> upstream/master
 public slots:
     /** Switch to overview (home) page */
     void gotoOverviewPage();
@@ -74,4 +101,8 @@ public slots:
     void setEncryptionStatus();
 };
 
+<<<<<<< HEAD
 #endif // WALLETFRAME_H
+=======
+#endif // WALLETFRAME_H
+>>>>>>> upstream/master

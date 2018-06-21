@@ -4,6 +4,7 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
+<<<<<<< HEAD
         <source>About Floripacoin</source>
         <translation>Om Floripacoin</translation>
     </message>
@@ -11,6 +12,15 @@
         <location line="+39"/>
         <source>&lt;b&gt;Floripacoin&lt;/b&gt; version</source>
         <translation>&lt;b&gt;Floripacoin&lt;/b&gt; versjon</translation>
+=======
+        <source>About Bitcoin</source>
+        <translation>Om Bitcoin</translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>&lt;b&gt;Bitcoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;Bitcoin&lt;/b&gt; versjon</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+57"/>
@@ -34,7 +44,11 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
     </message>
     <message>
         <location line="+0"/>
+<<<<<<< HEAD
         <source>The Floripacoin developers</source>
+=======
+        <source>The Bitcoin developers</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
 </context>
@@ -68,7 +82,11 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
     <message>
         <location filename="../addressbookpage.cpp" line="+63"/>
         <source>These are your Floripacoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+<<<<<<< HEAD
         <translation>Dette er dine Floripacoin-adresser for mottak av betalinger. Du kan gi forskjellige adresser til alle som skal betale deg for å holde bedre oversikt.</translation>
+=======
+        <translation>Dette er dine Bitcoin-adresser for mottak av betalinger. Du kan gi forskjellige adresser til alle som skal betale deg for å holde bedre oversikt.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="+14"/>
@@ -83,7 +101,11 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
     <message>
         <location line="+11"/>
         <source>Sign a message to prove you own a Floripacoin address</source>
+<<<<<<< HEAD
         <translation>Signer en melding for å bevise at du eier en Floripacoin-adresse</translation>
+=======
+        <translation>Signer en melding for å bevise at du eier en Bitcoin-adresse</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -108,7 +130,11 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
     <message>
         <location line="-44"/>
         <source>Verify a message to ensure it was signed with a specified Floripacoin address</source>
+<<<<<<< HEAD
         <translation>Verifiser en melding for å være sikker på at den ble signert av en angitt Floripacoin-adresse</translation>
+=======
+        <translation>Verifiser en melding for å være sikker på at den ble signert av en angitt Bitcoin-adresse</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -248,8 +274,13 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
     </message>
     <message>
         <location line="+1"/>
+<<<<<<< HEAD
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR FLORIPACOINS&lt;/b&gt;!</source>
         <translation>Advarsel: Hvis du krypterer lommeboken og mister adgangsfrasen, så vil du &lt;b&gt;MISTE ALLE DINE FLORIPACOINS&lt;/b&gt;!</translation>
+=======
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
+        <translation>Advarsel: Hvis du krypterer lommeboken og mister adgangsfrasen, så vil du &lt;b&gt;MISTE ALLE DINE BITCOINS&lt;/b&gt;!</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+0"/>
@@ -275,8 +306,13 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
     </message>
     <message>
         <location line="-56"/>
+<<<<<<< HEAD
         <source>Floripacoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your floripacoins from being stolen by malware infecting your computer.</source>
         <translation>Floripacoin vil nå lukkes for å fullføre krypteringsprosessen. Husk at kryptering av lommeboken ikke fullt ut kan beskytte dine floripacoins fra å bli stjålet om skadevare infiserer datamaskinen.</translation>
+=======
+        <source>Bitcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
+        <translation>Bitcoin vil nå lukkes for å fullføre krypteringsprosessen. Husk at kryptering av lommeboken ikke fullt ut kan beskytte dine bitcoins fra å bli stjålet om skadevare infiserer datamaskinen.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+13"/>
@@ -374,8 +410,13 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
     </message>
     <message>
         <location line="+4"/>
+<<<<<<< HEAD
         <source>Show information about Floripacoin</source>
         <translation>Vis informasjon om Floripacoin</translation>
+=======
+        <source>Show information about Bitcoin</source>
+        <translation>Vis informasjon om Bitcoin</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+2"/>
@@ -420,12 +461,21 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
     <message>
         <location line="-347"/>
         <source>Send coins to a Floripacoin address</source>
+<<<<<<< HEAD
         <translation>Send til en Floripacoin-adresse</translation>
     </message>
     <message>
         <location line="+49"/>
         <source>Modify configuration options for Floripacoin</source>
         <translation>Endre oppsett for Floripacoin</translation>
+=======
+        <translation>Send til en Bitcoin-adresse</translation>
+    </message>
+    <message>
+        <location line="+49"/>
+        <source>Modify configuration options for Bitcoin</source>
+        <translation>Endre oppsett for Bitcoin</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+9"/>
@@ -455,8 +505,13 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
     <message>
         <location line="-165"/>
         <location line="+530"/>
+<<<<<<< HEAD
         <source>Floripacoin</source>
         <translation>Floripacoin</translation>
+=======
+        <source>Bitcoin</source>
+        <translation>Bitcoin</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-530"/>
@@ -480,8 +535,13 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
     </message>
     <message>
         <location line="+22"/>
+<<<<<<< HEAD
         <source>&amp;About Floripacoin</source>
         <translation>&amp;Om Floripacoin</translation>
+=======
+        <source>&amp;About Bitcoin</source>
+        <translation>&amp;Om Bitcoin</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+9"/>
@@ -506,7 +566,11 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
     <message>
         <location line="+2"/>
         <source>Verify messages to ensure they were signed with specified Floripacoin addresses</source>
+<<<<<<< HEAD
         <translation>Bekreft meldinger for å være sikker på at de ble signert av en angitt Floripacoin-adresse</translation>
+=======
+        <translation>Bekreft meldinger for å være sikker på at de ble signert av en angitt Bitcoin-adresse</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+28"/>
@@ -536,6 +600,7 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
     </message>
     <message>
         <location line="+47"/>
+<<<<<<< HEAD
         <source>Floripacoin client</source>
         <translation>Floripacoinklient</translation>
     </message>
@@ -543,6 +608,15 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
         <location line="+141"/>
         <source>%n active connection(s) to Floripacoin network</source>
         <translation><numerusform>%n aktiv forbindelse til Floripacoin-nettverket</numerusform><numerusform>%n aktive forbindelser til Floripacoin-nettverket</numerusform></translation>
+=======
+        <source>Bitcoin client</source>
+        <translation>Bitcoinklient</translation>
+    </message>
+    <message numerus="yes">
+        <location line="+141"/>
+        <source>%n active connection(s) to Bitcoin network</source>
+        <translation><numerusform>%n aktiv forbindelse til Bitcoin-nettverket</numerusform><numerusform>%n aktive forbindelser til Bitcoin-nettverket</numerusform></translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+22"/>
@@ -657,7 +731,11 @@ Adresse: %4
         <location line="-23"/>
         <location line="+23"/>
         <source>URI can not be parsed! This can be caused by an invalid Floripacoin address or malformed URI parameters.</source>
+<<<<<<< HEAD
         <translation>URI kunne ikke tolkes! Dette kan forårsakes av en ugyldig Floripacoin-adresse eller feil i URI-parametere.</translation>
+=======
+        <translation>URI kunne ikke tolkes! Dette kan forårsakes av en ugyldig Bitcoin-adresse eller feil i URI-parametere.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+17"/>
@@ -671,8 +749,13 @@ Adresse: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+111"/>
+<<<<<<< HEAD
         <source>A fatal error occurred. Floripacoin can no longer continue safely and will quit.</source>
         <translation>En fatal feil har inntruffet. Det er ikke trygt å fortsette og Floripacoin må derfor avslutte.</translation>
+=======
+        <source>A fatal error occurred. Bitcoin can no longer continue safely and will quit.</source>
+        <translation>En fatal feil har inntruffet. Det er ikke trygt å fortsette og Bitcoin må derfor avslutte.</translation>
+>>>>>>> upstream/master
     </message>
 </context>
 <context>
@@ -738,7 +821,11 @@ Adresse: %4
     <message>
         <location line="-5"/>
         <source>The entered address &quot;%1&quot; is not a valid Floripacoin address.</source>
+<<<<<<< HEAD
         <translation>Den angitte adressed &quot;%1&quot; er ikke en gyldig Floripacoin-adresse.</translation>
+=======
+        <translation>Den angitte adressed &quot;%1&quot; er ikke en gyldig Bitcoin-adresse.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+10"/>
@@ -756,8 +843,13 @@ Adresse: %4
     <message>
         <location filename="../guiutil.cpp" line="+424"/>
         <location line="+12"/>
+<<<<<<< HEAD
         <source>Floripacoin-Qt</source>
         <translation>Floripacoin-Qt</translation>
+=======
+        <source>Bitcoin-Qt</source>
+        <translation>Bitcoin-Qt</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-12"/>
@@ -820,6 +912,7 @@ Adresse: %4
     </message>
     <message>
         <location line="+31"/>
+<<<<<<< HEAD
         <source>Automatically start Floripacoin after logging in to the system.</source>
         <translation>Start Floripacoin automatisk etter innlogging.</translation>
     </message>
@@ -827,6 +920,15 @@ Adresse: %4
         <location line="+3"/>
         <source>&amp;Start Floripacoin on system login</source>
         <translation>&amp;Start Floripacoin ved systeminnlogging</translation>
+=======
+        <source>Automatically start Bitcoin after logging in to the system.</source>
+        <translation>Start Bitcoin automatisk etter innlogging.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Start Bitcoin on system login</source>
+        <translation>&amp;Start Bitcoin ved systeminnlogging</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+35"/>
@@ -845,8 +947,13 @@ Adresse: %4
     </message>
     <message>
         <location line="+6"/>
+<<<<<<< HEAD
         <source>Automatically open the Floripacoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Åpne automatisk Floripacoin klientporten på ruteren. Dette virker kun om din ruter støtter UPnP og dette er påslått.</translation>
+=======
+        <source>Automatically open the Bitcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Åpne automatisk Bitcoin klientporten på ruteren. Dette virker kun om din ruter støtter UPnP og dette er påslått.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -855,8 +962,13 @@ Adresse: %4
     </message>
     <message>
         <location line="+7"/>
+<<<<<<< HEAD
         <source>Connect to the Floripacoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
         <translation>Koble til Floripacoin-nettverket gjennom en SOCKS proxy (f.eks. ved tilkobling gjennom Tor).</translation>
+=======
+        <source>Connect to the Bitcoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>Koble til Bitcoin-nettverket gjennom en SOCKS proxy (f.eks. ved tilkobling gjennom Tor).</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -930,8 +1042,13 @@ Adresse: %4
     </message>
     <message>
         <location line="+13"/>
+<<<<<<< HEAD
         <source>The user interface language can be set here. This setting will take effect after restarting Floripacoin.</source>
         <translation>Språket for brukergrensesnittet kan settes her. Innstillingen trer i kraft ved omstart av Floripacoin.</translation>
+=======
+        <source>The user interface language can be set here. This setting will take effect after restarting Bitcoin.</source>
+        <translation>Språket for brukergrensesnittet kan settes her. Innstillingen trer i kraft ved omstart av Bitcoin.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+11"/>
@@ -941,12 +1058,20 @@ Adresse: %4
     <message>
         <location line="+13"/>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
+<<<<<<< HEAD
         <translation>Velg standard delt enhet for visning i grensesnittet og for sending av floripacoins.</translation>
+=======
+        <translation>Velg standard delt enhet for visning i grensesnittet og for sending av bitcoins.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+9"/>
         <source>Whether to show Floripacoin addresses in the transaction list or not.</source>
+<<<<<<< HEAD
         <translation>Om Floripacoin-adresser skal vises i transaksjonslisten eller ikke.</translation>
+=======
+        <translation>Om Bitcoin-adresser skal vises i transaksjonslisten eller ikke.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -997,8 +1122,13 @@ Adresse: %4
     <message>
         <location line="-9"/>
         <location line="+9"/>
+<<<<<<< HEAD
         <source>This setting will take effect after restarting Floripacoin.</source>
         <translation>Denne innstillingen trer i kraft etter omstart av Floripacoin.</translation>
+=======
+        <source>This setting will take effect after restarting Bitcoin.</source>
+        <translation>Denne innstillingen trer i kraft etter omstart av Bitcoin.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+29"/>
@@ -1016,8 +1146,13 @@ Adresse: %4
     <message>
         <location line="+50"/>
         <location line="+166"/>
+<<<<<<< HEAD
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Floripacoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Informasjonen som vises kan være foreldet. Din lommebok synkroniseres automatisk med Floripacoin-nettverket etter at tilkobling er opprettet, men denne prosessen er ikke ferdig enda.</translation>
+=======
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Informasjonen som vises kan være foreldet. Din lommebok synkroniseres automatisk med Bitcoin-nettverket etter at tilkobling er opprettet, men denne prosessen er ikke ferdig enda.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-124"/>
@@ -1070,8 +1205,13 @@ Adresse: %4
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
+<<<<<<< HEAD
         <source>Cannot start floripacoin: click-to-pay handler</source>
         <translation>Kan ikke starte floripacoin: klikk-og-betal håndterer</translation>
+=======
+        <source>Cannot start bitcoin: click-to-pay handler</source>
+        <translation>Kan ikke starte Bit-coin: klikk-og-betal håndterer</translation>
+>>>>>>> upstream/master
     </message>
 </context>
 <context>
@@ -1220,8 +1360,13 @@ Adresse: %4
     </message>
     <message>
         <location line="+7"/>
+<<<<<<< HEAD
         <source>Show the Floripacoin-Qt help message to get a list with possible Floripacoin command-line options.</source>
         <translation>Vis Floripacoin-Qt hjelpemelding for å få en liste med mulige kommandolinjevalg.</translation>
+=======
+        <source>Show the Bitcoin-Qt help message to get a list with possible Bitcoin command-line options.</source>
+        <translation>Vis Bitcoin-Qt hjelpemelding for å få en liste med mulige kommandolinjevalg.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -1240,6 +1385,7 @@ Adresse: %4
     </message>
     <message>
         <location line="-104"/>
+<<<<<<< HEAD
         <source>Floripacoin - Debug window</source>
         <translation>Floripacoin - vindu for feilsøk</translation>
     </message>
@@ -1247,6 +1393,15 @@ Adresse: %4
         <location line="+25"/>
         <source>Floripacoin Core</source>
         <translation>Floripacoin Kjerne</translation>
+=======
+        <source>Bitcoin - Debug window</source>
+        <translation>Bitcoin - vindu for feilsøk</translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>Bitcoin Core</source>
+        <translation>Bitcoin Kjerne</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+279"/>
@@ -1255,8 +1410,13 @@ Adresse: %4
     </message>
     <message>
         <location line="+7"/>
+<<<<<<< HEAD
         <source>Open the Floripacoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation>Åpne Floripacoin loggfil for feilsøk fra datamappen. Dette kan ta noen sekunder for store loggfiler.</translation>
+=======
+        <source>Open the Bitcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Åpne Bitcoin loggfil for feilsøk fra datamappen. Dette kan ta noen sekunder for store loggfiler.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+102"/>
@@ -1265,8 +1425,13 @@ Adresse: %4
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
+<<<<<<< HEAD
         <source>Welcome to the Floripacoin RPC console.</source>
         <translation>Velkommen til Floripacoin RPC konsoll.</translation>
+=======
+        <source>Welcome to the Bitcoin RPC console.</source>
+        <translation>Velkommen til Bitcoin RPC konsoll.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+1"/>
@@ -1291,7 +1456,11 @@ Adresse: %4
         <location line="+5"/>
         <location line="+5"/>
         <source>Send Coins</source>
+<<<<<<< HEAD
         <translation>Send Floripacoins</translation>
+=======
+        <translation>Send Bitcoins</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+50"/>
@@ -1331,7 +1500,11 @@ Adresse: %4
     <message>
         <location line="+3"/>
         <source>S&amp;end</source>
+<<<<<<< HEAD
         <translation>S&amp;end</translation>
+=======
+        <translation>S&amp;avslutt</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location filename="../sendcoinsdialog.cpp" line="-59"/>
@@ -1341,7 +1514,11 @@ Adresse: %4
     <message>
         <location line="+5"/>
         <source>Confirm send coins</source>
+<<<<<<< HEAD
         <translation>Bekreft sending av floripacoins</translation>
+=======
+        <translation>Bekreft sending av bitcoins</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+1"/>
@@ -1386,7 +1563,11 @@ Adresse: %4
     <message>
         <location line="+5"/>
         <source>Error: The transaction was rejected. This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+<<<<<<< HEAD
         <translation>Feil: Transaksjonen ble avvist. Dette kan skje om noe av beløpet allerede var brukt, f.eks. hvis du kopierte wallet.dat og noen floripacoins ble brukt i kopien men ikke ble markert som brukt her.</translation>
+=======
+        <translation>Feil: Transaksjonen ble avvist. Dette kan skje om noe av beløpet allerede var brukt, f.eks. hvis du kopierte wallet.dat og noen bitcoins ble brukt i kopien men ikke ble markert som brukt her.</translation>
+>>>>>>> upstream/master
     </message>
 </context>
 <context>
@@ -1408,8 +1589,13 @@ Adresse: %4
     </message>
     <message>
         <location line="+34"/>
+<<<<<<< HEAD
         <source>The address to send the payment to (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>Adressen betalingen skal sendes til  (f.eks. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+=======
+        <source>The address to send the payment to (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>Adressen betalingen skal sendes til  (f.eks. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+60"/>
@@ -1449,8 +1635,13 @@ Adresse: %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
+<<<<<<< HEAD
         <source>Enter a Floripacoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>Skriv inn en Floripacoin adresse (f.eks. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+=======
+        <source>Enter a Floripacoin address (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>Skriv inn en Bitcoin adresse (f.eks. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</translation>
+>>>>>>> upstream/master
     </message>
 </context>
 <context>
@@ -1472,8 +1663,13 @@ Adresse: %4
     </message>
     <message>
         <location line="+18"/>
+<<<<<<< HEAD
         <source>The address to sign the message with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>Adressen for signering av meldingen (f.eks. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+=======
+        <source>The address to sign the message with (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>Adressen for signering av meldingen (f.eks. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+10"/>
@@ -1515,7 +1711,11 @@ Adresse: %4
     <message>
         <location line="+21"/>
         <source>Sign the message to prove you own this Floripacoin address</source>
+<<<<<<< HEAD
         <translation>Signer meldingen for å bevise at du eier denne Floripacoin-adressen</translation>
+=======
+        <translation>Signer meldingen for å bevise at du eier denne Bitcoin-adressen</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -1545,13 +1745,22 @@ Adresse: %4
     </message>
     <message>
         <location line="+21"/>
+<<<<<<< HEAD
         <source>The address the message was signed with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>Adressen meldingen var signert med (f.eks. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+=======
+        <source>The address the message was signed with (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>Adressen meldingen var signert med (f.eks. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+40"/>
         <source>Verify the message to ensure it was signed with the specified Floripacoin address</source>
+<<<<<<< HEAD
         <translation>Verifiser meldingen for å være sikker på at den ble signert av den angitte Floripacoin-adressen</translation>
+=======
+        <translation>Verifiser meldingen for å være sikker på at den ble signert av den angitte Bitcoin-adressen</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -1566,8 +1775,13 @@ Adresse: %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Enter a Floripacoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>Skriv inn en Floripacoin adresse (f.eks. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+=======
+        <source>Enter a Floripacoin address (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>Skriv inn en Bitcoin adresse (f.eks. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-2"/>
@@ -1576,8 +1790,13 @@ Adresse: %4
     </message>
     <message>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Enter Floripacoin signature</source>
         <translation>Angi Floripacoin signatur</translation>
+=======
+        <source>Enter Bitcoin signature</source>
+        <translation>Angi Bitcoin signatur</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+82"/>
@@ -1650,7 +1869,11 @@ Adresse: %4
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+22"/>
+<<<<<<< HEAD
         <source>The Floripacoin developers</source>
+=======
+        <source>The Bitcoin developers</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1785,7 +2008,11 @@ Adresse: %4
     <message>
         <location line="+3"/>
         <source>Generated coins must mature 120 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
+<<<<<<< HEAD
         <translation>Genererte floripacoins må modnes 120 blokker før de kan brukes. Da du genererte denne blokken ble den kringkastet til nettverket for å legges til i blokkjeden. Hvis den ikke kommer inn i kjeden får den tilstanden &quot;ikke akseptert&quot; og vil ikke kunne brukes. Dette skjer noen ganger hvis en annen node genererer en blokk noen sekunder fra din.</translation>
+=======
+        <translation>Genererte bitcoins må modnes 120 blokker før de kan brukes. Da du genererte denne blokken ble den kringkastet til nettverket for å legges til i blokkjeden. Hvis den ikke kommer inn i kjeden får den tilstanden &quot;ikke akseptert&quot; og vil ikke kunne brukes. Dette skjer noen ganger hvis en annen node genererer en blokk noen sekunder fra din.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+7"/>
@@ -2138,7 +2365,11 @@ Adresse: %4
     <message>
         <location filename="../walletmodel.cpp" line="+193"/>
         <source>Send Coins</source>
+<<<<<<< HEAD
         <translation>Send Floripacoins</translation>
+=======
+        <translation>Send Bitcoins</translation>
+>>>>>>> upstream/master
     </message>
 </context>
 <context>
@@ -2188,8 +2419,13 @@ Adresse: %4
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+94"/>
+<<<<<<< HEAD
         <source>Floripacoin version</source>
         <translation>Floripacoin versjon</translation>
+=======
+        <source>Bitcoin version</source>
+        <translation>Bitcoin versjon</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+102"/>
@@ -2198,8 +2434,13 @@ Adresse: %4
     </message>
     <message>
         <location line="-29"/>
+<<<<<<< HEAD
         <source>Send command to -server or floripacoind</source>
         <translation>Send kommando til -server eller floripacoind</translation>
+=======
+        <source>Send command to -server or bitcoind</source>
+        <translation>Send kommando til -server eller bitcoind</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-23"/>
@@ -2218,6 +2459,7 @@ Adresse: %4
     </message>
     <message>
         <location line="+24"/>
+<<<<<<< HEAD
         <source>Specify configuration file (default: floripacoin.conf)</source>
         <translation>Angi konfigurasjonsfil (standardverdi: floripacoin.conf)</translation>
     </message>
@@ -2225,6 +2467,15 @@ Adresse: %4
         <location line="+3"/>
         <source>Specify pid file (default: floripacoind.pid)</source>
         <translation>Angi pid-fil (standardverdi: floripacoind.pid)</translation>
+=======
+        <source>Specify configuration file (default: bitcoin.conf)</source>
+        <translation>Angi konfigurasjonsfil (standardverdi: bitcoin.conf)</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Specify pid file (default: bitcoind.pid)</source>
+        <translation>Angi pid-fil (standardverdi: bitcoind.pid)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-1"/>
@@ -2238,8 +2489,13 @@ Adresse: %4
     </message>
     <message>
         <location line="-28"/>
+<<<<<<< HEAD
         <source>Listen for connections on &lt;port&gt; (default: 9333 or testnet: 19333)</source>
         <translation>Lytt etter tilkoblinger på &lt;port&gt; (standardverdi: 9333 eller testnet: 19333)</translation>
+=======
+        <source>Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333)</source>
+        <translation>Lytt etter tilkoblinger på &lt;port&gt; (standardverdi: 8333 eller testnet: 18333)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+5"/>
@@ -2273,8 +2529,13 @@ Adresse: %4
     </message>
     <message>
         <location line="+27"/>
+<<<<<<< HEAD
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 9332 or testnet: 19332)</source>
         <translation>Lytt etter JSON-RPC tilkoblinger på &lt;port&gt; (standardverdi: 9332 or testnet: 19332)</translation>
+=======
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
+        <translation>Lytt etter JSON-RPC tilkoblinger på &lt;port&gt; (standardverdi: 8332 or testnet: 18332)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+37"/>
@@ -2301,24 +2562,40 @@ Adresse: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
+<<<<<<< HEAD
 rpcuser=floripacoinrpc
+=======
+rpcuser=bitcoinrpc
+>>>>>>> upstream/master
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
+<<<<<<< HEAD
 for example: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@foo.com
+=======
+for example: alertnotify=echo %%s | mail -s &quot;Bitcoin Alert&quot; admin@foo.com
+>>>>>>> upstream/master
 </source>
         <translation>%s, du må angi rpcpassord i konfigurasjonsfilen.
 %s
 Det anbefales at du bruker det følgende tilfeldige passordet:
+<<<<<<< HEAD
 rpcbruker=floripacoinrpc
+=======
+rpcbruker=bitcoinrpc
+>>>>>>> upstream/master
 rpcpassord=%s
 (du behøver ikke å huske passordet)
 Brukernavnet og passordet MÅ IKKE være like.
 Om filen ikke eksisterer, opprett den nå med eier-kun-les filrettigheter.
 Det er også anbefalt at å sette varselsmelding slik du får melding om problemer.
+<<<<<<< HEAD
 For eksempel: varselmelding=echo %%s | mail -s &quot;Floripacoin varsel&quot; admin@foo.com</translation>
+=======
+For eksempel: varselmelding=echo %%s | mail -s &quot;Bitcoin varsel&quot; admin@foo.com</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+17"/>
@@ -2332,7 +2609,11 @@ For eksempel: varselmelding=echo %%s | mail -s &quot;Floripacoin varsel&quot; ad
     </message>
     <message>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Cannot obtain a lock on data directory %s. Floripacoin is probably already running.</source>
+=======
+        <source>Cannot obtain a lock on data directory %s. Bitcoin is probably already running.</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2377,8 +2658,13 @@ For eksempel: varselmelding=echo %%s | mail -s &quot;Floripacoin varsel&quot; ad
     </message>
     <message>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Floripacoin will not work properly.</source>
         <translation>Advarsel: Vennligst undersøk at din datamaskin har riktig dato og klokkeslett! Hvis klokken er stilt feil vil ikke Floripacoin fungere riktig.</translation>
+=======
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Bitcoin will not work properly.</source>
+        <translation>Advarsel: Vennligst undersøk at din datamaskin har riktig dato og klokkeslett! Hvis klokken er stilt feil vil ikke Bitcoin fungere riktig.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -2627,8 +2913,13 @@ For eksempel: varselmelding=echo %%s | mail -s &quot;Floripacoin varsel&quot; ad
     </message>
     <message>
         <location line="+5"/>
+<<<<<<< HEAD
         <source>SSL options: (see the Floripacoin Wiki for SSL setup instructions)</source>
         <translation>SSL valg: (se Floripacoin Wiki for instruksjoner for oppsett av SSL)</translation>
+=======
+        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
+        <translation>SSL valg: (se Bitcoin Wiki for instruksjoner for oppsett av SSL)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+1"/>
@@ -2817,6 +3108,7 @@ For eksempel: varselmelding=echo %%s | mail -s &quot;Floripacoin varsel&quot; ad
     </message>
     <message>
         <location line="+1"/>
+<<<<<<< HEAD
         <source>Error loading wallet.dat: Wallet requires newer version of Floripacoin</source>
         <translation>Feil ved lasting av wallet.dat: Lommeboken krever en nyere versjon av Floripacoin</translation>
     </message>
@@ -2824,6 +3116,15 @@ For eksempel: varselmelding=echo %%s | mail -s &quot;Floripacoin varsel&quot; ad
         <location line="+93"/>
         <source>Wallet needed to be rewritten: restart Floripacoin to complete</source>
         <translation>Lommeboken måtte skrives om: start Floripacoin på nytt for å fullføre</translation>
+=======
+        <source>Error loading wallet.dat: Wallet requires newer version of Bitcoin</source>
+        <translation>Feil ved lasting av wallet.dat: Lommeboken krever en nyere versjon av Bitcoin</translation>
+    </message>
+    <message>
+        <location line="+93"/>
+        <source>Wallet needed to be rewritten: restart Bitcoin to complete</source>
+        <translation>Lommeboken måtte skrives om: start Bitcoin på nytt for å fullføre</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-95"/>
@@ -2882,8 +3183,13 @@ For eksempel: varselmelding=echo %%s | mail -s &quot;Floripacoin varsel&quot; ad
     </message>
     <message>
         <location line="-25"/>
+<<<<<<< HEAD
         <source>Unable to bind to %s on this computer. Floripacoin is probably already running.</source>
         <translation>Kan ikke binde til %s på denne datamaskinen. Sannsynligvis kjører Floripacoin allerede.</translation>
+=======
+        <source>Unable to bind to %s on this computer. Bitcoin is probably already running.</source>
+        <translation>Kan ikke binde til %s på denne datamaskinen. Sannsynligvis kjører Bitcoin allerede.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+64"/>
@@ -2935,4 +3241,8 @@ If the file does not exist, create it with owner-readable-only file permissions.
 Hvis filen ikke finnes, opprett den med leserettighet kun for eier av filen.</translation>
     </message>
 </context>
+<<<<<<< HEAD
 </TS>
+=======
+</TS>
+>>>>>>> upstream/master

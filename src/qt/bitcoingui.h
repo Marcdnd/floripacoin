@@ -43,7 +43,11 @@ class BitcoinGUI : public QMainWindow
 public:
     static const QString DEFAULT_WALLET;
 
+<<<<<<< HEAD
     explicit BitcoinGUI(QWidget *parent = 0);
+=======
+    explicit BitcoinGUI(bool fIsTestnet = false, QWidget *parent = 0);
+>>>>>>> upstream/master
     ~BitcoinGUI();
 
     /** Set the client model.
@@ -113,21 +117,32 @@ private:
     int prevBlocks;
 
     /** Create the main UI actions. */
+<<<<<<< HEAD
     void createActions();
+=======
+    void createActions(bool fIsTestnet);
+>>>>>>> upstream/master
     /** Create the menu bar and sub-menus. */
     void createMenuBar();
     /** Create the toolbars */
     void createToolBars();
     /** Create system tray icon and notification */
+<<<<<<< HEAD
     void createTrayIcon();
+=======
+    void createTrayIcon(bool fIsTestnet);
+>>>>>>> upstream/master
     /** Create system tray menu (or setup the dock menu) */
     void createTrayIconMenu();
     /** Save window size and position */
     void saveWindowGeometry();
     /** Restore window size and position */
     void restoreWindowGeometry();
+<<<<<<< HEAD
     /** Enable or disable all wallet-related actions */
     void setWalletActionsEnabled(bool enabled);
+=======
+>>>>>>> upstream/master
 
 public slots:
     /** Set number of connections shown in the UI */

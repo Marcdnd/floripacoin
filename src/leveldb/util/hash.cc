@@ -6,6 +6,7 @@
 #include "util/coding.h"
 #include "util/hash.h"
 
+<<<<<<< HEAD
 // The FALLTHROUGH_INTENDED macro can be used to annotate implicit fall-through
 // between switch labels. The real definition should be provided externally.
 // This one is a fallback version for unsupported compilers.
@@ -13,6 +14,8 @@
 #define FALLTHROUGH_INTENDED do { } while (0)
 #endif
 
+=======
+>>>>>>> upstream/master
 namespace leveldb {
 
 uint32_t Hash(const char* data, size_t n, uint32_t seed) {
@@ -35,10 +38,17 @@ uint32_t Hash(const char* data, size_t n, uint32_t seed) {
   switch (limit - data) {
     case 3:
       h += data[2] << 16;
+<<<<<<< HEAD
       FALLTHROUGH_INTENDED;
     case 2:
       h += data[1] << 8;
       FALLTHROUGH_INTENDED;
+=======
+      // fall through
+    case 2:
+      h += data[1] << 8;
+      // fall through
+>>>>>>> upstream/master
     case 1:
       h += data[0];
       h *= m;

@@ -1,9 +1,18 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
+<<<<<<< HEAD
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITCOIN_UTIL_H
 #define BITCOIN_UTIL_H
+=======
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+// Distributed under the MIT/X11 software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+#ifndef FLORIPACOIN_UTIL_H
+#define FLORIPACOIN_UTIL_H
+>>>>>>> upstream/master
 
 #include "uint256.h"
 
@@ -20,7 +29,10 @@
 #include <vector>
 #include <string>
 
+<<<<<<< HEAD
 #include <boost/version.hpp>
+=======
+>>>>>>> upstream/master
 #include <boost/thread.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/path.hpp>
@@ -105,11 +117,15 @@ T* alignup(T* p)
 
 inline void MilliSleep(int64 n)
 {
+<<<<<<< HEAD
 // Boost's sleep_for was uninterruptable when backed by nanosleep from 1.50
 // until fixed in 1.52. Use the deprecated sleep method for the broken case.
 // See: https://svn.boost.org/trac/boost/ticket/7238
 
 #if BOOST_VERSION >= 105000 && (!defined(BOOST_HAS_NANOSLEEP) || BOOST_VERSION >= 105200)
+=======
+#if BOOST_VERSION >= 105000
+>>>>>>> upstream/master
     boost::this_thread::sleep_for(boost::chrono::milliseconds(n));
 #else
     boost::this_thread::sleep(boost::posix_time::milliseconds(n));
@@ -144,7 +160,10 @@ extern bool fServer;
 extern bool fCommandLine;
 extern std::string strMiscWarning;
 extern bool fTestNet;
+<<<<<<< HEAD
 extern bool fBloomFilters;
+=======
+>>>>>>> upstream/master
 extern bool fNoListen;
 extern bool fLogTimestamps;
 extern volatile bool fReopenDebugLog;
@@ -186,7 +205,10 @@ void ParseString(const std::string& str, char c, std::vector<std::string>& v);
 std::string FormatMoney(int64 n, bool fPlus=false);
 bool ParseMoney(const std::string& str, int64& nRet);
 bool ParseMoney(const char* pszIn, int64& nRet);
+<<<<<<< HEAD
 std::string SanitizeString(const std::string& str);
+=======
+>>>>>>> upstream/master
 std::vector<unsigned char> ParseHex(const char* psz);
 std::vector<unsigned char> ParseHex(const std::string& str);
 bool IsHex(const std::string& str);
@@ -211,9 +233,13 @@ boost::filesystem::path GetDefaultDataDir();
 const boost::filesystem::path &GetDataDir(bool fNetSpecific = true);
 boost::filesystem::path GetConfigFile();
 boost::filesystem::path GetPidFile();
+<<<<<<< HEAD
 #ifndef WIN32
 void CreatePidFile(const boost::filesystem::path &path, pid_t pid);
 #endif
+=======
+void CreatePidFile(const boost::filesystem::path &path, pid_t pid);
+>>>>>>> upstream/master
 void ReadConfigFile(std::map<std::string, std::string>& mapSettingsRet, std::map<std::string, std::vector<std::string> >& mapMultiSettingsRet);
 #ifdef WIN32
 boost::filesystem::path GetSpecialFolderPath(int nFolder, bool fCreate = true);
@@ -227,12 +253,19 @@ int64 GetTime();
 void SetMockTime(int64 nMockTimeIn);
 int64 GetAdjustedTime();
 int64 GetTimeOffset();
+<<<<<<< HEAD
 long hex2long(const char* hexString);
+=======
+>>>>>>> upstream/master
 std::string FormatFullVersion();
 std::string FormatSubVersion(const std::string& name, int nClientVersion, const std::vector<std::string>& comments);
 void AddTimeData(const CNetAddr& ip, int64 nTime);
 void runCommand(std::string strCommand);
+<<<<<<< HEAD
 
+=======
+void DoubleToNumeratorDenominator(double inDouble, long long *outNumerator, long long *outDenominator); // For the difficulty update in GetNextWorkRequired
+>>>>>>> upstream/master
 
 
 
@@ -400,7 +433,11 @@ int64 GetArg(const std::string& strArg, int64 nDefault);
  * @param default (true or false)
  * @return command-line argument or default value
  */
+<<<<<<< HEAD
 bool GetBoolArg(const std::string& strArg, bool fDefault=false);
+=======
+bool GetBoolArg(const std::string& strArg, bool fDefault);
+>>>>>>> upstream/master
 
 /**
  * Set an argument if it doesn't already have a value
@@ -442,6 +479,7 @@ static inline uint32_t insecure_rand(void)
  */
 void seed_insecure_rand(bool fDeterministic=false);
 
+<<<<<<< HEAD
 /**
  * Timing-attack-resistant comparison.
  * Takes time proportional to length
@@ -457,6 +495,8 @@ bool TimingResistantEqual(const T& a, const T& b)
     return accumulator == 0;
 }
 
+=======
+>>>>>>> upstream/master
 /** Median filter over a stream of values.
  * Returns the median of the last N numbers
  */
@@ -555,21 +595,34 @@ inline uint32_t ByteReverse(uint32_t value)
 // Standard wrapper for do-something-forever thread functions.
 // "Forever" really means until the thread is interrupted.
 // Use it like:
+<<<<<<< HEAD
 //   new boost::thread(boost::bind(&LoopForever<void (*)()>, "dumpaddr", &DumpAddresses, 900000));
+=======
+//   new boost::thread(boost::bind(&LoopForever<void (*)()>, "dumpaddr", &DumpAddresses, 10000));
+>>>>>>> upstream/master
 // or maybe:
 //    boost::function<void()> f = boost::bind(&FunctionWithArg, argument);
 //    threadGroup.create_thread(boost::bind(&LoopForever<boost::function<void()> >, "nothing", f, milliseconds));
 template <typename Callable> void LoopForever(const char* name,  Callable func, int64 msecs)
 {
+<<<<<<< HEAD
     std::string s = strprintf("bitcoin-%s", name);
+=======
+    std::string s = strprintf("floripacoin-%s", name);
+>>>>>>> upstream/master
     RenameThread(s.c_str());
     printf("%s thread start\n", name);
     try
     {
         while (1)
         {
+<<<<<<< HEAD
             MilliSleep(msecs);
             func();
+=======
+            func();
+            MilliSleep(msecs);
+>>>>>>> upstream/master
         }
     }
     catch (boost::thread_interrupted)
@@ -587,7 +640,11 @@ template <typename Callable> void LoopForever(const char* name,  Callable func, 
 // .. and a wrapper that just calls func once
 template <typename Callable> void TraceThread(const char* name,  Callable func)
 {
+<<<<<<< HEAD
     std::string s = strprintf("bitcoin-%s", name);
+=======
+    std::string s = strprintf("floripacoin-%s", name);
+>>>>>>> upstream/master
     RenameThread(s.c_str());
     try
     {

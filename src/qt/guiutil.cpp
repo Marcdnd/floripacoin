@@ -2,9 +2,15 @@
 
 #include "guiutil.h"
 
+<<<<<<< HEAD
 #include "bitcoinaddressvalidator.h"
 #include "walletmodel.h"
 #include "bitcoinunits.h"
+=======
+#include "floripacoinaddressvalidator.h"
+#include "walletmodel.h"
+#include "floripacoinunits.h"
+>>>>>>> upstream/master
 
 #include "util.h"
 #include "init.h"
@@ -50,7 +56,11 @@ namespace GUIUtil {
 
 QString dateTimeStr(const QDateTime &date)
 {
+<<<<<<< HEAD
     return date.date().toString(Qt::SystemLocaleShortDate) + QString(" ") + date.toString("hh:mm");
+=======
+    return date.toString("hh:mm") + QString(", ") + date.date().toString(Qt::SystemLocaleShortDate);
+>>>>>>> upstream/master
 }
 
 QString dateTimeStr(qint64 nTime)
@@ -58,7 +68,11 @@ QString dateTimeStr(qint64 nTime)
     return dateTimeStr(QDateTime::fromTime_t((qint32)nTime));
 }
 
+<<<<<<< HEAD
 QFont bitcoinAddressFont()
+=======
+QFont floripacoinAddressFont()
+>>>>>>> upstream/master
 {
     QFont font("Monospace");
     font.setStyleHint(QFont::TypeWriter);
@@ -67,9 +81,15 @@ QFont bitcoinAddressFont()
 
 void setupAddressWidget(QLineEdit *widget, QWidget *parent)
 {
+<<<<<<< HEAD
     widget->setMaxLength(BitcoinAddressValidator::MaxAddressLength);
     widget->setValidator(new BitcoinAddressValidator(parent));
     widget->setFont(bitcoinAddressFont());
+=======
+    widget->setMaxLength(FloripacoinAddressValidator::MaxAddressLength);
+    widget->setValidator(new FloripacoinAddressValidator(parent));
+    widget->setFont(floripacoinAddressFont());
+>>>>>>> upstream/master
 }
 
 void setupAmountWidget(QLineEdit *widget, QWidget *parent)
@@ -81,9 +101,15 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
     widget->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
 }
 
+<<<<<<< HEAD
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
     // return if URI is not valid or is no bitcoin URI
+=======
+bool parseFloripacoinURI(const QUrl &uri, SendCoinsRecipient *out)
+{
+    // return if URI is not valid or is no floripacoin URI
+>>>>>>> upstream/master
     if(!uri.isValid() || uri.scheme() != QString("floripacoin"))
         return false;
 
@@ -115,7 +141,11 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
+<<<<<<< HEAD
                 if(!BitcoinUnits::parse(BitcoinUnits::BTC, i->second, &rv.amount))
+=======
+                if(!FloripacoinUnits::parse(FloripacoinUnits::MEC, i->second, &rv.amount))
+>>>>>>> upstream/master
                 {
                     return false;
                 }
@@ -133,6 +163,7 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
     return true;
 }
 
+<<<<<<< HEAD
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
     // Convert bitcoin:// to bitcoin:
@@ -145,6 +176,20 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
+=======
+bool parseFloripacoinURI(QString uri, SendCoinsRecipient *out)
+{
+    // Convert floripacoin:// to floripacoin:
+    //
+    //    Cannot handle this later, because floripacoin:// will cause Qt to see the part after // as host,
+    //    which will lower-case it (and thus invalidate the address).
+    if(uri.startsWith("floripacoin://"))
+    {
+        uri.replace(0, 10, "floripacoin:");
+    }
+    QUrl uriInstance(uri);
+    return parseFloripacoinURI(uriInstance, out);
+>>>>>>> upstream/master
 }
 
 QString HtmlEscape(const QString& str, bool fMultiLine)
@@ -181,12 +226,15 @@ void copyEntryData(QAbstractItemView *view, int column, int role)
     }
 }
 
+<<<<<<< HEAD
 void setClipboard(const QString& str)
 {
     QApplication::clipboard()->setText(str, QClipboard::Clipboard);
     QApplication::clipboard()->setText(str, QClipboard::Selection);
 }
 
+=======
+>>>>>>> upstream/master
 QString getSaveFileName(QWidget *parent, const QString &caption,
                                  const QString &dir,
                                  const QString &filter,
@@ -306,7 +354,11 @@ boost::filesystem::path static StartupShortcutPath()
 
 bool GetStartOnSystemStartup()
 {
+<<<<<<< HEAD
     // check for Bitcoin.lnk
+=======
+    // check for Floripacoin.lnk
+>>>>>>> upstream/master
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -421,7 +473,11 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         boost::filesystem::ofstream optionFile(GetAutostartFilePath(), std::ios_base::out|std::ios_base::trunc);
         if (!optionFile.good())
             return false;
+<<<<<<< HEAD
         // Write a bitcoin.desktop file to the autostart directory:
+=======
+        // Write a floripacoin.desktop file to the autostart directory:
+>>>>>>> upstream/master
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         optionFile << "Name=Floripacoin\n";
@@ -432,6 +488,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
     }
     return true;
 }
+<<<<<<< HEAD
 
 #elif defined(Q_OS_MAC)
 // based on: https://github.com/Mozketo/LaunchAtLoginController/blob/master/LaunchAtLoginController.m
@@ -487,6 +544,13 @@ bool SetStartOnSystemStartup(bool fAutoStart)
 }
 #else
 
+=======
+#else
+
+// TODO: OSX startup stuff; see:
+// https://developer.apple.com/library/mac/#documentation/MacOSX/Conceptual/BPSystemStartup/Articles/CustomLogin.html
+
+>>>>>>> upstream/master
 bool GetStartOnSystemStartup() { return false; }
 bool SetStartOnSystemStartup(bool fAutoStart) { return false; }
 

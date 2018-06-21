@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  * Qt4 bitcoin GUI.
  *
  * W.J. van der Laan 2011-2012
@@ -7,13 +8,27 @@
 #include "walletstack.h"
 #include "walletview.h"
 #include "bitcoingui.h"
+=======
+ * Qt4 floripacoin GUI.
+ *
+ * W.J. van der Laan 2011-2012
+ * The Bitcoin Developers 2011-2013
+ * Dr. Kimoto Chan 2013-2079
+ */
+#include "walletstack.h"
+#include "walletview.h"
+#include "floripacoingui.h"
+>>>>>>> upstream/master
 
 #include <QMap>
 #include <QMessageBox>
 
 WalletStack::WalletStack(QWidget *parent) :
     QStackedWidget(parent),
+<<<<<<< HEAD
     gui(0),
+=======
+>>>>>>> upstream/master
     clientModel(0),
     bOutOfSync(true)
 {
@@ -30,16 +45,23 @@ bool WalletStack::addWallet(const QString& name, WalletModel *walletModel)
         return false;
 
     WalletView *walletView = new WalletView(this, gui);
+<<<<<<< HEAD
     walletView->setBitcoinGUI(gui);
+=======
+    walletView->setFloripacoinGUI(gui);
+>>>>>>> upstream/master
     walletView->setClientModel(clientModel);
     walletView->setWalletModel(walletModel);
     walletView->showOutOfSyncWarning(bOutOfSync);
     addWidget(walletView);
     mapWalletViews[name] = walletView;
+<<<<<<< HEAD
 
     // Ensure a walletView is able to show the main window
 	connect(walletView, SIGNAL(showNormalIfMinimized()), gui, SLOT(showNormalIfMinimized()));
 
+=======
+>>>>>>> upstream/master
     return true;
 }
 

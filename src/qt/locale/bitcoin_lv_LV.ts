@@ -4,6 +4,7 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
+<<<<<<< HEAD
         <source>About Floripacoin</source>
         <translation>Par Floripacoin</translation>
     </message>
@@ -11,6 +12,15 @@
         <location line="+39"/>
         <source>&lt;b&gt;Floripacoin&lt;/b&gt; version</source>
         <translation>&lt;b&gt;Floripacoin&lt;/b&gt; versija</translation>
+=======
+        <source>About Bitcoin</source>
+        <translation>Par Bitcoin</translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>&lt;b&gt;Bitcoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;Bitcoin&lt;/b&gt; versija</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+57"/>
@@ -29,7 +39,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+0"/>
+<<<<<<< HEAD
         <source>The Floripacoin developers</source>
+=======
+        <source>The Bitcoin developers</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
 </context>
@@ -243,7 +257,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+1"/>
+<<<<<<< HEAD
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR FLORIPACOINS&lt;/b&gt;!</source>
+=======
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -270,8 +288,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-56"/>
+<<<<<<< HEAD
         <source>Floripacoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your floripacoins from being stolen by malware infecting your computer.</source>
         <translation>Floripacoin aizvērsies, lai pabeigtu šifrēšanu. Atcerieties, ka maciņa šifrēšana nevar pilnībā novērst bitkoinu zādzību, ko veic datorā ieviesušās kaitīgas programmas.</translation>
+=======
+        <source>Bitcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
+        <translation>Bitcoin aizvērsies, lai pabeigtu šifrēšanu. Atcerieties, ka maciņa šifrēšana nevar pilnībā novērst bitkoinu zādzību, ko veic datorā ieviesušās kaitīgas programmas.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+13"/>
@@ -369,8 +392,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+4"/>
+<<<<<<< HEAD
         <source>Show information about Floripacoin</source>
         <translation>Parādīt informāciju par Floripacoin</translation>
+=======
+        <source>Show information about Bitcoin</source>
+        <translation>Parādīt informāciju par Bitcoin</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+2"/>
@@ -415,12 +443,21 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="-347"/>
         <source>Send coins to a Floripacoin address</source>
+<<<<<<< HEAD
         <translation>Nosūtīt bitkoinus uz Floripacoin adresi</translation>
     </message>
     <message>
         <location line="+49"/>
         <source>Modify configuration options for Floripacoin</source>
         <translation>Mainīt Floripacoin konfigurācijas uzstādījumus</translation>
+=======
+        <translation>Nosūtīt bitkoinus uz Bitcoin adresi</translation>
+    </message>
+    <message>
+        <location line="+49"/>
+        <source>Modify configuration options for Bitcoin</source>
+        <translation>Mainīt Bitcoin konfigurācijas uzstādījumus</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+9"/>
@@ -450,7 +487,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="-165"/>
         <location line="+530"/>
+<<<<<<< HEAD
         <source>Floripacoin</source>
+=======
+        <source>Bitcoin</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -475,7 +516,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+22"/>
+<<<<<<< HEAD
         <source>&amp;About Floripacoin</source>
+=======
+        <source>&amp;About Bitcoin</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -531,6 +576,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+47"/>
+<<<<<<< HEAD
         <source>Floripacoin client</source>
         <translation>Floripacoin klients</translation>
     </message>
@@ -538,6 +584,15 @@ This product includes software developed by the OpenSSL Project for use in the O
         <location line="+141"/>
         <source>%n active connection(s) to Floripacoin network</source>
         <translation><numerusform>%n aktīvu savienojumu ar Floripacoin tīklu</numerusform><numerusform>%n aktīvs savienojums ar Floripacoin tīklu</numerusform><numerusform>%n aktīvu savienojumu as Floripacoin tīklu</numerusform></translation>
+=======
+        <source>Bitcoin client</source>
+        <translation>Bitcoin klients</translation>
+    </message>
+    <message numerus="yes">
+        <location line="+141"/>
+        <source>%n active connection(s) to Bitcoin network</source>
+        <translation><numerusform>%n aktīvu savienojumu ar Bitcoin tīklu</numerusform><numerusform>%n aktīvs savienojums ar Bitcoin tīklu</numerusform><numerusform>%n aktīvu savienojumu as Bitcoin tīklu</numerusform></translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+22"/>
@@ -666,7 +721,11 @@ Adrese: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+111"/>
+<<<<<<< HEAD
         <source>A fatal error occurred. Floripacoin can no longer continue safely and will quit.</source>
+=======
+        <source>A fatal error occurred. Bitcoin can no longer continue safely and will quit.</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
 </context>
@@ -733,7 +792,11 @@ Adrese: %4
     <message>
         <location line="-5"/>
         <source>The entered address &quot;%1&quot; is not a valid Floripacoin address.</source>
+<<<<<<< HEAD
         <translation>Ierakstītā adrese &quot;%1&quot; nav derīga Floripacoin adrese.</translation>
+=======
+        <translation>Ierakstītā adrese &quot;%1&quot; nav derīga Bitcoin adrese.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+10"/>
@@ -751,8 +814,13 @@ Adrese: %4
     <message>
         <location filename="../guiutil.cpp" line="+424"/>
         <location line="+12"/>
+<<<<<<< HEAD
         <source>Floripacoin-Qt</source>
         <translation>Floripacoin-Qt</translation>
+=======
+        <source>Bitcoin-Qt</source>
+        <translation>Bitcoin-Qt</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-12"/>
@@ -814,6 +882,7 @@ Adrese: %4
     </message>
     <message>
         <location line="+31"/>
+<<<<<<< HEAD
         <source>Automatically start Floripacoin after logging in to the system.</source>
         <translation>Automātiski sākt Floripacoin pēc pieteikšanās sistēmā.</translation>
     </message>
@@ -821,6 +890,15 @@ Adrese: %4
         <location line="+3"/>
         <source>&amp;Start Floripacoin on system login</source>
         <translation>&amp;Sākt Floripacoin reizē ar sistēmu</translation>
+=======
+        <source>Automatically start Bitcoin after logging in to the system.</source>
+        <translation>Automātiski sākt Bitcoin pēc pieteikšanās sistēmā.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Start Bitcoin on system login</source>
+        <translation>&amp;Sākt Bitcoin reizē ar sistēmu</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+35"/>
@@ -839,8 +917,13 @@ Adrese: %4
     </message>
     <message>
         <location line="+6"/>
+<<<<<<< HEAD
         <source>Automatically open the Floripacoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Uz rūtera automātiski atvērt Floripacoin klienta portu. Tas strādā tikai tad, ja rūteris atbalsta UPnP un tas ir ieslēgts.</translation>
+=======
+        <source>Automatically open the Bitcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Uz rūtera automātiski atvērt Bitcoin klienta portu. Tas strādā tikai tad, ja rūteris atbalsta UPnP un tas ir ieslēgts.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -849,7 +932,11 @@ Adrese: %4
     </message>
     <message>
         <location line="+7"/>
+<<<<<<< HEAD
         <source>Connect to the Floripacoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+=======
+        <source>Connect to the Bitcoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -924,8 +1011,13 @@ Adrese: %4
     </message>
     <message>
         <location line="+13"/>
+<<<<<<< HEAD
         <source>The user interface language can be set here. This setting will take effect after restarting Floripacoin.</source>
         <translation>Šeit var iestatīt lietotāja valodu. Iestatījums aktivizēsies pēc Floripacoin pārstartēšanas.</translation>
+=======
+        <source>The user interface language can be set here. This setting will take effect after restarting Bitcoin.</source>
+        <translation>Šeit var iestatīt lietotāja valodu. Iestatījums aktivizēsies pēc Bitcoin pārstartēšanas.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+11"/>
@@ -940,7 +1032,11 @@ Adrese: %4
     <message>
         <location line="+9"/>
         <source>Whether to show Floripacoin addresses in the transaction list or not.</source>
+<<<<<<< HEAD
         <translation>Rādīt vai nē Floripacoin adreses transakciju sarakstā.</translation>
+=======
+        <translation>Rādīt vai nē Bitcoin adreses transakciju sarakstā.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -991,7 +1087,11 @@ Adrese: %4
     <message>
         <location line="-9"/>
         <location line="+9"/>
+<<<<<<< HEAD
         <source>This setting will take effect after restarting Floripacoin.</source>
+=======
+        <source>This setting will take effect after restarting Bitcoin.</source>
+>>>>>>> upstream/master
         <translation>Iestatījums aktivizēsies pēc Bitkoin pārstartēšanas.</translation>
     </message>
     <message>
@@ -1010,8 +1110,13 @@ Adrese: %4
     <message>
         <location line="+50"/>
         <location line="+166"/>
+<<<<<<< HEAD
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Floripacoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Attēlotā informācija var būt novecojusi. Jūsu maciņš pēc savienojuma izveides automātiski sinhronizējas ar Floripacoin tīklu, taču šis process vēl nav beidzies.</translation>
+=======
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Attēlotā informācija var būt novecojusi. Jūsu maciņš pēc savienojuma izveides automātiski sinhronizējas ar Bitcoin tīklu, taču šis process vēl nav beidzies.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-124"/>
@@ -1064,7 +1169,11 @@ Adrese: %4
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
+<<<<<<< HEAD
         <source>Cannot start floripacoin: click-to-pay handler</source>
+=======
+        <source>Cannot start bitcoin: click-to-pay handler</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1214,7 +1323,11 @@ Adrese: %4
     </message>
     <message>
         <location line="+7"/>
+<<<<<<< HEAD
         <source>Show the Floripacoin-Qt help message to get a list with possible Floripacoin command-line options.</source>
+=======
+        <source>Show the Bitcoin-Qt help message to get a list with possible Bitcoin command-line options.</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1234,12 +1347,20 @@ Adrese: %4
     </message>
     <message>
         <location line="-104"/>
+<<<<<<< HEAD
         <source>Floripacoin - Debug window</source>
+=======
+        <source>Bitcoin - Debug window</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+25"/>
+<<<<<<< HEAD
         <source>Floripacoin Core</source>
+=======
+        <source>Bitcoin Core</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1249,7 +1370,11 @@ Adrese: %4
     </message>
     <message>
         <location line="+7"/>
+<<<<<<< HEAD
         <source>Open the Floripacoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+=======
+        <source>Open the Bitcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1259,8 +1384,13 @@ Adrese: %4
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
+<<<<<<< HEAD
         <source>Welcome to the Floripacoin RPC console.</source>
         <translation>Laipni lūgti Floripacoin RPC konsolē.</translation>
+=======
+        <source>Welcome to the Bitcoin RPC console.</source>
+        <translation>Laipni lūgti Bitcoin RPC konsolē.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+1"/>
@@ -1402,7 +1532,11 @@ Adrese: %4
     </message>
     <message>
         <location line="+34"/>
+<<<<<<< HEAD
         <source>The address to send the payment to (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
+=======
+        <source>The address to send the payment to (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1443,8 +1577,13 @@ Adrese: %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
+<<<<<<< HEAD
         <source>Enter a Floripacoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>Ierakstiet Floripacoin adresi (piem. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+=======
+        <source>Enter a Floripacoin address (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>Ierakstiet Bitcoin adresi (piem. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</translation>
+>>>>>>> upstream/master
     </message>
 </context>
 <context>
@@ -1466,7 +1605,11 @@ Adrese: %4
     </message>
     <message>
         <location line="+18"/>
+<<<<<<< HEAD
         <source>The address to sign the message with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
+=======
+        <source>The address to sign the message with (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1539,7 +1682,11 @@ Adrese: %4
     </message>
     <message>
         <location line="+21"/>
+<<<<<<< HEAD
         <source>The address the message was signed with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
+=======
+        <source>The address the message was signed with (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1560,8 +1707,13 @@ Adrese: %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Enter a Floripacoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>Ierakstiet Floripacoin adresi (piem. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+=======
+        <source>Enter a Floripacoin address (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>Ierakstiet Bitcoin adresi (piem. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-2"/>
@@ -1570,7 +1722,11 @@ Adrese: %4
     </message>
     <message>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Enter Floripacoin signature</source>
+=======
+        <source>Enter Bitcoin signature</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1644,7 +1800,11 @@ Adrese: %4
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+22"/>
+<<<<<<< HEAD
         <source>The Floripacoin developers</source>
+=======
+        <source>The Bitcoin developers</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2182,8 +2342,13 @@ Adrese: %4
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+94"/>
+<<<<<<< HEAD
         <source>Floripacoin version</source>
         <translation>Floripacoin versija</translation>
+=======
+        <source>Bitcoin version</source>
+        <translation>Bitcoin versija</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+102"/>
@@ -2192,8 +2357,13 @@ Adrese: %4
     </message>
     <message>
         <location line="-29"/>
+<<<<<<< HEAD
         <source>Send command to -server or floripacoind</source>
         <translation>Nosūtīt komantu uz -server vai floripacoind</translation>
+=======
+        <source>Send command to -server or bitcoind</source>
+        <translation>Nosūtīt komantu uz -server vai bitcoind</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-23"/>
@@ -2212,6 +2382,7 @@ Adrese: %4
     </message>
     <message>
         <location line="+24"/>
+<<<<<<< HEAD
         <source>Specify configuration file (default: floripacoin.conf)</source>
         <translation>Norādiet konfigurācijas failu (pēc noklusēšanas: floripacoin.conf)</translation>
     </message>
@@ -2219,6 +2390,15 @@ Adrese: %4
         <location line="+3"/>
         <source>Specify pid file (default: floripacoind.pid)</source>
         <translation>Norādiet pid failu (pēc noklusēšanas: floripacoind.pid)</translation>
+=======
+        <source>Specify configuration file (default: bitcoin.conf)</source>
+        <translation>Norādiet konfigurācijas failu (pēc noklusēšanas: bitcoin.conf)</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Specify pid file (default: bitcoind.pid)</source>
+        <translation>Norādiet pid failu (pēc noklusēšanas: bitcoind.pid)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-1"/>
@@ -2232,8 +2412,13 @@ Adrese: %4
     </message>
     <message>
         <location line="-28"/>
+<<<<<<< HEAD
         <source>Listen for connections on &lt;port&gt; (default: 9333 or testnet: 19333)</source>
         <translation>Gaidīt savienojumus portā &lt;port&gt; (pēc noklusēšanas: 9333 vai testnet: 19333)</translation>
+=======
+        <source>Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333)</source>
+        <translation>Gaidīt savienojumus portā &lt;port&gt; (pēc noklusēšanas: 8333 vai testnet: 18333)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+5"/>
@@ -2267,7 +2452,11 @@ Adrese: %4
     </message>
     <message>
         <location line="+27"/>
+<<<<<<< HEAD
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 9332 or testnet: 19332)</source>
+=======
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2295,13 +2484,21 @@ Adrese: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
+<<<<<<< HEAD
 rpcuser=floripacoinrpc
+=======
+rpcuser=bitcoinrpc
+>>>>>>> upstream/master
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
+<<<<<<< HEAD
 for example: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@foo.com
+=======
+for example: alertnotify=echo %%s | mail -s &quot;Bitcoin Alert&quot; admin@foo.com
+>>>>>>> upstream/master
 </source>
         <translation type="unfinished"/>
     </message>
@@ -2317,7 +2514,11 @@ for example: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@
     </message>
     <message>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Cannot obtain a lock on data directory %s. Floripacoin is probably already running.</source>
+=======
+        <source>Cannot obtain a lock on data directory %s. Bitcoin is probably already running.</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2362,7 +2563,11 @@ for example: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@
     </message>
     <message>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Floripacoin will not work properly.</source>
+=======
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Bitcoin will not work properly.</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2612,7 +2817,11 @@ for example: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@
     </message>
     <message>
         <location line="+5"/>
+<<<<<<< HEAD
         <source>SSL options: (see the Floripacoin Wiki for SSL setup instructions)</source>
+=======
+        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2802,6 +3011,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@
     </message>
     <message>
         <location line="+1"/>
+<<<<<<< HEAD
         <source>Error loading wallet.dat: Wallet requires newer version of Floripacoin</source>
         <translation>Nevar ielādēt wallet.dat: maciņa atvēršanai nepieciešama jaunāka Floripacoin versija</translation>
     </message>
@@ -2809,6 +3019,15 @@ for example: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@
         <location line="+93"/>
         <source>Wallet needed to be rewritten: restart Floripacoin to complete</source>
         <translation>Bija nepieciešams pārstartēt maciņu: pabeigšanai pārstartējiet Floripacoin</translation>
+=======
+        <source>Error loading wallet.dat: Wallet requires newer version of Bitcoin</source>
+        <translation>Nevar ielādēt wallet.dat: maciņa atvēršanai nepieciešama jaunāka Bitcoin versija</translation>
+    </message>
+    <message>
+        <location line="+93"/>
+        <source>Wallet needed to be rewritten: restart Bitcoin to complete</source>
+        <translation>Bija nepieciešams pārstartēt maciņu: pabeigšanai pārstartējiet Bitcoin</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-95"/>
@@ -2867,8 +3086,13 @@ for example: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@
     </message>
     <message>
         <location line="-25"/>
+<<<<<<< HEAD
         <source>Unable to bind to %s on this computer. Floripacoin is probably already running.</source>
         <translation>Nevar pievienoties %s uz šī datora. Floripacoin droši vien jau darbojas.</translation>
+=======
+        <source>Unable to bind to %s on this computer. Bitcoin is probably already running.</source>
+        <translation>Nevar pievienoties %s uz šī datora. Bitcoin droši vien jau darbojas.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+64"/>

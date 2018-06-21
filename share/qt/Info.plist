@@ -7,7 +7,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleGetInfoString</key>
+<<<<<<< HEAD
 	<string>$VERSION, Copyright © 2009-$YEAR The Bitcoin developers</string>
+=======
+	<string>$VERSION, Copyright © 2014-2018 The Floripacoin developers</string>
+>>>>>>> upstream/master
 	<key>CFBundleShortVersionString</key>
 	<string>$VERSION</string>
 	<key>CFBundleVersion</key>

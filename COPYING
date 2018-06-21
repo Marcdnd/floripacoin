@@ -1,5 +1,10 @@
 Copyright (c) 2009-2013 Bitcoin Developers
+<<<<<<< HEAD
 Copyright (c) 2011-2013 Floripacoin Developers
+=======
+Copyright (c) 2013-2079 Dr. Kimoto Chan
+Copyright (c) 2013-2079 The Floripacoin developers
+>>>>>>> upstream/master
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

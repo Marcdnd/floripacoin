@@ -4,6 +4,7 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
+<<<<<<< HEAD
         <source>About Floripacoin</source>
         <translation>关于莱特币</translation>
     </message>
@@ -11,6 +12,15 @@
         <location line="+39"/>
         <source>&lt;b&gt;Floripacoin&lt;/b&gt; version</source>
         <translation>&lt;b&gt;莱特币&lt;/b&gt;版本</translation>
+=======
+        <source>About Bitcoin</source>
+        <translation>关于比特币</translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>&lt;b&gt;Bitcoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;比特币&lt;/b&gt;版本</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+57"/>
@@ -34,8 +44,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+0"/>
+<<<<<<< HEAD
         <source>The Floripacoin developers</source>
         <translation>Floripacoin-qt 客户端开发团队</translation>
+=======
+        <source>The Bitcoin developers</source>
+        <translation>Bitcoin-qt 客户端开发团队</translation>
+>>>>>>> upstream/master
     </message>
 </context>
 <context>
@@ -68,7 +83,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location filename="../addressbookpage.cpp" line="+63"/>
         <source>These are your Floripacoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+<<<<<<< HEAD
         <translation>这是您用来收款的莱特币地址。为了标记不同的资金来源，建议为每个付款人保留不同的收款地址。</translation>
+=======
+        <translation>这是您用来收款的比特币地址。为了标记不同的资金来源，建议为每个付款人保留不同的收款地址。</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="+14"/>
@@ -108,7 +127,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="-44"/>
         <source>Verify a message to ensure it was signed with a specified Floripacoin address</source>
+<<<<<<< HEAD
         <translation>验证消息，确保消息是由指定的莱特币地址签名过的。</translation>
+=======
+        <translation>验证消息，确保消息是由指定的比特币地址签名过的。</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -123,7 +146,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location filename="../addressbookpage.cpp" line="-5"/>
         <source>These are your Floripacoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+<<<<<<< HEAD
         <translation>这是您用来付款的莱特币地址。在付款前，请总是核实付款金额和收款地址。</translation>
+=======
+        <translation>这是您用来付款的比特币地址。在付款前，请总是核实付款金额和收款地址。</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+13"/>
@@ -248,8 +275,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+1"/>
+<<<<<<< HEAD
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR FLORIPACOINS&lt;/b&gt;!</source>
         <translation>警告：如果您加密了您的钱包，但是忘记了密码，你将会&lt;b&gt;丢失所有的莱特币&lt;/b&gt;！</translation>
+=======
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
+        <translation>警告：如果您加密了您的钱包，但是忘记了密码，你将会&lt;b&gt;丢失所有的比特币&lt;/b&gt;！</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+0"/>
@@ -275,8 +307,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-56"/>
+<<<<<<< HEAD
         <source>Floripacoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your floripacoins from being stolen by malware infecting your computer.</source>
         <translation>将关闭软件以完成加密过程。 请您谨记：钱包加密并不是万能的，电脑中毒，您的莱特币还是有可能丢失。</translation>
+=======
+        <source>Bitcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
+        <translation>将关闭软件以完成加密过程。 请您谨记：钱包加密并不是万能的，电脑中毒，您的比特币还是有可能丢失。</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+13"/>
@@ -374,8 +411,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+4"/>
+<<<<<<< HEAD
         <source>Show information about Floripacoin</source>
         <translation>显示莱特币的相关信息</translation>
+=======
+        <source>Show information about Bitcoin</source>
+        <translation>显示比特币的相关信息</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+2"/>
@@ -420,11 +462,19 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="-347"/>
         <source>Send coins to a Floripacoin address</source>
+<<<<<<< HEAD
         <translation>向一个莱特币地址发送莱特币</translation>
     </message>
     <message>
         <location line="+49"/>
         <source>Modify configuration options for Floripacoin</source>
+=======
+        <translation>向一个比特币地址发送比特币</translation>
+    </message>
+    <message>
+        <location line="+49"/>
+        <source>Modify configuration options for Bitcoin</source>
+>>>>>>> upstream/master
         <translation>设置选项</translation>
     </message>
     <message>
@@ -455,8 +505,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="-165"/>
         <location line="+530"/>
+<<<<<<< HEAD
         <source>Floripacoin</source>
         <translation>莱特币</translation>
+=======
+        <source>Bitcoin</source>
+        <translation>比特币</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-530"/>
@@ -480,8 +535,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+22"/>
+<<<<<<< HEAD
         <source>&amp;About Floripacoin</source>
         <translation>&amp;关于莱特币</translation>
+=======
+        <source>&amp;About Bitcoin</source>
+        <translation>&amp;关于比特币</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+9"/>
@@ -501,12 +561,20 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="+7"/>
         <source>Sign messages with your Floripacoin addresses to prove you own them</source>
+<<<<<<< HEAD
         <translation>用莱特币地址关联的私钥为消息签名，以证明您拥有这个莱特币地址</translation>
+=======
+        <translation>用比特币地址关联的私钥为消息签名，以证明您拥有这个比特币地址</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+2"/>
         <source>Verify messages to ensure they were signed with specified Floripacoin addresses</source>
+<<<<<<< HEAD
         <translation>校验消息，确保该消息是由指定的莱特币地址所有者签名的</translation>
+=======
+        <translation>校验消息，确保该消息是由指定的比特币地址所有者签名的</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+28"/>
@@ -536,6 +604,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+47"/>
+<<<<<<< HEAD
         <source>Floripacoin client</source>
         <translation>莱特币客户端</translation>
     </message>
@@ -543,6 +612,15 @@ This product includes software developed by the OpenSSL Project for use in the O
         <location line="+141"/>
         <source>%n active connection(s) to Floripacoin network</source>
         <translation><numerusform>到莱特币网络的连接共有%n条</numerusform></translation>
+=======
+        <source>Bitcoin client</source>
+        <translation>比特币客户端</translation>
+    </message>
+    <message numerus="yes">
+        <location line="+141"/>
+        <source>%n active connection(s) to Bitcoin network</source>
+        <translation><numerusform>到比特币网络的连接共有%n条</numerusform></translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+22"/>
@@ -607,7 +685,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="+70"/>
         <source>This transaction is over the size limit. You can still send it for a fee of %1, which goes to the nodes that process your transaction and helps to support the network. Do you want to pay the fee?</source>
+<<<<<<< HEAD
         <translation>该交易的字节数超标。您可以选择支付%1的交易费给处理您的交易的网络节点，有助于莱特币网络的运行。您愿意支付这笔交易费用吗？</translation>
+=======
+        <translation>该交易的字节数超标。您可以选择支付%1的交易费给处理您的交易的网络节点，有助于比特币网络的运行。您愿意支付这笔交易费用吗？</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-140"/>
@@ -657,7 +739,11 @@ Address: %4
         <location line="-23"/>
         <location line="+23"/>
         <source>URI can not be parsed! This can be caused by an invalid Floripacoin address or malformed URI parameters.</source>
+<<<<<<< HEAD
         <translation>URI无法解析！原因可能是莱特币地址不正确，或者URI参数错误。</translation>
+=======
+        <translation>URI无法解析！原因可能是比特币地址不正确，或者URI参数错误。</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+17"/>
@@ -671,7 +757,11 @@ Address: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+111"/>
+<<<<<<< HEAD
         <source>A fatal error occurred. Floripacoin can no longer continue safely and will quit.</source>
+=======
+        <source>A fatal error occurred. Bitcoin can no longer continue safely and will quit.</source>
+>>>>>>> upstream/master
         <translation>发生严重错误。</translation>
     </message>
 </context>
@@ -738,7 +828,11 @@ Address: %4
     <message>
         <location line="-5"/>
         <source>The entered address &quot;%1&quot; is not a valid Floripacoin address.</source>
+<<<<<<< HEAD
         <translation>您输入的 &quot;%1&quot; 不是合法的莱特币地址.</translation>
+=======
+        <translation>您输入的 &quot;%1&quot; 不是合法的比特币地址.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+10"/>
@@ -756,8 +850,13 @@ Address: %4
     <message>
         <location filename="../guiutil.cpp" line="+424"/>
         <location line="+12"/>
+<<<<<<< HEAD
         <source>Floripacoin-Qt</source>
         <translation>Floripacoin-Qt</translation>
+=======
+        <source>Bitcoin-Qt</source>
+        <translation>Bitcoin-Qt</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-12"/>
@@ -820,12 +919,21 @@ Address: %4
     </message>
     <message>
         <location line="+31"/>
+<<<<<<< HEAD
         <source>Automatically start Floripacoin after logging in to the system.</source>
         <translation>登录系统后自动开启莱特币客户端</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>&amp;Start Floripacoin on system login</source>
+=======
+        <source>Automatically start Bitcoin after logging in to the system.</source>
+        <translation>登录系统后自动开启比特币客户端</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Start Bitcoin on system login</source>
+>>>>>>> upstream/master
         <translation>启动时&amp;运行</translation>
     </message>
     <message>
@@ -845,8 +953,13 @@ Address: %4
     </message>
     <message>
         <location line="+6"/>
+<<<<<<< HEAD
         <source>Automatically open the Floripacoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>自动在路由器中打开莱特币端口。只有当您的路由器开启 UPnP 选项时此功能才有效。</translation>
+=======
+        <source>Automatically open the Bitcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>自动在路由器中打开比特币端口。只有当您的路由器开启 UPnP 选项时此功能才有效。</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -855,8 +968,13 @@ Address: %4
     </message>
     <message>
         <location line="+7"/>
+<<<<<<< HEAD
         <source>Connect to the Floripacoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
         <translation>通过代理服务器连接莱特币网络(例如：通过Tor连接)</translation>
+=======
+        <source>Connect to the Bitcoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>通过代理服务器连接比特币网络(例如：通过Tor连接)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -930,28 +1048,48 @@ Address: %4
     </message>
     <message>
         <location line="+13"/>
+<<<<<<< HEAD
         <source>The user interface language can be set here. This setting will take effect after restarting Floripacoin.</source>
+=======
+        <source>The user interface language can be set here. This setting will take effect after restarting Bitcoin.</source>
+>>>>>>> upstream/master
         <translation>在这里设置用户界面的语言。设置将在客户端重启后生效。</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>&amp;Unit to show amounts in:</source>
+<<<<<<< HEAD
         <translation>&amp;莱特币金额单位:</translation>
+=======
+        <translation>&amp;比特币金额单位:</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+13"/>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
+<<<<<<< HEAD
         <translation>选择莱特币单位。</translation>
+=======
+        <translation>选择比特币单位。</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+9"/>
         <source>Whether to show Floripacoin addresses in the transaction list or not.</source>
+<<<<<<< HEAD
         <translation>是否需要在交易清单中显示莱特币地址。</translation>
+=======
+        <translation>是否需要在交易清单中显示比特币地址。</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
         <source>&amp;Display addresses in transaction list</source>
+<<<<<<< HEAD
         <translation>在交易清单中&amp;显示莱特币地址</translation>
+=======
+        <translation>在交易清单中&amp;显示比特币地址</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+71"/>
@@ -997,7 +1135,11 @@ Address: %4
     <message>
         <location line="-9"/>
         <location line="+9"/>
+<<<<<<< HEAD
         <source>This setting will take effect after restarting Floripacoin.</source>
+=======
+        <source>This setting will take effect after restarting Bitcoin.</source>
+>>>>>>> upstream/master
         <translation>需要重启客户端软件才能生效。</translation>
     </message>
     <message>
@@ -1016,8 +1158,13 @@ Address: %4
     <message>
         <location line="+50"/>
         <location line="+166"/>
+<<<<<<< HEAD
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Floripacoin network after a connection is established, but this process has not completed yet.</source>
         <translation>现在显示的消息可能是过期的. 在连接上莱特币网络节点后，您的钱包将自动与网络同步，但是这个过程还没有完成.</translation>
+=======
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>现在显示的消息可能是过期的. 在连接上比特币网络节点后，您的钱包将自动与网络同步，但是这个过程还没有完成.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-124"/>
@@ -1070,8 +1217,13 @@ Address: %4
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
+<<<<<<< HEAD
         <source>Cannot start floripacoin: click-to-pay handler</source>
         <translation>暂时无法启动莱特币：点击支付功能</translation>
+=======
+        <source>Cannot start bitcoin: click-to-pay handler</source>
+        <translation>暂时无法启动比特币：点击支付功能</translation>
+>>>>>>> upstream/master
     </message>
 </context>
 <context>
@@ -1186,7 +1338,11 @@ Address: %4
     <message>
         <location line="+23"/>
         <source>On testnet</source>
+<<<<<<< HEAD
         <translation>当前为莱特币测试网络</translation>
+=======
+        <translation>当前为比特币测试网络</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+23"/>
@@ -1220,8 +1376,13 @@ Address: %4
     </message>
     <message>
         <location line="+7"/>
+<<<<<<< HEAD
         <source>Show the Floripacoin-Qt help message to get a list with possible Floripacoin command-line options.</source>
         <translation>显示Floripacoin命令行选项帮助信息</translation>
+=======
+        <source>Show the Bitcoin-Qt help message to get a list with possible Bitcoin command-line options.</source>
+        <translation>显示Bitcoin命令行选项帮助信息</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -1240,6 +1401,7 @@ Address: %4
     </message>
     <message>
         <location line="-104"/>
+<<<<<<< HEAD
         <source>Floripacoin - Debug window</source>
         <translation>莱特币 - 调试窗口</translation>
     </message>
@@ -1247,6 +1409,15 @@ Address: %4
         <location line="+25"/>
         <source>Floripacoin Core</source>
         <translation>莱特币核心</translation>
+=======
+        <source>Bitcoin - Debug window</source>
+        <translation>比特币 - 调试窗口</translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>Bitcoin Core</source>
+        <translation>比特币核心</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+279"/>
@@ -1255,7 +1426,11 @@ Address: %4
     </message>
     <message>
         <location line="+7"/>
+<<<<<<< HEAD
         <source>Open the Floripacoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+=======
+        <source>Open the Bitcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+>>>>>>> upstream/master
         <translation>打开当前目录中的调试日志文件。日志文件大的话可能要等上几秒钟。</translation>
     </message>
     <message>
@@ -1265,7 +1440,11 @@ Address: %4
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
+<<<<<<< HEAD
         <source>Welcome to the Floripacoin RPC console.</source>
+=======
+        <source>Welcome to the Bitcoin RPC console.</source>
+>>>>>>> upstream/master
         <translation>欢迎来到 RPC 控制台.</translation>
     </message>
     <message>
@@ -1386,7 +1565,11 @@ Address: %4
     <message>
         <location line="+5"/>
         <source>Error: The transaction was rejected. This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+<<<<<<< HEAD
         <translation>错误: 交易被拒绝. 如果您使用的是备份钱包，可能存在两个钱包不同步的情况，另一个钱包中的莱特币已经被使用，但本地的这个钱包尚没有记录。</translation>
+=======
+        <translation>错误: 交易被拒绝. 如果您使用的是备份钱包，可能存在两个钱包不同步的情况，另一个钱包中的比特币已经被使用，但本地的这个钱包尚没有记录。</translation>
+>>>>>>> upstream/master
     </message>
 </context>
 <context>
@@ -1408,8 +1591,13 @@ Address: %4
     </message>
     <message>
         <location line="+34"/>
+<<<<<<< HEAD
         <source>The address to send the payment to (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>付款给这个地址  (例如 Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+=======
+        <source>The address to send the payment to (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>付款给这个地址  (例如 FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+60"/>
@@ -1449,8 +1637,13 @@ Address: %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
+<<<<<<< HEAD
         <source>Enter a Floripacoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>请输入莱特币地址 (例如: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+=======
+        <source>Enter a Floripacoin address (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>请输入比特币地址 (例如: FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</translation>
+>>>>>>> upstream/master
     </message>
 </context>
 <context>
@@ -1472,8 +1665,13 @@ Address: %4
     </message>
     <message>
         <location line="+18"/>
+<<<<<<< HEAD
         <source>The address to sign the message with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>用于签名消息的地址(例如: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+=======
+        <source>The address to sign the message with (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>用于签名消息的地址(例如: FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+10"/>
@@ -1545,13 +1743,22 @@ Address: %4
     </message>
     <message>
         <location line="+21"/>
+<<<<<<< HEAD
         <source>The address the message was signed with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>用于签名消息的地址(例如: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+=======
+        <source>The address the message was signed with (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>用于签名消息的地址(例如: FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+40"/>
         <source>Verify the message to ensure it was signed with the specified Floripacoin address</source>
+<<<<<<< HEAD
         <translation>验证消息，确保消息是由指定的莱特币地址签名过的。</translation>
+=======
+        <translation>验证消息，确保消息是由指定的比特币地址签名过的。</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -1566,8 +1773,13 @@ Address: %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Enter a Floripacoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>请输入莱特币地址 (例如: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+=======
+        <source>Enter a Floripacoin address (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>请输入比特币地址 (例如: FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-2"/>
@@ -1576,8 +1788,13 @@ Address: %4
     </message>
     <message>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Enter Floripacoin signature</source>
         <translation>输入莱特币签名</translation>
+=======
+        <source>Enter Bitcoin signature</source>
+        <translation>输入比特币签名</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+82"/>
@@ -1650,8 +1867,13 @@ Address: %4
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+22"/>
+<<<<<<< HEAD
         <source>The Floripacoin developers</source>
         <translation>Floripacoin-qt 客户端开发团队</translation>
+=======
+        <source>The Bitcoin developers</source>
+        <translation>Bitcoin-qt 客户端开发团队</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+1"/>
@@ -1785,7 +2007,11 @@ Address: %4
     <message>
         <location line="+3"/>
         <source>Generated coins must mature 120 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
+<<<<<<< HEAD
         <translation>新挖出的莱特币必须等确120个确认才能使用。您生产出的数据块，将被广播到全网并添加到数据块链。如果入链失败，状态将变为“未被接受”，意味着您的数据块竞争失败，挖出的莱特币将不能使用。当某个节点先于你几秒生产出新的数据块，这种情况会偶尔发生。</translation>
+=======
+        <translation>新挖出的比特币必须等确120个确认才能使用。您生产出的数据块，将被广播到全网并添加到数据块链。如果入链失败，状态将变为“未被接受”，意味着您的数据块竞争失败，挖出的比特币将不能使用。当某个节点先于你几秒生产出新的数据块，这种情况会偶尔发生。</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+7"/>
@@ -1946,7 +2172,11 @@ Address: %4
     <message>
         <location line="+2"/>
         <source>Date and time that the transaction was received.</source>
+<<<<<<< HEAD
         <translation>接收莱特币的时间</translation>
+=======
+        <translation>接收比特币的时间</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+2"/>
@@ -2138,7 +2368,11 @@ Address: %4
     <message>
         <location filename="../walletmodel.cpp" line="+193"/>
         <source>Send Coins</source>
+<<<<<<< HEAD
         <translation>发送莱特币</translation>
+=======
+        <translation>发送比特币</translation>
+>>>>>>> upstream/master
     </message>
 </context>
 <context>
@@ -2188,8 +2422,13 @@ Address: %4
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+94"/>
+<<<<<<< HEAD
         <source>Floripacoin version</source>
         <translation>莱特币版本</translation>
+=======
+        <source>Bitcoin version</source>
+        <translation>比特币版本</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+102"/>
@@ -2198,8 +2437,13 @@ Address: %4
     </message>
     <message>
         <location line="-29"/>
+<<<<<<< HEAD
         <source>Send command to -server or floripacoind</source>
         <translation>发送命令到服务器或者 floripacoind
+=======
+        <source>Send command to -server or bitcoind</source>
+        <translation>发送命令到服务器或者 bitcoind
+>>>>>>> upstream/master
 </translation>
     </message>
     <message>
@@ -2222,14 +2466,24 @@ Address: %4
     </message>
     <message>
         <location line="+24"/>
+<<<<<<< HEAD
         <source>Specify configuration file (default: floripacoin.conf)</source>
         <translation>指定配置文件 (默认为 floripacoin.conf)
+=======
+        <source>Specify configuration file (default: bitcoin.conf)</source>
+        <translation>指定配置文件 (默认为 bitcoin.conf)
+>>>>>>> upstream/master
 </translation>
     </message>
     <message>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Specify pid file (default: floripacoind.pid)</source>
         <translation>指定 pid 文件 (默认为 floripacoind.pid)
+=======
+        <source>Specify pid file (default: bitcoind.pid)</source>
+        <translation>指定 pid 文件 (默认为 bitcoind.pid)
+>>>>>>> upstream/master
 </translation>
     </message>
     <message>
@@ -2245,8 +2499,13 @@ Address: %4
     </message>
     <message>
         <location line="-28"/>
+<<<<<<< HEAD
         <source>Listen for connections on &lt;port&gt; (default: 9333 or testnet: 19333)</source>
         <translation>监听端口连接 &lt;port&gt; (缺省: 9333 or testnet: 19333)</translation>
+=======
+        <source>Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333)</source>
+        <translation>监听端口连接 &lt;port&gt; (缺省: 8333 or testnet: 18333)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+5"/>
@@ -2280,8 +2539,13 @@ Address: %4
     </message>
     <message>
         <location line="+27"/>
+<<<<<<< HEAD
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 9332 or testnet: 19332)</source>
         <translation>JSON-RPC连接监听端口&lt;port&gt; (缺省：9332　testnet：19332)</translation>
+=======
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
+        <translation>JSON-RPC连接监听端口&lt;port&gt; (缺省：8332　testnet：18332)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+37"/>
@@ -2312,24 +2576,40 @@ Address: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
+<<<<<<< HEAD
 rpcuser=floripacoinrpc
+=======
+rpcuser=bitcoinrpc
+>>>>>>> upstream/master
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
+<<<<<<< HEAD
 for example: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@foo.com
+=======
+for example: alertnotify=echo %%s | mail -s &quot;Bitcoin Alert&quot; admin@foo.com
+>>>>>>> upstream/master
 </source>
         <translation>%s, 您必须在配置文件设置rpcpassword:
  %s
 建议您使用下面的随机密码:
+<<<<<<< HEAD
 rpcuser=floripacoinrpc
+=======
+rpcuser=bitcoinrpc
+>>>>>>> upstream/master
 rpcpassword=%s
 (您无需记住此密码)
 用户名和密码 必! 须! 不一样。
 如果配置文件不存在，请自行建立一个只有所有者拥有只读权限的文件。
 推荐您开启提示通知以便收到错误通知，
+<<<<<<< HEAD
 像这样: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@foo.com
+=======
+像这样: alertnotify=echo %%s | mail -s &quot;Bitcoin Alert&quot; admin@foo.com
+>>>>>>> upstream/master
 </translation>
     </message>
     <message>
@@ -2344,13 +2624,21 @@ rpcpassword=%s
     </message>
     <message>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Cannot obtain a lock on data directory %s. Floripacoin is probably already running.</source>
+=======
+        <source>Cannot obtain a lock on data directory %s. Bitcoin is probably already running.</source>
+>>>>>>> upstream/master
         <translation>无法给数据目录 %s上锁。本软件可能已经在运行。</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+<<<<<<< HEAD
         <translation>错误：该交易被拒绝！发生这种错误的原因可能是：钱包中的莱特币已经被用掉，有可能您复制了wallet.dat钱包文件，然后用复制的钱包文件支付了莱特币，但是这个钱包文件中没有记录。</translation>
+=======
+        <translation>错误：该交易被拒绝！发生这种错误的原因可能是：钱包中的比特币已经被用掉，有可能您复制了wallet.dat钱包文件，然后用复制的钱包文件支付了比特币，但是这个钱包文件中没有记录。</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+4"/>
@@ -2389,8 +2677,13 @@ rpcpassword=%s
     </message>
     <message>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Floripacoin will not work properly.</source>
         <translation>警告：请检查电脑的日期时间设置是否正确！时间错误可能会导致莱特币客户端运行异常。</translation>
+=======
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Bitcoin will not work properly.</source>
+        <translation>警告：请检查电脑的日期时间设置是否正确！时间错误可能会导致比特币客户端运行异常。</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -2639,8 +2932,13 @@ rpcpassword=%s
     </message>
     <message>
         <location line="+5"/>
+<<<<<<< HEAD
         <source>SSL options: (see the Floripacoin Wiki for SSL setup instructions)</source>
         <translation>SSL选项：(参见Floripacoin Wiki关于SSL设置栏目)</translation>
+=======
+        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
+        <translation>SSL选项：(参见Bitcoin Wiki关于SSL设置栏目)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+1"/>
@@ -2839,6 +3137,7 @@ rpcpassword=%s
     </message>
     <message>
         <location line="+1"/>
+<<<<<<< HEAD
         <source>Error loading wallet.dat: Wallet requires newer version of Floripacoin</source>
         <translation>wallet.dat钱包文件加载错误：请升级到最新Floripacoin客户端</translation>
     </message>
@@ -2846,6 +3145,15 @@ rpcpassword=%s
         <location line="+93"/>
         <source>Wallet needed to be rewritten: restart Floripacoin to complete</source>
         <translation>钱包文件需要重写：请退出并重新启动Floripacoin客户端</translation>
+=======
+        <source>Error loading wallet.dat: Wallet requires newer version of Bitcoin</source>
+        <translation>wallet.dat钱包文件加载错误：请升级到最新Bitcoin客户端</translation>
+    </message>
+    <message>
+        <location line="+93"/>
+        <source>Wallet needed to be rewritten: restart Bitcoin to complete</source>
+        <translation>钱包文件需要重写：请退出并重新启动Bitcoin客户端</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-95"/>
@@ -2904,8 +3212,13 @@ rpcpassword=%s
     </message>
     <message>
         <location line="-25"/>
+<<<<<<< HEAD
         <source>Unable to bind to %s on this computer. Floripacoin is probably already running.</source>
         <translation>无法在本机绑定 %s 端口 . 莱特币客户端软件可能已经在运行.</translation>
+=======
+        <source>Unable to bind to %s on this computer. Bitcoin is probably already running.</source>
+        <translation>无法在本机绑定 %s 端口 . 比特币客户端软件可能已经在运行.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+64"/>

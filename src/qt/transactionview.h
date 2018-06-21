@@ -6,6 +6,13 @@
 class WalletModel;
 class TransactionFilterProxy;
 
+<<<<<<< HEAD
+=======
+namespace Ui {
+class TransactionsPage;
+}
+
+>>>>>>> upstream/master
 QT_BEGIN_NAMESPACE
 class QTableView;
 class QComboBox;
@@ -25,6 +32,10 @@ class TransactionView : public QWidget
 
 public:
     explicit TransactionView(QWidget *parent = 0);
+<<<<<<< HEAD
+=======
+    ~TransactionView();
+>>>>>>> upstream/master
 
     void setModel(WalletModel *model);
 
@@ -41,6 +52,11 @@ public:
     };
 
 private:
+<<<<<<< HEAD
+=======
+    Ui::TransactionsPage *ui;
+    bool transactionsSortOrderDown;
+>>>>>>> upstream/master
     WalletModel *model;
     TransactionFilterProxy *transactionProxyModel;
     QTableView *transactionView;
@@ -67,6 +83,11 @@ private slots:
     void copyLabel();
     void copyAmount();
     void copyTxID();
+<<<<<<< HEAD
+=======
+    void on_bTransactionsSortOrder_clicked();
+    void headerCol0Clicked(int);
+>>>>>>> upstream/master
 
 signals:
     void doubleClicked(const QModelIndex&);

@@ -1,12 +1,21 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
+<<<<<<< HEAD
+=======
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+>>>>>>> upstream/master
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <boost/assign/list_of.hpp>
 
 #include "base58.h"
+<<<<<<< HEAD
 #include "bitcoinrpc.h"
+=======
+#include "floripacoinrpc.h"
+>>>>>>> upstream/master
 #include "db.h"
 #include "init.h"
 #include "main.h"
@@ -71,7 +80,11 @@ void ScriptPubKeyToJSON(const CScript& scriptPubKey, Object& out)
 
     Array a;
     BOOST_FOREACH(const CTxDestination& addr, addresses)
+<<<<<<< HEAD
         a.push_back(CBitcoinAddress(addr).ToString());
+=======
+        a.push_back(CFloripacoinAddress(addr).ToString());
+>>>>>>> upstream/master
     out.push_back(Pair("addresses", a));
 }
 
@@ -187,13 +200,21 @@ Value listunspent(const Array& params, bool fHelp)
     if (params.size() > 1)
         nMaxDepth = params[1].get_int();
 
+<<<<<<< HEAD
     set<CBitcoinAddress> setAddress;
+=======
+    set<CFloripacoinAddress> setAddress;
+>>>>>>> upstream/master
     if (params.size() > 2)
     {
         Array inputs = params[2].get_array();
         BOOST_FOREACH(Value& input, inputs)
         {
+<<<<<<< HEAD
             CBitcoinAddress address(input.get_str());
+=======
+            CFloripacoinAddress address(input.get_str());
+>>>>>>> upstream/master
             if (!address.IsValid())
                 throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Floripacoin address: ")+input.get_str());
             if (setAddress.count(address))
@@ -204,7 +225,10 @@ Value listunspent(const Array& params, bool fHelp)
 
     Array results;
     vector<COutput> vecOutputs;
+<<<<<<< HEAD
     assert(pwalletMain != NULL);
+=======
+>>>>>>> upstream/master
     pwalletMain->AvailableCoins(vecOutputs, false);
     BOOST_FOREACH(const COutput& out, vecOutputs)
     {
@@ -229,7 +253,11 @@ Value listunspent(const Array& params, bool fHelp)
         CTxDestination address;
         if (ExtractDestination(out.tx->vout[out.i].scriptPubKey, address))
         {
+<<<<<<< HEAD
             entry.push_back(Pair("address", CBitcoinAddress(address).ToString()));
+=======
+            entry.push_back(Pair("address", CFloripacoinAddress(address).ToString()));
+>>>>>>> upstream/master
             if (pwalletMain->mapAddressBook.count(address))
                 entry.push_back(Pair("account", pwalletMain->mapAddressBook[address]));
         }
@@ -289,10 +317,17 @@ Value createrawtransaction(const Array& params, bool fHelp)
         rawTx.vin.push_back(in);
     }
 
+<<<<<<< HEAD
     set<CBitcoinAddress> setAddress;
     BOOST_FOREACH(const Pair& s, sendTo)
     {
         CBitcoinAddress address(s.name_);
+=======
+    set<CFloripacoinAddress> setAddress;
+    BOOST_FOREACH(const Pair& s, sendTo)
+    {
+        CFloripacoinAddress address(s.name_);
+>>>>>>> upstream/master
         if (!address.IsValid())
             throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Floripacoin address: ")+s.name_);
 
@@ -404,7 +439,11 @@ Value signrawtransaction(const Array& params, bool fHelp)
         Array keys = params[2].get_array();
         BOOST_FOREACH(Value k, keys)
         {
+<<<<<<< HEAD
             CBitcoinSecret vchSecret;
+=======
+            CFloripacoinSecret vchSecret;
+>>>>>>> upstream/master
             bool fGood = vchSecret.SetString(k.get_str());
             if (!fGood)
                 throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid private key");
@@ -469,7 +508,11 @@ Value signrawtransaction(const Array& params, bool fHelp)
         }
     }
 
+<<<<<<< HEAD
     const CKeyStore& keystore = ((fGivenKeys || !pwalletMain) ? tempKeystore : *pwalletMain);
+=======
+    const CKeyStore& keystore = (fGivenKeys ? tempKeystore : *pwalletMain);
+>>>>>>> upstream/master
 
     int nHashType = SIGHASH_ALL;
     if (params.size() > 3 && params[3].type() != null_type)

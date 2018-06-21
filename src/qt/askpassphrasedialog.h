@@ -6,6 +6,10 @@
 namespace Ui {
     class AskPassphraseDialog;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> upstream/master
 class WalletModel;
 
 /** Multifunctional dialog to ask for passphrases. Used for encryption, unlocking, and changing the passphrase.

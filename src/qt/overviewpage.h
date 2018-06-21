@@ -30,6 +30,10 @@ public:
 
 public slots:
     void setBalance(qint64 balance, qint64 unconfirmedBalance, qint64 immatureBalance);
+<<<<<<< HEAD
+=======
+    void setNumTransactions(int count);
+>>>>>>> upstream/master
 
 signals:
     void transactionClicked(const QModelIndex &index);

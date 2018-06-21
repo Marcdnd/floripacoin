@@ -1,5 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin Developers
+<<<<<<< HEAD
+=======
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+>>>>>>> upstream/master
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,8 +17,13 @@
 // - E-mail usually won't line-break if there's no punctuation to break at.
 // - Double-clicking selects the whole number as one word if it's all alphanumeric.
 //
+<<<<<<< HEAD
 #ifndef BITCOIN_BASE58_H
 #define BITCOIN_BASE58_H
+=======
+#ifndef FLORIPACOIN_BASE58_H
+#define FLORIPACOIN_BASE58_H
+>>>>>>> upstream/master
 
 #include <string>
 #include <vector>
@@ -249,12 +259,17 @@ public:
     bool operator> (const CBase58Data& b58) const { return CompareTo(b58) >  0; }
 };
 
+<<<<<<< HEAD
 /** base58-encoded Bitcoin addresses.
+=======
+/** base58-encoded Floripacoin addresses.
+>>>>>>> upstream/master
  * Public-key-hash-addresses have version 0 (or 111 testnet).
  * The data vector contains RIPEMD160(SHA256(pubkey)), where pubkey is the serialized public key.
  * Script-hash-addresses have version 5 (or 196 testnet).
  * The data vector contains RIPEMD160(SHA256(cscript)), where cscript is the serialized redemption script.
  */
+<<<<<<< HEAD
 class CBitcoinAddress;
 class CBitcoinAddressVisitor : public boost::static_visitor<bool>
 {
@@ -262,12 +277,25 @@ private:
     CBitcoinAddress *addr;
 public:
     CBitcoinAddressVisitor(CBitcoinAddress *addrIn) : addr(addrIn) { }
+=======
+class CFloripacoinAddress;
+class CFloripacoinAddressVisitor : public boost::static_visitor<bool>
+{
+private:
+    CFloripacoinAddress *addr;
+public:
+    CFloripacoinAddressVisitor(CFloripacoinAddress *addrIn) : addr(addrIn) { }
+>>>>>>> upstream/master
     bool operator()(const CKeyID &id) const;
     bool operator()(const CScriptID &id) const;
     bool operator()(const CNoDestination &no) const;
 };
 
+<<<<<<< HEAD
 class CBitcoinAddress : public CBase58Data
+=======
+class CFloripacoinAddress : public CBase58Data
+>>>>>>> upstream/master
 {
 public:
     enum
@@ -290,7 +318,11 @@ public:
 
     bool Set(const CTxDestination &dest)
     {
+<<<<<<< HEAD
         return boost::apply_visitor(CBitcoinAddressVisitor(this), dest);
+=======
+        return boost::apply_visitor(CFloripacoinAddressVisitor(this), dest);
+>>>>>>> upstream/master
     }
 
     bool IsValid() const
@@ -323,21 +355,37 @@ public:
         return fExpectTestNet == fTestNet && vchData.size() == nExpectedSize;
     }
 
+<<<<<<< HEAD
     CBitcoinAddress()
     {
     }
 
     CBitcoinAddress(const CTxDestination &dest)
+=======
+    CFloripacoinAddress()
+    {
+    }
+
+    CFloripacoinAddress(const CTxDestination &dest)
+>>>>>>> upstream/master
     {
         Set(dest);
     }
 
+<<<<<<< HEAD
     CBitcoinAddress(const std::string& strAddress)
+=======
+    CFloripacoinAddress(const std::string& strAddress)
+>>>>>>> upstream/master
     {
         SetString(strAddress);
     }
 
+<<<<<<< HEAD
     CBitcoinAddress(const char* pszAddress)
+=======
+    CFloripacoinAddress(const char* pszAddress)
+>>>>>>> upstream/master
     {
         SetString(pszAddress);
     }
@@ -390,18 +438,32 @@ public:
     }
 };
 
+<<<<<<< HEAD
 bool inline CBitcoinAddressVisitor::operator()(const CKeyID &id) const         { return addr->Set(id); }
 bool inline CBitcoinAddressVisitor::operator()(const CScriptID &id) const      { return addr->Set(id); }
 bool inline CBitcoinAddressVisitor::operator()(const CNoDestination &id) const { return false; }
 
 /** A base58-encoded secret key */
 class CBitcoinSecret : public CBase58Data
+=======
+bool inline CFloripacoinAddressVisitor::operator()(const CKeyID &id) const         { return addr->Set(id); }
+bool inline CFloripacoinAddressVisitor::operator()(const CScriptID &id) const      { return addr->Set(id); }
+bool inline CFloripacoinAddressVisitor::operator()(const CNoDestination &id) const { return false; }
+
+/** A base58-encoded secret key */
+class CFloripacoinSecret : public CBase58Data
+>>>>>>> upstream/master
 {
 public:
     enum
     {
+<<<<<<< HEAD
         PRIVKEY_ADDRESS = CBitcoinAddress::PUBKEY_ADDRESS + 128,
         PRIVKEY_ADDRESS_TEST = CBitcoinAddress::PUBKEY_ADDRESS_TEST + 128,
+=======
+        PRIVKEY_ADDRESS = CFloripacoinAddress::PUBKEY_ADDRESS + 128,
+        PRIVKEY_ADDRESS_TEST = CFloripacoinAddress::PUBKEY_ADDRESS_TEST + 128,
+>>>>>>> upstream/master
     };
 
     void SetKey(const CKey& vchSecret)
@@ -446,15 +508,28 @@ public:
     {
         return SetString(strSecret.c_str());
     }
+<<<<<<< HEAD
 
     CBitcoinSecret(const CKey& vchSecret)
+=======
+	
+    CFloripacoinSecret(const CKey& vchSecret)
+>>>>>>> upstream/master
     {
         SetKey(vchSecret);
     }
 
+<<<<<<< HEAD
     CBitcoinSecret()
+=======
+    CFloripacoinSecret()
+>>>>>>> upstream/master
     {
     }
 };
 
+<<<<<<< HEAD
 #endif // BITCOIN_BASE58_H
+=======
+#endif // FLORIPACOIN_BASE58_H
+>>>>>>> upstream/master

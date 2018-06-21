@@ -44,10 +44,13 @@ if test -z "$CXX"; then
     CXX=g++
 fi
 
+<<<<<<< HEAD
 if test -z "$TMPDIR"; then
     TMPDIR=/tmp
 fi
 
+=======
+>>>>>>> upstream/master
 # Detect OS
 if test -z "$TARGET_OS"; then
     TARGET_OS=`uname -s`
@@ -98,12 +101,15 @@ case "$TARGET_OS" in
         PLATFORM_LIBS="-lpthread"
         PORT_FILE=port/port_posix.cc
         ;;
+<<<<<<< HEAD
     GNU/kFreeBSD)
         PLATFORM=OS_KFREEBSD
         COMMON_FLAGS="$MEMCMP_FLAG -D_REENTRANT -DOS_KFREEBSD"
         PLATFORM_LIBS="-lpthread"
         PORT_FILE=port/port_posix.cc
         ;;
+=======
+>>>>>>> upstream/master
     NetBSD)
         PLATFORM=OS_NETBSD
         COMMON_FLAGS="$MEMCMP_FLAG -D_REENTRANT -DOS_NETBSD"
@@ -173,10 +179,15 @@ if [ "$CROSS_COMPILE" = "true" ]; then
     # Cross-compiling; do not try any compilation tests.
     true
 else
+<<<<<<< HEAD
     CXXOUTPUT="${TMPDIR}/leveldb_build_detect_platform-cxx.$$"
 
     # If -std=c++0x works, use <cstdatomic>.  Otherwise use port_posix.h.
     $CXX $CXXFLAGS -std=c++0x -x c++ - -o $CXXOUTPUT 2>/dev/null  <<EOF
+=======
+    # If -std=c++0x works, use <cstdatomic>.  Otherwise use port_posix.h.
+    $CXX $CXXFLAGS -std=c++0x -x c++ - -o /dev/null 2>/dev/null  <<EOF
+>>>>>>> upstream/master
       #include <cstdatomic>
       int main() {}
 EOF
@@ -188,14 +199,21 @@ EOF
     fi
 
     # Test whether tcmalloc is available
+<<<<<<< HEAD
     $CXX $CXXFLAGS -x c++ - -o $CXXOUTPUT -ltcmalloc 2>/dev/null  <<EOF
+=======
+    $CXX $CXXFLAGS -x c++ - -o /dev/null -ltcmalloc 2>/dev/null  <<EOF
+>>>>>>> upstream/master
       int main() {}
 EOF
     if [ "$?" = 0 ]; then
         PLATFORM_LIBS="$PLATFORM_LIBS -ltcmalloc"
     fi
+<<<<<<< HEAD
 
     rm -f $CXXOUTPUT 2>/dev/null
+=======
+>>>>>>> upstream/master
 fi
 
 PLATFORM_CCFLAGS="$PLATFORM_CCFLAGS $COMMON_FLAGS"

@@ -7,18 +7,30 @@ handle those translations.
 Files and Folders
 -----------------
 
+<<<<<<< HEAD
 ### bitcoin-qt.pro
+=======
+### floripacoin-qt.pro
+>>>>>>> upstream/master
 
 This file takes care of generating `.qm` files from `.ts` files. It is mostly
 automated.
 
+<<<<<<< HEAD
 ### src/qt/bitcoin.qrc
+=======
+### src/qt/floripacoin.qrc
+>>>>>>> upstream/master
 
 This file must be updated whenever a new translation is added. Please note that
 files must end with `.qm`, not `.ts`.
 
     <qresource prefix="/translations">
+<<<<<<< HEAD
         <file alias="en">locale/bitcoin_en.qm</file>
+=======
+        <file alias="en">locale/floripacoin_en.qm</file>
+>>>>>>> upstream/master
         ...
     </qresource>
 
@@ -26,11 +38,19 @@ files must end with `.qm`, not `.ts`.
 
 This directory contains all translations. Filenames must adhere to this format:
 
+<<<<<<< HEAD
     bitcoin_xx_YY.ts or bitcoin_xx.ts
 
 #### bitcoin_en.ts (Source file)
 
 `src/qt/locale/bitcoin_en.ts` is treated in a special way. It is used as the
+=======
+    floripacoin_xx_YY.ts or floripacoin_xx.ts
+
+#### floripacoin_en.ts (Source file)
+
+`src/qt/locale/floripacoin_en.ts` is treated in a special way. It is used as the
+>>>>>>> upstream/master
 source for all other translations. Whenever a string in the code is changed
 this file must be updated to reflect those changes. This can be accomplished
 by running `lupdate` (included in the Qt SDK). Also, a custom script is used
@@ -39,13 +59,21 @@ so make sure that utility is installed (ie, `apt-get install gettext` on
 Ubuntu/Debian):
 
     python share/qt/extract_strings_qt.py
+<<<<<<< HEAD
     lupdate bitcoin-qt.pro -no-obsolete -locations relative -ts src/qt/locale/bitcoin_en.ts
+=======
+    lupdate floripacoin-qt.pro -no-obsolete -locations relative -ts src/qt/locale/floripacoin_en.ts
+>>>>>>> upstream/master
     
 ##### Handling of plurals in the source file
 
 When new plurals are added to the source file, it's important to do the following steps:
 
+<<<<<<< HEAD
 1. Open bitcoin_en.ts in Qt Linguist (also included in the Qt SDK)
+=======
+1. Open floripacoin_en.ts in Qt Linguist (also included in the Qt SDK)
+>>>>>>> upstream/master
 2. Search for `%n`, which will take you to the parts in the translation that use plurals
 3. Look for empty `English Translation (Singular)` and `English Translation (Plural)` fields
 4. Add the appropriate strings for the singular and plural form of the base string
@@ -61,7 +89,11 @@ in Transifex and can be translated.
 
 To create the pull-request you have to do:
 
+<<<<<<< HEAD
     git add src/qt/bitcoinstrings.cpp src/qt/locale/bitcoin_en.ts
+=======
+    git add src/qt/floripacoinstrings.cpp src/qt/locale/floripacoin_en.ts
+>>>>>>> upstream/master
     git commit
 
 Syncing with Transifex
@@ -69,7 +101,11 @@ Syncing with Transifex
 
 We are using https://transifex.com as a frontend for translating the client.
 
+<<<<<<< HEAD
 https://www.transifex.com/projects/p/bitcoin/resource/tx/
+=======
+https://www.transifex.com/projects/p/floripacoin/resource/tx/
+>>>>>>> upstream/master
 
 The "Transifex client" (see: http://help.transifex.com/features/client/)
 will help with fetching new translations from Transifex. Use the following
@@ -80,9 +116,15 @@ config to be able to connect with the client:
     [main]
     host = https://www.transifex.com
 
+<<<<<<< HEAD
     [bitcoin.tx]
     file_filter = src/qt/locale/bitcoin_<lang>.ts
     source_file = src/qt/locale/bitcoin_en.ts
+=======
+    [floripacoin.tx]
+    file_filter = src/qt/locale/floripacoin_<lang>.ts
+    source_file = src/qt/locale/floripacoin_en.ts
+>>>>>>> upstream/master
     source_lang = en
     
 ### .tx/config (for Windows)
@@ -90,9 +132,15 @@ config to be able to connect with the client:
     [main]
     host = https://www.transifex.com
 
+<<<<<<< HEAD
     [bitcoin.tx]
     file_filter = src\qt\locale\bitcoin_<lang>.ts
     source_file = src\qt\locale\bitcoin_en.ts
+=======
+    [floripacoin.tx]
+    file_filter = src\qt\locale\floripacoin_<lang>.ts
+    source_file = src\qt\locale\floripacoin_en.ts
+>>>>>>> upstream/master
     source_lang = en
 
 It is also possible to directly download new translations one by one from the Transifex website.
@@ -100,6 +148,11 @@ It is also possible to directly download new translations one by one from the Tr
 ### Fetching new translations
 
 1. `tx pull -a`
+<<<<<<< HEAD
 2. update `src/qt/bitcoin.qrc` manually or via
    `ls src/qt/locale/*ts|xargs -n1 basename|sed 's/\(bitcoin_\(.*\)\).ts/<file alias="\2">locale/\1.qm<\/file>/'`
+=======
+2. update `src/qt/floripacoin.qrc` manually or via
+   `ls src/qt/locale/*ts|xargs -n1 basename|sed 's/\(floripacoin_\(.*\)\).ts/<file alias="\2">locale/\1.qm<\/file>/'`
+>>>>>>> upstream/master
 3. `git add` new translations from `src/qt/locale/`

@@ -4,6 +4,7 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
+<<<<<<< HEAD
         <source>About Floripacoin</source>
         <translation>Floripacoinist</translation>
     </message>
@@ -11,6 +12,15 @@
         <location line="+39"/>
         <source>&lt;b&gt;Floripacoin&lt;/b&gt; version</source>
         <translation>&lt;b&gt;Floripacoini&lt;/b&gt; versioon</translation>
+=======
+        <source>About Bitcoin</source>
+        <translation>Bitcoinist</translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>&lt;b&gt;Bitcoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;Bitcoini&lt;/b&gt; versioon</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+57"/>
@@ -34,7 +44,11 @@ Toode sisaldab OpenSSL Projekti all toodetud tarkvara, mis on kasutamiseks OpenS
     </message>
     <message>
         <location line="+0"/>
+<<<<<<< HEAD
         <source>The Floripacoin developers</source>
+=======
+        <source>The Bitcoin developers</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
 </context>
@@ -68,7 +82,11 @@ Toode sisaldab OpenSSL Projekti all toodetud tarkvara, mis on kasutamiseks OpenS
     <message>
         <location filename="../addressbookpage.cpp" line="+63"/>
         <source>These are your Floripacoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+<<<<<<< HEAD
         <translation>Maksete saamiseks kasutatavad Floripacoini aadressid. Maksjate paremaks jälgimiseks võib igaühele anda erineva.</translation>
+=======
+        <translation>Maksete saamiseks kasutatavad Bitcoini aadressid. Maksjate paremaks jälgimiseks võib igaühele anda erineva.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="+14"/>
@@ -108,7 +126,11 @@ Toode sisaldab OpenSSL Projekti all toodetud tarkvara, mis on kasutamiseks OpenS
     <message>
         <location line="-44"/>
         <source>Verify a message to ensure it was signed with a specified Floripacoin address</source>
+<<<<<<< HEAD
         <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Floripacoini aadressiga.</translation>
+=======
+        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Bitcoini aadressiga.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -123,7 +145,11 @@ Toode sisaldab OpenSSL Projekti all toodetud tarkvara, mis on kasutamiseks OpenS
     <message>
         <location filename="../addressbookpage.cpp" line="-5"/>
         <source>These are your Floripacoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+<<<<<<< HEAD
         <translation>Need on sinu Floripacoini aadressid maksete saatmiseks. Müntide saatmisel kontrolli alati summat ning saaja aadressi.</translation>
+=======
+        <translation>Need on sinu Bitcoini aadressid maksete saatmiseks. Müntide saatmisel kontrolli alati summat ning saaja aadressi.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+13"/>
@@ -248,8 +274,13 @@ Toode sisaldab OpenSSL Projekti all toodetud tarkvara, mis on kasutamiseks OpenS
     </message>
     <message>
         <location line="+1"/>
+<<<<<<< HEAD
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR FLORIPACOINS&lt;/b&gt;!</source>
         <translation>Hoiatus: Kui sa kaotad oma, rahakoti krüpteerimisel kasutatud, salafraasi, siis &lt;b&gt;KAOTAD KA KÕIK OMA FLORIPACOINID&lt;/b&gt;!</translation>
+=======
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
+        <translation>Hoiatus: Kui sa kaotad oma, rahakoti krüpteerimisel kasutatud, salafraasi, siis &lt;b&gt;KAOTAD KA KÕIK OMA BITCOINID&lt;/b&gt;!</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+0"/>
@@ -275,8 +306,13 @@ Toode sisaldab OpenSSL Projekti all toodetud tarkvara, mis on kasutamiseks OpenS
     </message>
     <message>
         <location line="-56"/>
+<<<<<<< HEAD
         <source>Floripacoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your floripacoins from being stolen by malware infecting your computer.</source>
         <translation>Floripacoin sulgub krüpteeringu lõpetamiseks. Pea meeles, et rahakoti krüpteerimine ei välista floripacoinide vargust, kui sinu arvuti on nakatunud pahavaraga.</translation>
+=======
+        <source>Bitcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
+        <translation>Bitcoin sulgub krüpteeringu lõpetamiseks. Pea meeles, et rahakoti krüpteerimine ei välista bitcoinide vargust, kui sinu arvuti on nakatunud pahavaraga.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+13"/>
@@ -374,8 +410,13 @@ Toode sisaldab OpenSSL Projekti all toodetud tarkvara, mis on kasutamiseks OpenS
     </message>
     <message>
         <location line="+4"/>
+<<<<<<< HEAD
         <source>Show information about Floripacoin</source>
         <translation>Kuva info Floripacoini kohta</translation>
+=======
+        <source>Show information about Bitcoin</source>
+        <translation>Kuva info Bitcoini kohta</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+2"/>
@@ -420,12 +461,21 @@ Toode sisaldab OpenSSL Projekti all toodetud tarkvara, mis on kasutamiseks OpenS
     <message>
         <location line="-347"/>
         <source>Send coins to a Floripacoin address</source>
+<<<<<<< HEAD
         <translation>Saada münte Floripacoini aadressile</translation>
     </message>
     <message>
         <location line="+49"/>
         <source>Modify configuration options for Floripacoin</source>
         <translation>Muuda Floripacoini seadeid</translation>
+=======
+        <translation>Saada münte Bitcoini aadressile</translation>
+    </message>
+    <message>
+        <location line="+49"/>
+        <source>Modify configuration options for Bitcoin</source>
+        <translation>Muuda Bitcoini seadeid</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+9"/>
@@ -455,8 +505,13 @@ Toode sisaldab OpenSSL Projekti all toodetud tarkvara, mis on kasutamiseks OpenS
     <message>
         <location line="-165"/>
         <location line="+530"/>
+<<<<<<< HEAD
         <source>Floripacoin</source>
         <translation>Floripacoin</translation>
+=======
+        <source>Bitcoin</source>
+        <translation>Bitcoin</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-530"/>
@@ -480,8 +535,13 @@ Toode sisaldab OpenSSL Projekti all toodetud tarkvara, mis on kasutamiseks OpenS
     </message>
     <message>
         <location line="+22"/>
+<<<<<<< HEAD
         <source>&amp;About Floripacoin</source>
         <translation>%Floripacoinist</translation>
+=======
+        <source>&amp;About Bitcoin</source>
+        <translation>%Bitcoinist</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+9"/>
@@ -501,12 +561,20 @@ Toode sisaldab OpenSSL Projekti all toodetud tarkvara, mis on kasutamiseks OpenS
     <message>
         <location line="+7"/>
         <source>Sign messages with your Floripacoin addresses to prove you own them</source>
+<<<<<<< HEAD
         <translation>Omandi tõestamiseks allkirjasta sõnumid oma Floripacoini aadressiga</translation>
+=======
+        <translation>Omandi tõestamiseks allkirjasta sõnumid oma Bitcoini aadressiga</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+2"/>
         <source>Verify messages to ensure they were signed with specified Floripacoin addresses</source>
+<<<<<<< HEAD
         <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud Floripacoini aadressiga</translation>
+=======
+        <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud Bitcoini aadressiga</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+28"/>
@@ -536,6 +604,7 @@ Toode sisaldab OpenSSL Projekti all toodetud tarkvara, mis on kasutamiseks OpenS
     </message>
     <message>
         <location line="+47"/>
+<<<<<<< HEAD
         <source>Floripacoin client</source>
         <translation>Floripacoini klient</translation>
     </message>
@@ -543,6 +612,15 @@ Toode sisaldab OpenSSL Projekti all toodetud tarkvara, mis on kasutamiseks OpenS
         <location line="+141"/>
         <source>%n active connection(s) to Floripacoin network</source>
         <translation><numerusform>%n aktiivne ühendus Floripacoini võrku</numerusform><numerusform>%n aktiivset ühendust Floripacoini võrku</numerusform></translation>
+=======
+        <source>Bitcoin client</source>
+        <translation>Bitcoini klient</translation>
+    </message>
+    <message numerus="yes">
+        <location line="+141"/>
+        <source>%n active connection(s) to Bitcoin network</source>
+        <translation><numerusform>%n aktiivne ühendus Bitcoini võrku</numerusform><numerusform>%n aktiivset ühendust Bitcoini võrku</numerusform></translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+22"/>
@@ -656,7 +734,11 @@ Aadress: %4⏎</translation>
         <location line="-23"/>
         <location line="+23"/>
         <source>URI can not be parsed! This can be caused by an invalid Floripacoin address or malformed URI parameters.</source>
+<<<<<<< HEAD
         <translation>URI ei suudeta parsida. Põhjuseks võib olla kehtetu Floripacoini aadress või vigased URI parameetrid.</translation>
+=======
+        <translation>URI ei suudeta parsida. Põhjuseks võib olla kehtetu Bitcoini aadress või vigased URI parameetrid.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+17"/>
@@ -670,8 +752,13 @@ Aadress: %4⏎</translation>
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+111"/>
+<<<<<<< HEAD
         <source>A fatal error occurred. Floripacoin can no longer continue safely and will quit.</source>
         <translation>Ilmnes kriitiline tõrge. Floripacoin suletakse turvakaalutluste tõttu.</translation>
+=======
+        <source>A fatal error occurred. Bitcoin can no longer continue safely and will quit.</source>
+        <translation>Ilmnes kriitiline tõrge. Bitcoin suletakse turvakaalutluste tõttu.</translation>
+>>>>>>> upstream/master
     </message>
 </context>
 <context>
@@ -737,7 +824,11 @@ Aadress: %4⏎</translation>
     <message>
         <location line="-5"/>
         <source>The entered address &quot;%1&quot; is not a valid Floripacoin address.</source>
+<<<<<<< HEAD
         <translation>Sisestatud aadress &quot;%1&quot; ei ole Floripacoinis kehtiv.</translation>
+=======
+        <translation>Sisestatud aadress &quot;%1&quot; ei ole Bitcoinis kehtiv.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+10"/>
@@ -755,8 +846,13 @@ Aadress: %4⏎</translation>
     <message>
         <location filename="../guiutil.cpp" line="+424"/>
         <location line="+12"/>
+<<<<<<< HEAD
         <source>Floripacoin-Qt</source>
         <translation>Floripacoini-Qt</translation>
+=======
+        <source>Bitcoin-Qt</source>
+        <translation>Bitcoini-Qt</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-12"/>
@@ -818,6 +914,7 @@ Aadress: %4⏎</translation>
     </message>
     <message>
         <location line="+31"/>
+<<<<<<< HEAD
         <source>Automatically start Floripacoin after logging in to the system.</source>
         <translation>Käivita Floripacoin süsteemi logimisel.</translation>
     </message>
@@ -825,6 +922,15 @@ Aadress: %4⏎</translation>
         <location line="+3"/>
         <source>&amp;Start Floripacoin on system login</source>
         <translation>&amp;Start Floripacoin sisselogimisel</translation>
+=======
+        <source>Automatically start Bitcoin after logging in to the system.</source>
+        <translation>Käivita Bitcoin süsteemi logimisel.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Start Bitcoin on system login</source>
+        <translation>&amp;Start Bitcoin sisselogimisel</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+35"/>
@@ -843,8 +949,13 @@ Aadress: %4⏎</translation>
     </message>
     <message>
         <location line="+6"/>
+<<<<<<< HEAD
         <source>Automatically open the Floripacoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Floripacoini kliendi pordi automaatne avamine ruuteris. Toimib, kui sinu ruuter aktsepteerib UPnP ühendust.</translation>
+=======
+        <source>Automatically open the Bitcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Bitcoini kliendi pordi automaatne avamine ruuteris. Toimib, kui sinu ruuter aktsepteerib UPnP ühendust.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -853,8 +964,13 @@ Aadress: %4⏎</translation>
     </message>
     <message>
         <location line="+7"/>
+<<<<<<< HEAD
         <source>Connect to the Floripacoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
         <translation>Kasuta Floripacoini võrgustikku ühendumiseks SOCKS turva proxy&apos;t (nt Tor&apos;i kasutamisel).</translation>
+=======
+        <source>Connect to the Bitcoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>Kasuta Bitcoini võrgustikku ühendumiseks SOCKS turva proxy&apos;t (nt Tor&apos;i kasutamisel).</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -928,8 +1044,13 @@ Aadress: %4⏎</translation>
     </message>
     <message>
         <location line="+13"/>
+<<<<<<< HEAD
         <source>The user interface language can be set here. This setting will take effect after restarting Floripacoin.</source>
         <translation>Kasutajaliidese keele valimise koht. Valik rakendub Floripacoini käivitamisel.</translation>
+=======
+        <source>The user interface language can be set here. This setting will take effect after restarting Bitcoin.</source>
+        <translation>Kasutajaliidese keele valimise koht. Valik rakendub Bitcoini käivitamisel.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+11"/>
@@ -944,7 +1065,11 @@ Aadress: %4⏎</translation>
     <message>
         <location line="+9"/>
         <source>Whether to show Floripacoin addresses in the transaction list or not.</source>
+<<<<<<< HEAD
         <translation>Kuvada Floripacoini aadress tehingute loetelus või mitte.</translation>
+=======
+        <translation>Kuvada Bitcoini aadress tehingute loetelus või mitte.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -995,8 +1120,13 @@ Aadress: %4⏎</translation>
     <message>
         <location line="-9"/>
         <location line="+9"/>
+<<<<<<< HEAD
         <source>This setting will take effect after restarting Floripacoin.</source>
         <translation>Tehtud valik rakendub Floripacoini käivitamisel.</translation>
+=======
+        <source>This setting will take effect after restarting Bitcoin.</source>
+        <translation>Tehtud valik rakendub Bitcoini käivitamisel.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+29"/>
@@ -1014,7 +1144,11 @@ Aadress: %4⏎</translation>
     <message>
         <location line="+50"/>
         <location line="+166"/>
+<<<<<<< HEAD
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Floripacoin network after a connection is established, but this process has not completed yet.</source>
+=======
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
+>>>>>>> upstream/master
         <translation>Kuvatav info ei pruugi olla ajakohane. Ühenduse loomisel süngitakse sinu rahakott automaatselt Bitconi võrgustikuga, kuid see toiming on hetkel lõpetamata.</translation>
     </message>
     <message>
@@ -1068,8 +1202,13 @@ Aadress: %4⏎</translation>
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
+<<<<<<< HEAD
         <source>Cannot start floripacoin: click-to-pay handler</source>
         <translation>Floripacoin ei käivitu: vajuta-maksa toiming</translation>
+=======
+        <source>Cannot start bitcoin: click-to-pay handler</source>
+        <translation>Bitcoin ei käivitu: vajuta-maksa toiming</translation>
+>>>>>>> upstream/master
     </message>
 </context>
 <context>
@@ -1218,8 +1357,13 @@ Aadress: %4⏎</translation>
     </message>
     <message>
         <location line="+7"/>
+<<<<<<< HEAD
         <source>Show the Floripacoin-Qt help message to get a list with possible Floripacoin command-line options.</source>
         <translation>Näita kehtivate käsurea valikute kuvamiseks Floripacoini-Qt abiteksti</translation>
+=======
+        <source>Show the Bitcoin-Qt help message to get a list with possible Bitcoin command-line options.</source>
+        <translation>Näita kehtivate käsurea valikute kuvamiseks Bitcoini-Qt abiteksti</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -1238,6 +1382,7 @@ Aadress: %4⏎</translation>
     </message>
     <message>
         <location line="-104"/>
+<<<<<<< HEAD
         <source>Floripacoin - Debug window</source>
         <translation>Floripacoin - debugimise aken</translation>
     </message>
@@ -1245,6 +1390,15 @@ Aadress: %4⏎</translation>
         <location line="+25"/>
         <source>Floripacoin Core</source>
         <translation>Floripacoini tuumik</translation>
+=======
+        <source>Bitcoin - Debug window</source>
+        <translation>Bitcoin - debugimise aken</translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>Bitcoin Core</source>
+        <translation>Bitcoini tuumik</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+279"/>
@@ -1253,8 +1407,13 @@ Aadress: %4⏎</translation>
     </message>
     <message>
         <location line="+7"/>
+<<<<<<< HEAD
         <source>Open the Floripacoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation>Ava Floripacoini logifail praegusest andmekaustast. Toiminguks võib kuluda kuni mõni sekund.</translation>
+=======
+        <source>Open the Bitcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Ava Bitcoini logifail praegusest andmekaustast. Toiminguks võib kuluda kuni mõni sekund.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+102"/>
@@ -1263,8 +1422,13 @@ Aadress: %4⏎</translation>
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
+<<<<<<< HEAD
         <source>Welcome to the Floripacoin RPC console.</source>
         <translation>Teretulemast Floripacoini RPC konsooli.</translation>
+=======
+        <source>Welcome to the Bitcoin RPC console.</source>
+        <translation>Teretulemast Bitcoini RPC konsooli.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+1"/>
@@ -1406,8 +1570,13 @@ Aadress: %4⏎</translation>
     </message>
     <message>
         <location line="+34"/>
+<<<<<<< HEAD
         <source>The address to send the payment to (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>Tehingu saaja aadress (nt: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+=======
+        <source>The address to send the payment to (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>Tehingu saaja aadress (nt: FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+60"/>
@@ -1447,8 +1616,13 @@ Aadress: %4⏎</translation>
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
+<<<<<<< HEAD
         <source>Enter a Floripacoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>Sisesta Floripacoini aadress (nt: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+=======
+        <source>Enter a Floripacoin address (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>Sisesta Bitcoini aadress (nt: FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</translation>
+>>>>>>> upstream/master
     </message>
 </context>
 <context>
@@ -1470,8 +1644,13 @@ Aadress: %4⏎</translation>
     </message>
     <message>
         <location line="+18"/>
+<<<<<<< HEAD
         <source>The address to sign the message with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>Sõnumi signeerimise aadress (nt: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+=======
+        <source>The address to sign the message with (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>Sõnumi signeerimise aadress (nt: FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+10"/>
@@ -1513,7 +1692,11 @@ Aadress: %4⏎</translation>
     <message>
         <location line="+21"/>
         <source>Sign the message to prove you own this Floripacoin address</source>
+<<<<<<< HEAD
         <translation>Allkirjasta sõnum Floripacoini aadressi sulle kuulumise tõestamiseks</translation>
+=======
+        <translation>Allkirjasta sõnum Bitcoini aadressi sulle kuulumise tõestamiseks</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -1543,13 +1726,22 @@ Aadress: %4⏎</translation>
     </message>
     <message>
         <location line="+21"/>
+<<<<<<< HEAD
         <source>The address the message was signed with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>Aadress, millega sõnum allkirjastati (nt: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+=======
+        <source>The address the message was signed with (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>Aadress, millega sõnum allkirjastati (nt: FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+40"/>
         <source>Verify the message to ensure it was signed with the specified Floripacoin address</source>
+<<<<<<< HEAD
         <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Floripacoini aadressiga.</translation>
+=======
+        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Bitcoini aadressiga.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -1564,8 +1756,13 @@ Aadress: %4⏎</translation>
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Enter a Floripacoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>Sisesta Floripacoini aadress (nt: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+=======
+        <source>Enter a Floripacoin address (e.g. FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</source>
+        <translation>Sisesta Bitcoini aadress (nt: FAFBkddsxh1yZmgcniFspsNSP1imaeU8xk)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-2"/>
@@ -1574,8 +1771,13 @@ Aadress: %4⏎</translation>
     </message>
     <message>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Enter Floripacoin signature</source>
         <translation>Sisesta Floripacoini allkiri</translation>
+=======
+        <source>Enter Bitcoin signature</source>
+        <translation>Sisesta Bitcoini allkiri</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+82"/>
@@ -1648,7 +1850,11 @@ Aadress: %4⏎</translation>
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+22"/>
+<<<<<<< HEAD
         <source>The Floripacoin developers</source>
+=======
+        <source>The Bitcoin developers</source>
+>>>>>>> upstream/master
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2186,8 +2392,13 @@ Aadress: %4⏎</translation>
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+94"/>
+<<<<<<< HEAD
         <source>Floripacoin version</source>
         <translation>Floripacoini versioon</translation>
+=======
+        <source>Bitcoin version</source>
+        <translation>Bitcoini versioon</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+102"/>
@@ -2196,8 +2407,13 @@ Aadress: %4⏎</translation>
     </message>
     <message>
         <location line="-29"/>
+<<<<<<< HEAD
         <source>Send command to -server or floripacoind</source>
         <translation>Saada käsklus -serverile või floripacoindile</translation>
+=======
+        <source>Send command to -server or bitcoind</source>
+        <translation>Saada käsklus -serverile või bitcoindile</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-23"/>
@@ -2216,6 +2432,7 @@ Aadress: %4⏎</translation>
     </message>
     <message>
         <location line="+24"/>
+<<<<<<< HEAD
         <source>Specify configuration file (default: floripacoin.conf)</source>
         <translation>Täpsusta sätete fail (vaikimisi: floripacoin.conf)</translation>
     </message>
@@ -2223,6 +2440,15 @@ Aadress: %4⏎</translation>
         <location line="+3"/>
         <source>Specify pid file (default: floripacoind.pid)</source>
         <translation>Täpsusta PID fail (vaikimisi: floripacoin.pid)</translation>
+=======
+        <source>Specify configuration file (default: bitcoin.conf)</source>
+        <translation>Täpsusta sätete fail (vaikimisi: bitcoin.conf)</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Specify pid file (default: bitcoind.pid)</source>
+        <translation>Täpsusta PID fail (vaikimisi: bitcoin.pid)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-1"/>
@@ -2236,8 +2462,13 @@ Aadress: %4⏎</translation>
     </message>
     <message>
         <location line="-28"/>
+<<<<<<< HEAD
         <source>Listen for connections on &lt;port&gt; (default: 9333 or testnet: 19333)</source>
         <translation>Kuula ühendusi pordil &lt;port&gt; (vaikeväärtus: 9333 või testnet: 19333)</translation>
+=======
+        <source>Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333)</source>
+        <translation>Kuula ühendusi pordil &lt;port&gt; (vaikeväärtus: 8333 või testnet: 18333)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+5"/>
@@ -2271,8 +2502,13 @@ Aadress: %4⏎</translation>
     </message>
     <message>
         <location line="+27"/>
+<<<<<<< HEAD
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 9332 or testnet: 19332)</source>
         <translation>Kuula JSON-RPC ühendusel seda porti &lt;port&gt; (vaikeväärtus: 9332 või testnet: 19332)</translation>
+=======
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
+        <translation>Kuula JSON-RPC ühendusel seda porti &lt;port&gt; (vaikeväärtus: 8332 või testnet: 18332)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+37"/>
@@ -2299,24 +2535,40 @@ Aadress: %4⏎</translation>
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
+<<<<<<< HEAD
 rpcuser=floripacoinrpc
+=======
+rpcuser=bitcoinrpc
+>>>>>>> upstream/master
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
+<<<<<<< HEAD
 for example: alertnotify=echo %%s | mail -s &quot;Floripacoin Alert&quot; admin@foo.com
+=======
+for example: alertnotify=echo %%s | mail -s &quot;Bitcoin Alert&quot; admin@foo.com
+>>>>>>> upstream/master
 </source>
         <translation>%s, sul tuleb rpcpassword määrata seadete failis:
 %s
 Soovitatav on kasutada järgmist juhuslikku parooli:
+<<<<<<< HEAD
 rpcuser=floripacoinrpc
+=======
+rpcuser=bitcoinrpc
+>>>>>>> upstream/master
 rpcpassword=%s
 (seda parooli ei pea meeles pidama)
 Kasutajanimi ning parool EI TOHI kattuda.
 Kui faili ei leita, loo see ainult-omaniku-loetavas failiõigustes .
 Soovitatav on seadistada tõrgete puhul teavitus;
+<<<<<<< HEAD
 nt: alertnotify=echo %%s | email -s &quot;Floripacoin Alert&quot; admin@foo.com
+=======
+nt: alertnotify=echo %%s | email -s &quot;Bitcoin Alert&quot; admin@foo.com
+>>>>>>> upstream/master
 </translation>
     </message>
     <message>
@@ -2331,8 +2583,13 @@ nt: alertnotify=echo %%s | email -s &quot;Floripacoin Alert&quot; admin@foo.com
     </message>
     <message>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Cannot obtain a lock on data directory %s. Floripacoin is probably already running.</source>
         <translation>Ei suuda määrata ainuõigust andmekaustale %s. Tõenäolisel on Floripacoin juba avatud.</translation>
+=======
+        <source>Cannot obtain a lock on data directory %s. Bitcoin is probably already running.</source>
+        <translation>Ei suuda määrata ainuõigust andmekaustale %s. Tõenäolisel on Bitcoin juba avatud.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -2376,8 +2633,13 @@ nt: alertnotify=echo %%s | email -s &quot;Floripacoin Alert&quot; admin@foo.com
     </message>
     <message>
         <location line="+3"/>
+<<<<<<< HEAD
         <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Floripacoin will not work properly.</source>
         <translation>Hoiatus: Palun kontrolli oma arvuti kuupäeva/kellaaega! Kui arvuti kell on vale, siis Floripacoin ei tööta korralikult</translation>
+=======
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Bitcoin will not work properly.</source>
+        <translation>Hoiatus: Palun kontrolli oma arvuti kuupäeva/kellaaega! Kui arvuti kell on vale, siis Bitcoin ei tööta korralikult</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+3"/>
@@ -2626,8 +2888,13 @@ nt: alertnotify=echo %%s | email -s &quot;Floripacoin Alert&quot; admin@foo.com
     </message>
     <message>
         <location line="+5"/>
+<<<<<<< HEAD
         <source>SSL options: (see the Floripacoin Wiki for SSL setup instructions)</source>
         <translation>SSL valikud: (vaata Floripacoini Wikist või SSL sätete juhendist)</translation>
+=======
+        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
+        <translation>SSL valikud: (vaata Bitcoini Wikist või SSL sätete juhendist)</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+1"/>
@@ -2816,6 +3083,7 @@ nt: alertnotify=echo %%s | email -s &quot;Floripacoin Alert&quot; admin@foo.com
     </message>
     <message>
         <location line="+1"/>
+<<<<<<< HEAD
         <source>Error loading wallet.dat: Wallet requires newer version of Floripacoin</source>
         <translation>Viga wallet.dat käivitamisel: Rahakott nõuab Floripacoini uusimat versiooni</translation>
     </message>
@@ -2823,6 +3091,15 @@ nt: alertnotify=echo %%s | email -s &quot;Floripacoin Alert&quot; admin@foo.com
         <location line="+93"/>
         <source>Wallet needed to be rewritten: restart Floripacoin to complete</source>
         <translation>Rahakott tuli ümberkirjutada: toimingu lõpetamiseks taaskäivita Floripacoin</translation>
+=======
+        <source>Error loading wallet.dat: Wallet requires newer version of Bitcoin</source>
+        <translation>Viga wallet.dat käivitamisel: Rahakott nõuab Bitcoini uusimat versiooni</translation>
+    </message>
+    <message>
+        <location line="+93"/>
+        <source>Wallet needed to be rewritten: restart Bitcoin to complete</source>
+        <translation>Rahakott tuli ümberkirjutada: toimingu lõpetamiseks taaskäivita Bitcoin</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="-95"/>
@@ -2881,8 +3158,13 @@ nt: alertnotify=echo %%s | email -s &quot;Floripacoin Alert&quot; admin@foo.com
     </message>
     <message>
         <location line="-25"/>
+<<<<<<< HEAD
         <source>Unable to bind to %s on this computer. Floripacoin is probably already running.</source>
         <translation>%s&apos;ga ei ole võimalik sellest arvutist siduda. Floripacoin juba töötab.</translation>
+=======
+        <source>Unable to bind to %s on this computer. Bitcoin is probably already running.</source>
+        <translation>%s&apos;ga ei ole võimalik sellest arvutist siduda. Bitcoin juba töötab.</translation>
+>>>>>>> upstream/master
     </message>
     <message>
         <location line="+64"/>

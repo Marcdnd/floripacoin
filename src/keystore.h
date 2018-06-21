@@ -1,9 +1,18 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
+<<<<<<< HEAD
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITCOIN_KEYSTORE_H
 #define BITCOIN_KEYSTORE_H
+=======
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+// Distributed under the MIT/X11 software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+#ifndef FLORIPACOIN_KEYSTORE_H
+#define FLORIPACOIN_KEYSTORE_H
+>>>>>>> upstream/master
 
 #include "crypter.h"
 #include "sync.h"
@@ -30,7 +39,11 @@ public:
     virtual void GetKeys(std::set<CKeyID> &setAddress) const =0;
     virtual bool GetPubKey(const CKeyID &address, CPubKey& vchPubKeyOut) const;
 
+<<<<<<< HEAD
     // Support for BIP 0013 : see https://en.bitcoin.it/wiki/BIP_0013
+=======
+    // Support for BIP 0013
+>>>>>>> upstream/master
     virtual bool AddCScript(const CScript& redeemScript) =0;
     virtual bool HaveCScript(const CScriptID &hash) const =0;
     virtual bool GetCScript(const CScriptID &hash, CScript& redeemScriptOut) const =0;

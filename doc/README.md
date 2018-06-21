@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 Floripacoin 0.8.x BETA
 ====================
 
 Copyright (c) 2009-2013 Bitcoin Developers
 Copyright (c) 2011-2013 Floripacoin Developers
+=======
+Floripacoin 0.8.99 BETA
+====================
+
+Copyright (c) 2009-2013 Bitcoin Developers
+Copyright (c) 2013-2079 Dr. Kimoto Chan
+Copyright (c) 2013-2079 The Floripacoin developers
+>>>>>>> upstream/master
 
 Distributed under the MIT/X11 software license, see the accompanying
 file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -30,8 +39,11 @@ Unpack the files into a directory and run:
 - bin/64/floripacoin-qt (GUI, 64-bit)
 - bin/64/floripacoind (headless, 64-bit)
 
+<<<<<<< HEAD
 See the documentation at the [Floripacoin Wiki](http://floripacoin.info)
 for help and more information.
+=======
+>>>>>>> upstream/master
 
 
 Other Pages
@@ -44,4 +56,8 @@ Other Pages
 - [Release Notes](release-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
 - [Unit Tests](unit-tests.md)
+<<<<<<< HEAD
 - [Translation Process](translation_process.md)
+=======
+- [Translation Process](translation_process.md)
+>>>>>>> upstream/master

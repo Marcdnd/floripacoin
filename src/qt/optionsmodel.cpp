@@ -1,6 +1,10 @@
 #include "optionsmodel.h"
 
+<<<<<<< HEAD
 #include "bitcoinunits.h"
+=======
+#include "floripacoinunits.h"
+>>>>>>> upstream/master
 #include "init.h"
 #include "walletdb.h"
 #include "guiutil.h"
@@ -42,15 +46,25 @@ void OptionsModel::Init()
     QSettings settings;
 
     // These are Qt-only settings:
+<<<<<<< HEAD
     nDisplayUnit = settings.value("nDisplayUnit", BitcoinUnits::BTC).toInt();
+=======
+    nDisplayUnit = settings.value("nDisplayUnit", FloripacoinUnits::MEC).toInt();
+>>>>>>> upstream/master
     bDisplayAddresses = settings.value("bDisplayAddresses", false).toBool();
     fMinimizeToTray = settings.value("fMinimizeToTray", false).toBool();
     fMinimizeOnClose = settings.value("fMinimizeOnClose", false).toBool();
     nTransactionFee = settings.value("nTransactionFee").toLongLong();
     language = settings.value("language", "").toString();
+<<<<<<< HEAD
     fCoinControlFeatures = settings.value("fCoinControlFeatures", false).toBool();
 
     // These are shared with core Bitcoin; we want
+=======
+    bStartMiningAtStartup = settings.value("bStartMiningAtStartup", false).toBool();
+
+    // These are shared with core Floripacoin; we want
+>>>>>>> upstream/master
     // command-line options to override the GUI settings:
     if (settings.contains("fUseUPnP"))
         SoftSetBoolArg("-upnp", settings.value("fUseUPnP").toBool());
@@ -60,6 +74,13 @@ void OptionsModel::Init()
         SoftSetArg("-socks", settings.value("nSocksVersion").toString().toStdString());
     if (!language.isEmpty())
         SoftSetArg("-lang", language.toStdString());
+<<<<<<< HEAD
+=======
+
+    bAllowSounds = settings.value("bAllowSounds", true).toBool();
+    bCheckUpdatesAtStartup = settings.value("bCheckUpdatesAtStartup", false).toBool();
+    bCheckUpdatesAtStartup = false;
+>>>>>>> upstream/master
 }
 
 void OptionsModel::Reset()
@@ -104,7 +125,11 @@ bool OptionsModel::Upgrade()
         }
     }
     QList<QString> boolOptions;
+<<<<<<< HEAD
     boolOptions << "bDisplayAddresses" << "fMinimizeToTray" << "fMinimizeOnClose" << "fUseProxy" << "fUseUPnP";
+=======
+    boolOptions << "bDisplayAddresses" << "fMinimizeToTray" << "fMinimizeOnClose" << "fUseProxy" << "fUseUPnP" << "bStartMiningAtStartup";
+>>>>>>> upstream/master
     foreach(QString key, boolOptions)
     {
         bool value = false;
@@ -193,12 +218,25 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return QVariant(nTransactionFee);
         case DisplayUnit:
             return QVariant(nDisplayUnit);
+<<<<<<< HEAD
         case DisplayAddresses:
             return QVariant(bDisplayAddresses);
         case Language:
             return settings.value("language", "");
         case CoinControlFeatures:
             return QVariant(fCoinControlFeatures);
+=======
+            case DisplayAddresses:
+                return QVariant(bDisplayAddresses);
+            case Language:
+                return settings.value("language", "");
+            case StartMiningAtStartup:
+                return QVariant(bStartMiningAtStartup);
+        case AllowSounds:
+            return QVariant(bAllowSounds);
+        case CheckUpdatesAtStartup:
+            return QVariant(bCheckUpdatesAtStartup);
+>>>>>>> upstream/master
         default:
             return QVariant();
         }
@@ -267,7 +305,10 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
         case Fee:
             nTransactionFee = value.toLongLong();
             settings.setValue("nTransactionFee", nTransactionFee);
+<<<<<<< HEAD
             emit transactionFeeChanged(nTransactionFee);
+=======
+>>>>>>> upstream/master
             break;
         case DisplayUnit:
             nDisplayUnit = value.toInt();
@@ -281,12 +322,27 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
         case Language:
             settings.setValue("language", value);
             break;
+<<<<<<< HEAD
         case CoinControlFeatures: {
             fCoinControlFeatures = value.toBool();
             settings.setValue("fCoinControlFeatures", fCoinControlFeatures);
             emit coinControlFeaturesChanged(fCoinControlFeatures);
         }
         break;
+=======
+        case StartMiningAtStartup:
+            bStartMiningAtStartup = value.toBool();
+            settings.setValue("bStartMiningAtStartup", bStartMiningAtStartup);
+            break;
+        case AllowSounds:
+            bAllowSounds = value.toBool();
+            settings.setValue("bAllowSounds", bAllowSounds);
+            break;
+        case CheckUpdatesAtStartup:
+            bCheckUpdatesAtStartup = value.toBool();
+            settings.setValue("bCheckUpdatesAtStartup", bCheckUpdatesAtStartup);
+            break;
+>>>>>>> upstream/master
         default:
             break;
         }
@@ -300,9 +356,12 @@ qint64 OptionsModel::getTransactionFee()
 {
     return nTransactionFee;
 }
+<<<<<<< HEAD
 
 bool OptionsModel::getCoinControlFeatures()
 {
     return fCoinControlFeatures;
 }
 
+=======
+>>>>>>> upstream/master

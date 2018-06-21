@@ -1,7 +1,11 @@
 #include "qrcodedialog.h"
 #include "ui_qrcodedialog.h"
 
+<<<<<<< HEAD
 #include "bitcoinunits.h"
+=======
+#include "floripacoinunits.h"
+>>>>>>> upstream/master
 #include "guiconstants.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
@@ -46,7 +50,11 @@ void QRCodeDialog::setModel(OptionsModel *model)
     if (model)
         connect(model, SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
 
+<<<<<<< HEAD
     // update the display unit, to not use the default ("BTC")
+=======
+    // update the display unit, to not use the default ("MEC")
+>>>>>>> upstream/master
     updateDisplayUnit();
 }
 
@@ -94,8 +102,13 @@ QString QRCodeDialog::getURI()
     {
         if (ui->lnReqAmount->validate())
         {
+<<<<<<< HEAD
             // even if we allow a non BTC unit input in lnReqAmount, we generate the URI with BTC as unit (as defined in BIP21)
             ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::BTC, ui->lnReqAmount->value()));
+=======
+            // even if we allow a non MEC unit input in lnReqAmount, we generate the URI with MEC as unit (as defined in BIP21)
+            ret += QString("?amount=%1").arg(FloripacoinUnits::format(FloripacoinUnits::MEC, ui->lnReqAmount->value()));
+>>>>>>> upstream/master
             paramCount++;
         }
         else

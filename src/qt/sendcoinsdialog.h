@@ -2,7 +2,10 @@
 #define SENDCOINSDIALOG_H
 
 #include <QDialog>
+<<<<<<< HEAD
 #include <QString>
+=======
+>>>>>>> upstream/master
 
 namespace Ui {
     class SendCoinsDialog;
@@ -15,7 +18,11 @@ QT_BEGIN_NAMESPACE
 class QUrl;
 QT_END_NAMESPACE
 
+<<<<<<< HEAD
 /** Dialog for sending bitcoins */
+=======
+/** Dialog for sending floripacoins */
+>>>>>>> upstream/master
 class SendCoinsDialog : public QDialog
 {
     Q_OBJECT
@@ -51,6 +58,7 @@ private slots:
     void on_sendButton_clicked();
     void removeEntry(SendCoinsEntry* entry);
     void updateDisplayUnit();
+<<<<<<< HEAD
     void coinControlFeatureChanged(bool);
     void coinControlButtonClicked();
     void coinControlChangeChecked(int);
@@ -64,6 +72,8 @@ private slots:
     void coinControlClipboardPriority();
     void coinControlClipboardLowOutput();
     void coinControlClipboardChange();
+=======
+>>>>>>> upstream/master
 };
 
 #endif // SENDCOINSDIALOG_H

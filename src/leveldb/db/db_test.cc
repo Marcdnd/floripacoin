@@ -33,11 +33,16 @@ class AtomicCounter {
  public:
   AtomicCounter() : count_(0) { }
   void Increment() {
+<<<<<<< HEAD
     IncrementBy(1);
   }
   void IncrementBy(int count) {
     MutexLock l(&mu_);
     count_ += count;
+=======
+    MutexLock l(&mu_);
+    count_++;
+>>>>>>> upstream/master
   }
   int Read() {
     MutexLock l(&mu_);
@@ -48,10 +53,13 @@ class AtomicCounter {
     count_ = 0;
   }
 };
+<<<<<<< HEAD
 
 void DelayMilliseconds(int millis) {
   Env::Default()->SleepForMicroseconds(millis * 1000);
 }
+=======
+>>>>>>> upstream/master
 }
 
 // Special Env used to delay background operations
@@ -76,7 +84,10 @@ class SpecialEnv : public EnvWrapper {
   AtomicCounter random_read_counter_;
 
   AtomicCounter sleep_counter_;
+<<<<<<< HEAD
   AtomicCounter sleep_time_counter_;
+=======
+>>>>>>> upstream/master
 
   explicit SpecialEnv(Env* base) : EnvWrapper(base) {
     delay_sstable_sync_.Release_Store(NULL);
@@ -111,7 +122,11 @@ class SpecialEnv : public EnvWrapper {
       Status Flush() { return base_->Flush(); }
       Status Sync() {
         while (env_->delay_sstable_sync_.Acquire_Load() != NULL) {
+<<<<<<< HEAD
           DelayMilliseconds(100);
+=======
+          env_->SleepForMicroseconds(100000);
+>>>>>>> upstream/master
         }
         return base_->Sync();
       }
@@ -182,9 +197,14 @@ class SpecialEnv : public EnvWrapper {
 
   virtual void SleepForMicroseconds(int micros) {
     sleep_counter_.Increment();
+<<<<<<< HEAD
     sleep_time_counter_.IncrementBy(micros);
   }
 
+=======
+    target()->SleepForMicroseconds(micros);
+  }
+>>>>>>> upstream/master
 };
 
 class DBTest {
@@ -470,6 +490,7 @@ class DBTest {
     }
     return result;
   }
+<<<<<<< HEAD
 
   bool DeleteAnSSTFile() {
     std::vector<std::string> filenames;
@@ -484,6 +505,8 @@ class DBTest {
     }
     return false;
   }
+=======
+>>>>>>> upstream/master
 };
 
 TEST(DBTest, Empty) {
@@ -634,7 +657,11 @@ TEST(DBTest, GetEncountersEmptyLevel) {
     }
 
     // Step 4: Wait for compaction to finish
+<<<<<<< HEAD
     DelayMilliseconds(1000);
+=======
+    env_->SleepForMicroseconds(1000000);
+>>>>>>> upstream/master
 
     ASSERT_EQ(NumTableFilesAtLevel(0), 0);
   } while (ChangeOptions());
@@ -1318,7 +1345,11 @@ TEST(DBTest, L0_CompactionBug_Issue44_a) {
   Reopen();
   Reopen();
   ASSERT_EQ("(a->v)", Contents());
+<<<<<<< HEAD
   DelayMilliseconds(1000);  // Wait for compaction to finish
+=======
+  env_->SleepForMicroseconds(1000000);  // Wait for compaction to finish
+>>>>>>> upstream/master
   ASSERT_EQ("(a->v)", Contents());
 }
 
@@ -1334,7 +1365,11 @@ TEST(DBTest, L0_CompactionBug_Issue44_b) {
   Put("","");
   Reopen();
   Put("","");
+<<<<<<< HEAD
   DelayMilliseconds(1000);  // Wait for compaction to finish
+=======
+  env_->SleepForMicroseconds(1000000);  // Wait for compaction to finish
+>>>>>>> upstream/master
   Reopen();
   Put("d","dv");
   Reopen();
@@ -1344,7 +1379,11 @@ TEST(DBTest, L0_CompactionBug_Issue44_b) {
   Delete("b");
   Reopen();
   ASSERT_EQ("(->)(c->cv)", Contents());
+<<<<<<< HEAD
   DelayMilliseconds(1000);  // Wait for compaction to finish
+=======
+  env_->SleepForMicroseconds(1000000);  // Wait for compaction to finish
+>>>>>>> upstream/master
   ASSERT_EQ("(->)(c->cv)", Contents());
 }
 
@@ -1529,6 +1568,7 @@ TEST(DBTest, NoSpace) {
   ASSERT_GE(env_->sleep_counter_.Read(), 5);
 }
 
+<<<<<<< HEAD
 TEST(DBTest, ExponentialBackoff) {
   Options options = CurrentOptions();
   options.env = env_;
@@ -1553,6 +1593,8 @@ TEST(DBTest, ExponentialBackoff) {
   ASSERT_GE(env_->sleep_time_counter_.Read(), 10e6);
 }
 
+=======
+>>>>>>> upstream/master
 TEST(DBTest, NonWritableFileSystem) {
   Options options = CurrentOptions();
   options.write_buffer_size = 1000;
@@ -1566,7 +1608,11 @@ TEST(DBTest, NonWritableFileSystem) {
     fprintf(stderr, "iter %d; errors %d\n", i, errors);
     if (!Put("foo", big).ok()) {
       errors++;
+<<<<<<< HEAD
       DelayMilliseconds(100);
+=======
+      env_->SleepForMicroseconds(100000);
+>>>>>>> upstream/master
     }
   }
   ASSERT_GT(errors, 0);
@@ -1614,6 +1660,7 @@ TEST(DBTest, ManifestWriteError) {
   }
 }
 
+<<<<<<< HEAD
 TEST(DBTest, MissingSSTFile) {
   ASSERT_OK(Put("foo", "bar"));
   ASSERT_EQ("bar", Get("foo"));
@@ -1632,6 +1679,8 @@ TEST(DBTest, MissingSSTFile) {
       << s.ToString();
 }
 
+=======
+>>>>>>> upstream/master
 TEST(DBTest, FilesDeletedAfterCompaction) {
   ASSERT_OK(Put("foo", "v2"));
   Compact("a", "z");
@@ -1776,13 +1825,21 @@ TEST(DBTest, MultiThreaded) {
     }
 
     // Let them run for a while
+<<<<<<< HEAD
     DelayMilliseconds(kTestSeconds * 1000);
+=======
+    env_->SleepForMicroseconds(kTestSeconds * 1000000);
+>>>>>>> upstream/master
 
     // Stop the threads and wait for them to finish
     mt.stop.Release_Store(&mt);
     for (int id = 0; id < kNumThreads; id++) {
       while (mt.thread_done[id].Acquire_Load() == NULL) {
+<<<<<<< HEAD
         DelayMilliseconds(100);
+=======
+        env_->SleepForMicroseconds(100000);
+>>>>>>> upstream/master
       }
     }
   } while (ChangeOptions());

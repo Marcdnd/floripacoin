@@ -35,8 +35,11 @@
 
 namespace leveldb {
 
+<<<<<<< HEAD
 const int kNumNonTableCacheFiles = 10;
 
+=======
+>>>>>>> upstream/master
 // Information kept for every waiting writer
 struct DBImpl::Writer {
   Status status;
@@ -94,9 +97,15 @@ Options SanitizeOptions(const std::string& dbname,
   Options result = src;
   result.comparator = icmp;
   result.filter_policy = (src.filter_policy != NULL) ? ipolicy : NULL;
+<<<<<<< HEAD
   ClipToRange(&result.max_open_files,    64 + kNumNonTableCacheFiles, 50000);
   ClipToRange(&result.write_buffer_size, 64<<10,                      1<<30);
   ClipToRange(&result.block_size,        1<<10,                       4<<20);
+=======
+  ClipToRange(&result.max_open_files,            20,     50000);
+  ClipToRange(&result.write_buffer_size,         64<<10, 1<<30);
+  ClipToRange(&result.block_size,                1<<10,  4<<20);
+>>>>>>> upstream/master
   if (result.info_log == NULL) {
     // Open a log file in the same directory as the db
     src.env->CreateDir(dbname);  // In case it does not exist
@@ -113,6 +122,7 @@ Options SanitizeOptions(const std::string& dbname,
   return result;
 }
 
+<<<<<<< HEAD
 DBImpl::DBImpl(const Options& raw_options, const std::string& dbname)
     : env_(raw_options.env),
       internal_comparator_(raw_options.comparator),
@@ -121,6 +131,16 @@ DBImpl::DBImpl(const Options& raw_options, const std::string& dbname)
                                &internal_filter_policy_, raw_options)),
       owns_info_log_(options_.info_log != raw_options.info_log),
       owns_cache_(options_.block_cache != raw_options.block_cache),
+=======
+DBImpl::DBImpl(const Options& options, const std::string& dbname)
+    : env_(options.env),
+      internal_comparator_(options.comparator),
+      internal_filter_policy_(options.filter_policy),
+      options_(SanitizeOptions(
+          dbname, &internal_comparator_, &internal_filter_policy_, options)),
+      owns_info_log_(options_.info_log != options.info_log),
+      owns_cache_(options_.block_cache != options.block_cache),
+>>>>>>> upstream/master
       dbname_(dbname),
       db_lock_(NULL),
       shutting_down_(NULL),
@@ -130,16 +150,26 @@ DBImpl::DBImpl(const Options& raw_options, const std::string& dbname)
       logfile_(NULL),
       logfile_number_(0),
       log_(NULL),
+<<<<<<< HEAD
       seed_(0),
       tmp_batch_(new WriteBatch),
       bg_compaction_scheduled_(false),
       manual_compaction_(NULL),
       consecutive_compaction_errors_(0) {
+=======
+      tmp_batch_(new WriteBatch),
+      bg_compaction_scheduled_(false),
+      manual_compaction_(NULL) {
+>>>>>>> upstream/master
   mem_->Ref();
   has_imm_.Release_Store(NULL);
 
   // Reserve ten files or so for other uses and give the rest to TableCache.
+<<<<<<< HEAD
   const int table_cache_size = options_.max_open_files - kNumNonTableCacheFiles;
+=======
+  const int table_cache_size = options.max_open_files - 10;
+>>>>>>> upstream/master
   table_cache_ = new TableCache(dbname_, &options_, table_cache_size);
 
   versions_ = new VersionSet(dbname_, &options_, table_cache_,
@@ -314,12 +344,16 @@ Status DBImpl::Recover(VersionEdit* edit) {
     if (!s.ok()) {
       return s;
     }
+<<<<<<< HEAD
     std::set<uint64_t> expected;
     versions_->AddLiveFiles(&expected);
+=======
+>>>>>>> upstream/master
     uint64_t number;
     FileType type;
     std::vector<uint64_t> logs;
     for (size_t i = 0; i < filenames.size(); i++) {
+<<<<<<< HEAD
       if (ParseFileName(filenames[i], &number, &type)) {
         expected.erase(number);
         if (type == kLogFile && ((number >= min_log) || (number == prev_log)))
@@ -332,6 +366,14 @@ Status DBImpl::Recover(VersionEdit* edit) {
                static_cast<int>(expected.size()));
       return Status::Corruption(buf, TableFileName(dbname_, *(expected.begin())));
     }
+=======
+      if (ParseFileName(filenames[i], &number, &type)
+          && type == kLogFile
+          && ((number >= min_log) || (number == prev_log))) {
+        logs.push_back(number);
+      }
+    }
+>>>>>>> upstream/master
 
     // Recover in the order in which the logs were generated
     std::sort(logs.begin(), logs.end());
@@ -623,7 +665,10 @@ void DBImpl::BackgroundCall() {
     Status s = BackgroundCompaction();
     if (s.ok()) {
       // Success
+<<<<<<< HEAD
       consecutive_compaction_errors_ = 0;
+=======
+>>>>>>> upstream/master
     } else if (shutting_down_.Acquire_Load()) {
       // Error most likely due to shutdown; do not wait
     } else {
@@ -635,12 +680,16 @@ void DBImpl::BackgroundCall() {
       Log(options_.info_log, "Waiting after background compaction error: %s",
           s.ToString().c_str());
       mutex_.Unlock();
+<<<<<<< HEAD
       ++consecutive_compaction_errors_;
       int seconds_to_sleep = 1;
       for (int i = 0; i < 3 && i < consecutive_compaction_errors_ - 1; ++i) {
         seconds_to_sleep *= 2;
       }
       env_->SleepForMicroseconds(seconds_to_sleep * 1000000);
+=======
+      env_->SleepForMicroseconds(1000000);
+>>>>>>> upstream/master
       mutex_.Lock();
     }
   }
@@ -1028,8 +1077,12 @@ static void CleanupIteratorState(void* arg1, void* arg2) {
 }  // namespace
 
 Iterator* DBImpl::NewInternalIterator(const ReadOptions& options,
+<<<<<<< HEAD
                                       SequenceNumber* latest_snapshot,
                                       uint32_t* seed) {
+=======
+                                      SequenceNumber* latest_snapshot) {
+>>>>>>> upstream/master
   IterState* cleanup = new IterState;
   mutex_.Lock();
   *latest_snapshot = versions_->LastSequence();
@@ -1053,15 +1106,22 @@ Iterator* DBImpl::NewInternalIterator(const ReadOptions& options,
   cleanup->version = versions_->current();
   internal_iter->RegisterCleanup(CleanupIteratorState, cleanup, NULL);
 
+<<<<<<< HEAD
   *seed = ++seed_;
+=======
+>>>>>>> upstream/master
   mutex_.Unlock();
   return internal_iter;
 }
 
 Iterator* DBImpl::TEST_NewInternalIterator() {
   SequenceNumber ignored;
+<<<<<<< HEAD
   uint32_t ignored_seed;
   return NewInternalIterator(ReadOptions(), &ignored, &ignored_seed);
+=======
+  return NewInternalIterator(ReadOptions(), &ignored);
+>>>>>>> upstream/master
 }
 
 int64_t DBImpl::TEST_MaxNextLevelOverlappingBytes() {
@@ -1118,6 +1178,7 @@ Status DBImpl::Get(const ReadOptions& options,
 
 Iterator* DBImpl::NewIterator(const ReadOptions& options) {
   SequenceNumber latest_snapshot;
+<<<<<<< HEAD
   uint32_t seed;
   Iterator* iter = NewInternalIterator(options, &latest_snapshot, &seed);
   return NewDBIterator(
@@ -1133,6 +1194,14 @@ void DBImpl::RecordReadSample(Slice key) {
   if (versions_->current()->RecordReadSample(key)) {
     MaybeScheduleCompaction();
   }
+=======
+  Iterator* internal_iter = NewInternalIterator(options, &latest_snapshot);
+  return NewDBIterator(
+      &dbname_, env_, user_comparator(), internal_iter,
+      (options.snapshot != NULL
+       ? reinterpret_cast<const SnapshotImpl*>(options.snapshot)->number_
+       : latest_snapshot));
+>>>>>>> upstream/master
 }
 
 const Snapshot* DBImpl::GetSnapshot() {
@@ -1298,11 +1367,18 @@ Status DBImpl::MakeRoomForWrite(bool force) {
     } else if (imm_ != NULL) {
       // We have filled up the current memtable, but the previous
       // one is still being compacted, so we wait.
+<<<<<<< HEAD
       Log(options_.info_log, "Current memtable full; waiting...\n");
       bg_cv_.Wait();
     } else if (versions_->NumLevelFiles(0) >= config::kL0_StopWritesTrigger) {
       // There are too many level-0 files.
       Log(options_.info_log, "Too many L0 files; waiting...\n");
+=======
+      bg_cv_.Wait();
+    } else if (versions_->NumLevelFiles(0) >= config::kL0_StopWritesTrigger) {
+      // There are too many level-0 files.
+      Log(options_.info_log, "waiting...\n");
+>>>>>>> upstream/master
       bg_cv_.Wait();
     } else {
       // Attempt to switch to a new memtable and trigger compaction of old

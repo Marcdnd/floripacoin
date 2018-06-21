@@ -1,15 +1,27 @@
 /*
+<<<<<<< HEAD
  * Qt4 bitcoin GUI.
  *
  * W.J. van der Laan 2011-2012
  * The Bitcoin Developers 2011-2013
+=======
+ * Qt4 floripacoin GUI.
+ *
+ * W.J. van der Laan 2011-2012
+ * The Bitcoin Developers 2011-2013
+ * Dr. Kimoto Chan 2013-2079
+>>>>>>> upstream/master
  */
 #ifndef WALLETVIEW_H
 #define WALLETVIEW_H
 
 #include <QStackedWidget>
 
+<<<<<<< HEAD
 class BitcoinGUI;
+=======
+class FloripacoinGUI;
+>>>>>>> upstream/master
 class ClientModel;
 class WalletModel;
 class TransactionView;
@@ -35,16 +47,27 @@ class WalletView : public QStackedWidget
     Q_OBJECT
 
 public:
+<<<<<<< HEAD
     explicit WalletView(QWidget *parent, BitcoinGUI *_gui);
     ~WalletView();
 
     void setBitcoinGUI(BitcoinGUI *gui);
+=======
+    explicit WalletView(QWidget *parent, FloripacoinGUI *_gui);
+    ~WalletView();
+
+    void setFloripacoinGUI(FloripacoinGUI *gui);
+>>>>>>> upstream/master
     /** Set the client model.
         The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.
     */
     void setClientModel(ClientModel *clientModel);
     /** Set the wallet model.
+<<<<<<< HEAD
         The wallet model represents a bitcoin wallet, and offers access to the list of transactions, address book and sending
+=======
+        The wallet model represents a floripacoin wallet, and offers access to the list of transactions, address book and sending
+>>>>>>> upstream/master
         functionality.
     */
     void setWalletModel(WalletModel *walletModel);
@@ -54,7 +77,11 @@ public:
     void showOutOfSyncWarning(bool fShow);
 
 private:
+<<<<<<< HEAD
     BitcoinGUI *gui;
+=======
+    FloripacoinGUI *gui;
+>>>>>>> upstream/master
     ClientModel *clientModel;
     WalletModel *walletModel;
 
@@ -99,10 +126,13 @@ public slots:
     void unlockWallet();
 
     void setEncryptionStatus();
+<<<<<<< HEAD
 
 signals:
     /** Signal that we want to show the main window */
     void showNormalIfMinimized();
+=======
+>>>>>>> upstream/master
 };
 
 #endif // WALLETVIEW_H

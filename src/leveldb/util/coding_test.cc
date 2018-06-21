@@ -109,7 +109,11 @@ TEST(Coding, Varint64) {
     values.push_back(power);
     values.push_back(power-1);
     values.push_back(power+1);
+<<<<<<< HEAD
   }
+=======
+  };
+>>>>>>> upstream/master
 
   std::string s;
   for (int i = 0; i < values.size(); i++) {

@@ -289,6 +289,7 @@ static bool NewestFirst(FileMetaData* a, FileMetaData* b) {
   return a->number > b->number;
 }
 
+<<<<<<< HEAD
 void Version::ForEachOverlapping(Slice user_key, Slice internal_key,
                                  void* arg,
                                  bool (*func)(void*, int, FileMetaData*)) {
@@ -334,6 +335,8 @@ void Version::ForEachOverlapping(Slice user_key, Slice internal_key,
   }
 }
 
+=======
+>>>>>>> upstream/master
 Status Version::Get(const ReadOptions& options,
                     const LookupKey& k,
                     std::string* value,
@@ -446,6 +449,7 @@ bool Version::UpdateStats(const GetStats& stats) {
   return false;
 }
 
+<<<<<<< HEAD
 bool Version::RecordReadSample(Slice internal_key) {
   ParsedInternalKey ikey;
   if (!ParseInternalKey(internal_key, &ikey)) {
@@ -484,6 +488,8 @@ bool Version::RecordReadSample(Slice internal_key) {
   return false;
 }
 
+=======
+>>>>>>> upstream/master
 void Version::Ref() {
   ++refs_;
 }
@@ -518,6 +524,7 @@ int Version::PickLevelForMemTableOutput(
       if (OverlapInLevel(level + 1, &smallest_user_key, &largest_user_key)) {
         break;
       }
+<<<<<<< HEAD
       if (level + 2 < config::kNumLevels) {
         // Check that file does not overlap too many grandparent bytes.
         GetOverlappingInputs(level + 2, &start, &limit, &overlaps);
@@ -525,6 +532,12 @@ int Version::PickLevelForMemTableOutput(
         if (sum > kMaxGrandParentOverlapBytes) {
           break;
         }
+=======
+      GetOverlappingInputs(level + 2, &start, &limit, &overlaps);
+      const int64_t sum = TotalFileSize(overlaps);
+      if (sum > kMaxGrandParentOverlapBytes) {
+        break;
+>>>>>>> upstream/master
       }
       level++;
     }
@@ -538,8 +551,11 @@ void Version::GetOverlappingInputs(
     const InternalKey* begin,
     const InternalKey* end,
     std::vector<FileMetaData*>* inputs) {
+<<<<<<< HEAD
   assert(level >= 0);
   assert(level < config::kNumLevels);
+=======
+>>>>>>> upstream/master
   inputs->clear();
   Slice user_begin, user_end;
   if (begin != NULL) {
@@ -1419,6 +1435,7 @@ Compaction* VersionSet::CompactRange(
   }
 
   // Avoid compacting too much in one shot in case the range is large.
+<<<<<<< HEAD
   // But we cannot do this for level-0 since level-0 files can overlap
   // and we must not pick one file and drop another older file if the
   // two files overlap.
@@ -1432,6 +1449,16 @@ Compaction* VersionSet::CompactRange(
         inputs.resize(i + 1);
         break;
       }
+=======
+  const uint64_t limit = MaxFileSizeForLevel(level);
+  uint64_t total = 0;
+  for (size_t i = 0; i < inputs.size(); i++) {
+    uint64_t s = inputs[i]->file_size;
+    total += s;
+    if (total >= limit) {
+      inputs.resize(i + 1);
+      break;
+>>>>>>> upstream/master
     }
   }
 

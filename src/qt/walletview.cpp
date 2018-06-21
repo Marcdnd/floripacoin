@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  * Qt4 bitcoin GUI.
  *
  * W.J. van der Laan 2011-2012
@@ -6,6 +7,16 @@
  */
 #include "walletview.h"
 #include "bitcoingui.h"
+=======
+ * Qt4 floripacoin GUI.
+ *
+ * W.J. van der Laan 2011-2012
+ * The Bitcoin Developers 2011-2013
+ * Dr. Kimoto Chan 2013-2079
+ */
+#include "walletview.h"
+#include "floripacoingui.h"
+>>>>>>> upstream/master
 #include "transactiontablemodel.h"
 #include "addressbookpage.h"
 #include "sendcoinsdialog.h"
@@ -29,7 +40,11 @@
 #include <QFileDialog>
 #include <QPushButton>
 
+<<<<<<< HEAD
 WalletView::WalletView(QWidget *parent, BitcoinGUI *_gui):
+=======
+WalletView::WalletView(QWidget *parent, FloripacoinGUI *_gui):
+>>>>>>> upstream/master
     QStackedWidget(parent),
     gui(_gui),
     clientModel(0),
@@ -90,7 +105,11 @@ WalletView::~WalletView()
 {
 }
 
+<<<<<<< HEAD
 void WalletView::setBitcoinGUI(BitcoinGUI *gui)
+=======
+void WalletView::setFloripacoinGUI(FloripacoinGUI *gui)
+>>>>>>> upstream/master
 {
     this->gui = gui;
 }
@@ -207,7 +226,10 @@ bool WalletView::handleURI(const QString& strURI)
     if (sendCoinsPage->handleURI(strURI))
     {
         gotoSendCoinsPage();
+<<<<<<< HEAD
         emit showNormalIfMinimized();
+=======
+>>>>>>> upstream/master
         return true;
     }
     else

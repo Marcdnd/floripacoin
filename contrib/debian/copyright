@@ -1,4 +1,5 @@
 Format: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?rev=174
+<<<<<<< HEAD
 Upstream-Name: Bitcoin
 Upstream-Contact: Satoshi Nakamoto <satoshin@gmx.com>
  irc://#bitcoin@freenode.net
@@ -9,6 +10,20 @@ Files: *
 Copyright: 2009-2012, Bitcoin Developers
 License: Expat
 Comment: The Bitcoin Developers encompasses the current developers listed on bitcoin.org,
+=======
+Upstream-Name: Floripacoin
+Upstream-Contact: Satoshi Nakamoto <satoshin@gmx.com>
+ irc://#floripacoin@freenode.net
+Source: http://sourceforge.net/projects/floripacoin/files/
+ https://github.com/floripacoin/floripacoin
+
+Files: *
+Copyright: 2013-2079 Dr. Kimoto Chan
+Copyright: 2013-2079 The Floripacoin developers
+Copyright: 2009-2012, Bitcoin Developers
+License: Expat
+Comment: The Floripacoin Developers encompasses the current developers listed on http://floripacoin.co.nz/,
+>>>>>>> upstream/master
          as well as the numerous contributors to the project.
 
 Files: src/json/*
@@ -56,7 +71,11 @@ Comment: Icon Pack: Human-O2
 Files: src/qt/res/icons/transaction*.png
 Copyright: md2k7
 License: Expat
+<<<<<<< HEAD
 Comment: Site: https://bitcointalk.org/index.php?topic=15276.0
+=======
+Comment: Site: https://floripacointalk.org/index.php?topic=15276.0
+>>>>>>> upstream/master
 
 Files: src/qt/res/icons/configure.png, src/qt/res/icons/quit.png,
       src/qt/res/icons/editcopy.png, src/qt/res/icons/editpaste.png,
@@ -66,10 +85,17 @@ Copyright: http://www.everaldo.com
 License: LGPL
 Comment: Icon Pack: Crystal SVG
 
+<<<<<<< HEAD
 Files: src/qt/res/icons/bitcoin.png, src/qt/res/icons/toolbar.png
 Copyright: Bitboy (optimized for 16x16 by Wladimir van der Laan)
 License: PUB-DOM
 Comment: Site: https://bitcointalk.org/?topic=1756.0
+=======
+Files: src/qt/res/icons/floripacoin.png, src/qt/res/icons/toolbar.png
+Copyright: Bitboy (optimized for 16x16 by Wladimir van der Laan)
+License: PUB-DOM
+Comment: Site: https://floripacointalk.org/?topic=1756.0
+>>>>>>> upstream/master
 
 Files:  scripts/img/reload.xcf, src/qt/res/movies/update_spinner.mng
 Copyright: Everaldo (Everaldo Coelho)
@@ -80,7 +106,11 @@ Comment: Icon Pack: Kids
 Files: src/qt/res/images/splash2.jpg
 License: PUB-DOM
 Copyright: Crobbo (forum)
+<<<<<<< HEAD
 Comment: Site: https://bitcointalk.org/index.php?topic=32273.0
+=======
+Comment: Site: https://floripacointalk.org/index.php?topic=32273.0
+>>>>>>> upstream/master
 
 
 License: Expat

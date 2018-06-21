@@ -1,9 +1,19 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2012 The Bitcoin developers
+<<<<<<< HEAD
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITCOIN_UI_INTERFACE_H
 #define BITCOIN_UI_INTERFACE_H
+=======
+// Copyright (c) 2013-2013 CopperLark developers
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+// Distributed under the MIT/X11 software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+#ifndef FLORIPACOIN_UI_INTERFACE_H
+#define FLORIPACOIN_UI_INTERFACE_H
+>>>>>>> upstream/master
 
 #include <string>
 #include "util.h" // for int64
@@ -93,6 +103,11 @@ public:
      * @note called with lock cs_mapAlerts held.
      */
     boost::signals2::signal<void (const uint256 &hash, ChangeType status)> NotifyAlertChanged;
+<<<<<<< HEAD
+=======
+
+    boost::signals2::signal<void (const uint256 &hash, ChangeType status)> NotifyNewsMessageChanged;
+>>>>>>> upstream/master
 };
 
 extern CClientUIInterface uiInterface;

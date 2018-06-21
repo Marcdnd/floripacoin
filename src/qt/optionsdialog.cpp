@@ -1,7 +1,11 @@
 #include "optionsdialog.h"
 #include "ui_optionsdialog.h"
 
+<<<<<<< HEAD
 #include "bitcoinunits.h"
+=======
+#include "floripacoinunits.h"
+>>>>>>> upstream/master
 #include "monitoreddatamapper.h"
 #include "netbase.h"
 #include "optionsmodel.h"
@@ -45,8 +49,12 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
 
     /* Window elements init */
 #ifdef Q_OS_MAC
+<<<<<<< HEAD
     /* remove Window tab on Mac */
     ui->tabWidget->removeTab(ui->tabWidget->indexOf(ui->tabWindow));
+=======
+    ui->tabWindow->setVisible(false);
+>>>>>>> upstream/master
 #endif
 
     /* Display elements init */
@@ -79,7 +87,11 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
         }
     }
 
+<<<<<<< HEAD
     ui->unit->setModel(new BitcoinUnits(this));
+=======
+    ui->unit->setModel(new FloripacoinUnits(this));
+>>>>>>> upstream/master
 
     /* Widget-to-option mapper */
     mapper = new MonitoredDataMapper(this);
@@ -112,7 +124,11 @@ void OptionsDialog::setModel(OptionsModel *model)
         mapper->toFirst();
     }
 
+<<<<<<< HEAD
     /* update the display unit, to not use the default ("BTC") */
+=======
+    /* update the display unit, to not use the default ("MEC") */
+>>>>>>> upstream/master
     updateDisplayUnit();
 
     /* warn only when language selection changes by user action (placed here so init via mapper doesn't trigger this) */
@@ -126,7 +142,11 @@ void OptionsDialog::setMapper()
 {
     /* Main */
     mapper->addMapping(ui->transactionFee, OptionsModel::Fee);
+<<<<<<< HEAD
     mapper->addMapping(ui->bitcoinAtStartup, OptionsModel::StartAtStartup);
+=======
+    mapper->addMapping(ui->floripacoinAtStartup, OptionsModel::StartAtStartup);
+>>>>>>> upstream/master
 
     /* Network */
     mapper->addMapping(ui->mapPortUpnp, OptionsModel::MapPortUPnP);
@@ -146,7 +166,13 @@ void OptionsDialog::setMapper()
     mapper->addMapping(ui->lang, OptionsModel::Language);
     mapper->addMapping(ui->unit, OptionsModel::DisplayUnit);
     mapper->addMapping(ui->displayAddresses, OptionsModel::DisplayAddresses);
+<<<<<<< HEAD
     mapper->addMapping(ui->coinControlFeatures, OptionsModel::CoinControlFeatures);
+=======
+
+    /* Mining */
+    mapper->addMapping(ui->autoMining, OptionsModel::StartMiningAtStartup);
+>>>>>>> upstream/master
 }
 
 void OptionsDialog::enableApplyButton()

@@ -50,6 +50,7 @@ namespace port {
 // http://msdn.microsoft.com/en-us/library/ms684208(v=vs.85).aspx
 #define LEVELDB_HAVE_MEMORY_BARRIER
 
+<<<<<<< HEAD
 // Mac OS
 #elif defined(OS_MACOSX)
 inline void MemoryBarrier() {
@@ -57,6 +58,8 @@ inline void MemoryBarrier() {
 }
 #define LEVELDB_HAVE_MEMORY_BARRIER
 
+=======
+>>>>>>> upstream/master
 // Gcc on x86
 #elif defined(ARCH_CPU_X86_FAMILY) && defined(__GNUC__)
 inline void MemoryBarrier() {
@@ -69,12 +72,26 @@ inline void MemoryBarrier() {
 // Sun Studio
 #elif defined(ARCH_CPU_X86_FAMILY) && defined(__SUNPRO_CC)
 inline void MemoryBarrier() {
+<<<<<<< HEAD
      	// See http://gcc.gnu.org/ml/gcc/2003-04/msg01180.html for a discussion on
+=======
+  // See http://gcc.gnu.org/ml/gcc/2003-04/msg01180.html for a discussion on
+>>>>>>> upstream/master
   // this idiom. Also see http://en.wikipedia.org/wiki/Memory_ordering.
   asm volatile("" : : : "memory");
 }
 #define LEVELDB_HAVE_MEMORY_BARRIER
 
+<<<<<<< HEAD
+=======
+// Mac OS
+#elif defined(OS_MACOSX)
+inline void MemoryBarrier() {
+  OSMemoryBarrier();
+}
+#define LEVELDB_HAVE_MEMORY_BARRIER
+
+>>>>>>> upstream/master
 // ARM Linux
 #elif defined(ARCH_CPU_ARM_FAMILY) && defined(__linux__)
 typedef void (*LinuxKernelMemoryBarrierFunc)(void);

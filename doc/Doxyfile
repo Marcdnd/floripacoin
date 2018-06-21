@@ -47,7 +47,11 @@ PROJECT_BRIEF          = "P2P Digital Currency"
 # exceed 55 pixels and the maximum width should not exceed 200 pixels. 
 # Doxygen will copy the logo to the output directory.
 
+<<<<<<< HEAD
 PROJECT_LOGO           = doc/bitcoin_logo_doxygen.png
+=======
+PROJECT_LOGO           = doc/floripacoin_logo_doxygen.png
+>>>>>>> upstream/master
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) 
 # base path where the generated documentation will be put. 

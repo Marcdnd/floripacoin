@@ -1,6 +1,12 @@
 Release Process
 ====================
 
+<<<<<<< HEAD
+=======
+* update translations (ping wumpus, Diapolo or tcatm on IRC)
+* see https://github.com/floripacoin/floripacoin/blob/master/doc/translation_process.md#syncing-with-transifex
+
+>>>>>>> upstream/master
 * * *
 
 ###update (commit) version in sources
@@ -14,11 +20,19 @@ Release Process
 
 ###tag version in git
 
+<<<<<<< HEAD
 	git tag -a v0.8.0
 
 ###write release notes. git shortlog helps a lot, for example:
 
 	git shortlog --no-merges v0.7.2..v0.8.0
+=======
+	git tag -a v(new version, e.g. 0.8.0)
+
+###write release notes. git shortlog helps a lot, for example:
+
+	git shortlog --no-merges v(current version, e.g. 0.7.2)..v(new version, e.g. 0.8.0)
+>>>>>>> upstream/master
 
 * * *
 
@@ -27,7 +41,11 @@ Release Process
  From a directory containing the floripacoin source, gitian-builder and gitian.sigs
   
 	export SIGNER=(your gitian key, ie bluematt, sipa, etc)
+<<<<<<< HEAD
 	export VERSION=0.8.0
+=======
+	export VERSION=(new version, e.g. 0.8.0)
+>>>>>>> upstream/master
 	cd ./gitian-builder
 
  Fetch and build inputs: (first time, or when dependency versions change)
@@ -82,7 +100,11 @@ repackage gitian builds for release as stand-alone zip/tar/installer exe
 
 	unzip floripacoin-${VERSION}-win32-gitian.zip -d floripacoin-${VERSION}-win32
 	mv floripacoin-${VERSION}-win32/floripacoin-*-setup.exe .
+<<<<<<< HEAD
 	zip -r floripacoin-${VERSION}-win32.zip bitcoin-${VERSION}-win32
+=======
+	zip -r floripacoin-${VERSION}-win32.zip floripacoin-${VERSION}-win32
+>>>>>>> upstream/master
 	rm -rf floripacoin-${VERSION}-win32
 
 **Perform Mac build:**
@@ -107,14 +129,22 @@ repackage gitian builds for release as stand-alone zip/tar/installer exe
 
 * create SHA256SUMS for builds, and PGP-sign it
 
+<<<<<<< HEAD
 * update floripacoin.org version
+=======
+* update floripacoin.co.nz version
+>>>>>>> upstream/master
   make sure all OS download links go to the right versions
 
 * update forum version
 
 * update wiki download links
 
+<<<<<<< HEAD
 * update wiki changelog: [https://en.floripacoin.it/wiki/Changelog](https://en.bitcoin.it/wiki/Changelog)
+=======
+* update wiki changelog: [http://floripacoin.co.nz/](http://floripacoin.co.nz/)
+>>>>>>> upstream/master
 
 Commit your signature to gitian.sigs:
 
@@ -131,7 +161,11 @@ Commit your signature to gitian.sigs:
 
 From a directory containing floripacoin source, gitian.sigs and gitian zips
 
+<<<<<<< HEAD
 	export VERSION=0.5.1
+=======
+	export VERSION=(new version, e.g. 0.8.0)
+>>>>>>> upstream/master
 	mkdir floripacoin-${VERSION}-linux-gitian
 	pushd floripacoin-${VERSION}-linux-gitian
 	unzip ../floripacoin-${VERSION}-linux-gitian.zip
@@ -158,4 +192,8 @@ From a directory containing floripacoin source, gitian.sigs and gitian zips
 	popd
 
 - Upload gitian zips to SourceForge
+<<<<<<< HEAD
 - Celebrate 
+=======
+- Celebrate 
+>>>>>>> upstream/master

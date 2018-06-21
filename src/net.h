@@ -1,9 +1,18 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
+<<<<<<< HEAD
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITCOIN_NET_H
 #define BITCOIN_NET_H
+=======
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+// Distributed under the MIT/X11 software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+#ifndef FLORIPACOIN_NET_H
+#define FLORIPACOIN_NET_H
+>>>>>>> upstream/master
 
 #include <deque>
 #include <boost/array.hpp>
@@ -51,6 +60,10 @@ enum
     LOCAL_IF,     // address a local interface listens on
     LOCAL_BIND,   // address explicit bound to
     LOCAL_UPNP,   // address reported by UPnP
+<<<<<<< HEAD
+=======
+    LOCAL_IRC,    // address reported by IRC (deprecated)
+>>>>>>> upstream/master
     LOCAL_HTTP,   // address reported by whatismyip.com and similar
     LOCAL_MANUAL, // address explicitly specified (-externalip=)
 
@@ -98,13 +111,20 @@ public:
     int64 nTimeConnected;
     std::string addrName;
     int nVersion;
+<<<<<<< HEAD
     std::string cleanSubVer;
+=======
+    std::string strSubVer;
+>>>>>>> upstream/master
     bool fInbound;
     int nStartingHeight;
     int nMisbehavior;
     uint64 nSendBytes;
     uint64 nRecvBytes;
+<<<<<<< HEAD
     uint64 nBlocksRequested;
+=======
+>>>>>>> upstream/master
     bool fSyncNode;
 };
 
@@ -174,16 +194,23 @@ public:
     int64 nLastRecv;
     int64 nLastSendEmpty;
     int64 nTimeConnected;
+<<<<<<< HEAD
     uint64 nBlocksRequested;
+=======
+>>>>>>> upstream/master
     CAddress addr;
     std::string addrName;
     CService addrLocal;
     int nVersion;
+<<<<<<< HEAD
     // strSubVer is whatever byte array we read from the wire. However, this field is intended 
     // to be printed out, displayed to humans in various forms and so on. So we sanitize it and
     // store the sanitized version in cleanSubVer. The original should be used when dealing with
     // the network or wire types and the cleaned string used when displayed or logged.
     std::string strSubVer, cleanSubVer;
+=======
+    std::string strSubVer;
+>>>>>>> upstream/master
     bool fOneShot;
     bool fClient;
     bool fInbound;
@@ -226,18 +253,29 @@ public:
     CCriticalSection cs_inventory;
     std::multimap<int64, CInv> mapAskFor;
 
+<<<<<<< HEAD
     CNode(SOCKET hSocketIn, CAddress addrIn, std::string addrNameIn = "", bool fInboundIn=false) : ssSend(SER_NETWORK, INIT_PROTO_VERSION)
     {
         nServices = 0;
         hSocket = hSocketIn;
         nRecvVersion = INIT_PROTO_VERSION;
+=======
+    CNode(SOCKET hSocketIn, CAddress addrIn, std::string addrNameIn = "", bool fInboundIn=false) : ssSend(SER_NETWORK, MIN_PROTO_VERSION)
+    {
+        nServices = 0;
+        hSocket = hSocketIn;
+        nRecvVersion = MIN_PROTO_VERSION;
+>>>>>>> upstream/master
         nLastSend = 0;
         nLastRecv = 0;
         nSendBytes = 0;
         nRecvBytes = 0;
         nLastSendEmpty = GetTime();
         nTimeConnected = GetTime();
+<<<<<<< HEAD
         nBlocksRequested = 0;
+=======
+>>>>>>> upstream/master
         addr = addrIn;
         addrName = addrNameIn == "" ? addr.ToStringIPPort() : addrNameIn;
         nVersion = 0;
@@ -260,7 +298,11 @@ public:
         nMisbehavior = 0;
         fRelayTxes = false;
         setInventoryKnown.max_size(SendBufferSize() / 1000);
+<<<<<<< HEAD
         pfilter = new CBloomFilter();
+=======
+        pfilter = NULL;
+>>>>>>> upstream/master
 
         // Be shy and don't send version until we hear
         if (hSocket != INVALID_SOCKET && !fInbound)

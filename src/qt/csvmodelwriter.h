@@ -14,7 +14,10 @@ QT_END_NAMESPACE
 class CSVModelWriter : public QObject
 {
     Q_OBJECT
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
 public:
     explicit CSVModelWriter(const QString &filename, QObject *parent = 0);
 
@@ -37,6 +40,14 @@ private:
         int role;
     };
     QList<Column> columns;
+<<<<<<< HEAD
+=======
+
+signals:
+
+public slots:
+
+>>>>>>> upstream/master
 };
 
 #endif // CSVMODELWRITER_H

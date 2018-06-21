@@ -25,10 +25,13 @@
 #include <QTranslator>
 #include <QLibraryInfo>
 
+<<<<<<< HEAD
 #ifdef Q_OS_MAC
 #include "macdockiconhandler.h"
 #endif
 
+=======
+>>>>>>> upstream/master
 #if defined(BITCOIN_NEED_QT_PLUGINS) && !defined(_BITCOIN_QT_PLUGINS_INCLUDED)
 #define _BITCOIN_QT_PLUGINS_INCLUDED
 #define __INSURE__
@@ -110,7 +113,11 @@ static std::string Translate(const char* psz)
 static void handleRunawayException(std::exception *e)
 {
     PrintExceptionContinue(e, "Runaway exception");
+<<<<<<< HEAD
     QMessageBox::critical(0, "Runaway exception", BitcoinGUI::tr("A fatal error occurred. Floripacoin can no longer continue safely and will quit.") + QString("\n\n") + QString::fromStdString(strMiscWarning));
+=======
+    QMessageBox::critical(0, "Runaway exception", BitcoinGUI::tr("A fatal error occurred. Bitcoin can no longer continue safely and will quit.") + QString("\n\n") + QString::fromStdString(strMiscWarning));
+>>>>>>> upstream/master
     exit(1);
 }
 
@@ -146,7 +153,11 @@ int main(int argc, char *argv[])
     {
         // This message can not be translated, as translation is not initialized yet
         // (which not yet possible because lang=XX can be overridden in bitcoin.conf in the data directory)
+<<<<<<< HEAD
         QMessageBox::critical(0, "Floripacoin",
+=======
+        QMessageBox::critical(0, "Bitcoin",
+>>>>>>> upstream/master
                               QString("Error: Specified data directory \"%1\" does not exist.").arg(QString::fromStdString(mapArgs["-datadir"])));
         return 1;
     }
@@ -154,12 +165,21 @@ int main(int argc, char *argv[])
 
     // Application identification (must be set before OptionsModel is initialized,
     // as it is used to locate QSettings)
+<<<<<<< HEAD
     QApplication::setOrganizationName("Floripacoin");
     QApplication::setOrganizationDomain("floripacoin.org");
     if(GetBoolArg("-testnet")) // Separate UI settings for testnet
         QApplication::setApplicationName("Floripacoin-Qt-testnet");
     else
         QApplication::setApplicationName("Floripacoin-Qt");
+=======
+    QApplication::setOrganizationName("Bitcoin");
+    QApplication::setOrganizationDomain("bitcoin.org");
+    if (GetBoolArg("-testnet", false)) // Separate UI settings for testnet
+        QApplication::setApplicationName("Bitcoin-Qt-testnet");
+    else
+        QApplication::setApplicationName("Bitcoin-Qt");
+>>>>>>> upstream/master
 
     // ... then GUI settings:
     OptionsModel optionsModel;
@@ -206,6 +226,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+<<<<<<< HEAD
 #ifdef Q_OS_MAC
     // on mac, also change the icon now because it would look strange to have a testnet splash (green) and a std app icon (orange)
     if(GetBoolArg("-testnet")) {
@@ -215,6 +236,10 @@ int main(int argc, char *argv[])
 
     SplashScreen splash(QPixmap(), 0);
     if (GetBoolArg("-splash", true) && !GetBoolArg("-min"))
+=======
+    SplashScreen splash(QPixmap(), 0);
+    if (GetBoolArg("-splash", true) && !GetBoolArg("-min", false))
+>>>>>>> upstream/master
     {
         splash.show();
         splash.setAutoFillBackground(true);
@@ -226,6 +251,7 @@ int main(int argc, char *argv[])
 
     try
     {
+<<<<<<< HEAD
 #ifndef Q_OS_MAC
         // Regenerate startup link, to fix links to old versions
         // OSX: makes no sense on mac and might also scan/mount external (and sleeping) volumes (can take up some secs)
@@ -236,6 +262,15 @@ int main(int argc, char *argv[])
         boost::thread_group threadGroup;
 
         BitcoinGUI window;
+=======
+        // Regenerate startup link, to fix links to old versions
+        if (GUIUtil::GetStartOnSystemStartup())
+            GUIUtil::SetStartOnSystemStartup(true);
+
+        boost::thread_group threadGroup;
+
+        BitcoinGUI window(GetBoolArg("-testnet", false), 0);
+>>>>>>> upstream/master
         guiref = &window;
 
         QTimer* pollShutdownTimer = new QTimer(guiref);
@@ -254,6 +289,7 @@ int main(int argc, char *argv[])
                     splash.finish(&window);
 
                 ClientModel clientModel(&optionsModel);
+<<<<<<< HEAD
                 WalletModel *walletModel = 0;
                 if(pwalletMain)
                     walletModel = new WalletModel(pwalletMain, &optionsModel);
@@ -267,6 +303,16 @@ int main(int argc, char *argv[])
 
                 // If -min option passed, start window minimized.
                 if(GetBoolArg("-min"))
+=======
+                WalletModel walletModel(pwalletMain, &optionsModel);
+
+                window.setClientModel(&clientModel);
+                window.addWallet("~Default", &walletModel);
+                window.setCurrentWallet("~Default");
+
+                // If -min option passed, start window minimized.
+                if(GetBoolArg("-min", false))
+>>>>>>> upstream/master
                 {
                     window.showMinimized();
                 }
@@ -286,7 +332,10 @@ int main(int argc, char *argv[])
                 window.setClientModel(0);
                 window.removeAllWallets();
                 guiref = 0;
+<<<<<<< HEAD
                 delete walletModel;
+=======
+>>>>>>> upstream/master
             }
             // Shutdown the core and its threads, but don't exit Bitcoin-Qt here
             threadGroup.interrupt_all();

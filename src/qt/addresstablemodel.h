@@ -21,7 +21,11 @@ public:
 
     enum ColumnIndex {
         Label = 0,   /**< User specified label */
+<<<<<<< HEAD
         Address = 1  /**< Bitcoin address */
+=======
+        Address = 1  /**< Floripacoin address */
+>>>>>>> upstream/master
     };
 
     enum RoleIndex {

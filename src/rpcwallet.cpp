@@ -1,5 +1,10 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
+<<<<<<< HEAD
+=======
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+>>>>>>> upstream/master
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,7 +12,11 @@
 
 #include "wallet.h"
 #include "walletdb.h"
+<<<<<<< HEAD
 #include "bitcoinrpc.h"
+=======
+#include "floripacoinrpc.h"
+>>>>>>> upstream/master
 #include "init.h"
 #include "base58.h"
 
@@ -21,7 +30,11 @@ static CCriticalSection cs_nWalletUnlockTime;
 
 std::string HelpRequiringPassphrase()
 {
+<<<<<<< HEAD
     return pwalletMain && pwalletMain->IsCrypted()
+=======
+    return pwalletMain->IsCrypted()
+>>>>>>> upstream/master
         ? "\nrequires wallet passphrase to be set with walletpassphrase first"
         : "";
 }
@@ -72,16 +85,22 @@ Value getinfo(const Array& params, bool fHelp)
     Object obj;
     obj.push_back(Pair("version",       (int)CLIENT_VERSION));
     obj.push_back(Pair("protocolversion",(int)PROTOCOL_VERSION));
+<<<<<<< HEAD
     if (pwalletMain) {
         obj.push_back(Pair("walletversion", pwalletMain->GetVersion()));
         obj.push_back(Pair("balance",       ValueFromAmount(pwalletMain->GetBalance())));
     }
+=======
+    obj.push_back(Pair("walletversion", pwalletMain->GetVersion()));
+    obj.push_back(Pair("balance",       ValueFromAmount(pwalletMain->GetBalance())));
+>>>>>>> upstream/master
     obj.push_back(Pair("blocks",        (int)nBestHeight));
     obj.push_back(Pair("timeoffset",    (boost::int64_t)GetTimeOffset()));
     obj.push_back(Pair("connections",   (int)vNodes.size()));
     obj.push_back(Pair("proxy",         (proxy.first.IsValid() ? proxy.first.ToStringIPPort() : string())));
     obj.push_back(Pair("difficulty",    (double)GetDifficulty()));
     obj.push_back(Pair("testnet",       fTestNet));
+<<<<<<< HEAD
     if (pwalletMain) {
         obj.push_back(Pair("keypoololdest", (boost::int64_t)pwalletMain->GetOldestKeyPoolTime()));
         obj.push_back(Pair("keypoolsize",   (int)pwalletMain->GetKeyPoolSize()));
@@ -89,6 +108,12 @@ Value getinfo(const Array& params, bool fHelp)
     obj.push_back(Pair("paytxfee",      ValueFromAmount(nTransactionFee)));
     obj.push_back(Pair("mininput",      ValueFromAmount(nMinimumInputValue)));
     if (pwalletMain && pwalletMain->IsCrypted())
+=======
+    obj.push_back(Pair("keypoololdest", (boost::int64_t)pwalletMain->GetOldestKeyPoolTime()));
+    obj.push_back(Pair("keypoolsize",   pwalletMain->GetKeyPoolSize()));
+    obj.push_back(Pair("paytxfee",      ValueFromAmount(nTransactionFee)));
+    if (pwalletMain->IsCrypted())
+>>>>>>> upstream/master
         obj.push_back(Pair("unlocked_until", (boost::int64_t)nWalletUnlockTime));
     obj.push_back(Pair("errors",        GetWarnings("statusbar")));
     return obj;
@@ -121,11 +146,19 @@ Value getnewaddress(const Array& params, bool fHelp)
 
     pwalletMain->SetAddressBookName(keyID, strAccount);
 
+<<<<<<< HEAD
     return CBitcoinAddress(keyID).ToString();
 }
 
 
 CBitcoinAddress GetAccountAddress(string strAccount, bool bForceNew=false)
+=======
+    return CFloripacoinAddress(keyID).ToString();
+}
+
+
+CFloripacoinAddress GetAccountAddress(string strAccount, bool bForceNew=false)
+>>>>>>> upstream/master
 {
     CWalletDB walletdb(pwalletMain->strWalletFile);
 
@@ -160,7 +193,11 @@ CBitcoinAddress GetAccountAddress(string strAccount, bool bForceNew=false)
         walletdb.WriteAccount(strAccount, account);
     }
 
+<<<<<<< HEAD
     return CBitcoinAddress(account.vchPubKey.GetID());
+=======
+    return CFloripacoinAddress(account.vchPubKey.GetID());
+>>>>>>> upstream/master
 }
 
 Value getaccountaddress(const Array& params, bool fHelp)
@@ -189,7 +226,11 @@ Value setaccount(const Array& params, bool fHelp)
             "setaccount <floripacoinaddress> <account>\n"
             "Sets the account associated with the given address.");
 
+<<<<<<< HEAD
     CBitcoinAddress address(params[0].get_str());
+=======
+    CFloripacoinAddress address(params[0].get_str());
+>>>>>>> upstream/master
     if (!address.IsValid())
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Floripacoin address");
 
@@ -219,7 +260,11 @@ Value getaccount(const Array& params, bool fHelp)
             "getaccount <floripacoinaddress>\n"
             "Returns the account associated with the given address.");
 
+<<<<<<< HEAD
     CBitcoinAddress address(params[0].get_str());
+=======
+    CFloripacoinAddress address(params[0].get_str());
+>>>>>>> upstream/master
     if (!address.IsValid())
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Floripacoin address");
 
@@ -242,9 +287,15 @@ Value getaddressesbyaccount(const Array& params, bool fHelp)
 
     // Find all addresses that have the given account
     Array ret;
+<<<<<<< HEAD
     BOOST_FOREACH(const PAIRTYPE(CBitcoinAddress, string)& item, pwalletMain->mapAddressBook)
     {
         const CBitcoinAddress& address = item.first;
+=======
+    BOOST_FOREACH(const PAIRTYPE(CFloripacoinAddress, string)& item, pwalletMain->mapAddressBook)
+    {
+        const CFloripacoinAddress& address = item.first;
+>>>>>>> upstream/master
         const string& strName = item.second;
         if (strName == strAccount)
             ret.push_back(address.ToString());
@@ -252,6 +303,7 @@ Value getaddressesbyaccount(const Array& params, bool fHelp)
     return ret;
 }
 
+<<<<<<< HEAD
 
 Value setmininput(const Array& params, bool fHelp)
 {
@@ -270,6 +322,8 @@ Value setmininput(const Array& params, bool fHelp)
 }
 
 
+=======
+>>>>>>> upstream/master
 Value sendtoaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 4)
@@ -278,7 +332,11 @@ Value sendtoaddress(const Array& params, bool fHelp)
             "<amount> is a real and is rounded to the nearest 0.00000001"
             + HelpRequiringPassphrase());
 
+<<<<<<< HEAD
     CBitcoinAddress address(params[0].get_str());
+=======
+    CFloripacoinAddress address(params[0].get_str());
+>>>>>>> upstream/master
     if (!address.IsValid())
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Floripacoin address");
 
@@ -319,12 +377,21 @@ Value listaddressgroupings(const Array& params, bool fHelp)
         BOOST_FOREACH(CTxDestination address, grouping)
         {
             Array addressInfo;
+<<<<<<< HEAD
             addressInfo.push_back(CBitcoinAddress(address).ToString());
             addressInfo.push_back(ValueFromAmount(balances[address]));
             {
                 LOCK(pwalletMain->cs_wallet);
                 if (pwalletMain->mapAddressBook.find(CBitcoinAddress(address).Get()) != pwalletMain->mapAddressBook.end())
                     addressInfo.push_back(pwalletMain->mapAddressBook.find(CBitcoinAddress(address).Get())->second);
+=======
+            addressInfo.push_back(CFloripacoinAddress(address).ToString());
+            addressInfo.push_back(ValueFromAmount(balances[address]));
+            {
+                LOCK(pwalletMain->cs_wallet);
+                if (pwalletMain->mapAddressBook.find(CFloripacoinAddress(address).Get()) != pwalletMain->mapAddressBook.end())
+                    addressInfo.push_back(pwalletMain->mapAddressBook.find(CFloripacoinAddress(address).Get())->second);
+>>>>>>> upstream/master
             }
             jsonGrouping.push_back(addressInfo);
         }
@@ -345,7 +412,11 @@ Value signmessage(const Array& params, bool fHelp)
     string strAddress = params[0].get_str();
     string strMessage = params[1].get_str();
 
+<<<<<<< HEAD
     CBitcoinAddress addr(strAddress);
+=======
+    CFloripacoinAddress addr(strAddress);
+>>>>>>> upstream/master
     if (!addr.IsValid())
         throw JSONRPCError(RPC_TYPE_ERROR, "Invalid address");
 
@@ -379,7 +450,11 @@ Value verifymessage(const Array& params, bool fHelp)
     string strSign     = params[1].get_str();
     string strMessage  = params[2].get_str();
 
+<<<<<<< HEAD
     CBitcoinAddress addr(strAddress);
+=======
+    CFloripacoinAddress addr(strAddress);
+>>>>>>> upstream/master
     if (!addr.IsValid())
         throw JSONRPCError(RPC_TYPE_ERROR, "Invalid address");
 
@@ -412,8 +487,13 @@ Value getreceivedbyaddress(const Array& params, bool fHelp)
             "getreceivedbyaddress <floripacoinaddress> [minconf=1]\n"
             "Returns the total amount received by <floripacoinaddress> in transactions with at least [minconf] confirmations.");
 
+<<<<<<< HEAD
     // Bitcoin address
     CBitcoinAddress address = CBitcoinAddress(params[0].get_str());
+=======
+    // Floripacoin address
+    CFloripacoinAddress address = CFloripacoinAddress(params[0].get_str());
+>>>>>>> upstream/master
     CScript scriptPubKey;
     if (!address.IsValid())
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Floripacoin address");
@@ -635,7 +715,11 @@ Value sendfrom(const Array& params, bool fHelp)
             + HelpRequiringPassphrase());
 
     string strAccount = AccountFromValue(params[0]);
+<<<<<<< HEAD
     CBitcoinAddress address(params[1].get_str());
+=======
+    CFloripacoinAddress address(params[1].get_str());
+>>>>>>> upstream/master
     if (!address.IsValid())
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Floripacoin address");
     int64 nAmount = AmountFromValue(params[2]);
@@ -685,13 +769,21 @@ Value sendmany(const Array& params, bool fHelp)
     if (params.size() > 3 && params[3].type() != null_type && !params[3].get_str().empty())
         wtx.mapValue["comment"] = params[3].get_str();
 
+<<<<<<< HEAD
     set<CBitcoinAddress> setAddress;
+=======
+    set<CFloripacoinAddress> setAddress;
+>>>>>>> upstream/master
     vector<pair<CScript, int64> > vecSend;
 
     int64 totalAmount = 0;
     BOOST_FOREACH(const Pair& s, sendTo)
     {
+<<<<<<< HEAD
         CBitcoinAddress address(s.name_);
+=======
+        CFloripacoinAddress address(s.name_);
+>>>>>>> upstream/master
         if (!address.IsValid())
             throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Floripacoin address: ")+s.name_);
 
@@ -749,8 +841,13 @@ static CScript _createmultisig(const Array& params)
         const std::string& ks = keys[i].get_str();
 
         // Case 1: Floripacoin address and we have full public key:
+<<<<<<< HEAD
         CBitcoinAddress address(ks);
         if (pwalletMain && address.IsValid())
+=======
+        CFloripacoinAddress address(ks);
+        if (address.IsValid())
+>>>>>>> upstream/master
         {
             CKeyID keyID;
             if (!address.GetKeyID(keyID))
@@ -804,7 +901,11 @@ Value addmultisigaddress(const Array& params, bool fHelp)
     pwalletMain->AddCScript(inner);
 
     pwalletMain->SetAddressBookName(innerID, strAccount);
+<<<<<<< HEAD
     return CBitcoinAddress(innerID).ToString();
+=======
+    return CFloripacoinAddress(innerID).ToString();
+>>>>>>> upstream/master
 }
 
 Value createmultisig(const Array& params, bool fHelp)
@@ -822,7 +923,11 @@ Value createmultisig(const Array& params, bool fHelp)
     // Construct using pay-to-script-hash:
     CScript inner = _createmultisig(params);
     CScriptID innerID = inner.GetID();
+<<<<<<< HEAD
     CBitcoinAddress address(innerID);
+=======
+    CFloripacoinAddress address(innerID);
+>>>>>>> upstream/master
 
     Object result;
     result.push_back(Pair("address", address.ToString()));
@@ -857,7 +962,11 @@ Value ListReceived(const Array& params, bool fByAccounts)
         fIncludeEmpty = params[1].get_bool();
 
     // Tally
+<<<<<<< HEAD
     map<CBitcoinAddress, tallyitem> mapTally;
+=======
+    map<CFloripacoinAddress, tallyitem> mapTally;
+>>>>>>> upstream/master
     for (map<uint256, CWalletTx>::iterator it = pwalletMain->mapWallet.begin(); it != pwalletMain->mapWallet.end(); ++it)
     {
         const CWalletTx& wtx = (*it).second;
@@ -885,11 +994,19 @@ Value ListReceived(const Array& params, bool fByAccounts)
     // Reply
     Array ret;
     map<string, tallyitem> mapAccountTally;
+<<<<<<< HEAD
     BOOST_FOREACH(const PAIRTYPE(CBitcoinAddress, string)& item, pwalletMain->mapAddressBook)
     {
         const CBitcoinAddress& address = item.first;
         const string& strAccount = item.second;
         map<CBitcoinAddress, tallyitem>::iterator it = mapTally.find(address);
+=======
+    BOOST_FOREACH(const PAIRTYPE(CFloripacoinAddress, string)& item, pwalletMain->mapAddressBook)
+    {
+        const CFloripacoinAddress& address = item.first;
+        const string& strAccount = item.second;
+        map<CFloripacoinAddress, tallyitem>::iterator it = mapTally.find(address);
+>>>>>>> upstream/master
         if (it == mapTally.end() && !fIncludeEmpty)
             continue;
 
@@ -994,7 +1111,11 @@ void ListTransactions(const CWalletTx& wtx, const string& strAccount, int nMinDe
         {
             Object entry;
             entry.push_back(Pair("account", strSentAccount));
+<<<<<<< HEAD
             entry.push_back(Pair("address", CBitcoinAddress(s.first).ToString()));
+=======
+            entry.push_back(Pair("address", CFloripacoinAddress(s.first).ToString()));
+>>>>>>> upstream/master
             entry.push_back(Pair("category", "send"));
             entry.push_back(Pair("amount", ValueFromAmount(-s.second)));
             entry.push_back(Pair("fee", ValueFromAmount(-nFee)));
@@ -1016,7 +1137,11 @@ void ListTransactions(const CWalletTx& wtx, const string& strAccount, int nMinDe
             {
                 Object entry;
                 entry.push_back(Pair("account", account));
+<<<<<<< HEAD
                 entry.push_back(Pair("address", CBitcoinAddress(r.first).ToString()));
+=======
+                entry.push_back(Pair("address", CFloripacoinAddress(r.first).ToString()));
+>>>>>>> upstream/master
                 if (wtx.IsCoinBase())
                 {
                     if (wtx.GetDepthInMainChain() < 1)
@@ -1293,6 +1418,7 @@ Value keypoolrefill(const Array& params, bool fHelp)
 }
 
 
+<<<<<<< HEAD
 void ThreadTopUpKeyPool(void* parg)
 {
     // Make this thread recognisable as the key-topping-up thread
@@ -1343,6 +1469,13 @@ void ThreadCleanWalletPassphrase(void* parg)
     LEAVE_CRITICAL_SECTION(cs_nWalletUnlockTime);
 
     delete (int64*)parg;
+=======
+static void LockWallet(CWallet* pWallet)
+{
+    LOCK(cs_nWalletUnlockTime);
+    nWalletUnlockTime = 0;
+    pWallet->Lock();
+>>>>>>> upstream/master
 }
 
 Value walletpassphrase(const Array& params, bool fHelp)
@@ -1356,9 +1489,12 @@ Value walletpassphrase(const Array& params, bool fHelp)
     if (!pwalletMain->IsCrypted())
         throw JSONRPCError(RPC_WALLET_WRONG_ENC_STATE, "Error: running with an unencrypted wallet, but walletpassphrase was called.");
 
+<<<<<<< HEAD
     if (!pwalletMain->IsLocked())
         throw JSONRPCError(RPC_WALLET_ALREADY_UNLOCKED, "Error: Wallet is already unlocked.");
 
+=======
+>>>>>>> upstream/master
     // Note that the walletpassphrase is stored in params[0] which is not mlock()ed
     SecureString strWalletPass;
     strWalletPass.reserve(100);
@@ -1376,9 +1512,18 @@ Value walletpassphrase(const Array& params, bool fHelp)
             "walletpassphrase <passphrase> <timeout>\n"
             "Stores the wallet decryption key in memory for <timeout> seconds.");
 
+<<<<<<< HEAD
     NewThread(ThreadTopUpKeyPool, NULL);
     int64* pnSleepTime = new int64(params[1].get_int64());
     NewThread(ThreadCleanWalletPassphrase, pnSleepTime);
+=======
+    pwalletMain->TopUpKeyPool();
+
+    int64 nSleepTime = params[1].get_int64();
+    LOCK(cs_nWalletUnlockTime);
+    nWalletUnlockTime = GetTime() + nSleepTime;
+    RPCRunLater("lockwallet", boost::bind(LockWallet, pwalletMain), nSleepTime);
+>>>>>>> upstream/master
 
     return Value::null;
 }
@@ -1499,7 +1644,11 @@ public:
         obj.push_back(Pair("script", GetTxnOutputType(whichType)));
         Array a;
         BOOST_FOREACH(const CTxDestination& addr, addresses)
+<<<<<<< HEAD
             a.push_back(CBitcoinAddress(addr).ToString());
+=======
+            a.push_back(CFloripacoinAddress(addr).ToString());
+>>>>>>> upstream/master
         obj.push_back(Pair("addresses", a));
         if (whichType == TX_MULTISIG)
             obj.push_back(Pair("sigsrequired", nRequired));
@@ -1514,7 +1663,11 @@ Value validateaddress(const Array& params, bool fHelp)
             "validateaddress <floripacoinaddress>\n"
             "Return information about <floripacoinaddress>.");
 
+<<<<<<< HEAD
     CBitcoinAddress address(params[0].get_str());
+=======
+    CFloripacoinAddress address(params[0].get_str());
+>>>>>>> upstream/master
     bool isValid = address.IsValid();
 
     Object ret;
@@ -1524,13 +1677,21 @@ Value validateaddress(const Array& params, bool fHelp)
         CTxDestination dest = address.Get();
         string currentAddress = address.ToString();
         ret.push_back(Pair("address", currentAddress));
+<<<<<<< HEAD
         bool fMine = pwalletMain ? IsMine(*pwalletMain, dest) : false;
+=======
+        bool fMine = IsMine(*pwalletMain, dest);
+>>>>>>> upstream/master
         ret.push_back(Pair("ismine", fMine));
         if (fMine) {
             Object detail = boost::apply_visitor(DescribeAddressVisitor(), dest);
             ret.insert(ret.end(), detail.begin(), detail.end());
         }
+<<<<<<< HEAD
         if (pwalletMain && pwalletMain->mapAddressBook.count(dest))
+=======
+        if (pwalletMain->mapAddressBook.count(dest))
+>>>>>>> upstream/master
             ret.push_back(Pair("account", pwalletMain->mapAddressBook[dest]));
     }
     return ret;

@@ -36,6 +36,7 @@ WalletModel::~WalletModel()
     unsubscribeFromCoreSignals();
 }
 
+<<<<<<< HEAD
 qint64 WalletModel::getBalance(const CCoinControl *coinControl) const
 {
     if (coinControl)
@@ -49,6 +50,10 @@ qint64 WalletModel::getBalance(const CCoinControl *coinControl) const
         return nBalance;
     }
     
+=======
+qint64 WalletModel::getBalance() const
+{
+>>>>>>> upstream/master
     return wallet->GetBalance();
 }
 
@@ -131,11 +136,19 @@ void WalletModel::updateAddressBook(const QString &address, const QString &label
 
 bool WalletModel::validateAddress(const QString &address)
 {
+<<<<<<< HEAD
     CBitcoinAddress addressParsed(address.toStdString());
     return addressParsed.IsValid();
 }
 
 WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipient> &recipients, const CCoinControl *coinControl)
+=======
+    CFloripacoinAddress addressParsed(address.toStdString());
+    return addressParsed.IsValid();
+}
+
+WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipient> &recipients)
+>>>>>>> upstream/master
 {
     qint64 total = 0;
     QSet<QString> setAddress;
@@ -167,14 +180,22 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
         return DuplicateAddress;
     }
 
+<<<<<<< HEAD
     int64 nBalance = getBalance(coinControl);
 
     if(total > nBalance)
+=======
+    if(total > getBalance())
+>>>>>>> upstream/master
     {
         return AmountExceedsBalance;
     }
 
+<<<<<<< HEAD
     if((total + nTransactionFee) > nBalance)
+=======
+    if((total + nTransactionFee) > getBalance())
+>>>>>>> upstream/master
     {
         return SendCoinsReturn(AmountWithFeeExceedsBalance, nTransactionFee);
     }
@@ -187,7 +208,11 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
         foreach(const SendCoinsRecipient &rcp, recipients)
         {
             CScript scriptPubKey;
+<<<<<<< HEAD
             scriptPubKey.SetDestination(CBitcoinAddress(rcp.address.toStdString()).Get());
+=======
+            scriptPubKey.SetDestination(CFloripacoinAddress(rcp.address.toStdString()).Get());
+>>>>>>> upstream/master
             vecSend.push_back(make_pair(scriptPubKey, rcp.amount));
         }
 
@@ -195,11 +220,19 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
         CReserveKey keyChange(wallet);
         int64 nFeeRequired = 0;
         std::string strFailReason;
+<<<<<<< HEAD
         bool fCreated = wallet->CreateTransaction(vecSend, wtx, keyChange, nFeeRequired, strFailReason, coinControl);
 
         if(!fCreated)
         {
             if((total + nFeeRequired) > nBalance)
+=======
+        bool fCreated = wallet->CreateTransaction(vecSend, wtx, keyChange, nFeeRequired, strFailReason);
+
+        if(!fCreated)
+        {
+            if((total + nFeeRequired) > wallet->GetBalance())
+>>>>>>> upstream/master
             {
                 return SendCoinsReturn(AmountWithFeeExceedsBalance, nFeeRequired);
             }
@@ -222,7 +255,11 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
     foreach(const SendCoinsRecipient &rcp, recipients)
     {
         std::string strAddress = rcp.address.toStdString();
+<<<<<<< HEAD
         CTxDestination dest = CBitcoinAddress(strAddress).Get();
+=======
+        CTxDestination dest = CFloripacoinAddress(strAddress).Get();
+>>>>>>> upstream/master
         std::string strLabel = rcp.label.toStdString();
         {
             LOCK(wallet->cs_wallet);
@@ -324,9 +361,15 @@ static void NotifyKeyStoreStatusChanged(WalletModel *walletmodel, CCryptoKeyStor
 
 static void NotifyAddressBookChanged(WalletModel *walletmodel, CWallet *wallet, const CTxDestination &address, const std::string &label, bool isMine, ChangeType status)
 {
+<<<<<<< HEAD
     OutputDebugStringF("NotifyAddressBookChanged %s %s isMine=%i status=%i\n", CBitcoinAddress(address).ToString().c_str(), label.c_str(), isMine, status);
     QMetaObject::invokeMethod(walletmodel, "updateAddressBook", Qt::QueuedConnection,
                               Q_ARG(QString, QString::fromStdString(CBitcoinAddress(address).ToString())),
+=======
+    OutputDebugStringF("NotifyAddressBookChanged %s %s isMine=%i status=%i\n", CFloripacoinAddress(address).ToString().c_str(), label.c_str(), isMine, status);
+    QMetaObject::invokeMethod(walletmodel, "updateAddressBook", Qt::QueuedConnection,
+                              Q_ARG(QString, QString::fromStdString(CFloripacoinAddress(address).ToString())),
+>>>>>>> upstream/master
                               Q_ARG(QString, QString::fromStdString(label)),
                               Q_ARG(bool, isMine),
                               Q_ARG(int, status));
@@ -392,6 +435,7 @@ void WalletModel::UnlockContext::CopyFrom(const UnlockContext& rhs)
     *this = rhs;
     rhs.relock = false;
 }
+<<<<<<< HEAD
 
 bool WalletModel::getPubKey(const CKeyID &address, CPubKey& vchPubKeyOut) const
 {
@@ -461,3 +505,5 @@ void WalletModel::listLockedCoins(std::vector<COutPoint>& vOutpts)
 {
     wallet->ListLockedCoins(vOutpts);
 }
+=======
+>>>>>>> upstream/master

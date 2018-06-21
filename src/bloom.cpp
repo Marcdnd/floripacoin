@@ -1,4 +1,9 @@
 // Copyright (c) 2012 The Bitcoin developers
+<<<<<<< HEAD
+=======
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+>>>>>>> upstream/master
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include <math.h>
@@ -23,8 +28,11 @@ vData(min((unsigned int)(-1  / LN2SQUARED * nElements * log(nFPRate)), MAX_BLOOM
 // The ideal number of hash functions is filter size * ln(2) / number of elements
 // Again, we ignore filter parameters which will create a bloom filter with more hash functions than the protocol limits
 // See http://en.wikipedia.org/wiki/Bloom_filter for an explanation of these formulas
+<<<<<<< HEAD
 isFull(false),
 isEmpty(false),
+=======
+>>>>>>> upstream/master
 nHashFuncs(min((unsigned int)(vData.size() * 8 / nElements * LN2), MAX_HASH_FUNCS)),
 nTweak(nTweakIn),
 nFlags(nFlagsIn)
@@ -39,7 +47,11 @@ inline unsigned int CBloomFilter::Hash(unsigned int nHashNum, const std::vector<
 
 void CBloomFilter::insert(const vector<unsigned char>& vKey)
 {
+<<<<<<< HEAD
     if (isFull)
+=======
+    if (vData.size() == 1 && vData[0] == 0xff)
+>>>>>>> upstream/master
         return;
     for (unsigned int i = 0; i < nHashFuncs; i++)
     {
@@ -47,7 +59,10 @@ void CBloomFilter::insert(const vector<unsigned char>& vKey)
         // Sets bit nIndex of vData
         vData[nIndex >> 3] |= bit_mask[7 & nIndex];
     }
+<<<<<<< HEAD
     isEmpty = false;
+=======
+>>>>>>> upstream/master
 }
 
 void CBloomFilter::insert(const COutPoint& outpoint)
@@ -66,10 +81,15 @@ void CBloomFilter::insert(const uint256& hash)
 
 bool CBloomFilter::contains(const vector<unsigned char>& vKey) const
 {
+<<<<<<< HEAD
     if (isFull)
         return true;
     if (isEmpty)
         return false;
+=======
+    if (vData.size() == 1 && vData[0] == 0xff)
+        return true;
+>>>>>>> upstream/master
     for (unsigned int i = 0; i < nHashFuncs; i++)
     {
         unsigned int nIndex = Hash(i, vKey);
@@ -104,10 +124,13 @@ bool CBloomFilter::IsRelevantAndUpdate(const CTransaction& tx, const uint256& ha
     bool fFound = false;
     // Match if the filter contains the hash of tx
     //  for finding tx when they appear in a block
+<<<<<<< HEAD
     if (isFull)
         return true;
     if (isEmpty)
         return false;
+=======
+>>>>>>> upstream/master
     if (contains(hash))
         fFound = true;
 
@@ -167,6 +190,7 @@ bool CBloomFilter::IsRelevantAndUpdate(const CTransaction& tx, const uint256& ha
 
     return false;
 }
+<<<<<<< HEAD
 
 void CBloomFilter::UpdateEmptyFull()
 {
@@ -180,3 +204,5 @@ void CBloomFilter::UpdateEmptyFull()
     isFull = full;
     isEmpty = empty;
 }
+=======
+>>>>>>> upstream/master

@@ -9,7 +9,10 @@
 class QValidatedLineEdit : public QLineEdit
 {
     Q_OBJECT
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
 public:
     explicit QValidatedLineEdit(QWidget *parent = 0);
     void clear();

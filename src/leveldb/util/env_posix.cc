@@ -320,6 +320,7 @@ class PosixMmapFile : public WritableFile {
     return Status::OK();
   }
 
+<<<<<<< HEAD
   Status SyncDirIfManifest() {
     const char* f = filename_.c_str();
     const char* sep = strrchr(f, '/');
@@ -353,6 +354,10 @@ class PosixMmapFile : public WritableFile {
     if (!s.ok()) {
       return s;
     }
+=======
+  virtual Status Sync() {
+    Status s;
+>>>>>>> upstream/master
 
     if (pending_sync_) {
       // Some unmapped data was not synced
@@ -377,6 +382,7 @@ class PosixMmapFile : public WritableFile {
   }
 };
 
+<<<<<<< HEAD
 #if defined(OS_MACOSX)
 class PosixWriteableFile : public WritableFile {
  private:
@@ -464,6 +470,8 @@ class PosixWriteableFile : public WritableFile {
 };
 #endif
 
+=======
+>>>>>>> upstream/master
 static int LockOrUnlock(int fd, bool lock) {
   errno = 0;
   struct flock f;
@@ -504,7 +512,11 @@ class PosixEnv : public Env {
   PosixEnv();
   virtual ~PosixEnv() {
     fprintf(stderr, "Destroying Env::Default()\n");
+<<<<<<< HEAD
     abort();
+=======
+    exit(1);
+>>>>>>> upstream/master
   }
 
   virtual Status NewSequentialFile(const std::string& fname,
@@ -526,7 +538,10 @@ class PosixEnv : public Env {
     int fd = open(fname.c_str(), O_RDONLY);
     if (fd < 0) {
       s = IOError(fname, errno);
+<<<<<<< HEAD
 #if !defined(OS_MACOSX)
+=======
+>>>>>>> upstream/master
     } else if (mmap_limit_.Acquire()) {
       uint64_t size;
       s = GetFileSize(fname, &size);
@@ -542,7 +557,10 @@ class PosixEnv : public Env {
       if (!s.ok()) {
         mmap_limit_.Release();
       }
+<<<<<<< HEAD
 #endif
+=======
+>>>>>>> upstream/master
     } else {
       *result = new PosixRandomAccessFile(fname, fd);
     }
@@ -557,11 +575,15 @@ class PosixEnv : public Env {
       *result = NULL;
       s = IOError(fname, errno);
     } else {
+<<<<<<< HEAD
 #if defined(OS_MACOSX)
       *result = new PosixWriteableFile(fname, fd);
 #else
       *result = new PosixMmapFile(fname, fd, page_size_);
 #endif
+=======
+      *result = new PosixMmapFile(fname, fd, page_size_);
+>>>>>>> upstream/master
     }
     return s;
   }
@@ -591,7 +613,11 @@ class PosixEnv : public Env {
       result = IOError(fname, errno);
     }
     return result;
+<<<<<<< HEAD
   }
+=======
+  };
+>>>>>>> upstream/master
 
   virtual Status CreateDir(const std::string& name) {
     Status result;
@@ -599,7 +625,11 @@ class PosixEnv : public Env {
       result = IOError(name, errno);
     }
     return result;
+<<<<<<< HEAD
   }
+=======
+  };
+>>>>>>> upstream/master
 
   virtual Status DeleteDir(const std::string& name) {
     Status result;
@@ -607,7 +637,11 @@ class PosixEnv : public Env {
       result = IOError(name, errno);
     }
     return result;
+<<<<<<< HEAD
   }
+=======
+  };
+>>>>>>> upstream/master
 
   virtual Status GetFileSize(const std::string& fname, uint64_t* size) {
     Status s;
@@ -713,7 +747,11 @@ class PosixEnv : public Env {
   void PthreadCall(const char* label, int result) {
     if (result != 0) {
       fprintf(stderr, "pthread %s: %s\n", label, strerror(result));
+<<<<<<< HEAD
       abort();
+=======
+      exit(1);
+>>>>>>> upstream/master
     }
   }
 

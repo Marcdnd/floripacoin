@@ -13,18 +13,32 @@ QT_END_NAMESPACE
 class MonitoredDataMapper : public QDataWidgetMapper
 {
     Q_OBJECT
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
 public:
     explicit MonitoredDataMapper(QObject *parent=0);
 
     void addMapping(QWidget *widget, int section);
     void addMapping(QWidget *widget, int section, const QByteArray &propertyName);
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
 private:
     void addChangeMonitor(QWidget *widget);
 
 signals:
     void viewModified();
+<<<<<<< HEAD
 };
 
+=======
+
+};
+
+
+
+>>>>>>> upstream/master
 #endif // MONITOREDDATAMAPPER_H

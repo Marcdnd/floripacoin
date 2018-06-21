@@ -1,4 +1,9 @@
 // Copyright (c) 2009-2012 The Bitcoin developers
+<<<<<<< HEAD
+=======
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+>>>>>>> upstream/master
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -24,8 +29,13 @@
 
 using namespace boost;
 
+<<<<<<< HEAD
 const int BITCOIN_IPC_CONNECT_TIMEOUT = 1000; // milliseconds
 const QString BITCOIN_IPC_PREFIX("floripacoin:");
+=======
+const int FLORIPACOIN_IPC_CONNECT_TIMEOUT = 1000; // milliseconds
+const QString FLORIPACOIN_IPC_PREFIX("floripacoin:");
+>>>>>>> upstream/master
 
 //
 // Create a name that is unique for:
@@ -34,7 +44,11 @@ const QString BITCOIN_IPC_PREFIX("floripacoin:");
 //
 static QString ipcServerName()
 {
+<<<<<<< HEAD
     QString name("BitcoinQt");
+=======
+    QString name("FloripacoinQt");
+>>>>>>> upstream/master
 
     // Append a simple hash of the datadir
     // Note that GetDataDir(true) returns a different path
@@ -65,7 +79,11 @@ bool PaymentServer::ipcSendCommandLine()
     const QStringList& args = qApp->arguments();
     for (int i = 1; i < args.size(); i++)
     {
+<<<<<<< HEAD
         if (!args[i].startsWith(BITCOIN_IPC_PREFIX, Qt::CaseInsensitive))
+=======
+        if (!args[i].startsWith(FLORIPACOIN_IPC_PREFIX, Qt::CaseInsensitive))
+>>>>>>> upstream/master
             continue;
         savedPaymentRequests.append(args[i]);
     }
@@ -74,7 +92,11 @@ bool PaymentServer::ipcSendCommandLine()
     {
         QLocalSocket* socket = new QLocalSocket();
         socket->connectToServer(ipcServerName(), QIODevice::WriteOnly);
+<<<<<<< HEAD
         if (!socket->waitForConnected(BITCOIN_IPC_CONNECT_TIMEOUT))
+=======
+        if (!socket->waitForConnected(FLORIPACOIN_IPC_CONNECT_TIMEOUT))
+>>>>>>> upstream/master
             return false;
 
         QByteArray block;
@@ -85,7 +107,11 @@ bool PaymentServer::ipcSendCommandLine()
         socket->write(block);
         socket->flush();
 
+<<<<<<< HEAD
         socket->waitForBytesWritten(BITCOIN_IPC_CONNECT_TIMEOUT);
+=======
+        socket->waitForBytesWritten(FLORIPACOIN_IPC_CONNECT_TIMEOUT);
+>>>>>>> upstream/master
         socket->disconnectFromServer();
         delete socket;
         fResult = true;
@@ -95,7 +121,11 @@ bool PaymentServer::ipcSendCommandLine()
 
 PaymentServer::PaymentServer(QApplication* parent) : QObject(parent), saveURIs(true)
 {
+<<<<<<< HEAD
     // Install global event filter to catch QFileOpenEvents on the mac (sent when you click bitcoin: links)
+=======
+    // Install global event filter to catch QFileOpenEvents on the mac (sent when you click floripacoin: links)
+>>>>>>> upstream/master
     parent->installEventFilter(this);
 
     QString name = ipcServerName();
@@ -113,7 +143,11 @@ PaymentServer::PaymentServer(QApplication* parent) : QObject(parent), saveURIs(t
 
 bool PaymentServer::eventFilter(QObject *object, QEvent *event)
 {
+<<<<<<< HEAD
     // clicking on bitcoin: URLs creates FileOpen events on the Mac:
+=======
+    // clicking on floripacoin: URLs creates FileOpen events on the Mac:
+>>>>>>> upstream/master
     if (event->type() == QEvent::FileOpen)
     {
         QFileOpenEvent* fileEvent = static_cast<QFileOpenEvent*>(event);

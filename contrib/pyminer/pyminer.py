@@ -1,6 +1,11 @@
 #!/usr/bin/python
 #
 # Copyright (c) 2011 The Bitcoin developers
+<<<<<<< HEAD
+=======
+# Copyright (c) 2013-2079 Dr. Kimoto Chan
+# Copyright (c) 2013-2079 The Floripacoin developers
+>>>>>>> upstream/master
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #
@@ -22,7 +27,11 @@ MAX_NONCE = 1000000L
 settings = {}
 pp = pprint.PrettyPrinter(indent=4)
 
+<<<<<<< HEAD
 class BitcoinRPC:
+=======
+class FloripacoinRPC:
+>>>>>>> upstream/master
 	OBJID = 1
 
 	def __init__(self, host, port, username, password):
@@ -183,7 +192,11 @@ class Miner:
 			self.submit_work(rpc, work['data'], nonce_bin)
 
 	def loop(self):
+<<<<<<< HEAD
 		rpc = BitcoinRPC(settings['host'], settings['port'],
+=======
+		rpc = FloripacoinRPC(settings['host'], settings['port'],
+>>>>>>> upstream/master
 				 settings['rpcuser'], settings['rpcpass'])
 		if rpc is None:
 			return
@@ -217,7 +230,11 @@ if __name__ == '__main__':
 	if 'host' not in settings:
 		settings['host'] = '127.0.0.1'
 	if 'port' not in settings:
+<<<<<<< HEAD
 		settings['port'] = 9332
+=======
+		settings['port'] = 7950
+>>>>>>> upstream/master
 	if 'threads' not in settings:
 		settings['threads'] = 1
 	if 'hashmeter' not in settings:

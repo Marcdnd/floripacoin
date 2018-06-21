@@ -3,15 +3,25 @@
 
 #include <QDialog>
 
+<<<<<<< HEAD
+=======
+QT_BEGIN_NAMESPACE
+class QDataWidgetMapper;
+QT_END_NAMESPACE
+
+>>>>>>> upstream/master
 namespace Ui {
     class EditAddressDialog;
 }
 class AddressTableModel;
 
+<<<<<<< HEAD
 QT_BEGIN_NAMESPACE
 class QDataWidgetMapper;
 QT_END_NAMESPACE
 
+=======
+>>>>>>> upstream/master
 /** Dialog for editing an address and associated information.
  */
 class EditAddressDialog : public QDialog
@@ -38,6 +48,12 @@ public:
 public slots:
     void accept();
 
+<<<<<<< HEAD
+=======
+private slots:
+    void on_pasteButton_clicked();
+
+>>>>>>> upstream/master
 private:
     bool saveCurrentRow();
 

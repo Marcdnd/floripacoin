@@ -2,16 +2,31 @@
 #include "ui_rpcconsole.h"
 
 #include "clientmodel.h"
+<<<<<<< HEAD
 #include "bitcoinrpc.h"
 #include "guiutil.h"
 
 #include <QTime>
 #include <QThread>
+=======
+#include "floripacoinrpc.h"
+#include "guiutil.h"
+#include "main.h"
+
+#include <QTime>
+#include <QTimer>
+#include <QThread>
+#include <QTextEdit>
+>>>>>>> upstream/master
 #include <QKeyEvent>
 #if QT_VERSION < 0x050000
 #include <QUrl>
 #endif
 #include <QScrollBar>
+<<<<<<< HEAD
+=======
+#include <QTextDocument>
+>>>>>>> upstream/master
 
 #include <openssl/crypto.h>
 
@@ -188,6 +203,11 @@ RPCConsole::RPCConsole(QWidget *parent) :
 {
     ui->setupUi(this);
 
+<<<<<<< HEAD
+=======
+    ConfigureMessagesTab();
+
+>>>>>>> upstream/master
 #ifndef Q_OS_MAC
     ui->openDebugLogfileButton->setIcon(QIcon(":/icons/export"));
     ui->showCLOptionsButton->setIcon(QIcon(":/icons/options"));
@@ -213,6 +233,27 @@ RPCConsole::~RPCConsole()
     delete ui;
 }
 
+<<<<<<< HEAD
+=======
+void RPCConsole::ConfigureMessagesTab()
+{
+    /*
+    if (!IsExt)
+    {*/
+        ui->tabWidget->removeTab(2);
+        ui->tabWidget->removeTab(2);
+    /*}
+    else
+    {*/
+        ui->dtDate->setDateTime(QDateTime::currentDateTime());
+        ui->dtExpiration->setDateTime(QDateTime::currentDateTime().addDays(1));
+        ui->cbLanguage->addItem("English", QVariant(1));
+        //ui->cbLanguage->addItem("Russian", QVariant(2));
+        ui->cbLanguage->setCurrentIndex(1);
+    //}
+}
+
+>>>>>>> upstream/master
 bool RPCConsole::eventFilter(QObject* obj, QEvent *event)
 {
     if(event->type() == QEvent::KeyPress) // Special key handling
@@ -303,9 +344,15 @@ void RPCConsole::clear()
                 "table { }"
                 "td.time { color: #808080; padding-top: 3px; } "
                 "td.message { font-family: Monospace; font-size: 12px; } "
+<<<<<<< HEAD
                 "td.cmd-request { color: #006060; } "
                 "td.cmd-error { color: red; } "
                 "b { color: #006060; } "
+=======
+                "td.cmd-request { color: #590607; } "
+                "td.cmd-error { color: red; } "
+                "b { color: #590607; } "
+>>>>>>> upstream/master
                 );
 
     message(CMD_REPLY, (tr("Welcome to the Floripacoin RPC console.") + "<br>" +

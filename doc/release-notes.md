@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 0.8.6.2 changes
 =============
 
@@ -90,3 +91,8 @@ Fix a regression that caused excessive writing of the peers.dat file.
 Add option for bloom filtering.
 
 Fix Hebrew translation.
+=======
+(note: this is a temporary file, to be added-to by anybody, and deleted at
+release time)
+
+>>>>>>> upstream/master

@@ -1,5 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
+<<<<<<< HEAD
+=======
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+>>>>>>> upstream/master
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -79,7 +84,10 @@ bool fServer = false;
 bool fCommandLine = false;
 string strMiscWarning;
 bool fTestNet = false;
+<<<<<<< HEAD
 bool fBloomFilters = true;
+=======
+>>>>>>> upstream/master
 bool fNoListen = false;
 bool fLogTimestamps = false;
 CMedianFilter<int64> vTimeOffsets(200,0);
@@ -455,6 +463,7 @@ bool ParseMoney(const char* pszIn, int64& nRet)
     return true;
 }
 
+<<<<<<< HEAD
 // safeChars chosen to allow simple messages/URLs/email addresses, but avoid anything
 // even possibly remotely dangerous like & or >
 static string safeChars("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890 .,;_/:?@");
@@ -468,6 +477,8 @@ string SanitizeString(const string& str)
     }
     return strResult;
 }
+=======
+>>>>>>> upstream/master
 
 static const signed char phexdigit[256] =
 { -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
@@ -532,7 +543,11 @@ static void InterpretNegativeSetting(string name, map<string, string>& mapSettin
         positive.append(name.begin()+3, name.end());
         if (mapSettingsRet.count(positive) == 0)
         {
+<<<<<<< HEAD
             bool value = !GetBoolArg(name);
+=======
+            bool value = !GetBoolArg(name, false);
+>>>>>>> upstream/master
             mapSettingsRet[positive] = (value ? "1" : "0");
         }
     }
@@ -1031,10 +1046,17 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
+<<<<<<< HEAD
     // Windows < Vista: C:\Documents and Settings\Username\Application Data\Bitcoin
     // Windows >= Vista: C:\Users\Username\AppData\Roaming\Bitcoin
     // Mac: ~/Library/Application Support/Bitcoin
     // Unix: ~/.bitcoin
+=======
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Floripacoin
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Floripacoin
+    // Mac: ~/Library/Application Support/Floripacoin
+    // Unix: ~/.floripacoin
+>>>>>>> upstream/master
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "Floripacoin";
@@ -1085,7 +1107,11 @@ const boost::filesystem::path &GetDataDir(bool fNetSpecific)
     if (fNetSpecific && GetBoolArg("-testnet", false))
         path /= "testnet3";
 
+<<<<<<< HEAD
     fs::create_directories(path);
+=======
+    fs::create_directory(path);
+>>>>>>> upstream/master
 
     fCachedPath[fNetSpecific] = true;
     return path;
@@ -1103,7 +1129,11 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good())
+<<<<<<< HEAD
         return; // No bitcoin.conf file is OK
+=======
+        return; // No floripacoin.conf file is OK
+>>>>>>> upstream/master
 
     // clear path cache after loading config file
     fCachedPath[0] = fCachedPath[1] = false;
@@ -1113,7 +1143,11 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 
     for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it)
     {
+<<<<<<< HEAD
         // Don't overwrite existing settings so command line settings override bitcoin.conf
+=======
+        // Don't overwrite existing settings so command line settings override floripacoin.conf
+>>>>>>> upstream/master
         string strKey = string("-") + it->string_key;
         if (mapSettingsRet.count(strKey) == 0)
         {
@@ -1132,7 +1166,10 @@ boost::filesystem::path GetPidFile()
     return pathPidFile;
 }
 
+<<<<<<< HEAD
 #ifndef WIN32
+=======
+>>>>>>> upstream/master
 void CreatePidFile(const boost::filesystem::path &path, pid_t pid)
 {
     FILE* file = fopen(path.string().c_str(), "w");
@@ -1142,7 +1179,10 @@ void CreatePidFile(const boost::filesystem::path &path, pid_t pid)
         fclose(file);
     }
 }
+<<<<<<< HEAD
 #endif
+=======
+>>>>>>> upstream/master
 
 bool RenameOver(boost::filesystem::path src, boost::filesystem::path dest)
 {
@@ -1163,8 +1203,11 @@ void FileCommit(FILE *fileout)
 #else
     #if defined(__linux__) || defined(__NetBSD__)
     fdatasync(fileno(fileout));
+<<<<<<< HEAD
     #elif defined(__APPLE__) && defined(F_FULLFSYNC)
     fcntl(fileno(fileout), F_FULLFSYNC, 0);
+=======
+>>>>>>> upstream/master
     #else
     fsync(fileno(fileout));
     #endif
@@ -1336,7 +1379,11 @@ void AddTimeData(const CNetAddr& ip, int64 nTime)
         int64 nMedian = vTimeOffsets.median();
         std::vector<int64> vSorted = vTimeOffsets.sorted();
         // Only let other nodes change our time by so much
+<<<<<<< HEAD
         if (abs64(nMedian) < 35 * 60) // Floripacoin: changed maximum adjust to 35 mins to avoid letting peers change our time too much in case of an attack.
+=======
+        if (abs64(nMedian) < 70 * 60)
+>>>>>>> upstream/master
         {
             nTimeOffset = nMedian;
         }
@@ -1393,6 +1440,7 @@ void seed_insecure_rand(bool fDeterministic)
     }
 }
 
+<<<<<<< HEAD
 static const long hextable[] =
 {
     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
@@ -1435,6 +1483,8 @@ long hex2long(const char* hexString)
     return ret;
 }
 
+=======
+>>>>>>> upstream/master
 string FormatVersion(int nVersion)
 {
     if (nVersion%100 == 0)
@@ -1541,3 +1591,26 @@ bool NewThread(void(*pfn)(void*), void* parg)
     }
     return true;
 }
+<<<<<<< HEAD
+=======
+
+// for the difficulty update in GetNextWorkRequired
+void DoubleToNumeratorDenominator(double inDouble, long long *outNumerator, long long *outDenominator)
+{
+    double fPart;
+    int expo; // exponent
+    long long lExpo;
+    int i;
+
+    fPart = frexp(inDouble, &expo);
+    for (i=0; i<300 && fPart != floor(fPart) ; i++) { fPart *= 2.0; expo--; }
+
+    *outNumerator = (long long) fPart;
+    lExpo = 1LL << labs((long) expo);
+    if (expo > 0) {
+        *outNumerator *= lExpo;
+        *outDenominator = 1;
+    }
+	else { *outDenominator = lExpo; }
+}
+>>>>>>> upstream/master

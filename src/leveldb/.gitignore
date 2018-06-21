@@ -6,7 +6,10 @@ build_config.mk
 *.so.*
 *_test
 db_bench
+<<<<<<< HEAD
 leveldbutil
+=======
+>>>>>>> upstream/master
 Release
 Debug
 Benchmark

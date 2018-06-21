@@ -6,14 +6,22 @@
 
 BOOST_AUTO_TEST_SUITE(getarg_tests)
 
+<<<<<<< HEAD
 static void
 ResetArgs(const std::string& strArg)
+=======
+static void ResetArgs(const std::string& strArg)
+>>>>>>> upstream/master
 {
     std::vector<std::string> vecArg;
     boost::split(vecArg, strArg, boost::is_space(), boost::token_compress_on);
 
     // Insert dummy executable name:
+<<<<<<< HEAD
     vecArg.insert(vecArg.begin(), "testbitcoin");
+=======
+    vecArg.insert(vecArg.begin(), "testfloripacoin");
+>>>>>>> upstream/master
 
     // Convert to char*:
     std::vector<const char*> vecChar;
@@ -26,6 +34,7 @@ ResetArgs(const std::string& strArg)
 BOOST_AUTO_TEST_CASE(boolarg)
 {
     ResetArgs("-foo");
+<<<<<<< HEAD
     BOOST_CHECK(GetBoolArg("-foo"));
     BOOST_CHECK(GetBoolArg("-foo", false));
     BOOST_CHECK(GetBoolArg("-foo", true));
@@ -35,53 +44,88 @@ BOOST_AUTO_TEST_CASE(boolarg)
     BOOST_CHECK(GetBoolArg("-fo", true));
 
     BOOST_CHECK(!GetBoolArg("-fooo"));
+=======
+    BOOST_CHECK(GetBoolArg("-foo", false));
+    BOOST_CHECK(GetBoolArg("-foo", true));
+
+    BOOST_CHECK(!GetBoolArg("-fo", false));
+    BOOST_CHECK(GetBoolArg("-fo", true));
+
+>>>>>>> upstream/master
     BOOST_CHECK(!GetBoolArg("-fooo", false));
     BOOST_CHECK(GetBoolArg("-fooo", true));
 
     ResetArgs("-foo=0");
+<<<<<<< HEAD
     BOOST_CHECK(!GetBoolArg("-foo"));
+=======
+>>>>>>> upstream/master
     BOOST_CHECK(!GetBoolArg("-foo", false));
     BOOST_CHECK(!GetBoolArg("-foo", true));
 
     ResetArgs("-foo=1");
+<<<<<<< HEAD
     BOOST_CHECK(GetBoolArg("-foo"));
+=======
+>>>>>>> upstream/master
     BOOST_CHECK(GetBoolArg("-foo", false));
     BOOST_CHECK(GetBoolArg("-foo", true));
 
     // New 0.6 feature: auto-map -nosomething to !-something:
     ResetArgs("-nofoo");
+<<<<<<< HEAD
     BOOST_CHECK(!GetBoolArg("-foo"));
+=======
+>>>>>>> upstream/master
     BOOST_CHECK(!GetBoolArg("-foo", false));
     BOOST_CHECK(!GetBoolArg("-foo", true));
 
     ResetArgs("-nofoo=1");
+<<<<<<< HEAD
     BOOST_CHECK(!GetBoolArg("-foo"));
+=======
+>>>>>>> upstream/master
     BOOST_CHECK(!GetBoolArg("-foo", false));
     BOOST_CHECK(!GetBoolArg("-foo", true));
 
     ResetArgs("-foo -nofoo");  // -foo should win
+<<<<<<< HEAD
     BOOST_CHECK(GetBoolArg("-foo"));
+=======
+>>>>>>> upstream/master
     BOOST_CHECK(GetBoolArg("-foo", false));
     BOOST_CHECK(GetBoolArg("-foo", true));
 
     ResetArgs("-foo=1 -nofoo=1");  // -foo should win
+<<<<<<< HEAD
     BOOST_CHECK(GetBoolArg("-foo"));
+=======
+>>>>>>> upstream/master
     BOOST_CHECK(GetBoolArg("-foo", false));
     BOOST_CHECK(GetBoolArg("-foo", true));
 
     ResetArgs("-foo=0 -nofoo=0");  // -foo should win
+<<<<<<< HEAD
     BOOST_CHECK(!GetBoolArg("-foo"));
+=======
+>>>>>>> upstream/master
     BOOST_CHECK(!GetBoolArg("-foo", false));
     BOOST_CHECK(!GetBoolArg("-foo", true));
 
     // New 0.6 feature: treat -- same as -:
     ResetArgs("--foo=1");
+<<<<<<< HEAD
     BOOST_CHECK(GetBoolArg("-foo"));
+=======
+>>>>>>> upstream/master
     BOOST_CHECK(GetBoolArg("-foo", false));
     BOOST_CHECK(GetBoolArg("-foo", true));
 
     ResetArgs("--nofoo=1");
+<<<<<<< HEAD
     BOOST_CHECK(!GetBoolArg("-foo"));
+=======
+>>>>>>> upstream/master
     BOOST_CHECK(!GetBoolArg("-foo", false));
     BOOST_CHECK(!GetBoolArg("-foo", true));
 
@@ -133,7 +177,11 @@ BOOST_AUTO_TEST_CASE(intarg)
 BOOST_AUTO_TEST_CASE(doubledash)
 {
     ResetArgs("--foo");
+<<<<<<< HEAD
     BOOST_CHECK_EQUAL(GetBoolArg("-foo"), true);
+=======
+    BOOST_CHECK_EQUAL(GetBoolArg("-foo", false), true);
+>>>>>>> upstream/master
 
     ResetArgs("--foo=verbose --bar=1");
     BOOST_CHECK_EQUAL(GetArg("-foo", ""), "verbose");
@@ -143,25 +191,43 @@ BOOST_AUTO_TEST_CASE(doubledash)
 BOOST_AUTO_TEST_CASE(boolargno)
 {
     ResetArgs("-nofoo");
+<<<<<<< HEAD
     BOOST_CHECK(!GetBoolArg("-foo"));
+=======
+>>>>>>> upstream/master
     BOOST_CHECK(!GetBoolArg("-foo", true));
     BOOST_CHECK(!GetBoolArg("-foo", false));
 
     ResetArgs("-nofoo=1");
+<<<<<<< HEAD
     BOOST_CHECK(!GetBoolArg("-foo"));
+=======
+>>>>>>> upstream/master
     BOOST_CHECK(!GetBoolArg("-foo", true));
     BOOST_CHECK(!GetBoolArg("-foo", false));
 
     ResetArgs("-nofoo=0");
+<<<<<<< HEAD
     BOOST_CHECK(GetBoolArg("-foo"));
+=======
+>>>>>>> upstream/master
     BOOST_CHECK(GetBoolArg("-foo", true));
     BOOST_CHECK(GetBoolArg("-foo", false));
 
     ResetArgs("-foo --nofoo");
+<<<<<<< HEAD
     BOOST_CHECK(GetBoolArg("-foo"));
 
     ResetArgs("-nofoo -foo"); // foo always wins:
     BOOST_CHECK(GetBoolArg("-foo"));
+=======
+    BOOST_CHECK(GetBoolArg("-foo", true));
+    BOOST_CHECK(GetBoolArg("-foo", false));
+
+    ResetArgs("-nofoo -foo"); // foo always wins:
+    BOOST_CHECK(GetBoolArg("-foo", true));
+    BOOST_CHECK(GetBoolArg("-foo", false));
+>>>>>>> upstream/master
 }
 
 BOOST_AUTO_TEST_SUITE_END()

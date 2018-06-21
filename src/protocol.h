@@ -1,5 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
+<<<<<<< HEAD
+=======
+// Copyright (c) 2013-2079 Dr. Kimoto Chan
+// Copyright (c) 2013-2018 The Floripacoin developers
+>>>>>>> upstream/master
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -18,7 +23,11 @@
 extern bool fTestNet;
 static inline unsigned short GetDefaultPort(const bool testnet = fTestNet)
 {
+<<<<<<< HEAD
     return testnet ? 18124 : 18124;
+=======
+    return testnet ? 18122 : 18124;
+>>>>>>> upstream/master
 }
 
 
@@ -69,7 +78,10 @@ class CMessageHeader
 enum
 {
     NODE_NETWORK = (1 << 0),
+<<<<<<< HEAD
     NODE_BLOOM = (1 << 1),
+=======
+>>>>>>> upstream/master
 };
 
 /** A CService with information about it as peer */

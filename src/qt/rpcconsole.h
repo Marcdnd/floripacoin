@@ -8,7 +8,11 @@ namespace Ui {
 }
 class ClientModel;
 
+<<<<<<< HEAD
 /** Local Bitcoin RPC console. */
+=======
+/** Local Floripacoin RPC console. */
+>>>>>>> upstream/master
 class RPCConsole: public QDialog
 {
     Q_OBJECT
@@ -35,7 +39,11 @@ private slots:
     void on_tabWidget_currentChanged(int index);
     /** open the debug.log from the current datadir */
     void on_openDebugLogfileButton_clicked();
+<<<<<<< HEAD
     /** display messagebox with program parameters (same as bitcoin-qt --help) */
+=======
+    /** display messagebox with program parameters (same as floripacoin-qt --help) */
+>>>>>>> upstream/master
     void on_showCLOptionsButton_clicked();
 
 public slots:
@@ -61,6 +69,10 @@ private:
     int historyPtr;
 
     void startExecutor();
+<<<<<<< HEAD
+=======
+    void ConfigureMessagesTab();
+>>>>>>> upstream/master
 };
 
 #endif // RPCCONSOLE_H

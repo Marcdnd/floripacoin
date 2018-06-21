@@ -6,6 +6,7 @@
 from string import Template
 from datetime import date
 
+<<<<<<< HEAD
 bitcoinDir = "./";
 
 inFile     = bitcoinDir+"/share/qt/Info.plist"
@@ -13,6 +14,15 @@ outFile    = "Floripacoin-Qt.app/Contents/Info.plist"
 version    = "unknown";
 
 fileForGrabbingVersion = bitcoinDir+"bitcoin-qt.pro"
+=======
+floripacoinDir = "./";
+
+inFile     = floripacoinDir+"/share/qt/Info.plist"
+outFile    = "Floripacoin-Qt.app/Contents/Info.plist"
+version    = "unknown";
+
+fileForGrabbingVersion = floripacoinDir+"floripacoin-qt.pro"
+>>>>>>> upstream/master
 for line in open(fileForGrabbingVersion):
 	lineArr = line.replace(" ", "").split("=");
 	if lineArr[0].startswith("VERSION"):
@@ -26,4 +36,8 @@ newFileContent = s.substitute(VERSION=version,YEAR=date.today().year)
 fOut = open(outFile, "w");
 fOut.write(newFileContent);
 
+<<<<<<< HEAD
 print "Info.plist fresh created"
+=======
+print "Info.plist fresh created"
+>>>>>>> upstream/master

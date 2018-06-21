@@ -10,9 +10,15 @@ rpcpass = ""
 
 
 if rpcpass == "":
+<<<<<<< HEAD
 	access = ServiceProxy("http://127.0.0.1:9332")
 else:
 	access = ServiceProxy("http://"+rpcuser+":"+rpcpass+"@127.0.0.1:9332")
+=======
+	access = ServiceProxy("http://127.0.0.1:8332")
+else:
+	access = ServiceProxy("http://"+rpcuser+":"+rpcpass+"@127.0.0.1:8332")
+>>>>>>> upstream/master
 cmd = sys.argv[1].lower()
 
 if cmd == "backupwallet":
@@ -24,7 +30,11 @@ if cmd == "backupwallet":
 
 elif cmd == "getaccount":
 	try:
+<<<<<<< HEAD
 		addr = raw_input("Enter a Floripacoin address: ")
+=======
+		addr = raw_input("Enter a Bitcoin address: ")
+>>>>>>> upstream/master
 		print access.getaccount(addr)
 	except:
 		print "\n---An error occurred---\n"
@@ -126,7 +136,11 @@ elif cmd == "getreceivedbyaccount":
 
 elif cmd == "getreceivedbyaddress":
 	try:
+<<<<<<< HEAD
 		addr = raw_input("Enter a Floripacoin address (optional): ")
+=======
+		addr = raw_input("Enter a Bitcoin address (optional): ")
+>>>>>>> upstream/master
 		mc = raw_input("Minimum confirmations (optional): ")
 		try:
 			print access.getreceivedbyaddress(addr, mc)
@@ -321,4 +335,8 @@ elif cmd == "walletpassphrasechange":
 		print
 
 else:
+<<<<<<< HEAD
 	print "Command not found or not supported"
+=======
+	print "Command not found or not supported"
+>>>>>>> upstream/master

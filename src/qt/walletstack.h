@@ -1,8 +1,16 @@
 /*
+<<<<<<< HEAD
  * Qt4 bitcoin GUI.
  *
  * W.J. van der Laan 2011-2012
  * The Bitcoin Developers 2011-2013
+=======
+ * Qt4 floripacoin GUI.
+ *
+ * W.J. van der Laan 2011-2012
+ * The Bitcoin Developers 2011-2013
+ * Dr. Kimoto Chan 2013-2079
+>>>>>>> upstream/master
  */
 #ifndef WALLETSTACK_H
 #define WALLETSTACK_H
@@ -11,7 +19,11 @@
 #include <QMap>
 #include <boost/shared_ptr.hpp>
 
+<<<<<<< HEAD
 class BitcoinGUI;
+=======
+class FloripacoinGUI;
+>>>>>>> upstream/master
 class TransactionTableModel;
 class ClientModel;
 class WalletModel;
@@ -40,12 +52,19 @@ QT_END_NAMESPACE
 class WalletStack : public QStackedWidget
 {
     Q_OBJECT
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
 public:
     explicit WalletStack(QWidget *parent = 0);
     ~WalletStack();
 
+<<<<<<< HEAD
     void setBitcoinGUI(BitcoinGUI *gui) { this->gui = gui; }
+=======
+    void setFloripacoinGUI(FloripacoinGUI *gui) { this->gui = gui; }
+>>>>>>> upstream/master
 
     void setClientModel(ClientModel *clientModel) { this->clientModel = clientModel; }
 
@@ -59,7 +78,11 @@ public:
     void showOutOfSyncWarning(bool fShow);
 
 private:
+<<<<<<< HEAD
     BitcoinGUI *gui;
+=======
+    FloripacoinGUI *gui;
+>>>>>>> upstream/master
     ClientModel *clientModel;
     QMap<QString, WalletView*> mapWalletViews;
 

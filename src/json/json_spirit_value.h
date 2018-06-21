@@ -342,7 +342,11 @@ namespace json_spirit
         {
             std::ostringstream os;
 
+<<<<<<< HEAD
             ///// Bitcoin: Tell the types by name instead of by number
+=======
+            ///// Floripacoin: Tell the types by name instead of by number
+>>>>>>> upstream/master
             os << "value is type " << Value_type_name[type()] << ", expected " << Value_type_name[vtype];
 
             throw std::runtime_error( os.str() );

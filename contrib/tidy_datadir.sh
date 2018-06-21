@@ -4,7 +4,11 @@ if [ -d "$1" ]; then
   cd "$1"
 else
   echo "Usage: $0 <datadir>" >&2
+<<<<<<< HEAD
   echo "Removes obsolete Bitcoin database files" >&2
+=======
+  echo "Removes obsolete Floripacoin database files" >&2
+>>>>>>> upstream/master
   exit 1
 fi
 
@@ -16,15 +20,24 @@ if [ -f wallet.dat -a -f peers.dat -a -f chainstate/CURRENT -a -f blocks/index/C
 
 case $LEVEL in
   0)
+<<<<<<< HEAD
     echo "Error: no Bitcoin datadir detected."
     exit 1
     ;;
   1)
     echo "Detected old Bitcoin datadir (before 0.7)."
+=======
+    echo "Error: no Floripacoin datadir detected."
+    exit 1
+    ;;
+  1)
+    echo "Detected old Floripacoin datadir (before 0.7)."
+>>>>>>> upstream/master
     echo "Nothing to do."
     exit 0
     ;;
   2)
+<<<<<<< HEAD
     echo "Detected Bitcoin 0.7 datadir."
     ;;
   3)
@@ -32,6 +45,15 @@ case $LEVEL in
     ;;
   4)
     echo "Detected Bitcoin 0.8 datadir."
+=======
+    echo "Detected Floripacoin 0.7 datadir."
+    ;;
+  3)
+    echo "Detected Floripacoin pre-0.8 datadir."
+    ;;
+  4)
+    echo "Detected Floripacoin 0.8 datadir."
+>>>>>>> upstream/master
     ;;
 esac
 
